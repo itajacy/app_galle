@@ -14,16 +14,30 @@ class LoginPage extends StatelessWidget {
       ),
       body: Container(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
               controller: usuarioLogin,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(labelText: 'Digite seu e-mail'),
             ),
+            SizedBox(
+              height: 50,
+            ),
             TextField(
               controller: senhaLogin,
               obscureText: true,
               decoration: InputDecoration(labelText: 'Digite a Senha'),
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                //!  Navigator
+                //! Navigator.of(context)
+              },
+              child: Text('ACESSAR'),
             ),
           ],
         ),
