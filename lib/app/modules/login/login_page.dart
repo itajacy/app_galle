@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
-  TextEditingController usuarioLogin = TextEditingController();
-  TextEditingController senhaLogin = TextEditingController();
+  final usuarioController = TextEditingController();
+  final senhaController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
-              controller: usuarioLogin,
+              controller: usuarioController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(labelText: 'Digite seu e-mail'),
             ),
@@ -25,7 +25,7 @@ class LoginPage extends StatelessWidget {
               height: 50,
             ),
             TextField(
-              controller: senhaLogin,
+              controller: senhaController,
               obscureText: true,
               decoration: InputDecoration(labelText: 'Digite a Senha'),
             ),

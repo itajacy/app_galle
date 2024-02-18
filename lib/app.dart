@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:galle/app/modules/catalogo/catalogo_page.dart';
+import 'package:galle/app/modules/clientes/clientes_page.dart';
+import 'package:galle/app/modules/configuracao/configuracao_page.dart';
 import 'package:galle/app/modules/homepage/home_page.dart';
+import 'package:galle/app/modules/pedidos/pedidos_page.dart';
+import 'package:galle/app/modules/precos/precos_page.dart';
+import 'package:galle/app/modules/sincronizacao/sincronizacao_page.dart';
 
 import 'app/modules/login/login_page.dart';
 
@@ -18,6 +24,14 @@ class App extends StatelessWidget {
       routes: {
         '/loginPage': (context) => LoginPage(),
         '/homePage': (context) => HomePage(),
+        '/clientesPage': (context) => ClientesPage(),
+        '/pedidosPage': (context) => PedidosPage(),
+        '/precosPage': (context) => PrecosPage(),
+        '/catalogoPage': (context) => CatalogoPage(),
+        '/sincronizacaoPage': (context) => SincronizacaoPage(),
+        '/configuracaoPage': (context) => ConfiguracaoPage(),
+        
+
       },
     );
   }
