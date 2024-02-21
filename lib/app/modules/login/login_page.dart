@@ -34,6 +34,7 @@ class LoginPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
+                // Navigator.of(context).pop();
                 Navigator.of(context).pushNamed('/homePage');
               },
               child: Text('ACESSAR'),

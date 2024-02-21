@@ -3,69 +3,16 @@ import 'package:flutter/material.dart';
 class HomePageButton extends StatelessWidget {
   late Function onPress;
   late String titulo;
+  late IconData icone;
 
   HomePageButton({
     required this.onPress,
     required this.titulo,
+    required this.icone,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPress(),
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.grey.shade600,
-        minimumSize: Size(180, 100),
-        //padding: EdgeInsets.all(10),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(2)),
-        ),
-      ),
-      child: Text(
-        titulo,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-}
-
-
-/*
-// colheita_botao.dart
-
-class ColheitaBotao extends StatelessWidget {
-  late var onPress;
-  late var rotulo;
-  late var color;
-  ColheitaBotao({required this.onPress, this.rotulo, this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    final telaAltura = MediaQuery.of(context).size.height;
-
-    return ElevatedButton(
-      onPressed: onPress,
-      child: Text(
-        rotulo,
-        style: TextStyle(
-          fontSize: (telaAltura * 0.08) / 3, // equivalente a fonte tamanho 20
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      style: ElevatedButton.styleFrom(
-        primary: Color(0xFF418E31),
-        padding: EdgeInsets.all(telaAltura / 15),
-      ),
-    );
-  }
-}
-
-
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor: Colors.black,
       backgroundColor: Colors.grey.shade600,
@@ -75,4 +22,39 @@ class ColheitaBotao extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(2)),
       ),
     );
+
+    return ElevatedButton(
+      onPressed: onPress(),
+      style: raisedButtonStyle,
+      child: Column(
+        children: [
+          Icon(
+            icone,
+            color: Colors.yellow,
+          ),
+          SizedBox(height: 5),
+          Text(
+            titulo,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+
+/*  icones dos botoes
+Icons.people_alt,
+Icons.feed_rounded,
+Icons.monetization_on_rounded,
+Icons.photo_camera_outlined,
+Icons.cached,
+Icons.tune_rounded,
+
 */

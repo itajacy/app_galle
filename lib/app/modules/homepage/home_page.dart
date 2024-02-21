@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor: Colors.black54,
       backgroundColor: Colors.grey.shade600,
-      minimumSize: const Size(180, 100),
+      minimumSize: const Size(150, 70),
       padding: EdgeInsets.all(2),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -41,13 +41,22 @@ class HomePage extends StatelessWidget {
                     Navigator.of(context).pushNamed('/clientesPage');
                   },
                   style: raisedButtonStyle,
-                  child: const Text(
-                    'CLIENTES',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.people_alt,
+                        color: Colors.yellow,
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'CLIENTES',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 ElevatedButton(
@@ -55,13 +64,22 @@ class HomePage extends StatelessWidget {
                     Navigator.of(context).pushNamed('/pedidosPage');
                   },
                   style: raisedButtonStyle,
-                  child: const Text(
-                    'PEDIDOS',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.feed_rounded,
+                        color: Colors.yellow,
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'PEDIDOS',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -75,13 +93,22 @@ class HomePage extends StatelessWidget {
                     Navigator.of(context).pushNamed('/precosPage');
                   },
                   style: raisedButtonStyle,
-                  child: const Text(
-                    'PREÇOS',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.monetization_on_rounded,
+                        color: Colors.yellow,
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'PREÇOS',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 ElevatedButton(
@@ -89,13 +116,22 @@ class HomePage extends StatelessWidget {
                     Navigator.of(context).pushNamed('/catalogoPage');
                   },
                   style: raisedButtonStyle,
-                  child: const Text(
-                    'CATÁLOGO',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.photo_camera_outlined,
+                        color: Colors.yellow,
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'CATÁLOGO',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -109,14 +145,23 @@ class HomePage extends StatelessWidget {
                     Navigator.of(context).pushNamed('/sincronizacaoPage');
                   },
                   style: raisedButtonStyle,
-                  child: const Text(
-                    'SINCRONIZAÇÃO',
-                    overflow: TextOverflow.visible,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.cached,
+                        color: Colors.yellow,
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'SINCRONIZAÇÃO',
+                        overflow: TextOverflow.visible,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 ElevatedButton(
@@ -124,13 +169,22 @@ class HomePage extends StatelessWidget {
                     Navigator.of(context).pushNamed('/configuracaoPage');
                   },
                   style: raisedButtonStyle,
-                  child: const Text(
-                    'CONFIGURAÇÃO',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  child: Column(
+                    children: [
+                      Icon(
+                        Icons.tune_rounded,
+                        color: Colors.yellow,
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'CONFIGURAÇÃO',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -142,21 +196,12 @@ class HomePage extends StatelessWidget {
   }
 }
 
+/*
+Icons.people_alt,
+Icons.feed_rounded,
+Icons.monetization_on_rounded,
+Icons.photo_camera_outlined,
+Icons.cached,
+Icons.tune_rounded,
 
-
-
-                    /*
-                  style: ButtonStyle(
-                    minimumSize: MaterialStateProperty<Size?>(Size(180, 100)),
-                    //elevation: MaterialStatePropertyAll(20.0),
-                    shadowColor: MaterialStatePropertyAll(Colors.blueGrey),
-                    backgroundColor:
-                        MaterialStateProperty.resolveWith((states) {
-                      if (states.contains(MaterialState.pressed)) {
-                        return Colors.black87;
-                      } else {
-                        return Colors.blue.shade000;
-                      }
-                    }),
-                  ),
-                  */
+*/
