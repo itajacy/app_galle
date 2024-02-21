@@ -9,8 +9,8 @@ class HomePage extends StatelessWidget {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor: Colors.black54,
       backgroundColor: Colors.grey.shade600,
-      minimumSize: Size(180, 100),
-      //padding: EdgeInsets.all(10),
+      minimumSize: const Size(180, 100),
+      padding: EdgeInsets.all(2),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(2)),
       ),
@@ -22,12 +22,11 @@ class HomePage extends StatelessWidget {
       body: Container(
         color: Colors.white,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            const SizedBox(
-              height: 30,
-            ),
+            // const SizedBox(height: 30),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 /*
                 HomePageButton(
@@ -67,11 +66,9 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 30,
-            ),
+            // const SizedBox(height: 30),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 ElevatedButton(
                   onPressed: () {
@@ -93,7 +90,7 @@ class HomePage extends StatelessWidget {
                   },
                   style: raisedButtonStyle,
                   child: const Text(
-                    'CATALOGO',
+                    'CATÁLOGO',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -103,11 +100,9 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 30,
-            ),
+            // const SizedBox(height: 30),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 ElevatedButton(
                   onPressed: () {
@@ -116,6 +111,7 @@ class HomePage extends StatelessWidget {
                   style: raisedButtonStyle,
                   child: const Text(
                     'SINCRONIZAÇÃO',
+                    overflow: TextOverflow.visible,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -139,9 +135,6 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 30,
-            ),
           ],
         ),
       ),
@@ -162,7 +155,7 @@ class HomePage extends StatelessWidget {
                       if (states.contains(MaterialState.pressed)) {
                         return Colors.black87;
                       } else {
-                        return Colors.blue.shade600;
+                        return Colors.blue.shade000;
                       }
                     }),
                   ),

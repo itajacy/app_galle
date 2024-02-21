@@ -7,7 +7,8 @@ class ConfiguracaoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(''),
+        centerTitle: true,
+        title: const Text('CONFIGURAÇÃO'),
       ),
       body: Container(),
     );
