@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/navigation/strings.dart';
+
 class PedidosPage extends StatelessWidget {
   const PedidosPage({super.key});
 
@@ -8,7 +10,7 @@ class PedidosPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('PEDIDOS'),
+        title: const Text(Strings.pedidos),
       ),
       body: Container(),
     );

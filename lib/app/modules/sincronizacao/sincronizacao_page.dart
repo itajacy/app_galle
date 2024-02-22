@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/navigation/strings.dart';
+
 class SincronizacaoPage extends StatelessWidget {
   const SincronizacaoPage({super.key});
 
@@ -8,7 +10,7 @@ class SincronizacaoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('SINCRONIZAÇÃO'),
+        title: const Text(Strings.sincronizacao),
       ),
       body: Container(),
     );

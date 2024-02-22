@@ -7,6 +7,7 @@ import 'package:galle/app/modules/pedidos/pedidos_page.dart';
 import 'package:galle/app/modules/precos/precos_page.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_page.dart';
 
+import 'app/core/navigation/routes.dart';
 import 'app/modules/login/login_page.dart';
 
 class App extends StatelessWidget {
@@ -22,14 +23,14 @@ class App extends StatelessWidget {
       ),
       home: LoginPage(),
       routes: {
-        '/loginPage': (context) => LoginPage(),
-        '/homePage': (context) => HomePage(),
-        '/clientesPage': (context) => ClientesPage(),
-        '/pedidosPage': (context) => PedidosPage(),
-        '/precosPage': (context) => PrecosPage(),
-        '/catalogoPage': (context) => CatalogoPage(),
-        '/sincronizacaoPage': (context) => SincronizacaoPage(),
-        '/configuracaoPage': (context) => ConfiguracaoPage(),
+        Routes.loginPage: (context) => LoginPage(),
+        Routes.homePage: (context) => HomePage(),
+        Routes.clientesPage: (context) => ClientesPage(),
+        Routes.pedidosPage: (context) => PedidosPage(),
+        Routes.precosPage: (context) => PrecosPage(),
+        Routes.catalogoPage: (context) => CatalogoPage(),
+        Routes.sincronizacaoPage: (context) => SincronizacaoPage(),
+        Routes.configuracaoPage: (context) => ConfiguracaoPage(),
         
 
       },

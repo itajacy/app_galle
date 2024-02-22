@@ -16,15 +16,17 @@ class HomePageButton extends StatelessWidget {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor: Colors.black,
       backgroundColor: Colors.grey.shade600,
-      minimumSize: Size(180, 100),
-      //padding: EdgeInsets.all(10),
+      minimumSize: Size(150, 70),
+      padding: EdgeInsets.all(2),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(2)),
       ),
     );
 
     return ElevatedButton(
-      onPressed: onPress(),
+      onPressed: () {
+        onPress();
+      },
       style: raisedButtonStyle,
       child: Column(
         children: [

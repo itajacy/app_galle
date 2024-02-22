@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/navigation/strings.dart';
+
 class PrecosPage extends StatelessWidget {
   const PrecosPage({super.key});
 
@@ -8,7 +10,7 @@ class PrecosPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('PREÇOS'),
+        title: const Text(Strings.precos),
       ),
       body: Container(),
     );
