@@ -36,7 +36,6 @@ class LoginPage extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              // Navigator.of(context).pop();
               Navigator.of(context)
                   .pushNamedAndRemoveUntil(Routes.homePage, (route) => false);
             },
