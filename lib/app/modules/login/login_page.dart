@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/navigation/routes.dart';
-import '../../core/navigation/strings.dart';
+import '../../core/strings.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
           TextField(
             controller: usuarioController,
             keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(labelText: 'Digite seu e-mail'),
+            decoration: InputDecoration(labelText: Strings.digiteEmail),
           ),
           SizedBox(
             height: 50,
@@ -29,7 +29,7 @@ class LoginPage extends StatelessWidget {
           TextField(
             controller: senhaController,
             obscureText: true,
-            decoration: InputDecoration(labelText: 'Digite a Senha'),
+            decoration: InputDecoration(labelText: Strings.digiteSenha),
           ),
           SizedBox(
             height: 100,

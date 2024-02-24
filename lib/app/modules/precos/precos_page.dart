@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/navigation/strings.dart';
+import '../../core/strings.dart';
 
 class PrecosPage extends StatelessWidget {
   const PrecosPage({super.key});

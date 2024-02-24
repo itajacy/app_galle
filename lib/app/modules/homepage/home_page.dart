@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:galle/app/modules/homepage/widgets/home_page_button.dart';
+import 'package:galle/app/widgets/galle_button.dart';
 import '../../core/navigation/routes.dart';
-import '../../core/navigation/strings.dart';
+import '../../core/strings.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,9 +9,27 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text(''),
-      // ),
+      appBar: AppBar(
+        title: Column(
+          children: [
+            Text(
+              'Galle',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            // SizedBox(
+            //   height: 2,
+            // ),
+            Text(
+              'versão  0.01',
+              style: TextStyle(fontSize: 8),
+            ),
+          ],
+        ),
+        centerTitle: true,
+      ),
       body: Container(
         color: Colors.white,
         child: Column(
@@ -20,14 +38,14 @@ class HomePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                HomePageButton(
+                GalleButton(
                   onPress: () {
                     Navigator.of(context).pushNamed(Routes.clientesPage);
                   },
                   titulo: Strings.clientes,
                   icone: Icons.people_alt,
                 ),
-                HomePageButton(
+                GalleButton(
                   onPress: () {
                     Navigator.of(context).pushNamed(Routes.pedidosPage);
                   },
@@ -39,14 +57,14 @@ class HomePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                HomePageButton(
+                GalleButton(
                   onPress: () {
                     Navigator.of(context).pushNamed(Routes.precosPage);
                   },
                   titulo: Strings.precos,
                   icone: Icons.monetization_on_rounded,
                 ),
-                HomePageButton(
+                GalleButton(
                   onPress: () {
                     Navigator.of(context).pushNamed(Routes.catalogoPage);
                   },
@@ -58,14 +76,14 @@ class HomePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                HomePageButton(
+                GalleButton(
                   onPress: () {
                     Navigator.of(context).pushNamed(Routes.sincronizacaoPage);
                   },
                   titulo: Strings.sincronizacao,
                   icone: Icons.cached,
                 ),
-                HomePageButton(
+                GalleButton(
                   onPress: () {
                     Navigator.of(context).pushNamed(Routes.configuracaoPage);
                   },

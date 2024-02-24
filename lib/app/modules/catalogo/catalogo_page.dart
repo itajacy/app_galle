@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/navigation/strings.dart';
+import '../../core/strings.dart';
 
 class CatalogoPage extends StatelessWidget {
   const CatalogoPage({super.key});

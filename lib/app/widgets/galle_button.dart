@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class HomePageButton extends StatelessWidget {
+class GalleButton extends StatelessWidget {
   late Function onPress;
   late String titulo;
   late IconData icone;
 
-  HomePageButton({
+  GalleButton({
     required this.onPress,
     required this.titulo,
     required this.icone,

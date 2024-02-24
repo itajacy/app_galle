@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../core/navigation/strings.dart';
+import '../../core/strings.dart';
+import '../../widgets/galle_button.dart';
 
 class ClientesPage extends StatelessWidget {
   const ClientesPage({super.key});
@@ -10,9 +11,37 @@ class ClientesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(Strings.clientes),
+        title: const Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(Icons.people_alt),
+            Text(Strings.clientes),
+          ],
+        ),
       ),
-      body: Container(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GalleButton(
+                onPress: () {},
+                titulo: Strings.novo,
+                icone: Icons.add_box_rounded,
+              ),
+              GalleButton(
+                onPress: () {},
+                titulo: Strings.consultar,
+                icone: Icons.search,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../core/navigation/strings.dart';
+import '../../core/strings.dart';
+import '../../widgets/galle_button.dart';
 
 class PedidosPage extends StatelessWidget {
   const PedidosPage({super.key});
@@ -10,9 +11,37 @@ class PedidosPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(Strings.pedidos),
+        title: const Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(Icons.monetization_on_rounded),
+            Text(Strings.pedidos),
+          ],
+        ),
       ),
-      body: Container(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GalleButton(
+                onPress: () {},
+                titulo: Strings.novo,
+                icone: Icons.add_box_rounded,
+              ),
+              GalleButton(
+                onPress: () {},
+                titulo: Strings.consultar,
+                icone: Icons.search,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
