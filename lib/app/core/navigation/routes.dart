@@ -7,4 +7,5 @@ class Routes {
   static const catalogoPage = '/catalogoPage';
   static const sincronizacaoPage = '/sincronizacaoPage';
   static const configuracaoPage = '/configuracaoPage';
+  static const clientesCadastro = '/clientesCadastro';
 }

@@ -15,11 +15,11 @@ class GalleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor: Colors.black,
-      backgroundColor: Colors.grey.shade600,
+      backgroundColor: Colors.grey.shade700,
       minimumSize: Size(150, 70),
       padding: EdgeInsets.all(2),
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(2)),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
     );
 

@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         title: Column(
           children: [
             Text(
-              'Galle',
+              Strings.empresa,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -23,8 +23,8 @@ class HomePage extends StatelessWidget {
             //   height: 2,
             // ),
             Text(
-              'versão  0.01',
-              style: TextStyle(fontSize: 8),
+              Strings.versao,
+              style: TextStyle(fontSize: 10),
             ),
           ],
         ),
