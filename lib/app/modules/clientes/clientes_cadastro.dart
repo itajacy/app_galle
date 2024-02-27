@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
-import 'package:galle/app/widgets/galle_button.dart';
-
 import '../../core/strings.dart';
+import 'widgets/pessoafj_button.dart';
 
 class ClientesCadastro extends StatelessWidget {
   ClientesCadastro({super.key});
@@ -74,7 +73,6 @@ class ClientesCadastro extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: Strings.nomeFantasia,
                   border: OutlineInputBorder(),
-                  // hintText: Strings.nomeFantasia,
                 ),
               ),
             ),
@@ -92,6 +90,23 @@ class ClientesCadastro extends StatelessWidget {
             Text(Strings.pessoaFJ),
             Text('Física   /   Jurídica'),
             const SizedBox(height: 10),
+            //!
+            PessoafjButton(),
+
+            // Column(
+            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //   children: <Widget>[
+            //     ListTile(
+            //       title: const Text('Física'),
+            //       // leading: Radio<PessoaFJ>(),
+            //     ),
+            //     ListTile(
+            //       title: const Text('Jurídica'),
+            //       // leading: Radio<PessoaFJ>(),
+            //     ),
+            //   ],
+            // ),
+            //!
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/catalogo/catalogo_page.dart';
 import 'package:galle/app/modules/clientes/clientes_cadastro.dart';
+import 'package:galle/app/modules/clientes/clientes_consultar.dart';
 import 'package:galle/app/modules/clientes/clientes_page.dart';
 import 'package:galle/app/modules/configuracao/configuracao_page.dart';
 import 'package:galle/app/modules/homepage/home_page.dart';
@@ -33,6 +34,8 @@ class App extends StatelessWidget {
         Routes.sincronizacaoPage: (context) => SincronizacaoPage(),
         Routes.configuracaoPage: (context) => ConfiguracaoPage(),
         Routes.clientesCadastro: (context) => ClientesCadastro(),
+        Routes.clientesConsulta: (context) => ClientesConsultar(),
+        
         
 
       },

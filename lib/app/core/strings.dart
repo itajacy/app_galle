@@ -1,3 +1,5 @@
+import 'package:galle/app/modules/clientes/clientes_consultar.dart';
+
 class Strings {
   // HOME PAGE
   static const clientes = 'CLIENTES';
@@ -21,6 +23,7 @@ class Strings {
 
   // CLIENTES_CADASTRO
   static const clientesCadastro = "CLIENTES CADASTRO";
+  static const clientesConsultar = "CLIENTES CONSULTA";
 
   static const nomeFantasia = "Digite o Nome Fantasia";
   static const razaoSocial = "Digite a Razão Social";

@@ -8,4 +8,6 @@ class Routes {
   static const sincronizacaoPage = '/sincronizacaoPage';
   static const configuracaoPage = '/configuracaoPage';
   static const clientesCadastro = '/clientesCadastro';
+  static const clientesConsulta = '/clientesConsulta';
+
 }

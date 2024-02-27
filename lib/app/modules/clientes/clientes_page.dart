@@ -37,7 +37,9 @@ class ClientesPage extends StatelessWidget {
                 icone: Icons.add_box_rounded,
               ),
               GalleButton(
-                onPress: () {},
+                onPress: () {
+                  Navigator.of(context).pushNamed(Routes.clientesConsulta);
+                },
                 titulo: Strings.consultar,
                 icone: Icons.search,
               ),
