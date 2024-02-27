@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
+import 'package:galle/app/widgets/galle_button.dart';
 
 import '../../core/strings.dart';
 
@@ -44,124 +46,285 @@ class ClientesCadastro extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TextField(
-              controller: nomeFantasiaController,
-              keyboardType: TextInputType.name,
-              decoration: InputDecoration(labelText: Strings.nomeFantasia),
+            SizedBox(
+              height: 10,
             ),
-            const SizedBox(height: 10),
-            TextField(
-              controller: razaoSocialController,
-              keyboardType: TextInputType.name,
-              decoration: InputDecoration(labelText: Strings.razaoSocial),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ClientesButton(
+                    onPress: () {},
+                    titulo: Strings.cancelar,
+                    icone: Icons.cancel_presentation_outlined),
+                ClientesButton(
+                  onPress: () {},
+                  titulo: Strings.gravar,
+                  icone: Icons.check_box,
+                ),
+              ],
             ),
-            const SizedBox(height: 10),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: nomeFantasiaController,
+                keyboardType: TextInputType.name,
+                decoration: InputDecoration(
+                  labelText: Strings.nomeFantasia,
+                  border: OutlineInputBorder(),
+                  // hintText: Strings.nomeFantasia,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: razaoSocialController,
+                keyboardType: TextInputType.name,
+                decoration: InputDecoration(
+                  labelText: Strings.razaoSocial,
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
             Text(Strings.pessoaFJ),
             Text('Física   /   Jurídica'),
             const SizedBox(height: 10),
-            TextField(
-              controller: cnpjCpfController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: Strings.cnpjCpf),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: cnpjCpfController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: Strings.cnpjCpf,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: ieRgController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: Strings.ieRg),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: ieRgController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: Strings.ieRg,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: contatoController,
-              keyboardType: TextInputType.name,
-              decoration: InputDecoration(labelText: Strings.contato),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: contatoController,
+                keyboardType: TextInputType.name,
+                decoration: InputDecoration(
+                  labelText: Strings.contato,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: emailController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(labelText: Strings.email),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  labelText: Strings.email,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: foneCom1Controller,
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(labelText: Strings.foneCom1),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: foneCom1Controller,
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  labelText: Strings.foneCom1,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: foneCom2Controller,
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(labelText: Strings.foneCom2),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: foneCom2Controller,
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  labelText: Strings.foneCom2,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: foneResController,
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(labelText: Strings.foneRes),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: foneResController,
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  labelText: Strings.foneRes,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            Text(
-              'Endereço Principal',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Endereço Principal',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
             ),
-            TextField(
-              controller: principalUfController,
-              keyboardType: TextInputType.name,
-              decoration: InputDecoration(labelText: Strings.uf),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: principalUfController,
+                keyboardType: TextInputType.name,
+                decoration: InputDecoration(
+                  labelText: Strings.uf,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: principalCidadeController,
-              keyboardType: TextInputType.name,
-              decoration: InputDecoration(labelText: Strings.cidade),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: principalCidadeController,
+                keyboardType: TextInputType.name,
+                decoration: InputDecoration(
+                  labelText: Strings.cidade,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: principalEnderecoController,
-              keyboardType: TextInputType.name,
-              decoration: InputDecoration(labelText: Strings.endereco),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: principalEnderecoController,
+                keyboardType: TextInputType.name,
+                decoration: InputDecoration(
+                  labelText: Strings.endereco,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: principalComplementoController,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(labelText: Strings.complemento),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: principalComplementoController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: Strings.complemento,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: principalBairroController,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(labelText: Strings.bairro),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: principalBairroController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: Strings.bairro,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: principalCepController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: Strings.cep),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: principalCepController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: Strings.cep,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            Text(
-              'Endereço de Entrega',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Endereço de Entrega',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
             ),
-            Text('COPIAR PRINCIPAL'),
-            TextField(
-              controller: entregaUfController,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(labelText: Strings.uf),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClientesButton(
+                onPress: () {},
+                titulo: Strings.copiarPrincipal,
+                icone: Icons.copy,
+              ),
             ),
-            TextField(
-              controller: entregaCidadeController,
-              keyboardType: TextInputType.name,
-              decoration: InputDecoration(labelText: Strings.cidade),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: entregaUfController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: Strings.uf,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: entregaEnderecoController,
-              keyboardType: TextInputType.name,
-              decoration: InputDecoration(labelText: Strings.endereco),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: entregaCidadeController,
+                keyboardType: TextInputType.name,
+                decoration: InputDecoration(
+                  labelText: Strings.cidade,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: entregaComplementoController,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(labelText: Strings.complemento),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: entregaEnderecoController,
+                keyboardType: TextInputType.name,
+                decoration: InputDecoration(
+                  labelText: Strings.endereco,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: entregaBairroController,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(labelText: Strings.bairro),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: entregaComplementoController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: Strings.complemento,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
-            TextField(
-              controller: entregaCepController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: Strings.cep),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: entregaBairroController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: Strings.bairro,
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: entregaCepController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  labelText: Strings.cep,
+                  border: OutlineInputBorder(),
+                ),
+              ),
             ),
           ],
         ),

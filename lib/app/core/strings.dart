@@ -22,17 +22,17 @@ class Strings {
   // CLIENTES_CADASTRO
   static const clientesCadastro = "CLIENTES CADASTRO";
 
-  static const nomeFantasia = "Nome Fantasia";
-  static const razaoSocial = "Razão Social";
+  static const nomeFantasia = "Digite o Nome Fantasia";
+  static const razaoSocial = "Digite a Razão Social";
   static const pessoaFJ = "Pessoa";
-  static const cnpjCpf = "CNPJ/CPF";
-  static const ieRg = "IE/RG";
-  static const contato = "Contato";
-  static const email = "E-mail";
-  static const foneCom1 = "Fone Coml. 1";
-  static const foneCom2 = "Fone Coml. 2";
-  static const foneRes = "Fone Residencial";
-  static const fax = "Fax";
+  static const cnpjCpf = "Digite o CNPJ/CPF";
+  static const ieRg = "Digite o IE/RG";
+  static const contato = "Digite o Contato";
+  static const email = "Digite o E-mail";
+  static const foneCom1 = "Digite o Fone Coml. 1";
+  static const foneCom2 = "Digite o Fone Coml. 2";
+  static const foneRes = "Digite o Fone Residencial";
+  static const fax = "Digite o Fax";
   // static const principalUf = "UF";
   // static const principalCidade = "Cidade";
   // static const principalEndereco = "Endereco";
@@ -45,11 +45,14 @@ class Strings {
   // static const entregaComplemento = "Complemento";
   // static const entregaBairro = "Bairro";
   // static const entregaCep = "CEP";
-  static const uf = "UF";
-  static const cidade = "Cidade";
-  static const endereco = "Endereco";
-  static const complemento = "Complemento";
-  static const bairro = "Bairro";
-  static const cep = "CEP";
+  static const uf = "Digite a UF";
+  static const cidade = "Digite a Cidade";
+  static const endereco = "Digite o Endereco";
+  static const complemento = "Digite o Complemento";
+  static const bairro = "Digite o Bairro";
+  static const cep = "Digite o CEP";
 
+  static const cancelar = "CANCELAR";
+  static const gravar = "GRAVAR";
+  static const copiarPrincipal = "Copiar Principal";
 }

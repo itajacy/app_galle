@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class GalleButton extends StatelessWidget {
+class ClientesButton extends StatelessWidget {
   late Function onPress;
   late String titulo;
   late IconData icone;
 
-  GalleButton({
-    required this.titulo,
+  ClientesButton({
     required this.onPress,
+    required this.titulo,
     required this.icone,
   });
 
@@ -16,7 +16,7 @@ class GalleButton extends StatelessWidget {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor: Colors.black,
       backgroundColor: Colors.grey.shade700,
-      minimumSize: Size(150, 70),
+      minimumSize: Size(150, 40),
       padding: EdgeInsets.all(2),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -30,17 +30,28 @@ class GalleButton extends StatelessWidget {
       style: raisedButtonStyle,
       child: Column(
         children: [
-          Icon(
-            icone,
-            color: Colors.yellow,
-          ),
-          SizedBox(height: 5),
-          Text(
-            titulo,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  icone,
+                  color: Colors.lightBlue,
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  titulo,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

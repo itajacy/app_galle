@@ -16,23 +16,25 @@ class LoginPage extends StatelessWidget {
         title: const Text(''),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          TextField(
-            controller: usuarioController,
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(labelText: Strings.digiteEmail),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: usuarioController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                  labelText: Strings.digiteEmail, border: OutlineInputBorder()),
+            ),
           ),
-          SizedBox(
-            height: 50,
-          ),
-          TextField(
-            controller: senhaController,
-            obscureText: true,
-            decoration: InputDecoration(labelText: Strings.digiteSenha),
-          ),
-          SizedBox(
-            height: 100,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: senhaController,
+              obscureText: true,
+              decoration: InputDecoration(
+                  labelText: Strings.digiteSenha, border: OutlineInputBorder()),
+            ),
           ),
           ElevatedButton(
             onPressed: () {
