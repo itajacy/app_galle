@@ -10,7 +10,13 @@ class SincronizacaoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(Strings.sincronizacao),
+        title: const Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(Icons.cached),
+            Text(Strings.sincronizacao),
+          ],
+        ),
       ),
       body: Container(),
     );

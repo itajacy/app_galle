@@ -10,7 +10,13 @@ class PrecosPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(Strings.precos),
+        title: const Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(Icons.monetization_on_rounded),
+            Text(Strings.precos),
+          ],
+        ),
       ),
       body: Container(),
     );

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../core/sizes.dart';
 import '../../../core/strings.dart';
 
-
 enum PessoaFJ { fisica, juridica }
 
 class PessoafjButton extends StatefulWidget {
@@ -20,7 +19,7 @@ class _PessoafjButtonState extends State<PessoafjButton> {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      mainAxisSize: MainAxisSize.min,
+      // mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         SizedBox(
           height: Sizes.sizeH_50,

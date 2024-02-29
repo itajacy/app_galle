@@ -10,7 +10,13 @@ class ConfiguracaoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(Strings.configuracao),
+        title: const Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(Icons.tune_rounded),
+            Text(Strings.configuracao),
+          ],
+        ),
       ),
       body: Container(),
     );

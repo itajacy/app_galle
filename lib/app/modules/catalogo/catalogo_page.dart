@@ -10,7 +10,13 @@ class CatalogoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(Strings.catalogo),
+        title: const Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(Icons.photo_camera_outlined),
+            Text(Strings.catalogo),
+          ],
+        ),
       ),
       body: Container(),
     );
