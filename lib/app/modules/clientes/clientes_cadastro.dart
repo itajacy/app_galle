@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import '../../core/font.dart';
+import '../../core/sizes.dart';
 import '../../core/space.dart';
 import '../../core/strings.dart';
 import 'widgets/pessoafj_button.dart';
@@ -49,8 +50,8 @@ class ClientesCadastro extends StatelessWidget {
             SizedBox(
               height: Space.spacing_8,
             ),
-            Expanded(
-              flex: 1,
+            Container(
+              height: Sizes.sizeH_40,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -70,7 +71,7 @@ class ClientesCadastro extends StatelessWidget {
               height: Space.spacing_8,
             ),
             Expanded(
-              flex: 17,
+              flex: 1,
               child: SingleChildScrollView(
                   child: Column(
                 children: [
