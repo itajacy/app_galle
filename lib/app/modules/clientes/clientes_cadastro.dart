@@ -35,306 +35,591 @@ class ClientesCadastro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Icon(Icons.add_box_rounded),
-            Text(Strings.clientesCadastro),
-          ],
+        appBar: AppBar(
+          title: const Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Icon(Icons.add_box_rounded),
+              Text(Strings.clientesCadastro),
+            ],
+          ),
         ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
+        body: Column(
           children: [
             SizedBox(
-              height: Space.spacing_10,
+              height: Space.spacing_8,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ClientesButton(
+            Expanded(
+              flex: 1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ClientesButton(
+                      onPress: () {},
+                      titulo: Strings.cancelar,
+                      icone: Icons.cancel_presentation_outlined),
+                  ClientesButton(
                     onPress: () {},
-                    titulo: Strings.cancelar,
-                    icone: Icons.cancel_presentation_outlined),
-                ClientesButton(
-                  onPress: () {},
-                  titulo: Strings.salvar,
-                  icone: Icons.check_box,
-                ),
-              ],
+                    titulo: Strings.salvar,
+                    icone: Icons.check_box,
+                  ),
+                ],
+              ),
             ),
             SizedBox(
-              height: Space.spacing_10,
+              height: Space.spacing_8,
             ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: nomeFantasiaController,
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  labelText: Strings.nomeFantasia,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: razaoSocialController,
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  labelText: Strings.razaoSocial,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Text(
-              Strings.pessoaFJ,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: Font.title_18),
-            ),
-            //!
-            PessoafjButton(),
+            Expanded(
+              flex: 17,
+              child: SingleChildScrollView(
+                  child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: nomeFantasiaController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: Strings.nomeFantasia,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: razaoSocialController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: Strings.razaoSocial,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    Strings.pessoaFJ,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: Font.title_18),
+                  ),
+                  //!
+                  PessoafjButton(),
 
-            //!
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: cnpjCpfController,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  labelText: Strings.cnpjCpf,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: ieRgController,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  labelText: Strings.ieRg,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: contatoController,
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  labelText: Strings.contato,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  labelText: Strings.email,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: foneCom1Controller,
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  labelText: Strings.foneCom1,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: foneCom2Controller,
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  labelText: Strings.foneCom2,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: foneResController,
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  labelText: Strings.foneRes,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: Text(
-                Strings.enderecoPrincipal,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: principalUfController,
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  labelText: Strings.uf,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: principalCidadeController,
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  labelText: Strings.cidade,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: principalEnderecoController,
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  labelText: Strings.endereco,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: principalComplementoController,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  labelText: Strings.complemento,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: principalBairroController,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  labelText: Strings.bairro,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: principalCepController,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  labelText: Strings.cep,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: Text(
-                Strings.enderecoEntrega,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: ClientesButton(
-                onPress: () {},
-                titulo: Strings.copiarPrincipal,
-                icone: Icons.copy,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: entregaUfController,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  labelText: Strings.uf,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: entregaCidadeController,
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  labelText: Strings.cidade,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: entregaEnderecoController,
-                keyboardType: TextInputType.name,
-                decoration: InputDecoration(
-                  labelText: Strings.endereco,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: entregaComplementoController,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  labelText: Strings.complemento,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: entregaBairroController,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  labelText: Strings.bairro,
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: TextField(
-                controller: entregaCepController,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  labelText: Strings.cep,
-                  border: OutlineInputBorder(),
-                ),
-              ),
+                  //!
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: cnpjCpfController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        labelText: Strings.cnpjCpf,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: ieRgController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        labelText: Strings.ieRg,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: contatoController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: Strings.contato,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        labelText: Strings.email,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: foneCom1Controller,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        labelText: Strings.foneCom1,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: foneCom2Controller,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        labelText: Strings.foneCom2,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: foneResController,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        labelText: Strings.foneRes,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: Text(
+                      Strings.enderecoPrincipal,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: principalUfController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: Strings.uf,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: principalCidadeController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: Strings.cidade,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: principalEnderecoController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: Strings.endereco,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: principalComplementoController,
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        labelText: Strings.complemento,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: principalBairroController,
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        labelText: Strings.bairro,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: principalCepController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        labelText: Strings.cep,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: Text(
+                      Strings.enderecoEntrega,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: ClientesButton(
+                      onPress: () {},
+                      titulo: Strings.copiarPrincipal,
+                      icone: Icons.copy,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: entregaUfController,
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        labelText: Strings.uf,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: entregaCidadeController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: Strings.cidade,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: entregaEnderecoController,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        labelText: Strings.endereco,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: entregaComplementoController,
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        labelText: Strings.complemento,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: entregaBairroController,
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        labelText: Strings.bairro,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      controller: entregaCepController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        labelText: Strings.cep,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                ],
+              )),
             ),
           ],
-        ),
-      ),
-    );
+        )
+
+        // SizedBox(
+        //   height: Space.spacing_10,
+        // ),
+
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        //!!!!!!!!!!!!!!!!!!!!
+        // )
+        );
   }
 }
+
+// Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: nomeFantasiaController,
+//                 keyboardType: TextInputType.name,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.nomeFantasia,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: razaoSocialController,
+//                 keyboardType: TextInputType.name,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.razaoSocial,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Text(
+//               Strings.pessoaFJ,
+//               style: TextStyle(
+//                   fontWeight: FontWeight.bold, fontSize: Font.title_18),
+//             ),
+//             //!
+//             PessoafjButton(),
+
+//             //!
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: cnpjCpfController,
+//                 keyboardType: TextInputType.number,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.cnpjCpf,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: ieRgController,
+//                 keyboardType: TextInputType.number,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.ieRg,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: contatoController,
+//                 keyboardType: TextInputType.name,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.contato,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: emailController,
+//                 keyboardType: TextInputType.emailAddress,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.email,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: foneCom1Controller,
+//                 keyboardType: TextInputType.phone,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.foneCom1,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: foneCom2Controller,
+//                 keyboardType: TextInputType.phone,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.foneCom2,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: foneResController,
+//                 keyboardType: TextInputType.phone,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.foneRes,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: Text(
+//                 Strings.enderecoPrincipal,
+//                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: principalUfController,
+//                 keyboardType: TextInputType.name,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.uf,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: principalCidadeController,
+//                 keyboardType: TextInputType.name,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.cidade,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: principalEnderecoController,
+//                 keyboardType: TextInputType.name,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.endereco,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: principalComplementoController,
+//                 keyboardType: TextInputType.text,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.complemento,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: principalBairroController,
+//                 keyboardType: TextInputType.text,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.bairro,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: principalCepController,
+//                 keyboardType: TextInputType.number,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.cep,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: Text(
+//                 Strings.enderecoEntrega,
+//                 style: TextStyle(
+//                   fontWeight: FontWeight.bold,
+//                   fontSize: 18,
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: ClientesButton(
+//                 onPress: () {},
+//                 titulo: Strings.copiarPrincipal,
+//                 icone: Icons.copy,
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: entregaUfController,
+//                 keyboardType: TextInputType.text,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.uf,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: entregaCidadeController,
+//                 keyboardType: TextInputType.name,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.cidade,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: entregaEnderecoController,
+//                 keyboardType: TextInputType.name,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.endereco,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: entregaComplementoController,
+//                 keyboardType: TextInputType.text,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.complemento,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: entregaBairroController,
+//                 keyboardType: TextInputType.text,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.bairro,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.all(Space.spacing_8),
+//               child: TextField(
+//                 controller: entregaCepController,
+//                 keyboardType: TextInputType.number,
+//                 decoration: InputDecoration(
+//                   labelText: Strings.cep,
+//                   border: OutlineInputBorder(),
+//                 ),
+//               ),
+//             ),
