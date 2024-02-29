@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/borders.dart';
+import '../../../core/font.dart';
+import '../../../core/sizes.dart';
+import '../../../core/space.dart';
+
 class ClientesButton extends StatelessWidget {
   late Function onPress;
   late String titulo;
@@ -16,10 +21,10 @@ class ClientesButton extends StatelessWidget {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor: Colors.black,
       backgroundColor: Colors.grey.shade700,
-      minimumSize: Size(150, 40),
-      padding: EdgeInsets.all(2),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+      minimumSize: Size(Sizes.sizeW_150, Sizes.sizeH_40),
+      padding: EdgeInsets.all(Space.spacing_2),
+      shape: RoundedRectangleBorder(
+        borderRadius: Borders.borderRadius_10,
       ),
     );
 
@@ -31,7 +36,7 @@ class ClientesButton extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(Space.spacing_2),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
@@ -41,13 +46,13 @@ class ClientesButton extends StatelessWidget {
                   color: Colors.lightBlue,
                 ),
                 SizedBox(
-                  width: 5,
+                  width: Space.spacing_5,
                 ),
                 Text(
                   titulo,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 16,
+                    fontSize: Font.title_16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

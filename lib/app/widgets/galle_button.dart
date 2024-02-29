@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../core/borders.dart';
+import '../core/font.dart';
+import '../core/sizes.dart';
+import '../core/space.dart';
+
 class GalleButton extends StatelessWidget {
   late Function onPress;
   late String titulo;
@@ -16,10 +21,10 @@ class GalleButton extends StatelessWidget {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor: Colors.black,
       backgroundColor: Colors.grey.shade700,
-      minimumSize: Size(150, 70),
-      padding: EdgeInsets.all(2),
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+      minimumSize: Size(Sizes.sizeW_150, Sizes.sizeH_70),
+      padding: EdgeInsets.all(Space.spacing_2),
+      shape: RoundedRectangleBorder(
+        borderRadius: Borders.borderRadius_10,
       ),
     );
 
@@ -34,12 +39,12 @@ class GalleButton extends StatelessWidget {
             icone,
             color: Colors.yellow,
           ),
-          SizedBox(height: 5),
+          SizedBox(height: Space.spacing_5),
           Text(
             titulo,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: Font.title_16,
               fontWeight: FontWeight.bold,
             ),
           ),

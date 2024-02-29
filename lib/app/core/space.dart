@@ -1,0 +1,7 @@
+class Space {
+  static const double spacing_2 = 2;
+  static const double spacing_5 = 5;
+  static const double spacing_8 = 8;
+  static const double spacing_10 = 10;
+  static const double spacing_30 = 30;
+}

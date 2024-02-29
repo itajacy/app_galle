@@ -1,24 +1,8 @@
 import 'package:flutter/material.dart';
 
-// /// Flutter code sample for [Radio].
+import '../../../core/sizes.dart';
+import '../../../core/strings.dart';
 
-// void main() => runApp(const PessoafjButtonApp());
-
-// class PessoafjButtonApp extends StatelessWidget {
-//   const PessoafjButtonApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: Scaffold(
-//         appBar: AppBar(title: const Text('Radio Sample')),
-//         body: const Center(
-//           child: PessoafjButton(),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 enum PessoaFJ { fisica, juridica }
 
@@ -34,13 +18,15 @@ class _PessoafjButtonState extends State<PessoafjButton> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ListTile(
-            title: const Text('Física'),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        SizedBox(
+          height: Sizes.sizeH_50,
+          width: Sizes.sizeW_180,
+          child: ListTile(
+            title: const Text(Strings.fisica),
             leading: Radio<PessoaFJ>(
               value: PessoaFJ.fisica,
               groupValue: _pessoaFJ,
@@ -51,8 +37,12 @@ class _PessoafjButtonState extends State<PessoafjButton> {
               },
             ),
           ),
-          ListTile(
-            title: const Text('Jurídica'),
+        ),
+        SizedBox(
+          height: Sizes.sizeH_50,
+          width: Sizes.sizeW_180,
+          child: ListTile(
+            title: const Text(Strings.juridica),
             leading: Radio<PessoaFJ>(
               value: PessoaFJ.juridica,
               groupValue: _pessoaFJ,
@@ -63,8 +53,8 @@ class _PessoafjButtonState extends State<PessoafjButton> {
               },
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

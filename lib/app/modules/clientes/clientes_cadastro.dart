@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
+import '../../core/font.dart';
+import '../../core/space.dart';
 import '../../core/strings.dart';
 import 'widgets/pessoafj_button.dart';
 
@@ -46,7 +48,7 @@ class ClientesCadastro extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 10,
+              height: Space.spacing_10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -57,16 +59,16 @@ class ClientesCadastro extends StatelessWidget {
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
                   onPress: () {},
-                  titulo: Strings.gravar,
+                  titulo: Strings.salvar,
                   icone: Icons.check_box,
                 ),
               ],
             ),
             SizedBox(
-              height: 10,
+              height: Space.spacing_10,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: nomeFantasiaController,
                 keyboardType: TextInputType.name,
@@ -77,7 +79,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: razaoSocialController,
                 keyboardType: TextInputType.name,
@@ -87,28 +89,18 @@ class ClientesCadastro extends StatelessWidget {
                 ),
               ),
             ),
-            Text(Strings.pessoaFJ),
-            Text('Física   /   Jurídica'),
-            const SizedBox(height: 10),
+            Text(
+              Strings.pessoaFJ,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: Font.title_18),
+            ),
+            const SizedBox(height: Space.spacing_8),
             //!
             PessoafjButton(),
 
-            // Column(
-            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //   children: <Widget>[
-            //     ListTile(
-            //       title: const Text('Física'),
-            //       // leading: Radio<PessoaFJ>(),
-            //     ),
-            //     ListTile(
-            //       title: const Text('Jurídica'),
-            //       // leading: Radio<PessoaFJ>(),
-            //     ),
-            //   ],
-            // ),
             //!
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: cnpjCpfController,
                 keyboardType: TextInputType.number,
@@ -119,7 +111,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: ieRgController,
                 keyboardType: TextInputType.number,
@@ -130,7 +122,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: contatoController,
                 keyboardType: TextInputType.name,
@@ -141,7 +133,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -152,7 +144,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: foneCom1Controller,
                 keyboardType: TextInputType.phone,
@@ -163,7 +155,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: foneCom2Controller,
                 keyboardType: TextInputType.phone,
@@ -174,7 +166,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: foneResController,
                 keyboardType: TextInputType.phone,
@@ -185,14 +177,14 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: Text(
-                'Endereço Principal',
+                Strings.enderecoPrincipal,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: principalUfController,
                 keyboardType: TextInputType.name,
@@ -203,7 +195,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: principalCidadeController,
                 keyboardType: TextInputType.name,
@@ -214,7 +206,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: principalEnderecoController,
                 keyboardType: TextInputType.name,
@@ -225,7 +217,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: principalComplementoController,
                 keyboardType: TextInputType.text,
@@ -236,7 +228,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: principalBairroController,
                 keyboardType: TextInputType.text,
@@ -247,7 +239,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: principalCepController,
                 keyboardType: TextInputType.number,
@@ -258,9 +250,9 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: Text(
-                'Endereço de Entrega',
+                Strings.enderecoEntrega,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
@@ -268,7 +260,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: ClientesButton(
                 onPress: () {},
                 titulo: Strings.copiarPrincipal,
@@ -276,7 +268,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: entregaUfController,
                 keyboardType: TextInputType.text,
@@ -287,7 +279,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: entregaCidadeController,
                 keyboardType: TextInputType.name,
@@ -298,7 +290,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: entregaEnderecoController,
                 keyboardType: TextInputType.name,
@@ -309,7 +301,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: entregaComplementoController,
                 keyboardType: TextInputType.text,
@@ -320,7 +312,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: entregaBairroController,
                 keyboardType: TextInputType.text,
@@ -331,7 +323,7 @@ class ClientesCadastro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: entregaCepController,
                 keyboardType: TextInputType.number,

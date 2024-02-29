@@ -36,18 +36,6 @@ class Strings {
   static const foneCom2 = "Digite o Fone Coml. 2";
   static const foneRes = "Digite o Fone Residencial";
   static const fax = "Digite o Fax";
-  // static const principalUf = "UF";
-  // static const principalCidade = "Cidade";
-  // static const principalEndereco = "Endereco";
-  // static const principalComplemento = "Complemento";
-  // static const principalBairro = "Bairro";
-  // static const principalCep = "CEP";
-  // static const entregaUf = "UF";
-  // static const entregaCidade = "Cidade";
-  // static const entregaEndereco = "Endereco";
-  // static const entregaComplemento = "Complemento";
-  // static const entregaBairro = "Bairro";
-  // static const entregaCep = "CEP";
   static const uf = "Digite a UF";
   static const cidade = "Digite a Cidade";
   static const endereco = "Digite o Endereco";
@@ -56,6 +44,14 @@ class Strings {
   static const cep = "Digite o CEP";
 
   static const cancelar = "CANCELAR";
-  static const gravar = "GRAVAR";
+  static const salvar = "SALVAR";
   static const copiarPrincipal = "Copiar Principal";
+
+  static const fisica = "Física";
+  static const juridica = "Jurídica";
+
+  static const enderecoPrincipal = "Endereço Principal";
+  static const enderecoEntrega = "Endereço de Entrega";
+
+
 }

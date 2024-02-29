@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/space.dart';
 import '../../core/strings.dart';
 import '../../widgets/galle_button.dart';
 
@@ -23,7 +24,7 @@ class PedidosPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(
-            height: 30,
+            height: Space.spacing_30,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/navigation/routes.dart';
+import '../../core/space.dart';
 import '../../core/strings.dart';
 
 class LoginPage extends StatelessWidget {
@@ -19,21 +20,25 @@ class LoginPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(Space.spacing_8),
             child: TextField(
               controller: usuarioController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                  labelText: Strings.digiteEmail, border: OutlineInputBorder()),
+                labelText: Strings.digiteEmail,
+                border: OutlineInputBorder(),
+              ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(Space.spacing_8),
             child: TextField(
               controller: senhaController,
               obscureText: true,
               decoration: InputDecoration(
-                  labelText: Strings.digiteSenha, border: OutlineInputBorder()),
+                labelText: Strings.digiteSenha,
+                border: OutlineInputBorder(),
+              ),
             ),
           ),
           ElevatedButton(

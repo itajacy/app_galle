@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/widgets/galle_button.dart';
+import '../../core/font.dart';
 import '../../core/navigation/routes.dart';
 import '../../core/strings.dart';
 
@@ -15,16 +16,14 @@ class HomePage extends StatelessWidget {
             Text(
               Strings.empresa,
               style: TextStyle(
-                fontSize: 24,
+                fontSize: Font.title_24,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            // SizedBox(
-            //   height: 2,
-            // ),
+            // Si
             Text(
               Strings.versao,
-              style: TextStyle(fontSize: 10),
+              style: TextStyle(fontSize: Font.subtitle_10),
             ),
           ],
         ),
