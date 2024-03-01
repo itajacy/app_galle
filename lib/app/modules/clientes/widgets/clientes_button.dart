@@ -34,6 +34,7 @@ class ClientesButton extends StatelessWidget {
       },
       style: raisedButtonStyle,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Padding(
             padding: const EdgeInsets.all(Space.spacing_2),
