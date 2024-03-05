@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:galle/app/widgets/galle_button.dart';
 import '../../core/font.dart';
 import '../../core/navigation/routes.dart';
 import '../../core/strings.dart';
+import '../../widgets/galle_button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
