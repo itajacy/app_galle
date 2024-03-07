@@ -1,3 +1,4 @@
+
 class Routes {
   static const loginPage = '/loginPage';
   static const homePage = '/homePage';
@@ -9,5 +10,6 @@ class Routes {
   static const configuracaoPage = '/configuracaoPage';
   static const clientesCadastro = '/clientesCadastro';
   static const clientesConsulta = '/clientesConsulta';
+  static const pedidosCadastro = '/pedidosCadastro';
 
 }

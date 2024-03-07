@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
-import '../../core/font.dart';
-import '../../core/sizes.dart';
-import '../../core/space.dart';
-import '../../core/strings.dart';
-import 'widgets/pessoafj_button.dart';
+import '../../../core/font.dart';
+import '../../../core/sizes.dart';
+import '../../../core/space.dart';
+import '../../../core/strings.dart';
+import '../widgets/pessoafj_button.dart';
 
 class ClientesCadastro extends StatelessWidget {
   ClientesCadastro({super.key});

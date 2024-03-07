@@ -1,4 +1,3 @@
-import 'package:galle/app/modules/clientes/clientes_consultar.dart';
 
 class Strings {
   // HOME PAGE
@@ -52,6 +51,11 @@ class Strings {
 
   static const enderecoPrincipal = "Endereço Principal";
   static const enderecoEntrega = "Endereço de Entrega";
+
+  // PEDIDOS
+
+  static const pedidosCadastro = "PEDIDOS CADASTRO";
+
 
 
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/strings.dart';
+import '../../../core/strings.dart';
 
 class ClientesConsultar extends StatelessWidget {
   const ClientesConsultar({super.key});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/navigation/routes.dart';
 import '../../core/space.dart';
 import '../../core/strings.dart';
 import '../../widgets/galle_button.dart';
@@ -30,7 +31,9 @@ class PedidosPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GalleButton(
-                onPress: () {},
+                onPress: () {
+                  Navigator.of(context).pushNamed(Routes.pedidosCadastro);
+                },
                 titulo: Strings.novo,
                 icone: Icons.add_box_rounded,
               ),
