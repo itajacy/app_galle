@@ -40,7 +40,7 @@ class ClientesCadastro extends StatelessWidget {
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Icon(Icons.add_box_rounded),
+            Icon(Icons.person_add_alt_1),
             Text(Strings.clientesCadastro),
           ],
         ),

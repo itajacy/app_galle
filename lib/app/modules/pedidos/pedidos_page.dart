@@ -16,7 +16,7 @@ class PedidosPage extends StatelessWidget {
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Icon(Icons.monetization_on_rounded),
+            Icon(Icons.feed_rounded),
             Text(Strings.pedidos),
           ],
         ),
@@ -35,7 +35,7 @@ class PedidosPage extends StatelessWidget {
                   Navigator.of(context).pushNamed(Routes.pedidosCadastro);
                 },
                 titulo: Strings.novo,
-                icone: Icons.add_box_rounded,
+                icone: Icons.add_shopping_cart_rounded,
               ),
               GalleButton(
                 onPress: () {},

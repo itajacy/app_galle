@@ -1,4 +1,3 @@
-
 class Strings {
   // HOME PAGE
   static const clientes = 'CLIENTES';
@@ -56,6 +55,12 @@ class Strings {
 
   static const pedidosCadastro = "PEDIDOS CADASTRO";
 
-
-
+  // PEDIDOS_CADASTRO
+  static const aberto = "Aberto";
+  static const fechado = "Fechado";
+  static const transmitido = "Transmitido";
+  static const status = "STATUS";
+  static const cliente = "Cliente";
+  static const tabelas = "Tabelas";
+  static const observacoes = "Observações";
 }

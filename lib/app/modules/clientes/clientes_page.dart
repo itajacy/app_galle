@@ -35,7 +35,7 @@ class ClientesPage extends StatelessWidget {
                   Navigator.of(context).pushNamed(Routes.clientesCadastro);
                 },
                 titulo: Strings.novo,
-                icone: Icons.add_box_rounded,
+                icone: Icons.person_add_alt_1,
               ),
               GalleButton(
                 onPress: () {
