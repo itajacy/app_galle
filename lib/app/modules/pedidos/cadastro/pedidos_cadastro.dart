@@ -12,6 +12,9 @@ class PedidosCadastro extends StatelessWidget {
 
   final pedidoQtdItensController = TextEditingController();
   final pedidoValorTotalController = TextEditingController();
+  final pedidoClienteController = TextEditingController();
+  final pedidoTabelasController = TextEditingController();
+  final pedidoObsController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +78,12 @@ class PedidosCadastro extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text('Itens:'),
+                  Text(
+                    Strings.itens,
+                    style: TextStyle(
+                      fontSize: Font.title_16,
+                    ),
+                  ),
                   SizedBox(
                     height: Sizes.sizeH_50,
                     width: Sizes.sizeW_80,
@@ -88,7 +96,12 @@ class PedidosCadastro extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Text('Total:'),
+                  Text(
+                    Strings.total,
+                    style: TextStyle(
+                      fontSize: Font.title_16,
+                    ),
+                  ),
                   SizedBox(
                     height: Sizes.sizeH_50,
                     width: Sizes.sizeW_130,
@@ -106,7 +119,7 @@ class PedidosCadastro extends StatelessWidget {
                     icon: Icon(
                       Icons.article_outlined,
                       color: Colors.blue,
-                      size: 40,
+                      size: Sizes.sizeH_40,
                     ),
                   ),
                 ],
@@ -123,6 +136,98 @@ class PedidosCadastro extends StatelessWidget {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(Space.spacing_8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: Sizes.sizeH_50,
+                    width: 300,
+                    child: TextField(
+                      controller: pedidoClienteController,
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        // labelText: Strings.digiteEmail,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.search,
+                      color: Colors.blue,
+                      size: Sizes.sizeH_40,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            //!
+            const Padding(
+              padding: const EdgeInsets.only(left: Space.spacing_8),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  Strings.tabelas,
+                  style: TextStyle(
+                      fontSize: Font.title_16, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(Space.spacing_8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: Sizes.sizeH_70,
+                    width: 300,
+                    child: TextField(
+                      controller: pedidoTabelasController,
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        // labelText: Strings.digiteEmail,
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.search,
+                      color: Colors.blue,
+                      size: Sizes.sizeH_40,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            //!
+            const Padding(
+              padding: const EdgeInsets.only(left: Space.spacing_8),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  Strings.observacoes,
+                  style: TextStyle(
+                      fontSize: Font.title_16, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(Space.spacing_8),
+              child: TextField(
+                controller: pedidoObsController,
+                keyboardType: TextInputType.multiline,
+                decoration: InputDecoration(
+                  // labelText: Strings.digiteEmail,
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            )
           ],
         ),
       ),

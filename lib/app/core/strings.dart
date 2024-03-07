@@ -63,4 +63,6 @@ class Strings {
   static const cliente = "Cliente";
   static const tabelas = "Tabelas";
   static const observacoes = "Observações";
+  static const itens = "Itens:";
+  static const total = "Total:";
 }
