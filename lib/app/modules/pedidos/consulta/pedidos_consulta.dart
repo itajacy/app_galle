@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../core/strings.dart';
 
-class ClientesConsultar extends StatelessWidget {
-  const ClientesConsultar({super.key});
+class PedidosConsulta extends StatelessWidget {
+  const PedidosConsulta({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class ClientesConsultar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Icon(Icons.search),
-            Text(Strings.clientesConsultar),
+            Text(Strings.pedidosConsulta),
           ],
         ),
       ),
@@ -21,6 +21,3 @@ class ClientesConsultar extends StatelessWidget {
     );
   }
 }
-
-
-

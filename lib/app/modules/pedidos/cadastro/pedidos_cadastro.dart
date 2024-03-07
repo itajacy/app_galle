@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_button.dart';
+import 'package:galle/app/modules/pedidos/widgets/pedidos_icon_button.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_status_button.dart';
 
 import '../../../core/font.dart';
@@ -51,7 +52,7 @@ class PedidosCadastro extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.all(Space.spacing_8),
-              decoration: BoxDecoration(border: Border.all(width: 2)),
+              decoration: BoxDecoration(border: Border.all(width: 1)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -76,52 +77,51 @@ class PedidosCadastro extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(Space.spacing_8),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     Strings.itens,
                     style: TextStyle(
                       fontSize: Font.title_16,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(
-                    height: Sizes.sizeH_50,
+                    height: Sizes.sizeH_60,
                     width: Sizes.sizeW_80,
                     child: TextField(
                       controller: pedidoQtdItensController,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        // labelText: Strings.digiteEmail,
-                        border: OutlineInputBorder(),
-                      ),
+                      // decoration: InputDecoration(
+                      //   border: OutlineInputBorder(),
+                      // ),
                     ),
                   ),
-                  Text(
+                  const SizedBox(width: 5),
+                  const Text(
                     Strings.total,
                     style: TextStyle(
                       fontSize: Font.title_16,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(
-                    height: Sizes.sizeH_50,
-                    width: Sizes.sizeW_130,
+                    height: Sizes.sizeH_60,
+                    width: Sizes.sizeW_100,
                     child: TextField(
                       controller: pedidoValorTotalController,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        // labelText: Strings.digiteEmail,
-                        border: OutlineInputBorder(),
-                      ),
+                      // decoration: InputDecoration(
+                      //   border: OutlineInputBorder(),
+                      // ),
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.article_outlined,
-                      color: Colors.blue,
-                      size: Sizes.sizeH_40,
-                    ),
+                  PedidosIconButton(
+                    onPress: () {},
+                    icone: Icons.article_outlined,
+                    size: Sizes.sizeH_40,
                   ),
+                  
                 ],
               ),
             ),
@@ -139,75 +139,75 @@ class PedidosCadastro extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(Space.spacing_8),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    height: Sizes.sizeH_50,
+                    height: Sizes.sizeH_60,
                     width: 300,
                     child: TextField(
                       controller: pedidoClienteController,
+                      
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                        // labelText: Strings.digiteEmail,
+                        // labelText: Strings.cliente,
+                        // labelStyle: TextStyle(fontSize: Font.title_24),
                         border: OutlineInputBorder(),
                       ),
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.blue,
-                      size: Sizes.sizeH_40,
-                    ),
+                  PedidosIconButton(
+                    onPress: () {},
+                    icone: Icons.search,
+                    size: Sizes.sizeH_40,
                   ),
+                  
                 ],
               ),
             ),
 
             //!
-            const Padding(
-              padding: const EdgeInsets.only(left: Space.spacing_8),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  Strings.tabelas,
-                  style: TextStyle(
-                      fontSize: Font.title_16, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
+            // const Padding(
+            //   padding: const EdgeInsets.only(left: Space.spacing_8),
+            //   child: Align(
+            //     alignment: Alignment.centerLeft,
+            //     child: Text(
+            //       Strings.tabelas,
+            //       style: TextStyle(
+            //           fontSize: Font.title_16, fontWeight: FontWeight.bold),
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.all(Space.spacing_8),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    height: Sizes.sizeH_70,
+                    height: Sizes.sizeH_60,
                     width: 300,
                     child: TextField(
                       controller: pedidoTabelasController,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                        // labelText: Strings.digiteEmail,
+                        isDense: true,
+                        labelText: Strings.tabelas,
+                        labelStyle: TextStyle(fontSize: Font.title_24),
                         border: OutlineInputBorder(),
                       ),
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.blue,
-                      size: Sizes.sizeH_40,
-                    ),
+                  PedidosIconButton(
+                    onPress: () {},
+                    icone: Icons.search,
+                    size: Sizes.sizeH_40,
                   ),
+                 
                 ],
               ),
             ),
             //!
             const Padding(
-              padding: const EdgeInsets.only(left: Space.spacing_8),
+              padding: EdgeInsets.only(left: Space.spacing_8),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -223,7 +223,7 @@ class PedidosCadastro extends StatelessWidget {
                 controller: pedidoObsController,
                 keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(
-                  // labelText: Strings.digiteEmail,
+                  // labelText: Strings.observacoes,
                   border: OutlineInputBorder(),
                 ),
               ),

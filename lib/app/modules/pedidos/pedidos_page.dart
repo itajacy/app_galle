@@ -12,6 +12,8 @@ class PedidosPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.grey[800],
+        foregroundColor: Colors.white,
         centerTitle: true,
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -38,8 +40,10 @@ class PedidosPage extends StatelessWidget {
                 icone: Icons.add_shopping_cart_rounded,
               ),
               GalleButton(
-                onPress: () {},
-                titulo: Strings.consultar,
+                onPress: () {
+                  Navigator.of(context).pushNamed(Routes.pedidosConsulta);
+                },
+                titulo: Strings.consulta,
                 icone: Icons.search,
               ),
             ],

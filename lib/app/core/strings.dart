@@ -11,7 +11,7 @@ class Strings {
 
   // DIVERSOS
   static const novo = 'NOVO';
-  static const consultar = 'CONSULTAR';
+  static const consulta = 'CONSULTA';
   static const entreCom = 'Entre com ';
 
   // LOGIN PAGE
@@ -21,7 +21,7 @@ class Strings {
 
   // CLIENTES_CADASTRO
   static const clientesCadastro = "CLIENTES CADASTRO";
-  static const clientesConsultar = "CLIENTES CONSULTA";
+  static const clientesConsulta = "CLIENTES CONSULTA";
 
   static const nomeFantasia = "Digite o Nome Fantasia";
   static const razaoSocial = "Digite a Razão Social";
@@ -65,4 +65,8 @@ class Strings {
   static const observacoes = "Observações";
   static const itens = "Itens:";
   static const total = "Total:";
+
+  // PEDIDOS_CONSULTA
+  static const pedidosConsulta = "PEDIDOS CONSULTA";
+
 }

@@ -41,7 +41,7 @@ class ClientesPage extends StatelessWidget {
                 onPress: () {
                   Navigator.of(context).pushNamed(Routes.clientesConsulta);
                 },
-                titulo: Strings.consultar,
+                titulo: Strings.consulta,
                 icone: Icons.search,
               ),
             ],

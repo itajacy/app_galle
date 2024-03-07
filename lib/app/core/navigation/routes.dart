@@ -11,5 +11,6 @@ class Routes {
   static const clientesCadastro = '/clientesCadastro';
   static const clientesConsulta = '/clientesConsulta';
   static const pedidosCadastro = '/pedidosCadastro';
+  static const pedidosConsulta = '/pedidosConsulta';
 
 }
