@@ -5,6 +5,7 @@ import 'package:galle/app/modules/pedidos/widgets/pedidos_button.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_icon_button.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_status_button.dart';
 
+import '../../../core/cores.dart';
 import '../../../core/font.dart';
 import '../../../core/strings.dart';
 
@@ -21,6 +22,8 @@ class PedidosCadastro extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Cores.appBarBackground,
+        foregroundColor: Cores.appBarForeground,
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -121,7 +124,6 @@ class PedidosCadastro extends StatelessWidget {
                     icone: Icons.article_outlined,
                     size: Sizes.sizeH_40,
                   ),
-                  
                 ],
               ),
             ),
@@ -146,7 +148,6 @@ class PedidosCadastro extends StatelessWidget {
                     width: 300,
                     child: TextField(
                       controller: pedidoClienteController,
-                      
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         // labelText: Strings.cliente,
@@ -160,7 +161,6 @@ class PedidosCadastro extends StatelessWidget {
                     icone: Icons.search,
                     size: Sizes.sizeH_40,
                   ),
-                  
                 ],
               ),
             ),
@@ -201,7 +201,6 @@ class PedidosCadastro extends StatelessWidget {
                     icone: Icons.search,
                     size: Sizes.sizeH_40,
                   ),
-                 
                 ],
               ),
             ),

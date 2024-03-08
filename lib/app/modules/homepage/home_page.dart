@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/cores.dart';
 import '../../core/font.dart';
 import '../../core/navigation/routes.dart';
 import '../../core/strings.dart';
@@ -11,6 +12,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Cores.appBarBackground,
+        foregroundColor: Cores.appBarForeground,
         title: Column(
           children: [
             Text(
