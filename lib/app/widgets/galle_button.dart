@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../core/borders.dart';
+import '../core/cores.dart';
 import '../core/font.dart';
 import '../core/sizes.dart';
 import '../core/space.dart';
@@ -19,8 +20,9 @@ class GalleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-      foregroundColor: Colors.black,
-      backgroundColor: Colors.grey.shade700,
+      // foregroundColor: Colors.red,
+      // Colors.grey.shade700
+      backgroundColor: Cores.botaoMenuBackground,
       minimumSize: Size(Sizes.sizeW_150, Sizes.sizeH_70),
       padding: EdgeInsets.all(Space.spacing_2),
       shape: RoundedRectangleBorder(
@@ -37,13 +39,13 @@ class GalleButton extends StatelessWidget {
         children: [
           Icon(
             icone,
-            color: Colors.yellow,
+            color: Cores.iconeForegroundYellow,
           ),
           SizedBox(height: Space.spacing_5),
           Text(
             titulo,
             style: TextStyle(
-              color: Colors.white,
+              color: Cores.textoForegroundWhite,
               fontSize: Font.title_16,
               fontWeight: FontWeight.bold,
             ),

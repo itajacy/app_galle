@@ -30,9 +30,11 @@ class _PessoafjButtonState extends State<PessoafjButton> {
               value: PessoaFJ.fisica,
               groupValue: _pessoaFJ,
               onChanged: (PessoaFJ? value) {
-                setState(() {
-                  _pessoaFJ = value;
-                });
+                setState(
+                  () {
+                    _pessoaFJ = value;
+                  },
+                );
               },
             ),
           ),
@@ -46,9 +48,11 @@ class _PessoafjButtonState extends State<PessoafjButton> {
               value: PessoaFJ.juridica,
               groupValue: _pessoaFJ,
               onChanged: (PessoaFJ? value) {
-                setState(() {
-                  _pessoaFJ = value;
-                });
+                setState(
+                  () {
+                    _pessoaFJ = value;
+                  },
+                );
               },
             ),
           ),

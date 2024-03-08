@@ -35,6 +35,7 @@ class PedidosCadastro extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: Space.spacing_8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -127,17 +128,17 @@ class PedidosCadastro extends StatelessWidget {
                 ],
               ),
             ),
-            const Padding(
-              padding: const EdgeInsets.only(left: Space.spacing_8),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  Strings.cliente,
-                  style: TextStyle(
-                      fontSize: Font.title_16, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
+            // const Padding(
+            //   padding: const EdgeInsets.only(left: Space.spacing_8),
+            //   child: Align(
+            //     alignment: Alignment.centerLeft,
+            //     child: Text(
+            //       Strings.cliente,
+            //       style: TextStyle(
+            //           fontSize: Font.title_16, fontWeight: FontWeight.bold),
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.all(Space.spacing_8),
               child: Row(
@@ -150,8 +151,8 @@ class PedidosCadastro extends StatelessWidget {
                       controller: pedidoClienteController,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
-                        // labelText: Strings.cliente,
-                        // labelStyle: TextStyle(fontSize: Font.title_24),
+                        labelText: Strings.cliente,
+                        labelStyle: TextStyle(fontSize: Font.title_24),
                         border: OutlineInputBorder(),
                       ),
                     ),

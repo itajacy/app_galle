@@ -51,7 +51,7 @@ class ClientesCadastro extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(
-            height: Space.spacing_8,
+            height: Space.spacing_12,
           ),
           Container(
             height: Sizes.sizeH_40,

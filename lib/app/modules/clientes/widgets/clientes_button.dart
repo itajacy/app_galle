@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/borders.dart';
+import '../../../core/cores.dart';
 import '../../../core/font.dart';
 import '../../../core/sizes.dart';
 import '../../../core/space.dart';
@@ -19,8 +20,8 @@ class ClientesButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-      foregroundColor: Colors.black,
-      backgroundColor: Colors.grey.shade700,
+      // foregroundColor: Colors.black,
+      backgroundColor: Cores.botaoMenuBackground,
       minimumSize: Size(Sizes.sizeW_150, Sizes.sizeH_40),
       padding: EdgeInsets.all(Space.spacing_2),
       shape: RoundedRectangleBorder(
@@ -44,7 +45,7 @@ class ClientesButton extends StatelessWidget {
               children: [
                 Icon(
                   icone,
-                  color: Colors.lightBlue,
+                  color: Cores.iconeForegroundLightBlue,
                 ),
                 SizedBox(
                   width: Space.spacing_5,
@@ -52,7 +53,7 @@ class ClientesButton extends StatelessWidget {
                 Text(
                   titulo,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Cores.textoForegroundWhite,
                     fontSize: Font.title_16,
                     fontWeight: FontWeight.bold,
                   ),

@@ -19,10 +19,11 @@ class Strings {
   static const digiteSenha = "Digite a Senha";
   static const acessar = 'ACESSAR';
 
-  // CLIENTES_CADASTRO
+  // CLIENTES
   static const clientesCadastro = "CLIENTES CADASTRO";
   static const clientesConsulta = "CLIENTES CONSULTA";
 
+  // CLIENTES_CADASTRO
   static const nomeFantasia = "Digite o Nome Fantasia";
   static const razaoSocial = "Digite a Razão Social";
   static const pessoaFJ = "Pessoa";
@@ -54,6 +55,7 @@ class Strings {
   // PEDIDOS
 
   static const pedidosCadastro = "PEDIDOS CADASTRO";
+  static const pedidosConsulta = "PEDIDOS CONSULTA";
 
   // PEDIDOS_CADASTRO
   static const aberto = "Aberto";
@@ -62,11 +64,7 @@ class Strings {
   static const status = "STATUS";
   static const cliente = "Cliente";
   static const tabelas = "Tabelas";
-  static const observacoes = "Observações";
+  static const observacoes = "Observações:";
   static const itens = "Itens:";
   static const total = "Total:";
-
-  // PEDIDOS_CONSULTA
-  static const pedidosConsulta = "PEDIDOS CONSULTA";
-
 }
