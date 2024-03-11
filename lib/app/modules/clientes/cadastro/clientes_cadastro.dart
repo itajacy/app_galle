@@ -206,7 +206,21 @@ class ClientesCadastro extends StatelessWidget {
                   //     ),
                   //   ),
                   // ),
-                  ClientesUfDropdown(),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: Row(
+                      children: [
+                        Text(
+                          Strings.uf,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          width: Space.spacing_8,
+                        ),
+                        ClientesUfDropdown(),
+                      ],
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
