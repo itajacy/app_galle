@@ -10,4 +10,5 @@ class Sizes {
   static const double sizeH_50 = 50;
   static const double sizeH_60 = 60;
   static const double sizeH_70 = 70;
+  static const double sizeH_200 = 200;
 }

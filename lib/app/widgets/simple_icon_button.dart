@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/borders.dart';
-import '../../../core/space.dart';
+import '../core/borders.dart';
+import '../core/space.dart';
 
-class PedidosIconButton extends StatelessWidget {
+class SimpleIconButton extends StatelessWidget {
   late Function onPress;
   late IconData? icone;
   late double size;
 
-  PedidosIconButton(
+  SimpleIconButton(
       {required this.onPress, required this.icone, required this.size});
 
   @override

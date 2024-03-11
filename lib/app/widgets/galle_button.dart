@@ -22,7 +22,7 @@ class GalleButton extends StatelessWidget {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       // foregroundColor: Colors.red,
       // Colors.grey.shade700
-      backgroundColor: Cores.botaoMenuBackground,
+      backgroundColor: Cores.buttonMenuBackground,
       minimumSize: Size(Sizes.sizeW_150, Sizes.sizeH_70),
       padding: EdgeInsets.all(Space.spacing_2),
       shape: RoundedRectangleBorder(
@@ -39,13 +39,13 @@ class GalleButton extends StatelessWidget {
         children: [
           Icon(
             icone,
-            color: Cores.iconeForegroundYellow,
+            color: Cores.iconeForegroundMain,
           ),
           SizedBox(height: Space.spacing_5),
           Text(
             titulo,
             style: TextStyle(
-              color: Cores.textoForegroundWhite,
+              color: Cores.textForeground,
               fontSize: Font.title_16,
               fontWeight: FontWeight.bold,
             ),

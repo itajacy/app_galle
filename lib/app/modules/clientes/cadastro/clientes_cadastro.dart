@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
+import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
 import '../../../core/cores.dart';
 import '../../../core/font.dart';
 import '../../../core/sizes.dart';
@@ -194,17 +195,18 @@ class ClientesCadastro extends StatelessWidget {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
-                    child: TextField(
-                      controller: principalUfController,
-                      keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
-                        labelText: Strings.uf,
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(Space.spacing_8),
+                  //   child: TextField(
+                  //     controller: principalUfController,
+                  //     keyboardType: TextInputType.name,
+                  //     decoration: InputDecoration(
+                  //       labelText: Strings.uf,
+                  //       border: OutlineInputBorder(),
+                  //     ),
+                  //   ),
+                  // ),
+                  ClientesUfDropdown(),
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
