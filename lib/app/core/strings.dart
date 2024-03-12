@@ -67,4 +67,8 @@ class Strings {
   static const observacoes = "Observações:";
   static const itens = "Itens:";
   static const total = "Total:";
+
+  // PEDIDOS_CADASTRO_ITENS
+  static const itensDoPedido = "ITENS DO PEDIDO";
+
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galle/app/core/navigation/routes.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_button.dart';
@@ -48,7 +49,10 @@ class PedidosCadastro extends StatelessWidget {
                   icone: Icons.print_outlined,
                 ),
                 PedidosButton(
-                  onPress: () {},
+                  onPress: () {
+                    Navigator.of(context)
+                        .pushNamed(Routes.pedidosCadastroItens);
+                  },
                   titulo: "ITENS",
                   icone: Icons.article_outlined,
                 ),
@@ -206,24 +210,26 @@ class PedidosCadastro extends StatelessWidget {
               ),
             ),
             //!
-            const Padding(
-              padding: EdgeInsets.only(left: Space.spacing_8),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  Strings.observacoes,
-                  style: TextStyle(
-                      fontSize: Font.title_16, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
+            // const Padding(
+            //   padding: EdgeInsets.only(left: Space.spacing_8),
+            //   child: Align(
+            //     alignment: Alignment.centerLeft,
+            //     child: Text(
+            //       Strings.observacoes,
+            //       style: TextStyle(
+            //           fontSize: Font.title_16, fontWeight: FontWeight.bold),
+            //     ),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
                 controller: pedidoObsController,
                 keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(
-                  // labelText: Strings.observacoes,
+                  isDense: true,
+                  labelText: Strings.observacoes,
+                  labelStyle: TextStyle(fontSize: Font.title_24),
                   border: OutlineInputBorder(),
                 ),
               ),
