@@ -6,7 +6,7 @@ import 'package:galle/app/modules/clientes/clientes_page.dart';
 import 'package:galle/app/modules/configuracao/configuracao_page.dart';
 import 'package:galle/app/modules/homepage/home_page.dart';
 import 'package:galle/app/modules/pedidos/cadastro/pedidos_cadastro.dart';
-import 'package:galle/app/modules/pedidos/cadastro/pedidos_cadastro_itens.dart';
+import 'package:galle/app/modules/pedidos/cadastro/itens/pedidos_cadastro_itens.dart';
 import 'package:galle/app/modules/pedidos/consulta/pedidos_consulta.dart';
 import 'package:galle/app/modules/pedidos/pedidos_page.dart';
 import 'package:galle/app/modules/precos/precos_page.dart';

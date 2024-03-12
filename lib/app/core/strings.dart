@@ -70,5 +70,9 @@ class Strings {
 
   // PEDIDOS_CADASTRO_ITENS
   static const itensDoPedido = "ITENS DO PEDIDO";
+  static const produto = "Produto";
+  static const qtde = "Qtde";
+  static const um = "UM";
+  static const observacaoProduto = "Observação do Produto";
 
 }

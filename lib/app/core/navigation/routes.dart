@@ -1,4 +1,4 @@
-import 'package:galle/app/modules/pedidos/cadastro/pedidos_cadastro_itens.dart';
+import 'package:galle/app/modules/pedidos/cadastro/itens/pedidos_cadastro_itens.dart';
 
 class Routes {
   static const loginPage = '/loginPage';
