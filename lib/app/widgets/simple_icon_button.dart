@@ -35,7 +35,7 @@ class SimpleIconButton extends StatelessWidget {
             padding: const EdgeInsets.all(Space.spacing_2),
             child: Icon(
               icone,
-              color: Colors.lightBlue,
+              color: Cores.iconeForegroundLSecond,
               size: size,
             ),
           ),

@@ -17,7 +17,6 @@ class PedidosIconButton extends StatelessWidget {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor: Colors.black,
       backgroundColor: Cores.buttonMenuBackground,
-      // minimumSize: Size(Sizes.sizeW_100, Sizes.sizeH_40),
       padding: EdgeInsets.all(Space.spacing_2),
       shape: RoundedRectangleBorder(
         borderRadius: Borders.borderRadius_10,

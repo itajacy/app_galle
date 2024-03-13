@@ -53,7 +53,7 @@ class PedidosCadastro extends StatelessWidget {
                     Navigator.of(context)
                         .pushNamed(Routes.pedidosCadastroItens);
                   },
-                  titulo: "ITENS",
+                  titulo: Strings.itensMaiusculo,
                   icone: Icons.article_outlined,
                 ),
               ],
@@ -100,9 +100,6 @@ class PedidosCadastro extends StatelessWidget {
                     child: TextField(
                       controller: pedidoQtdItensController,
                       keyboardType: TextInputType.number,
-                      // decoration: InputDecoration(
-                      //   border: OutlineInputBorder(),
-                      // ),
                     ),
                   ),
                   const SizedBox(width: 5),
@@ -119,9 +116,6 @@ class PedidosCadastro extends StatelessWidget {
                     child: TextField(
                       controller: pedidoValorTotalController,
                       keyboardType: TextInputType.number,
-                      // decoration: InputDecoration(
-                      //   border: OutlineInputBorder(),
-                      // ),
                     ),
                   ),
                   PedidosIconButton(
@@ -132,17 +126,6 @@ class PedidosCadastro extends StatelessWidget {
                 ],
               ),
             ),
-            // const Padding(
-            //   padding: const EdgeInsets.only(left: Space.spacing_8),
-            //   child: Align(
-            //     alignment: Alignment.centerLeft,
-            //     child: Text(
-            //       Strings.cliente,
-            //       style: TextStyle(
-            //           fontSize: Font.title_16, fontWeight: FontWeight.bold),
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.all(Space.spacing_8),
               child: Row(
@@ -169,19 +152,6 @@ class PedidosCadastro extends StatelessWidget {
                 ],
               ),
             ),
-
-            //!
-            // const Padding(
-            //   padding: const EdgeInsets.only(left: Space.spacing_8),
-            //   child: Align(
-            //     alignment: Alignment.centerLeft,
-            //     child: Text(
-            //       Strings.tabelas,
-            //       style: TextStyle(
-            //           fontSize: Font.title_16, fontWeight: FontWeight.bold),
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.all(Space.spacing_8),
               child: Row(
@@ -209,18 +179,6 @@ class PedidosCadastro extends StatelessWidget {
                 ],
               ),
             ),
-            //!
-            // const Padding(
-            //   padding: EdgeInsets.only(left: Space.spacing_8),
-            //   child: Align(
-            //     alignment: Alignment.centerLeft,
-            //     child: Text(
-            //       Strings.observacoes,
-            //       style: TextStyle(
-            //           fontSize: Font.title_16, fontWeight: FontWeight.bold),
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(

@@ -74,5 +74,5 @@ class Strings {
   static const qtde = "Qtde";
   static const um = "UM";
   static const observacaoProduto = "Observação do Produto";
-
+  static const itensMaiusculo = "ITENS";
 }

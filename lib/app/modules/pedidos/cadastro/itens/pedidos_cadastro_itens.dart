@@ -27,7 +27,7 @@ class PedidosCadastroItens extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(Space.spacing_8),
         child: Column(
           children: [
             Row(
@@ -38,7 +38,7 @@ class PedidosCadastroItens extends StatelessWidget {
                   style: TextStyle(
                       fontSize: Font.title_24, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(width: 15),
+                SizedBox(width: Space.spacing_15),
                 SizedBox(
                   width: Sizes.sizeW_170,
                   child: TextField(),
@@ -108,6 +108,7 @@ class PedidosCadastroItens extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                //! como colocar o $ aqui ??????
                 Text('R/un'),
                 Text('R/g'),
                 Text('Total'),

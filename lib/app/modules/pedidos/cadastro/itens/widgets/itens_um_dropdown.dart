@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
 
+import '../../../../../core/strings.dart';
+
 enum ItemUM { un, gr }
 
 class ItensUmDropdown extends StatefulWidget {
@@ -21,20 +23,12 @@ class _ItensUmDropdownState extends State<ItensUmDropdown> {
       requestFocusOnTap: true,
       menuHeight: Sizes.sizeH_200,
       width: Sizes.sizeW_90,
-      label: Text('UM'),
+      label: Text(Strings.um),
       dropdownMenuEntries:
           ItemUM.values.map<DropdownMenuEntry<ItemUM>>((ItemUM um) {
         return DropdownMenuEntry<ItemUM>(
           value: um,
           label: um.name,
-          // style: ButtonStyle(
-          //   minimumSize: MaterialStateProperty.all(Size(30, 30)),
-          // ),
-
-          // enabled: uf.label != 'Grey',
-          // style: MenuItemButton.styleFrom(
-          //   foregroundColor: uf.color,
-          // ),
         );
       }).toList(),
     );
