@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galle/app/widgets/galle_button.dart';
 
 import '../../core/navigation/routes.dart';
 import '../../core/space.dart';
@@ -41,12 +42,13 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
+          GalleButton(
+            titulo: Strings.acessar,
+            onPress: () {
               Navigator.of(context)
                   .pushNamedAndRemoveUntil(Routes.homePage, (route) => false);
             },
-            child: Text(Strings.acessar),
+            icone: Icons.login,
           ),
         ],
       ),

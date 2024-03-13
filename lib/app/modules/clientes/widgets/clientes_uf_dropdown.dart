@@ -57,10 +57,6 @@ class _ClientesUfDropdownState extends State<ClientesUfDropdown> {
         return DropdownMenuEntry<ClienteUF>(
           value: uf,
           label: uf.name.toUpperCase(),
-          // enabled: uf.label != 'Grey',
-          // style: MenuItemButton.styleFrom(
-          //   foregroundColor: uf.color,
-          // ),
         );
       }).toList(),
     );

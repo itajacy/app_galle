@@ -195,17 +195,7 @@ class ClientesCadastro extends StatelessWidget {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.all(Space.spacing_8),
-                  //   child: TextField(
-                  //     controller: principalUfController,
-                  //     keyboardType: TextInputType.name,
-                  //     decoration: InputDecoration(
-                  //       labelText: Strings.uf,
-                  //       border: OutlineInputBorder(),
-                  //     ),
-                  //   ),
-                  // ),
+
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: Row(
