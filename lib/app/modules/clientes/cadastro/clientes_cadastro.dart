@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
-import '../../../core/cores.dart';
+import '../../../core/colors.dart';
 import '../../../core/font.dart';
 import '../../../core/sizes.dart';
 import '../../../core/space.dart';
@@ -39,8 +39,8 @@ class ClientesCadastro extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Cores.appBarBackground,
-        foregroundColor: Cores.appBarForeground,
+        backgroundColor: ColorsApp.appBarBackground,
+        foregroundColor: ColorsApp.appBarForeground,
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

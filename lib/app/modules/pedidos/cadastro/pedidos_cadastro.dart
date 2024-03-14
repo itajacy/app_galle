@@ -6,7 +6,7 @@ import 'package:galle/app/modules/pedidos/widgets/pedidos_button.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_icon_button.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_status_button.dart';
 
-import '../../../core/cores.dart';
+import '../../../core/colors.dart';
 import '../../../core/font.dart';
 import '../../../core/strings.dart';
 
@@ -23,8 +23,8 @@ class PedidosCadastro extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Cores.appBarBackground,
-        foregroundColor: Cores.appBarForeground,
+        backgroundColor: ColorsApp.appBarBackground,
+        foregroundColor: ColorsApp.appBarForeground,
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

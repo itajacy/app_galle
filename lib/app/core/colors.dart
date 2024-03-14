@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Cores {
+class ColorsApp {
   // AppBar
 
   // static const Color appBarBackground = Color.fromRGBO(66, 66, 66, 1);

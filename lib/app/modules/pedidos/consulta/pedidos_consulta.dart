@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/cores.dart';
+import '../../../core/colors.dart';
 import '../../../core/strings.dart';
 
 class PedidosConsulta extends StatelessWidget {
@@ -10,8 +10,8 @@ class PedidosConsulta extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Cores.appBarBackground,
-        foregroundColor: Cores.appBarForeground,
+        backgroundColor: ColorsApp.appBarBackground,
+        foregroundColor: ColorsApp.appBarForeground,
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
