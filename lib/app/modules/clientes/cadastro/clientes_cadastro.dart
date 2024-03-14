@@ -276,6 +276,7 @@ class ClientesCadastro extends StatelessWidget {
                       ),
                     ),
                   ),
+                 
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: ClientesButton(
@@ -286,15 +287,20 @@ class ClientesCadastro extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
-                    child: TextField(
-                      controller: entregaUfController,
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        labelText: Strings.uf,
-                        border: OutlineInputBorder(),
-                      ),
+                    child: Row(
+                      children: [
+                        Text(
+                          Strings.uf,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        SizedBox(
+                          width: Space.spacing_8,
+                        ),
+                        ClientesUfDropdown(),
+                      ],
                     ),
                   ),
+                 
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(

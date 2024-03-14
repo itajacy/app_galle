@@ -35,7 +35,7 @@ class Strings {
   static const foneCom2 = "Digite o Fone Coml. 2";
   static const foneRes = "Digite o Fone Residencial";
   static const fax = "Digite o Fax";
-  static const uf = "Selecione a UF";
+  static const uf = "Selecione o Estado";
   static const cidade = "Digite a Cidade";
   static const endereco = "Digite o Endereco";
   static const complemento = "Digite o Complemento";
@@ -73,6 +73,10 @@ class Strings {
   static const produto = "Produto";
   static const qtde = "Qtde";
   static const um = "UM";
+  static const valorUn = "\$/un";
+  static const valorG = "\$/g";
+  static const valorTotal = "Total";
+
   static const observacaoProduto = "Observação do Produto";
   static const itensMaiusculo = "ITENS";
 }

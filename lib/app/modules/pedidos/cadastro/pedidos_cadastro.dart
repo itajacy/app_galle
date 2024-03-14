@@ -182,6 +182,7 @@ class PedidosCadastro extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(Space.spacing_8),
               child: TextField(
+                maxLines: 7,
                 controller: pedidoObsController,
                 keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(

@@ -11,6 +11,8 @@ import '../../../../core/strings.dart';
 class PedidosCadastroItens extends StatelessWidget {
   const PedidosCadastroItens({super.key});
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,83 +108,62 @@ class PedidosCadastroItens extends StatelessWidget {
             ),
             SizedBox(height: Space.spacing_8),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                Expanded(
+                  flex: 4,
+                  child: const Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            Strings.valorUn,
+                            style: TextStyle(fontSize: Font.title_16),
+                          ),
+                          Text(
+                            Strings.valorG,
+                            style: TextStyle(fontSize: Font.title_16),
+                          ),
+                          Text(
+                            Strings.valorTotal,
+                            style: TextStyle(fontSize: Font.title_16),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text('0,00'),
+                          Text('0,00'),
+                          Text('0,00'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      SimpleIconButton(
+                        onPress: () {},
+                        icone: Icons.check_box,
+                        size: Sizes.sizeH_40,
+                      ),
+                    ],
+                  ),
+                ),
+
                 //! como colocar o $ aqui ??????
-                Text('\$/un'),
-                Text('\$/g'),
-                Text('Total'),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text('0,00'),
-                Text('0,00'),
-                Text('0,00'),
               ],
             ),
             SizedBox(height: Space.spacing_8),
-            Expanded(
+            const Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
+                    
                     Text("01-002AG   Pingente Placa  "),
                     Text("10,00un      2,49      24,90  "),
                   ],
