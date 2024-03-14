@@ -109,8 +109,8 @@ class PedidosCadastroItens extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 //! como colocar o $ aqui ??????
-                Text('R/un'),
-                Text('R/g'),
+                Text('\$/un'),
+                Text('\$/g'),
                 Text('Total'),
               ],
             ),
