@@ -11,8 +11,6 @@ class ColorsApp {
   // TELA
   static const Color screenBackgroundColor = Color.fromRGBO(224, 225, 221, 1);
 
-
-
   // Home Page
   // static const Color botaoMenuBackground = Color.fromRGBO(97, 97, 97, 1);
   static const Color buttonMenuBackground = Color.fromRGBO(65, 90, 119, 1);

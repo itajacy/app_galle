@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/colors.dart';
+import '../../core/colors_app.dart';
 import '../../core/strings.dart';
 
 class SincronizacaoPage extends StatelessWidget {

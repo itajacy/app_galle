@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/widgets/galle_button.dart';
 
-import '../../core/colors.dart';
+import '../../core/colors_app.dart';
 import '../../core/navigation/routes.dart';
 import '../../core/space.dart';
 import '../../core/strings.dart';

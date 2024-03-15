@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../core/colors.dart';
+import '../../core/colors_app.dart';
 import '../../core/font.dart';
 import '../../core/navigation/routes.dart';
 import '../../core/strings.dart';

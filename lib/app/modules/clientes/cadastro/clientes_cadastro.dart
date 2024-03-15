@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
-import '../../../core/colors.dart';
+import '../../../core/colors_app.dart';
 import '../../../core/font.dart';
 import '../../../core/sizes.dart';
 import '../../../core/space.dart';

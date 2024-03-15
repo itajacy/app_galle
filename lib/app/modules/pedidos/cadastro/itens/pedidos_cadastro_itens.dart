@@ -4,7 +4,7 @@ import 'package:galle/app/core/space.dart';
 import 'package:galle/app/modules/pedidos/cadastro/itens/widgets/itens_um_dropdown.dart';
 import 'package:galle/app/widgets/simple_icon_button.dart';
 
-import '../../../../core/colors.dart';
+import '../../../../core/colors_app.dart';
 import '../../../../core/font.dart';
 import '../../../../core/strings.dart';
 
