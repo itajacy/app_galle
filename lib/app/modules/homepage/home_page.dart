@@ -17,16 +17,29 @@ class HomePage extends StatelessWidget {
         foregroundColor: ColorsApp.appBarForeground,
         title: Column(
           children: [
-            Text(
-              Strings.empresa,
-              style: TextStyle(
-                fontSize: Font.title_24,
-                fontWeight: FontWeight.bold,
+            Container(
+              height: 25,
+              child: Image.asset(
+                'assets/galle_branco_800.png',
+                height: 50,
+                fit: BoxFit.fill,
               ),
             ),
-            Text(
-              Strings.versao,
-              style: TextStyle(fontSize: Font.subtitle_10),
+            // Text(
+            //   Strings.empresa,
+            //   style: TextStyle(
+            //     fontSize: Font.title_24,
+            //     fontWeight: FontWeight.bold,
+            //   ),
+            // ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  Strings.versao,
+                  style: TextStyle(fontSize: Font.subtitle_10),
+                ),
+              ],
             ),
           ],
         ),

@@ -23,34 +23,50 @@ class LoginPage extends StatelessWidget {
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Icon(Icons.login),
-            Text(Strings.login),
+            // Icon(Icons.login),
+            // Text(Strings.login),
           ],
         ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(Space.spacing_8),
-            child: TextField(
-              controller: usuarioController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                labelText: Strings.digiteEmail,
-                border: OutlineInputBorder(),
-              ),
+          Container(
+            child: Image.asset(
+              'assets/galle_preto_800.png',
+              height: 50,
+              fit: BoxFit.fill,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(Space.spacing_8),
-            child: TextField(
-              controller: senhaController,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: Strings.digiteSenha,
-                border: OutlineInputBorder(),
-              ),
+          Container(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(Space.spacing_8),
+                  child: TextField(
+                    controller: usuarioController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      labelText: Strings.digiteEmail,
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: Space.spacing_15,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(Space.spacing_8),
+                  child: TextField(
+                    controller: senhaController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: Strings.digiteSenha,
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           GalleButton(
