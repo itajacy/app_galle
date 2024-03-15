@@ -16,6 +16,7 @@ class ClientesConsulta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsApp.screenBackgroundColor,
       appBar: AppBar(
         backgroundColor: ColorsApp.appBarBackground,
         foregroundColor: ColorsApp.appBarForeground,

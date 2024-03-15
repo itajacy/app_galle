@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         backgroundColor: ColorsApp.appBarBackground,
         foregroundColor: ColorsApp.appBarForeground,
@@ -23,7 +24,6 @@ class HomePage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            // Si
             Text(
               Strings.versao,
               style: TextStyle(fontSize: Font.subtitle_10),
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: Container(
-        color: Colors.white,
+        color: ColorsApp.screenBackgroundColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

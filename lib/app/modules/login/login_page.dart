@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/widgets/galle_button.dart';
 
+import '../../core/colors.dart';
 import '../../core/navigation/routes.dart';
 import '../../core/space.dart';
 import '../../core/strings.dart';
@@ -14,8 +15,18 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsApp.screenBackgroundColor,
       appBar: AppBar(
-        title: const Text(''),
+        backgroundColor: ColorsApp.appBarBackground,
+        foregroundColor: ColorsApp.appBarForeground,
+        centerTitle: true,
+        title: const Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(Icons.login),
+            Text(Strings.login),
+          ],
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

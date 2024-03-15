@@ -1,4 +1,7 @@
 class Strings {
+  
+  
+
   // HOME PAGE
   static const clientes = 'CLIENTES';
   static const pedidos = 'PEDIDOS';
@@ -15,6 +18,7 @@ class Strings {
   static const entreCom = 'Entre com ';
 
   // LOGIN PAGE
+  static const login = "LOGIN";
   static const digiteEmail = "Digite seu e-mail";
   static const digiteSenha = "Digite a Senha";
   static const acessar = 'ACESSAR';
