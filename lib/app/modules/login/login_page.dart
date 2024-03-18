@@ -70,7 +70,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           GalleButton(
-            titulo: Strings.acessar,
+            titulo: Strings.entrar,
             onPress: () {
               Navigator.of(context)
                   .pushNamedAndRemoveUntil(Routes.homePage, (route) => false);

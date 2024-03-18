@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:galle/app/core/colors_app.dart';
 import 'package:galle/app/core/navigation/routes.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
 import 'package:galle/app/widgets/simple_icon_button.dart';
 
-import '../../../core/colors_app.dart';
 import '../../../core/font.dart';
 import '../../../core/strings.dart';
 
@@ -12,11 +12,9 @@ class ClientesConsulta extends StatelessWidget {
   ClientesConsulta({super.key});
 
   final clienteController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsApp.screenBackgroundColor,
       appBar: AppBar(
         backgroundColor: ColorsApp.appBarBackground,
         foregroundColor: ColorsApp.appBarForeground,

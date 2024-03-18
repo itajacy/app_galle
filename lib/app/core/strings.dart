@@ -1,7 +1,4 @@
 class Strings {
-  
-  
-
   // HOME PAGE
   static const clientes = 'CLIENTES';
   static const pedidos = 'PEDIDOS';
@@ -10,7 +7,7 @@ class Strings {
   static const sincronizacao = 'SINCRONIZAÇÃO';
   static const configuracao = 'CONFIGURAÇÃO';
   static const empresa = "Galle";
-  static const versao = "versão:  0.01";
+  static const versao = "versão:  0.02";
 
   // DIVERSOS
   static const novo = 'NOVO';
@@ -18,7 +15,7 @@ class Strings {
   static const entreCom = 'Entre com ';
 
   // LOGIN PAGE
-  static const login = "LOGIN";
+  static const entrar = "ENTRAR";
   static const digiteEmail = "Digite seu e-mail";
   static const digiteSenha = "Digite a Senha";
   static const acessar = 'ACESSAR';
