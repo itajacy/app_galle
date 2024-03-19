@@ -8,14 +8,18 @@ class SimpleIconButton extends StatelessWidget {
   late Function onPress;
   late IconData? icone;
   late double size;
+  late Color? iconeForegroundColor;
 
   SimpleIconButton(
-      {required this.onPress, required this.icone, required this.size});
+      {required this.onPress,
+      required this.icone,
+      required this.size,
+      this.iconeForegroundColor});
 
   @override
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-      foregroundColor: Colors.black,
+      // foregroundColor: Colors.black,
       backgroundColor: ColorsApp.buttonMenuBackground,
       // minimumSize: Size(Sizes.sizeW_100, Sizes.sizeH_40),
       padding: EdgeInsets.all(Space.spacing_2),
@@ -35,7 +39,7 @@ class SimpleIconButton extends StatelessWidget {
             padding: const EdgeInsets.all(Space.spacing_2),
             child: Icon(
               icone,
-              color: ColorsApp.iconeForegroundLSecond,
+              color: iconeForegroundColor ?? ColorsApp.iconeForegroundLSecond,
               size: size,
             ),
           ),

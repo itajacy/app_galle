@@ -22,7 +22,6 @@ class PedidosCadastroItens extends StatelessWidget {
     '01-0029',
     '01-0030',
   ];
-  
 
   @override
   Widget build(BuildContext context) {
@@ -158,10 +157,13 @@ class PedidosCadastroItens extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      SimpleIconButton(
-                        onPress: () {},
-                        icone: Icons.check_box,
-                        size: Sizes.sizeH_40,
+                      Padding(
+                        padding: const EdgeInsets.only(right: Space.spacing_2),
+                        child: SimpleIconButton(
+                          onPress: () {},
+                          icone: Icons.check_box,
+                          size: Sizes.sizeH_40,
+                        ),
                       ),
                     ],
                   ),
@@ -169,14 +171,84 @@ class PedidosCadastroItens extends StatelessWidget {
               ],
             ),
             SizedBox(height: Space.spacing_8),
+            //!! abaixo o espaço para a lista de itens cadastrados
             Expanded(
               flex: 1,
               child: ListView.builder(
                 itemCount: lista.length,
-                prototypeItem: ListTile(title: Text('$lista[0]')),
+                // prototypeItem: ListTile(title: Text('$lista[0]')),
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(lista[index]),
+                  return Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: ListTile(
+                      // dense: true,
+                      // visualDensity: VisualDensity.standard,
+                      shape: Border.all(width: 1, style: BorderStyle.none),
+                      contentPadding: EdgeInsets.all(1.0),
+                      title: Container(
+                        // decoration: BoxDecoration(
+                        //   border: Border.all(
+                        //     width: 2,
+                        //     color: Colors.black,
+                        //   ),
+                        // ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              flex: 4,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Text(
+                                        lista[index],
+                                        style:
+                                            TextStyle(fontSize: Font.title_16),
+                                      ),
+                                      Text(
+                                        "Descricao da peça",
+                                        style:
+                                            TextStyle(fontSize: Font.title_16),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Text('10,00'),
+                                      Text('1,50'),
+                                      Text('15,00'),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        right: Space.spacing_2),
+                                    child: SimpleIconButton(
+                                      onPress: () {},
+                                      icone: Icons.delete_forever_outlined,
+                                      size: Sizes.sizeH_40,
+                                      iconeForegroundColor:
+                                          Color.fromARGB(255, 0, 255, 255),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   );
                 },
               ),
