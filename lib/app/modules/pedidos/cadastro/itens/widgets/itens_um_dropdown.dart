@@ -23,6 +23,11 @@ class _ItensUmDropdownState extends State<ItensUmDropdown> {
       requestFocusOnTap: true,
       menuHeight: Sizes.sizeH_200,
       width: Sizes.sizeW_90,
+      menuStyle: MenuStyle(
+        backgroundColor: MaterialStatePropertyAll(Colors.amber),
+        // padding: MaterialStateProperty(),
+      ),
+          
       label: Text(Strings.um),
       dropdownMenuEntries:
           ItemUM.values.map<DropdownMenuEntry<ItemUM>>((ItemUM um) {

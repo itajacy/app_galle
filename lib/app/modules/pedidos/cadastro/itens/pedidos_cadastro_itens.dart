@@ -9,8 +9,19 @@ import '../../../../core/font.dart';
 import '../../../../core/strings.dart';
 
 class PedidosCadastroItens extends StatelessWidget {
-  const PedidosCadastroItens({super.key});
+  PedidosCadastroItens({super.key});
 
+  List<String> lista = [
+    '01-002',
+    '01-0023',
+    '01-0024',
+    '01-0025',
+    '01-0026',
+    '01-0027',
+    '01-0028',
+    '01-0029',
+    '01-0030',
+  ];
   
 
   @override
@@ -155,20 +166,19 @@ class PedidosCadastroItens extends StatelessWidget {
                     ],
                   ),
                 ),
-
-                //! como colocar o $ aqui ??????
               ],
             ),
             SizedBox(height: Space.spacing_8),
-            const Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    
-                    Text("01-002AG   Pingente Placa  "),
-                    Text("10,00un      2,49      24,90  "),
-                  ],
-                ),
+            Expanded(
+              flex: 1,
+              child: ListView.builder(
+                itemCount: lista.length,
+                prototypeItem: ListTile(title: Text('$lista[0]')),
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(lista[index]),
+                  );
+                },
               ),
             ),
           ],
