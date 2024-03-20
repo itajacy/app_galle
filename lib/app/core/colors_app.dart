@@ -24,7 +24,7 @@ class ColorsApp {
   static const Color iconeForegroundMain = Colors.yellow;
   // botão secundário
   static const Color iconeForegroundLSecond = Colors.lightBlue;
-  //
+  // botão terciário
   static const Color iconeForegroundThird = Color.fromARGB(255, 0, 255, 255);
 }
 

@@ -24,10 +24,10 @@ class _ItensUmDropdownState extends State<ItensUmDropdown> {
       menuHeight: Sizes.sizeH_200,
       width: Sizes.sizeW_90,
       menuStyle: MenuStyle(
-        backgroundColor: MaterialStatePropertyAll(Colors.amber),
-        // padding: MaterialStateProperty(),
-      ),
-          
+          // backgroundColor: MaterialStatePropertyAll(Colors.grey),
+          // padding: MaterialStateProperty(),
+          // visualDensity: VisualDensity.compact,
+          ),
       label: Text(Strings.um),
       dropdownMenuEntries:
           ItemUM.values.map<DropdownMenuEntry<ItemUM>>((ItemUM um) {
