@@ -239,7 +239,7 @@ class PedidosCadastroItens extends StatelessWidget {
                                       icone: Icons.delete_forever_outlined,
                                       size: Sizes.sizeH_40,
                                       iconeForegroundColor:
-                                          Color.fromARGB(255, 0, 255, 255),
+                                          ColorsApp.iconeForegroundThird,
                                     ),
                                   ),
                                 ],
