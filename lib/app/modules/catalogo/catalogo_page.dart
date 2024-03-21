@@ -52,17 +52,17 @@ class CatalogoPage extends StatelessWidget {
               SimpleIconButton(
                 onPress: () {},
                 icone: Icons.photo_camera_rounded,
-                size: Sizes.sizeH_40,
+                iconSize: Sizes.sizeH_40,
               ),
               SimpleIconButton(
                 onPress: () {},
                 icone: Icons.tune_rounded,
-                size: Sizes.sizeH_40,
+                iconSize: Sizes.sizeH_40,
               ),
               SimpleIconButton(
                 onPress: () {},
                 icone: Icons.add_shopping_cart_rounded,
-                size: Sizes.sizeH_40,
+                iconSize: Sizes.sizeH_40,
               ),
             ],
           ),

@@ -69,7 +69,7 @@ class PedidosCadastroItens extends StatelessWidget {
                 SimpleIconButton(
                   onPress: () {},
                   icone: Icons.article_outlined,
-                  size: Sizes.sizeH_40,
+                  iconSize: Sizes.sizeH_40,
                 ),
                 // SizedBox(
                 //   height: Space.spacing_5,
@@ -100,7 +100,7 @@ class PedidosCadastroItens extends StatelessWidget {
                 SimpleIconButton(
                   onPress: () {},
                   icone: Icons.search,
-                  size: Sizes.sizeH_40,
+                  iconSize: Sizes.sizeH_40,
                 ),
                 // SizedBox(width: Space.spacing_5),
                 SizedBox(
@@ -188,7 +188,7 @@ class PedidosCadastroItens extends StatelessWidget {
                         child: SimpleIconButton(
                           onPress: () {},
                           icone: Icons.check_box,
-                          size: Sizes.sizeH_40,
+                          iconSize: Sizes.sizeH_40,
                         ),
                       ),
                     ],
@@ -253,7 +253,7 @@ class PedidosCadastroItens extends StatelessWidget {
                                 child: SimpleIconButton(
                                   onPress: () {},
                                   icone: Icons.delete_forever_outlined,
-                                  size: Sizes.sizeH_40,
+                                  iconSize: Sizes.sizeH_40,
                                   iconeForegroundColor:
                                       ColorsApp.iconeForegroundThird,
                                 ),

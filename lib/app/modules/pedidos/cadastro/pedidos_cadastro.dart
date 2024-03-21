@@ -120,10 +120,12 @@ class PedidosCadastro extends StatelessWidget {
                       keyboardType: TextInputType.number,
                     ),
                   ),
-                  PedidosIconButton(
+                  SimpleIconButton(
                     onPress: () {},
                     icone: Icons.article_outlined,
-                    size: Sizes.sizeH_40,
+                    iconSize: Sizes.sizeH_40,
+                    buttonWidth: Sizes.sizeW_64,
+                    buttonHeight: Sizes.sizeH_40,
                   ),
                 ],
               ),
@@ -146,10 +148,12 @@ class PedidosCadastro extends StatelessWidget {
                       ),
                     ),
                   ),
-                  PedidosIconButton(
+                  SimpleIconButton(
                     onPress: () {},
                     icone: Icons.search,
-                    size: Sizes.sizeH_40,
+                    iconSize: Sizes.sizeH_40,
+                    buttonWidth: Sizes.sizeW_64,
+                    buttonHeight: Sizes.sizeH_40,
                   ),
                 ],
               ),
@@ -174,12 +178,12 @@ class PedidosCadastro extends StatelessWidget {
                     ),
                   ),
                   SimpleIconButton(
-                      onPress: () {}, icone: Icons.search, size: 40)
-                  // PedidosIconButton(
-                  //   onPress: () {},
-                  //   icone: Icons.search,
-                  //   size: Sizes.sizeH_40,
-                  // ),
+                    onPress: () {},
+                    icone: Icons.search,
+                    iconSize: Sizes.sizeH_40,
+                    buttonWidth: Sizes.sizeW_64,
+                    buttonHeight: Sizes.sizeH_40,
+                  )
                 ],
               ),
             ),

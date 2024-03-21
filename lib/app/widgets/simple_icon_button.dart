@@ -8,21 +8,27 @@ import '../core/space.dart';
 class SimpleIconButton extends StatelessWidget {
   late Function onPress;
   late IconData? icone;
-  late double size;
+  late double iconSize;
   late Color? iconeForegroundColor;
+  late double? buttonWidth;
+  late double? buttonHeight;
 
-  SimpleIconButton(
-      {required this.onPress,
-      required this.icone,
-      required this.size,
-      this.iconeForegroundColor});
+  SimpleIconButton({
+    required this.onPress,
+    required this.icone,
+    required this.iconSize,
+    this.iconeForegroundColor,
+    this.buttonWidth,
+    this.buttonHeight,
+  });
 
   @override
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       // foregroundColor: Colors.black,
       backgroundColor: ColorsApp.buttonMenuBackground,
-      minimumSize: Size(64, Sizes.sizeH_40),
+      minimumSize:
+          Size(buttonWidth ?? Sizes.sizeW_40, buttonHeight ?? Sizes.sizeH_40),
       padding: EdgeInsets.all(Space.spacing_2),
       shape: RoundedRectangleBorder(
         borderRadius: Borders.borderRadius_10,
@@ -41,7 +47,7 @@ class SimpleIconButton extends StatelessWidget {
             child: Icon(
               icone,
               color: iconeForegroundColor ?? ColorsApp.iconeForegroundLSecond,
-              size: size,
+              size: iconSize,
             ),
           ),
         ],

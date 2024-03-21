@@ -1,6 +1,7 @@
 class Sizes {
   static const double sizeW_30 = 30;
   static const double sizeW_40 = 40;
+  static const double sizeW_64 = 64;
   static const double sizeW_80 = 80;
   static const double sizeW_90 = 90;
   static const double sizeW_100 = 100;

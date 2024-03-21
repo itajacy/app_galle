@@ -54,7 +54,7 @@ class ClientesConsulta extends StatelessWidget {
                       Navigator.of(context).pushNamed(Routes.clientesCadastro);
                     },
                     icone: Icons.person_add_alt_1,
-                    size: Sizes.sizeH_40,
+                    iconSize: Sizes.sizeH_40,
                   ),
                 ],
               ),
