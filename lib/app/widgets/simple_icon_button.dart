@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../core/borders.dart';
 import '../core/colors_app.dart';
+import '../core/sizes.dart';
 import '../core/space.dart';
 
 class SimpleIconButton extends StatelessWidget {
@@ -21,7 +22,7 @@ class SimpleIconButton extends StatelessWidget {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       // foregroundColor: Colors.black,
       backgroundColor: ColorsApp.buttonMenuBackground,
-      // minimumSize: Size(Sizes.sizeW_100, Sizes.sizeH_40),
+      minimumSize: Size(64, Sizes.sizeH_40),
       padding: EdgeInsets.all(Space.spacing_2),
       shape: RoundedRectangleBorder(
         borderRadius: Borders.borderRadius_10,
