@@ -3,7 +3,6 @@ import 'package:galle/app/core/navigation/routes.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_button.dart';
-import 'package:galle/app/modules/pedidos/widgets/pedidos_icon_button.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_status_button.dart';
 import 'package:galle/app/widgets/simple_icon_button.dart';
 
