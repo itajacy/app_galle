@@ -70,10 +70,9 @@ class PedidosCadastroItens extends StatelessWidget {
                   onPress: () {},
                   icone: Icons.article_outlined,
                   iconSize: Sizes.sizeH_40,
+                  buttonWidth: Sizes.sizeW_64,
+                  buttonHeight: Sizes.sizeW_40,
                 ),
-                // SizedBox(
-                //   height: Space.spacing_5,
-                // ),
               ],
             ),
             SizedBox(
@@ -101,6 +100,8 @@ class PedidosCadastroItens extends StatelessWidget {
                   onPress: () {},
                   icone: Icons.search,
                   iconSize: Sizes.sizeH_40,
+                  buttonWidth: Sizes.sizeW_64,
+                  buttonHeight: Sizes.sizeW_40,
                 ),
                 // SizedBox(width: Space.spacing_5),
                 SizedBox(
@@ -189,6 +190,8 @@ class PedidosCadastroItens extends StatelessWidget {
                           onPress: () {},
                           icone: Icons.check_box,
                           iconSize: Sizes.sizeH_40,
+                          buttonWidth: Sizes.sizeW_64,
+                          buttonHeight: Sizes.sizeW_40,
                         ),
                       ),
                     ],
