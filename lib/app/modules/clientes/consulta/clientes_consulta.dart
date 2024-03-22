@@ -15,6 +15,7 @@ class ClientesConsulta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsApp.screenBackgroundColor,
       appBar: AppBar(
         backgroundColor: ColorsApp.appBarBackground,
         foregroundColor: ColorsApp.appBarForeground,
@@ -46,6 +47,7 @@ class ClientesConsulta extends StatelessWidget {
                         labelText: Strings.cliente,
                         labelStyle: TextStyle(fontSize: Font.title_24),
                         border: OutlineInputBorder(),
+                        isDense: true,
                       ),
                     ),
                   ),
@@ -55,6 +57,8 @@ class ClientesConsulta extends StatelessWidget {
                     },
                     icone: Icons.person_add_alt_1,
                     iconSize: Sizes.sizeH_40,
+                    buttonWidth: 64,
+                    buttonHeight: 55,
                   ),
                 ],
               ),
