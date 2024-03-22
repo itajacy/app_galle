@@ -86,6 +86,7 @@ class CatalogoPage extends StatelessWidget {
           ),
           Expanded(
             child: GridView.count(
+              childAspectRatio: (10 / 16),
               // Create a grid with 2 columns. If you change the scrollDirection to
               // horizontal, this produces 2 rows.
               crossAxisCount: 2,
@@ -94,12 +95,17 @@ class CatalogoPage extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(Space.spacing_8),
                   child: Column(
+
                     children: [
-                      Text(
-                        codigoDoProduto,
-                        style: TextStyle(
-                          color: Colors.white,
-                          backgroundColor: Colors.black54,
+                      Container(
+                        color: Colors.grey,
+                        width: MediaQuery.of(context).size.width,
+                        child: Text(
+                          codigoDoProduto,
+                          style: TextStyle(
+                            color: Colors.white,
+                            // backgroundColor: Colors.black54,
+                          ),
                         ),
                       ),
                       Row(
@@ -134,9 +140,17 @@ class CatalogoPage extends StatelessWidget {
                       ),
                       Expanded(
                         flex: 1,
-                        child: Image.network(
-                          'http://app.galle.com.br/images/grandes/01-002.jpg',
-                          fit: BoxFit.contain,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                            image: NetworkImage(
+                                'http://app.galle.com.br/images/grandes/01-002.jpg'),
+                            // fit: BoxFit.cover,
+                          )),
+                          // child: Image.network(
+                          //   'http://app.galle.com.br/images/grandes/01-002.jpg',
+
+                          // ),
                         ),
                       ),
                       Text(
@@ -147,15 +161,13 @@ class CatalogoPage extends StatelessWidget {
                           backgroundColor: Colors.black54,
                         ),
                       ),
+                     
+                     
+                                  
                     ],
                   ),
                 );
-                // Center(
-                //   child: Text(
-                //     'Item $index',
-                //     style: Theme.of(context).textTheme.headlineSmall,
-                //   ),
-                // );
+               
               }),
             ),
           ),
