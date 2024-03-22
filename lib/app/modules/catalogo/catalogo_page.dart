@@ -12,6 +12,15 @@ class CatalogoPage extends StatelessWidget {
 
   final codigoDoProdutoController = TextEditingController();
 
+  //! inicio dos  dados para teste do gridview
+  final String codigoDoProduto = '01-002';
+  final String precoUnitario = '3,56/un';
+  final String precoPorGrama = '4,81/g';
+  final String descricaoDoProduto =
+      'Pingente Placa Vazada de Cruz / 10x24mm / 0,7g';
+
+  //! fim dos  dados para teste do gridview
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +83,81 @@ class CatalogoPage extends StatelessWidget {
           ),
           SizedBox(
             height: Space.spacing_8,
+          ),
+          Expanded(
+            child: GridView.count(
+              // Create a grid with 2 columns. If you change the scrollDirection to
+              // horizontal, this produces 2 rows.
+              crossAxisCount: 2,
+              // Generate 100 widgets that display their index in the List.
+              children: List.generate(100, (index) {
+                return Padding(
+                  padding: const EdgeInsets.all(Space.spacing_8),
+                  child: Column(
+                    children: [
+                      Text(
+                        codigoDoProduto,
+                        style: TextStyle(
+                          color: Colors.white,
+                          backgroundColor: Colors.black54,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                precoUnitario,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                ),
+                              ),
+                              Text(
+                                precoPorGrama,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              SimpleIconButton(
+                                onPress: () {},
+                                icone: Icons.add,
+                                iconSize: 30,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Image.network(
+                          'http://app.galle.com.br/images/grandes/01-002.jpg',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                      Text(
+                        descricaoDoProduto,
+                        style: TextStyle(
+                          fontSize: 8,
+                          color: Colors.white,
+                          backgroundColor: Colors.black54,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+                // Center(
+                //   child: Text(
+                //     'Item $index',
+                //     style: Theme.of(context).textTheme.headlineSmall,
+                //   ),
+                // );
+              }),
+            ),
           ),
         ],
       ),
