@@ -182,17 +182,14 @@ class PedidosCadastroItens extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: Space.spacing_2),
-                        child: SimpleIconButton(
-                          onPress: () {},
-                          icone: Icons.check_box,
-                          iconSize: Sizes.sizeH_40,
-                          buttonWidth: Sizes.sizeW_64,
-                          buttonHeight: Sizes.sizeW_40,
-                        ),
+                      SimpleIconButton(
+                        onPress: () {},
+                        icone: Icons.check_box,
+                        iconSize: Sizes.sizeH_40,
+                        buttonWidth: Sizes.sizeW_40,
+                        buttonHeight: Sizes.sizeW_40,
                       ),
                     ],
                   ),

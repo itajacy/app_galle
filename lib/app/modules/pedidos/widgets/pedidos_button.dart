@@ -41,7 +41,7 @@ class PedidosButton extends StatelessWidget {
             padding: const EdgeInsets.all(Space.spacing_2),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
+              // mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
                   icone,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../core/borders.dart';
 import '../core/colors_app.dart';
+import '../core/font.dart';
 import '../core/sizes.dart';
 import '../core/space.dart';
 
@@ -12,6 +13,7 @@ class SimpleIconButton extends StatelessWidget {
   late Color? iconeForegroundColor;
   late double? buttonWidth;
   late double? buttonHeight;
+  late String? titulo;
 
   SimpleIconButton({
     required this.onPress,
@@ -20,12 +22,13 @@ class SimpleIconButton extends StatelessWidget {
     this.iconeForegroundColor,
     this.buttonWidth,
     this.buttonHeight,
+    this.titulo,
   });
 
   @override
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-      // foregroundColor: Colors.black,
+      foregroundColor: Colors.yellow,
       backgroundColor: ColorsApp.buttonMenuBackground,
       minimumSize:
           Size(buttonWidth ?? Sizes.sizeW_40, buttonHeight ?? Sizes.sizeH_40),
@@ -44,10 +47,24 @@ class SimpleIconButton extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(Space.spacing_2),
-            child: Icon(
-              icone,
-              color: iconeForegroundColor ?? ColorsApp.iconeForegroundLSecond,
-              size: iconSize,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icone,
+                  color:
+                      iconeForegroundColor ?? ColorsApp.iconeForegroundLSecond,
+                  size: iconSize,
+                ),
+                Text(
+                  titulo ?? "",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: Font.title_16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

@@ -41,22 +41,47 @@ class PedidosCadastro extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                PedidosButton(
+                SimpleIconButton(
                   onPress: () {},
                   icone: Icons.local_post_office_outlined,
+                  iconSize: Sizes.sizeH_35,
+                  buttonWidth: Sizes.sizeW_110,
+                  buttonHeight: Sizes.sizeH_40,
                 ),
-                PedidosButton(
+                // PedidosButton(
+                //   onPress: () {},
+                //   icone: Icons.local_post_office_outlined,
+                // ),
+                SimpleIconButton(
                   onPress: () {},
                   icone: Icons.print_outlined,
+                  iconSize: Sizes.sizeH_35,
+                  buttonWidth: Sizes.sizeW_110,
+                  buttonHeight: Sizes.sizeH_40,
                 ),
-                PedidosButton(
+                // PedidosButton(
+                //   onPress: () {},
+                //   icone: Icons.print_outlined,
+                // ),
+                SimpleIconButton(
                   onPress: () {
                     Navigator.of(context)
                         .pushNamed(Routes.pedidosCadastroItens);
                   },
-                  titulo: Strings.itensMaiusculo,
                   icone: Icons.article_outlined,
+                  iconSize: Sizes.sizeH_35,
+                  buttonWidth: Sizes.sizeW_110,
+                  buttonHeight: Sizes.sizeH_40,
+                  titulo: Strings.itensMaiusculo,
                 ),
+                // PedidosButton(
+                //   onPress: () {
+                //     Navigator.of(context)
+                //         .pushNamed(Routes.pedidosCadastroItens);
+                //   },
+                //   titulo: Strings.itensMaiusculo,
+                //   icone: Icons.article_outlined,
+                // ),
               ],
             ),
             Container(
