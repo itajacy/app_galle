@@ -40,4 +40,6 @@ class ColorsApp {
 119,141,169   = Cinza Médio
 224,225,221   = Cinza Creme
 
+Color.fromARGB(255, 10, 109, 155), = Azul Navy
+
  */

@@ -44,6 +44,7 @@ class SimpleIconButton extends StatelessWidget {
       },
       style: raisedButtonStyle,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Padding(
             padding: const EdgeInsets.all(Space.spacing_2),
@@ -57,6 +58,7 @@ class SimpleIconButton extends StatelessWidget {
                   size: iconSize,
                 ),
                 Text(
+                  // titulo!.isNotEmpty ? " $titulo" : "",
                   titulo ?? "",
                   style: TextStyle(
                     color: Colors.white,

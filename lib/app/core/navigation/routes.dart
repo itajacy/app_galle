@@ -1,5 +1,3 @@
-import 'package:galle/app/modules/pedidos/cadastro/itens/pedidos_cadastro_itens.dart';
-
 class Routes {
   static const loginPage = '/loginPage';
   static const homePage = '/homePage';
@@ -14,5 +12,6 @@ class Routes {
   static const pedidosCadastro = '/pedidosCadastro';
   static const pedidosConsulta = '/pedidosConsulta';
   static const pedidosCadastroItens = '/pedidosCadastroItens';
-
+  static const configuracaoFtp = '/configuracaoFtp';
+  static const configuracaoAmazon = '/configuracaoAmazon';
 }

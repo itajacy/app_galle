@@ -277,7 +277,7 @@ class ClientesCadastro extends StatelessWidget {
                       ),
                     ),
                   ),
-                 
+
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: ClientesButton(
@@ -301,7 +301,7 @@ class ClientesCadastro extends StatelessWidget {
                       ],
                     ),
                   ),
-                 
+
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(

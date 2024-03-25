@@ -80,4 +80,14 @@ class Strings {
 
   static const observacaoProduto = "Observação do Produto";
   static const itensMaiusculo = "ITENS";
+
+  // CONFIGURACAO
+  static const amazon = "AMAZON";
+  static const ftp = "FTP";
+  static const configuracaoFtp = "Configuração FTP";
+  static const configuracaoAmazon = "Configuração AMAZON";
+
+  // CONFIGURACAO_FTP
+  static const enderecoSincronizacao = "Endereço de Sincronização";
+  static const enderecoImagens = "Endereço das Imagens";
 }
