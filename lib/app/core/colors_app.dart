@@ -19,7 +19,7 @@ class ColorsApp {
   // TEXTO
   static const Color textForeground = Color.fromARGB(255, 255, 255, 255);
   static const Color catalogotextbackgroundColor =
-      Color.fromARGB(13, 6, 12, 100);
+      Color.fromARGB(255, 10, 109, 155);
 
   // ICONE
   // botão primário

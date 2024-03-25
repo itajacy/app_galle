@@ -11,6 +11,8 @@ class ConfiguracaoFtp extends StatelessWidget {
 
   final enderecoSincronizacaoController = TextEditingController();
   final enderecoImagensController = TextEditingController();
+  final usuarioFTPController = TextEditingController();
+  final senhaFTPController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,54 +30,79 @@ class ConfiguracaoFtp extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: Space.spacing_12,
-          ),
-          Container(
-            height: Sizes.sizeH_40,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ClientesButton(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: Space.spacing_12,
+            ),
+            Container(
+              height: Sizes.sizeH_40,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ClientesButton(
+                      onPress: () {},
+                      titulo: Strings.cancelar,
+                      icone: Icons.cancel_presentation_outlined),
+                  ClientesButton(
                     onPress: () {},
-                    titulo: Strings.cancelar,
-                    icone: Icons.cancel_presentation_outlined),
-                ClientesButton(
-                  onPress: () {},
-                  titulo: Strings.salvar,
-                  icone: Icons.check_box,
+                    titulo: Strings.salvar,
+                    icone: Icons.check_box,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: Space.spacing_12,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(Space.spacing_12),
+              child: TextField(
+                controller: enderecoSincronizacaoController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: Strings.enderecoSincronizacao,
+                  border: OutlineInputBorder(),
                 ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: Space.spacing_12,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(Space.spacing_12),
-            child: TextField(
-              controller: enderecoSincronizacaoController,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                labelText: Strings.enderecoSincronizacao,
-                border: OutlineInputBorder(),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(Space.spacing_12),
-            child: TextField(
-              controller: enderecoImagensController,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                labelText: Strings.enderecoImagens,
-                border: OutlineInputBorder(),
+            Padding(
+              padding: const EdgeInsets.all(Space.spacing_12),
+              child: TextField(
+                controller: enderecoImagensController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: Strings.enderecoImagens,
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(Space.spacing_12),
+              child: TextField(
+                controller: usuarioFTPController,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: Strings.usuarioDeFTP,
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(Space.spacing_12),
+              child: TextField(
+                controller: senhaFTPController,
+                obscureText: true,
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  labelText: Strings.senhaDeFTP,
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

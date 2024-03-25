@@ -61,21 +61,21 @@ class CatalogoPage extends StatelessWidget {
               SimpleIconButton(
                 onPress: () {},
                 icone: Icons.photo_camera_rounded,
-                iconSize: Sizes.sizeH_35,
+                iconSize: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_55,
                 buttonHeight: Sizes.sizeH_55,
               ),
               SimpleIconButton(
                 onPress: () {},
                 icone: Icons.tune_rounded,
-                iconSize: Sizes.sizeH_35,
+                iconSize: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_55,
                 buttonHeight: Sizes.sizeH_55,
               ),
               SimpleIconButton(
                 onPress: () {},
                 icone: Icons.add_shopping_cart_rounded,
-                iconSize: Sizes.sizeH_35,
+                iconSize: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_55,
                 buttonHeight: Sizes.sizeH_55,
               ),
@@ -97,8 +97,8 @@ class CatalogoPage extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        // color: Colors.black54,
-                        color: Color.fromARGB(255, 10, 109, 155),
+                        color: ColorsApp.catalogotextbackgroundColor,
+                        // color: Color.fromARGB(255, 10, 109, 155),
                         width: MediaQuery.of(context).size.width,
                         child: Text(
                           codigoDoProduto,
@@ -152,7 +152,8 @@ class CatalogoPage extends StatelessWidget {
                       ),
                       Container(
                         // color: Colors.black54,
-                        color: Color.fromARGB(255, 10, 109, 155),
+                        // color: Color.fromARGB(255, 10, 109, 155),
+                        color: ColorsApp.catalogotextbackgroundColor,
                         width: MediaQuery.of(context).size.width,
                         child: Text(
                           descricaoDoProduto,

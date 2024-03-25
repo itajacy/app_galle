@@ -90,4 +90,6 @@ class Strings {
   // CONFIGURACAO_FTP
   static const enderecoSincronizacao = "Endereço de Sincronização";
   static const enderecoImagens = "Endereço das Imagens";
+  static const usuarioDeFTP = "Usuário do FTP";
+  static const senhaDeFTP = "Senha do FTP";
 }
