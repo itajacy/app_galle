@@ -9,7 +9,7 @@ import '../core/space.dart';
 class SimpleIconButton extends StatelessWidget {
   late Function onPress;
   late IconData? icone;
-  late double iconSize;
+  late double? iconSize;
   late Color? iconeForegroundColor;
   late double? buttonWidth;
   late double? buttonHeight;
@@ -17,8 +17,8 @@ class SimpleIconButton extends StatelessWidget {
 
   SimpleIconButton({
     required this.onPress,
-    required this.icone,
-    required this.iconSize,
+    this.icone,
+    this.iconSize,
     this.iconeForegroundColor,
     this.buttonWidth,
     this.buttonHeight,

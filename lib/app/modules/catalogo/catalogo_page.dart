@@ -74,7 +74,7 @@ class CatalogoPage extends StatelessWidget {
               ),
               SimpleIconButton(
                 onPress: () {},
-                icone: Icons.add_shopping_cart_rounded,
+                icone: Icons.shopping_cart_outlined,
                 iconSize: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_55,
                 buttonHeight: Sizes.sizeH_55,
