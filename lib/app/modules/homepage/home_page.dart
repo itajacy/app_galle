@@ -11,7 +11,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         backgroundColor: ColorsApp.appBarBackground,
         foregroundColor: ColorsApp.appBarForeground,
@@ -32,7 +31,7 @@ class HomePage extends StatelessWidget {
             //     fontWeight: FontWeight.bold,
             //   ),
             // ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
@@ -72,13 +71,13 @@ class HomePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                GalleButton(
-                  onPress: () {
-                    Navigator.of(context).pushNamed(Routes.precosPage);
-                  },
-                  titulo: Strings.precos,
-                  icone: Icons.monetization_on_rounded,
-                ),
+                // GalleButton(
+                //   onPress: () {
+                //     Navigator.of(context).pushNamed(Routes.precosPage);
+                //   },
+                //   titulo: Strings.precos,
+                //   icone: Icons.monetization_on_rounded,
+                // ),
                 GalleButton(
                   onPress: () {
                     Navigator.of(context).pushNamed(Routes.catalogoPage);
