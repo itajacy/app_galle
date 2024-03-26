@@ -20,7 +20,7 @@ class GalleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-      // foregroundColor: Colors.red,
+      foregroundColor: Colors.yellow,
       // Colors.grey.shade700
       backgroundColor: ColorsApp.buttonMenuBackground,
       minimumSize: Size(Sizes.sizeW_150, Sizes.sizeH_70),

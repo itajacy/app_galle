@@ -50,6 +50,28 @@ class ConfiguracaoPage extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(
+            height: Space.spacing_30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GalleButton(
+                onPress: () {
+                  // Navigator.of(context).pushNamed(Routes.configuracaoAmazon);
+                },
+                titulo: "TELA",
+                icone: Icons.screenshot,
+              ),
+              // GalleButton(
+              //   onPress: () {
+              //     Navigator.of(context).pushNamed(Routes.configuracaoFtp);
+              //   },
+              //   titulo: Strings.ftp,
+              //   icone: Icons.filter_drama,
+              // ),
+            ],
+          ),
         ],
       ),
     );
