@@ -4,7 +4,7 @@ import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_button.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_status_button.dart';
-import 'package:galle/app/widgets/simple_icon_button.dart';
+import 'package:galle/app/widgets/general_icon_button.dart';
 
 import '../../../core/colors_app.dart';
 import '../../../core/font.dart';
@@ -41,7 +41,7 @@ class PedidosCadastro extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                SimpleIconButton(
+                GeneralIconButton(
                   onPress: () {},
                   icone: Icons.local_post_office_outlined,
                   iconSize: Sizes.sizeH_35,
@@ -52,7 +52,7 @@ class PedidosCadastro extends StatelessWidget {
                 //   onPress: () {},
                 //   icone: Icons.local_post_office_outlined,
                 // ),
-                SimpleIconButton(
+                GeneralIconButton(
                   onPress: () {},
                   icone: Icons.print_outlined,
                   iconSize: Sizes.sizeH_35,
@@ -63,7 +63,7 @@ class PedidosCadastro extends StatelessWidget {
                 //   onPress: () {},
                 //   icone: Icons.print_outlined,
                 // ),
-                SimpleIconButton(
+                GeneralIconButton(
                   onPress: () {
                     Navigator.of(context)
                         .pushNamed(Routes.pedidosCadastroItens);
@@ -144,7 +144,7 @@ class PedidosCadastro extends StatelessWidget {
                       keyboardType: TextInputType.number,
                     ),
                   ),
-                  SimpleIconButton(
+                  GeneralIconButton(
                     onPress: () {},
                     icone: Icons.article_outlined,
                     iconSize: Sizes.sizeH_40,
@@ -172,7 +172,7 @@ class PedidosCadastro extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SimpleIconButton(
+                  GeneralIconButton(
                     onPress: () {},
                     icone: Icons.search,
                     iconSize: Sizes.sizeH_40,
@@ -201,7 +201,7 @@ class PedidosCadastro extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SimpleIconButton(
+                  GeneralIconButton(
                     onPress: () {},
                     icone: Icons.search,
                     iconSize: Sizes.sizeH_40,

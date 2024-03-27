@@ -3,7 +3,7 @@ import 'package:galle/app/core/colors_app.dart';
 import 'package:galle/app/core/navigation/routes.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
-import 'package:galle/app/widgets/simple_icon_button.dart';
+import 'package:galle/app/widgets/general_icon_button.dart';
 
 import '../../../core/font.dart';
 import '../../../core/strings.dart';
@@ -51,7 +51,7 @@ class ClientesConsulta extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SimpleIconButton(
+                  GeneralIconButton(
                     onPress: () {
                       Navigator.of(context).pushNamed(Routes.clientesCadastro);
                     },

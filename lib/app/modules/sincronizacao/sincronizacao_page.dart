@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:galle/app/widgets/galle_button.dart';
-import 'package:galle/app/widgets/simple_icon_button.dart';
+import 'package:galle/app/widgets/general_icon_button.dart';
 
 import '../../core/colors_app.dart';
 import '../../core/strings.dart';
@@ -30,7 +29,7 @@ class SincronizacaoPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SimpleIconButton(
+              GeneralIconButton(
                 onPress: () {},
                 icone: Icons.sync_outlined,
                 iconSize: 30,
@@ -49,7 +48,7 @@ class SincronizacaoPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SimpleIconButton(
+              GeneralIconButton(
                 onPress: () {},
                 icone: Icons.sync_outlined,
                 iconSize: 30,
@@ -68,7 +67,7 @@ class SincronizacaoPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SimpleIconButton(
+              GeneralIconButton(
                 onPress: () {},
                 icone: Icons.sync_outlined,
                 iconSize: 30,
@@ -87,7 +86,7 @@ class SincronizacaoPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SimpleIconButton(
+              GeneralIconButton(
                 onPress: () {},
                 icone: Icons.sync_outlined,
                 iconSize: 30,
@@ -106,7 +105,7 @@ class SincronizacaoPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SimpleIconButton(
+              GeneralIconButton(
                 onPress: () {},
                 icone: Icons.sync_outlined,
                 iconSize: 30,

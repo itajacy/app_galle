@@ -6,7 +6,7 @@ import '../core/font.dart';
 import '../core/sizes.dart';
 import '../core/space.dart';
 
-class SimpleIconButton extends StatelessWidget {
+class GeneralIconButton extends StatelessWidget {
   late Function onPress;
   late IconData? icone;
   late double? iconSize;
@@ -15,7 +15,7 @@ class SimpleIconButton extends StatelessWidget {
   late double? buttonHeight;
   late String? titulo;
 
-  SimpleIconButton({
+  GeneralIconButton({
     required this.onPress,
     this.icone,
     this.iconSize,

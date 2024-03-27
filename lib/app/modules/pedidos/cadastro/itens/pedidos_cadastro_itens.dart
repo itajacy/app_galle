@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
 import 'package:galle/app/modules/pedidos/cadastro/itens/widgets/itens_um_dropdown.dart';
-import 'package:galle/app/widgets/simple_icon_button.dart';
+import 'package:galle/app/widgets/general_icon_button.dart';
 
 import '../../../../core/colors_app.dart';
 import '../../../../core/font.dart';
@@ -66,7 +66,7 @@ class PedidosCadastroItens extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 15),
-                SimpleIconButton(
+                GeneralIconButton(
                   onPress: () {},
                   icone: Icons.article_outlined,
                   iconSize: Sizes.sizeH_40,
@@ -96,7 +96,7 @@ class PedidosCadastroItens extends StatelessWidget {
                 ),
                 // SizedBox(width: Space.spacing_5),
                 // ! Icone de pesquisa de produto
-                SimpleIconButton(
+                GeneralIconButton(
                   onPress: () {},
                   icone: Icons.search,
                   iconSize: Sizes.sizeH_40,
@@ -184,7 +184,7 @@ class PedidosCadastroItens extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SimpleIconButton(
+                      GeneralIconButton(
                         onPress: () {},
                         icone: Icons.check_box,
                         iconSize: Sizes.sizeH_40,
@@ -250,7 +250,7 @@ class PedidosCadastroItens extends StatelessWidget {
                                 padding: const EdgeInsets.only(
                                   right: Space.spacing_2,
                                 ),
-                                child: SimpleIconButton(
+                                child: GeneralIconButton(
                                   onPress: () {},
                                   icone: Icons.delete_forever_outlined,
                                   iconSize: Sizes.sizeH_40,

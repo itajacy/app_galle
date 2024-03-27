@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
-import 'package:galle/app/widgets/simple_icon_button.dart';
+import 'package:galle/app/widgets/general_icon_button.dart';
 
 import '../../core/colors_app.dart';
 import '../../core/font.dart';
@@ -58,21 +58,21 @@ class CatalogoPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SimpleIconButton(
+              GeneralIconButton(
                 onPress: () {},
                 icone: Icons.photo_camera_rounded,
                 iconSize: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_55,
                 buttonHeight: Sizes.sizeH_55,
               ),
-              SimpleIconButton(
+              GeneralIconButton(
                 onPress: () {},
                 icone: Icons.tune_rounded,
                 iconSize: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_55,
                 buttonHeight: Sizes.sizeH_55,
               ),
-              SimpleIconButton(
+              GeneralIconButton(
                 onPress: () {},
                 icone: Icons.shopping_cart_outlined,
                 iconSize: Sizes.sizeH_30,
@@ -129,7 +129,7 @@ class CatalogoPage extends StatelessWidget {
                           ),
                           Column(
                             children: [
-                              SimpleIconButton(
+                              GeneralIconButton(
                                 onPress: () {},
                                 icone: Icons.add,
                                 iconSize: 30,
