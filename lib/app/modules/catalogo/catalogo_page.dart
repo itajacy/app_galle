@@ -98,13 +98,14 @@ class CatalogoPage extends StatelessWidget {
                     children: [
                       Container(
                         color: ColorsApp.catalogotextbackgroundColor,
-                        // color: Color.fromARGB(255, 10, 109, 155),
                         width: MediaQuery.of(context).size.width,
-                        child: Text(
-                          codigoDoProduto,
-                          style: TextStyle(
-                            color: Colors.white,
-                            // backgroundColor: Colors.black54,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: Space.spacing_5),
+                          child: Text(
+                            codigoDoProduto,
+                            style: TextStyle(
+                              color: ColorsApp.textForeground,
+                            ),
                           ),
                         ),
                       ),
