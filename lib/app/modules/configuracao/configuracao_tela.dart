@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../core/colors_app.dart';
 import '../../core/strings.dart';
 
-class PrecosPage extends StatelessWidget {
-  const PrecosPage({super.key});
+class ConfiguracaoTela extends StatelessWidget {
+  const ConfiguracaoTela({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,8 @@ class PrecosPage extends StatelessWidget {
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Icon(Icons.monetization_on_rounded),
-            Text(Strings.precos),
+            Icon(Icons.screenshot_sharp),
+            Text(Strings.configuracaoTela),
           ],
         ),
       ),

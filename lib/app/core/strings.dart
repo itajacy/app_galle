@@ -84,8 +84,11 @@ class Strings {
   // CONFIGURACAO
   static const amazon = "AMAZON";
   static const ftp = "FTP";
+  static const tela = "TELA";
+
   static const configuracaoFtp = "Configuração FTP";
   static const configuracaoAmazon = "Configuração AMAZON";
+  static const configuracaoTela = "Configuração TELA";
 
   // CONFIGURACAO_FTP
   static const enderecoSincronizacao = "Endereço de Sincronização";

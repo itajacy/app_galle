@@ -58,18 +58,11 @@ class ConfiguracaoPage extends StatelessWidget {
             children: [
               GalleButton(
                 onPress: () {
-                  // Navigator.of(context).pushNamed(Routes.configuracaoAmazon);
+                  Navigator.of(context).pushNamed(Routes.configuracaoTela);
                 },
-                titulo: "TELA",
+                titulo: Strings.tela,
                 icone: Icons.screenshot,
               ),
-              // GalleButton(
-              //   onPress: () {
-              //     Navigator.of(context).pushNamed(Routes.configuracaoFtp);
-              //   },
-              //   titulo: Strings.ftp,
-              //   icone: Icons.filter_drama,
-              // ),
             ],
           ),
         ],

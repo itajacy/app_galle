@@ -6,12 +6,12 @@ import 'package:galle/app/modules/clientes/clientes_page.dart';
 import 'package:galle/app/modules/configuracao/configuracao_amazon.dart';
 import 'package:galle/app/modules/configuracao/configuracao_ftp.dart';
 import 'package:galle/app/modules/configuracao/configuracao_page.dart';
+import 'package:galle/app/modules/configuracao/configuracao_tela.dart';
 import 'package:galle/app/modules/homepage/home_page.dart';
 import 'package:galle/app/modules/pedidos/cadastro/pedidos_cadastro.dart';
 import 'package:galle/app/modules/pedidos/cadastro/itens/pedidos_cadastro_itens.dart';
 import 'package:galle/app/modules/pedidos/consulta/pedidos_consulta.dart';
 import 'package:galle/app/modules/pedidos/pedidos_page.dart';
-import 'package:galle/app/modules/precos/precos_page.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_page.dart';
 
 import 'app/core/navigation/routes.dart';
@@ -23,10 +23,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        // scaffoldBackgroundColor: Colors.black,
         useMaterial3: true,
       ),
       home: LoginPage(),
@@ -35,7 +33,6 @@ class App extends StatelessWidget {
         Routes.homePage: (context) => HomePage(),
         Routes.clientesPage: (context) => ClientesPage(),
         Routes.pedidosPage: (context) => PedidosPage(),
-        Routes.precosPage: (context) => PrecosPage(),
         Routes.catalogoPage: (context) => CatalogoPage(),
         Routes.sincronizacaoPage: (context) => SincronizacaoPage(),
         Routes.configuracaoPage: (context) => ConfiguracaoPage(),
@@ -46,6 +43,7 @@ class App extends StatelessWidget {
         Routes.pedidosCadastroItens: (context) => PedidosCadastroItens(),
         Routes.configuracaoFtp: (context) => ConfiguracaoFtp(),
         Routes.configuracaoAmazon: (context) => ConfiguracaoAmazon(),
+        Routes.configuracaoTela: (context) => ConfiguracaoTela(),
       },
     );
   }

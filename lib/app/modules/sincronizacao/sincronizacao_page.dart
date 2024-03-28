@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 
 import '../../core/colors_app.dart';
@@ -32,9 +33,9 @@ class SincronizacaoPage extends StatelessWidget {
               GeneralIconButton(
                 onPress: () {},
                 icone: Icons.sync_outlined,
-                iconSize: 30,
-                buttonHeight: 60,
-                buttonWidth: 200,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Clientes',
               ),
               Column(
@@ -51,9 +52,9 @@ class SincronizacaoPage extends StatelessWidget {
               GeneralIconButton(
                 onPress: () {},
                 icone: Icons.sync_outlined,
-                iconSize: 30,
-                buttonHeight: 60,
-                buttonWidth: 200,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Produtos',
               ),
               Column(
@@ -70,9 +71,9 @@ class SincronizacaoPage extends StatelessWidget {
               GeneralIconButton(
                 onPress: () {},
                 icone: Icons.sync_outlined,
-                iconSize: 30,
-                buttonHeight: 60,
-                buttonWidth: 200,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Fotos',
               ),
               Column(
@@ -89,9 +90,9 @@ class SincronizacaoPage extends StatelessWidget {
               GeneralIconButton(
                 onPress: () {},
                 icone: Icons.sync_outlined,
-                iconSize: 30,
-                buttonHeight: 60,
-                buttonWidth: 200,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
                 titulo: 'Enviar Pedidos',
               ),
               Column(
@@ -108,9 +109,9 @@ class SincronizacaoPage extends StatelessWidget {
               GeneralIconButton(
                 onPress: () {},
                 icone: Icons.sync_outlined,
-                iconSize: 30,
-                buttonHeight: 60,
-                buttonWidth: 200,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
                 titulo: 'Envio por e-mail',
               ),
               Column(

@@ -1,4 +1,6 @@
 class Font {
+  static const double title_8 = 8;
+  static const double title_12 = 12;
   static const double title_16 = 16;
   static const double title_18 = 18;
   static const double title_20 = 20;

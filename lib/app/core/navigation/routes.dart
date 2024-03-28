@@ -3,7 +3,6 @@ class Routes {
   static const homePage = '/homePage';
   static const clientesPage = '/clientesPage';
   static const pedidosPage = '/pedidosPage';
-  static const precosPage = '/precosPage';
   static const catalogoPage = '/catalogoPage';
   static const sincronizacaoPage = '/sincronizacaoPage';
   static const configuracaoPage = '/configuracaoPage';
@@ -14,4 +13,5 @@ class Routes {
   static const pedidosCadastroItens = '/pedidosCadastroItens';
   static const configuracaoFtp = '/configuracaoFtp';
   static const configuracaoAmazon = '/configuracaoAmazon';
+  static const configuracaoTela = '/configuracaoTela';
 }

@@ -203,7 +203,7 @@ class ClientesCadastro extends StatelessWidget {
                       children: [
                         Text(
                           Strings.uf,
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(fontSize: Font.title_18),
                         ),
                         SizedBox(
                           width: Space.spacing_8,
@@ -273,7 +273,7 @@ class ClientesCadastro extends StatelessWidget {
                       Strings.enderecoEntrega,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                        fontSize: Font.title_18,
                       ),
                     ),
                   ),
@@ -292,7 +292,7 @@ class ClientesCadastro extends StatelessWidget {
                       children: [
                         Text(
                           Strings.uf,
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(fontSize: Font.title_18),
                         ),
                         SizedBox(
                           width: Space.spacing_8,

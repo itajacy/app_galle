@@ -39,7 +39,7 @@ class ClientesConsulta extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    width: 300,
+                    width: Sizes.sizeW_300,
                     child: TextField(
                       controller: clienteController,
                       keyboardType: TextInputType.text,
@@ -57,8 +57,8 @@ class ClientesConsulta extends StatelessWidget {
                     },
                     icone: Icons.person_add_alt_1,
                     iconSize: Sizes.sizeH_35,
-                    buttonWidth: 64,
-                    buttonHeight: 55,
+                    buttonWidth: Sizes.sizeW_64,
+                    buttonHeight: Sizes.sizeH_55,
                   ),
                 ],
               ),

@@ -17,15 +17,17 @@ class ColorsApp {
   // static const Color botaoMenuForeground = Color.fromRGBO(97, 97, 97, 1);
 
   // TEXTO
-  static const Color textForeground = Color.fromARGB(255, 255, 255, 255);
+  static const Color textForeground = Colors.white;
   static const Color catalogotextbackgroundColor =
       Color.fromARGB(255, 10, 109, 155);
+  // Color.fromARGB(255, 11, 9, 73);
 
   // ICONE
   // botão primário
   static const Color iconeForegroundMain = Colors.yellow;
   // botão secundário
   static const Color iconeForegroundLSecond = Colors.lightBlue;
+  // static const Color iconeForegroundLSecond = Colors.white;
   // botão terciário
   static const Color iconeForegroundThird = Color.fromARGB(255, 0, 255, 255);
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galle/app/core/sizes.dart';
 import '../../core/colors_app.dart';
 import '../../core/font.dart';
 import '../../core/navigation/routes.dart';
@@ -17,20 +18,13 @@ class HomePage extends StatelessWidget {
         title: Column(
           children: [
             Container(
-              height: 25,
+              height: Sizes.sizeH_25,
               child: Image.asset(
                 'assets/galle_branco_800.png',
-                height: 50,
+                height: Sizes.sizeH_50,
                 fit: BoxFit.fill,
               ),
             ),
-            // Text(
-            //   Strings.empresa,
-            //   style: TextStyle(
-            //     fontSize: Font.title_24,
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            // ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -51,7 +45,7 @@ class HomePage extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
+              children: [
                 GalleButton(
                   onPress: () {
                     Navigator.of(context).pushNamed(Routes.clientesPage);
@@ -71,13 +65,6 @@ class HomePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                // GalleButton(
-                //   onPress: () {
-                //     Navigator.of(context).pushNamed(Routes.precosPage);
-                //   },
-                //   titulo: Strings.precos,
-                //   icone: Icons.monetization_on_rounded,
-                // ),
                 GalleButton(
                   onPress: () {
                     Navigator.of(context).pushNamed(Routes.catalogoPage);

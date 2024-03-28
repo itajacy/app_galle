@@ -86,6 +86,7 @@ class CatalogoPage extends StatelessWidget {
           ),
           Expanded(
             child: GridView.count(
+              padding: EdgeInsets.only(bottom: 100),
               childAspectRatio: (10 / 16),
               // Create a grid with 2 columns. If you change the scrollDirection to
               // horizontal, this produces 2 rows.
@@ -100,7 +101,7 @@ class CatalogoPage extends StatelessWidget {
                         color: ColorsApp.catalogotextbackgroundColor,
                         width: MediaQuery.of(context).size.width,
                         child: Padding(
-                          padding: const EdgeInsets.only(left: Space.spacing_5),
+                          padding: const EdgeInsets.only(left: Space.spacing_2),
                           child: Text(
                             codigoDoProduto,
                             style: TextStyle(
@@ -113,17 +114,18 @@ class CatalogoPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 precoUnitario,
                                 style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: Font.title_12,
                                 ),
                               ),
                               Text(
                                 precoPorGrama,
                                 style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: Font.title_12,
                                 ),
                               ),
                             ],
@@ -133,7 +135,8 @@ class CatalogoPage extends StatelessWidget {
                               GeneralIconButton(
                                 onPress: () {},
                                 icone: Icons.add,
-                                iconSize: 30,
+                                iconSize: Sizes.sizeH_30,
+                                iconeForegroundColor: Colors.tealAccent,
                               ),
                             ],
                           ),
@@ -152,15 +155,16 @@ class CatalogoPage extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        // color: Colors.black54,
-                        // color: Color.fromARGB(255, 10, 109, 155),
                         color: ColorsApp.catalogotextbackgroundColor,
                         width: MediaQuery.of(context).size.width,
-                        child: Text(
-                          descricaoDoProduto,
-                          style: TextStyle(
-                            fontSize: 8,
-                            color: Colors.white,
+                        child: Padding(
+                          padding: const EdgeInsets.all(Space.spacing_2),
+                          child: Text(
+                            descricaoDoProduto,
+                            style: TextStyle(
+                              fontSize: Font.title_8,
+                              color: ColorsApp.textForeground,
+                            ),
                           ),
                         ),
                       ),

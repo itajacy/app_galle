@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:galle/app/core/navigation/routes.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
-import 'package:galle/app/modules/pedidos/widgets/pedidos_button.dart';
 import 'package:galle/app/modules/pedidos/widgets/pedidos_status_button.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 
@@ -48,10 +47,6 @@ class PedidosCadastro extends StatelessWidget {
                   buttonWidth: Sizes.sizeW_110,
                   buttonHeight: Sizes.sizeH_40,
                 ),
-                // PedidosButton(
-                //   onPress: () {},
-                //   icone: Icons.local_post_office_outlined,
-                // ),
                 GeneralIconButton(
                   onPress: () {},
                   icone: Icons.print_outlined,
@@ -59,10 +54,6 @@ class PedidosCadastro extends StatelessWidget {
                   buttonWidth: Sizes.sizeW_110,
                   buttonHeight: Sizes.sizeH_40,
                 ),
-                // PedidosButton(
-                //   onPress: () {},
-                //   icone: Icons.print_outlined,
-                // ),
                 GeneralIconButton(
                   onPress: () {
                     Navigator.of(context)
@@ -74,19 +65,12 @@ class PedidosCadastro extends StatelessWidget {
                   buttonHeight: Sizes.sizeH_40,
                   titulo: Strings.itensMaiusculo,
                 ),
-                // PedidosButton(
-                //   onPress: () {
-                //     Navigator.of(context)
-                //         .pushNamed(Routes.pedidosCadastroItens);
-                //   },
-                //   titulo: Strings.itensMaiusculo,
-                //   icone: Icons.article_outlined,
-                // ),
               ],
             ),
             Container(
               margin: EdgeInsets.all(Space.spacing_8),
-              decoration: BoxDecoration(border: Border.all(width: 1)),
+              decoration:
+                  BoxDecoration(border: Border.all(width: Sizes.sizeW_1)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -128,7 +112,7 @@ class PedidosCadastro extends StatelessWidget {
                       keyboardType: TextInputType.number,
                     ),
                   ),
-                  const SizedBox(width: 5),
+                  const SizedBox(width: Space.spacing_5),
                   const Text(
                     Strings.total,
                     style: TextStyle(
@@ -161,7 +145,7 @@ class PedidosCadastro extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: Sizes.sizeH_60,
-                    width: 300,
+                    width: Sizes.sizeW_300,
                     child: TextField(
                       controller: pedidoClienteController,
                       keyboardType: TextInputType.text,
@@ -189,7 +173,7 @@ class PedidosCadastro extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: Sizes.sizeH_60,
-                    width: 300,
+                    width: Sizes.sizeW_300,
                     child: TextField(
                       controller: pedidoTabelasController,
                       keyboardType: TextInputType.text,

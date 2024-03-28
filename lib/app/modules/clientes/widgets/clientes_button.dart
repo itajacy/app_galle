@@ -20,7 +20,6 @@ class ClientesButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-      // foregroundColor: Colors.black,
       backgroundColor: ColorsApp.buttonMenuBackground,
       minimumSize: Size(Sizes.sizeW_150, Sizes.sizeH_40),
       padding: EdgeInsets.all(Space.spacing_2),

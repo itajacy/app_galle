@@ -34,7 +34,9 @@ class _PedidosStatusButtonState extends State<PedidosStatusButton> {
               title: const Text(
                 Strings.aberto,
                 style: TextStyle(
-                    fontSize: Font.title_16, fontWeight: FontWeight.bold),
+                  fontSize: Font.title_16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               leading: Radio<PedidoStatus>(
                 value: PedidoStatus.aberto,
@@ -59,7 +61,9 @@ class _PedidosStatusButtonState extends State<PedidosStatusButton> {
               title: const Text(
                 Strings.fechado,
                 style: TextStyle(
-                    fontSize: Font.title_16, fontWeight: FontWeight.bold),
+                  fontSize: Font.title_16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               leading: Radio<PedidoStatus>(
                 value: PedidoStatus.fechado,
