@@ -42,6 +42,7 @@ class ClientesCadastro extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: ColorsApp.appBarBackground,
         foregroundColor: ColorsApp.appBarForeground,
+        centerTitle: true,
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
