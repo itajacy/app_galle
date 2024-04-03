@@ -33,36 +33,34 @@ class ClientesConsulta extends StatelessWidget {
           SizedBox(
             height: Space.spacing_8,
           ),
-          Container(
-            child: Padding(
-              padding: const EdgeInsets.all(Space.spacing_8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: Sizes.sizeW_300,
-                    child: TextField(
-                      controller: clienteController,
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        labelText: Strings.cliente,
-                        labelStyle: TextStyle(fontSize: Font.title_24),
-                        border: OutlineInputBorder(),
-                        isDense: true,
-                      ),
+          Padding(
+            padding: const EdgeInsets.all(Space.spacing_8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 100,
+                  child: TextField(
+                    controller: clienteController,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      labelText: Strings.cliente,
+                      labelStyle: TextStyle(fontSize: Font.title_24),
+                      border: OutlineInputBorder(),
+                      isDense: true,
                     ),
                   ),
-                  GeneralIconButton(
-                    onPress: () {
-                      Navigator.of(context).pushNamed(Routes.clientesCadastro);
-                    },
-                    icone: Icons.person_add_alt_1,
-                    iconSize: Sizes.sizeH_35,
-                    buttonWidth: Sizes.sizeW_64,
-                    buttonHeight: Sizes.sizeH_55,
-                  ),
-                ],
-              ),
+                ),
+                GeneralIconButton(
+                  onPress: () {
+                    Navigator.of(context).pushNamed(Routes.clientesCadastro);
+                  },
+                  icone: Icons.person_add_alt_1,
+                  iconSize: Sizes.sizeH_35,
+                  buttonWidth: Sizes.sizeW_64,
+                  buttonHeight: Sizes.sizeH_55,
+                ),
+              ],
             ),
           ),
           SizedBox(

@@ -146,7 +146,7 @@ class PedidosCadastro extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: Sizes.sizeH_60,
-                    width: Sizes.sizeW_300,
+                    width: MediaQuery.of(context).size.width - 100,
                     child: TextField(
                       controller: pedidoClienteController,
                       keyboardType: TextInputType.text,
@@ -174,7 +174,7 @@ class PedidosCadastro extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: Sizes.sizeH_60,
-                    width: Sizes.sizeW_300,
+                    width: MediaQuery.of(context).size.width - 100,
                     child: TextField(
                       controller: pedidoTabelasController,
                       keyboardType: TextInputType.text,
