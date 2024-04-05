@@ -34,7 +34,9 @@ class LoginPage extends StatelessWidget {
         children: [
           Image.asset(
             'assets/galle_preto_800.png',
-            height: Sizes.sizeH_50,
+            height: MediaQuery.of(context).size.width > 450
+                ? Sizes.sizeH_80
+                : Sizes.sizeH_50,
             fit: BoxFit.fill,
           ),
           Column(
@@ -51,7 +53,10 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: Space.spacing_15,
+                // height: Space.spacing_15,
+                height: MediaQuery.of(context).size.width > 450
+                    ? Sizes.sizeH_100
+                    : Sizes.sizeH_15,
               ),
               Padding(
                 padding: const EdgeInsets.all(Space.spacing_8),

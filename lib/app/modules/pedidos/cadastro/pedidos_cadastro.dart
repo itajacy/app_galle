@@ -107,7 +107,10 @@ class PedidosCadastro extends StatelessWidget {
                   ),
                   SizedBox(
                     height: Sizes.sizeH_60,
-                    width: Sizes.sizeW_80,
+                    width: MediaQuery.of(context).size.width > 450
+                        ? Sizes.sizeW_200
+                        : Sizes.sizeW_80,
+                    // width: Sizes.sizeW_80,
                     child: TextField(
                       controller: pedidoQtdItensController,
                       keyboardType: TextInputType.number,
@@ -123,7 +126,10 @@ class PedidosCadastro extends StatelessWidget {
                   ),
                   SizedBox(
                     height: Sizes.sizeH_60,
-                    width: Sizes.sizeW_100,
+                    // width: Sizes.sizeW_100,
+                    width: MediaQuery.of(context).size.width > 450
+                        ? Sizes.sizeW_200
+                        : Sizes.sizeW_100,
                     child: TextField(
                       controller: pedidoValorTotalController,
                       keyboardType: TextInputType.number,

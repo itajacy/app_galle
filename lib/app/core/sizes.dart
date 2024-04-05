@@ -15,6 +15,7 @@ class Sizes {
   static const double sizeW_200 = 200;
   static const double sizeW_300 = 300;
 
+  static const double sizeH_15 = 15;
   static const double sizeH_25 = 25;
   static const double sizeH_30 = 30;
   static const double sizeH_35 = 35;
@@ -23,5 +24,7 @@ class Sizes {
   static const double sizeH_55 = 55;
   static const double sizeH_60 = 60;
   static const double sizeH_70 = 70;
+  static const double sizeH_80 = 80;
+  static const double sizeH_100 = 100;
   static const double sizeH_200 = 200;
 }

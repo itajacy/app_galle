@@ -63,9 +63,7 @@ class ClientesConsulta extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height: Space.spacing_8,
-          ),
+          SizedBox(height: Space.spacing_8),
           Expanded(
             flex: 1,
             child: SingleChildScrollView(),
