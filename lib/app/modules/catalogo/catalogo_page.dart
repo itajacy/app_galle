@@ -43,18 +43,24 @@ class CatalogoPage extends StatelessWidget {
             height: Space.spacing_8,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
-                width: Sizes.sizeW_180,
-                child: TextField(
-                  controller: codigoDoProdutoController,
-                  keyboardType: TextInputType.text,
-                  decoration: InputDecoration(
-                    labelText: Strings.produto,
-                    labelStyle: TextStyle(fontSize: Font.title_20),
-                    border: OutlineInputBorder(),
-                    isDense: true,
+              
+              Padding(
+                padding: const EdgeInsets.only(left: Space.spacing_8),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width > 450
+                      ? Sizes.sizeW_400
+                      : Sizes.sizeW_180,
+                  child: TextField(
+                    controller: codigoDoProdutoController,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      labelText: Strings.produto,
+                      labelStyle: TextStyle(fontSize: Font.title_20),
+                      border: OutlineInputBorder(),
+                      isDense: true,
+                    ),
                   ),
                 ),
               ),
@@ -72,12 +78,15 @@ class CatalogoPage extends StatelessWidget {
                 buttonWidth: Sizes.sizeW_55,
                 buttonHeight: Sizes.sizeH_55,
               ),
-              GeneralIconButton(
-                onPress: () {},
-                icone: Icons.shopping_cart_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonWidth: Sizes.sizeW_55,
-                buttonHeight: Sizes.sizeH_55,
+              Padding(
+                padding: const EdgeInsets.only(right: Space.spacing_8),
+                child: GeneralIconButton(
+                  onPress: () {},
+                  icone: Icons.shopping_cart_outlined,
+                  iconSize: Sizes.sizeH_30,
+                  buttonWidth: Sizes.sizeW_55,
+                  buttonHeight: Sizes.sizeH_55,
+                ),
               ),
             ],
           ),
@@ -86,7 +95,7 @@ class CatalogoPage extends StatelessWidget {
           ),
           Expanded(
             child: GridView.count(
-              padding: EdgeInsets.only(bottom: 100),
+              // padding: EdgeInsets.only(bottom: 100),
               childAspectRatio: (10 / 16),
               // Create a grid with 2 columns. If you change the scrollDirection to
               // horizontal, this produces 2 rows.
