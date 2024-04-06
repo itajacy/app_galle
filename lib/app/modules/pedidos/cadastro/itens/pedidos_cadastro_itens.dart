@@ -81,31 +81,40 @@ class PedidosCadastroItens extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(
-                  width: Sizes.sizeW_200,
-                  child: TextField(
-                    controller: codigoDoProdutoController,
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      labelText: Strings.produto,
-                      labelStyle: TextStyle(fontSize: Font.title_20),
-                      border: OutlineInputBorder(),
-                      isDense: true,
+                Row(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width > 450
+                          ? Sizes.sizeW_400
+                          : Sizes.sizeW_200,
+                      child: TextField(
+                        controller: codigoDoProdutoController,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          labelText: Strings.produto,
+                          labelStyle: TextStyle(fontSize: Font.title_20),
+                          border: OutlineInputBorder(),
+                          isDense: true,
+                        ),
+                      ),
                     ),
-                  ),
+                    SizedBox(
+                      width: Space.spacing_12,
+                    ),
+                    GeneralIconButton(
+                      onPress: () {},
+                      icone: Icons.search,
+                      iconSize: Sizes.sizeH_40,
+                      buttonWidth: Sizes.sizeW_64,
+                      buttonHeight: Sizes.sizeW_40,
+                    ),
+                  ],
                 ),
-                // SizedBox(width: Space.spacing_5),
-                // ! Icone de pesquisa de produto
-                GeneralIconButton(
-                  onPress: () {},
-                  icone: Icons.search,
-                  iconSize: Sizes.sizeH_40,
-                  buttonWidth: Sizes.sizeW_64,
-                  buttonHeight: Sizes.sizeW_40,
-                ),
-                // SizedBox(width: Space.spacing_5),
+               
                 SizedBox(
-                  width: Sizes.sizeW_90,
+                  width: MediaQuery.of(context).size.width > 450
+                      ? Sizes.sizeW_250
+                      : Sizes.sizeW_90,
                   child: TextField(
                     controller: quantidadeDoProdutoController,
                     keyboardType: TextInputType.number,
@@ -117,11 +126,6 @@ class PedidosCadastroItens extends StatelessWidget {
                     ),
                   ),
                 ),
-                // SizedBox(width: Space.spacing_5),
-
-                //
-                //! unidade de medida
-                // ItensUmDropdown(),
               ],
             ),
             SizedBox(height: Space.spacing_10),
@@ -179,20 +183,17 @@ class PedidosCadastroItens extends StatelessWidget {
                     ],
                   ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      GeneralIconButton(
-                        onPress: () {},
-                        icone: Icons.check_box,
-                        iconSize: Sizes.sizeH_40,
-                        buttonWidth: Sizes.sizeW_40,
-                        buttonHeight: Sizes.sizeW_40,
-                      ),
-                    ],
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    GeneralIconButton(
+                      onPress: () {},
+                      icone: Icons.check_box,
+                      iconSize: Sizes.sizeH_40,
+                      buttonWidth: Sizes.sizeW_64,
+                      buttonHeight: Sizes.sizeW_40,
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -223,9 +224,16 @@ class PedidosCadastroItens extends StatelessWidget {
                                     lista[index],
                                     style: TextStyle(fontSize: Font.title_16),
                                   ),
-                                  Text(
-                                    "Descricao da peça",
-                                    style: TextStyle(fontSize: Font.title_16),
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width > 450
+                                            ? Sizes.sizeW_400
+                                            : Sizes.sizeW_200,
+                                    child: Text(
+                                      "Pingente Cruz chapado com furo vazado com bordas arredondadas e chapa de 2mm",
+                                      style: TextStyle(fontSize: Font.title_16),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -241,25 +249,19 @@ class PedidosCadastroItens extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Expanded(
-                          flex: 1,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  right: Space.spacing_2,
-                                ),
-                                child: GeneralIconButton(
-                                  onPress: () {},
-                                  icone: Icons.delete_forever_outlined,
-                                  iconSize: Sizes.sizeH_40,
-                                  iconeForegroundColor:
-                                      ColorsApp.iconeForegroundThird,
-                                ),
-                              ),
-                            ],
-                          ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            GeneralIconButton(
+                              onPress: () {},
+                              icone: Icons.delete_forever_outlined,
+                              iconSize: Sizes.sizeH_40,
+                              buttonWidth: Sizes.sizeW_64,
+                              buttonHeight: Sizes.sizeW_40,
+                              iconeForegroundColor:
+                                  ColorsApp.iconeForegroundThird,
+                            ),
+                          ],
                         ),
                       ],
                     ),
