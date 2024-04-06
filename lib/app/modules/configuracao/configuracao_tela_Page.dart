@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../core/colors_app.dart';
 import '../../core/strings.dart';
 
-class ConfiguracaoAmazon extends StatelessWidget {
-  const ConfiguracaoAmazon({super.key});
+class ConfiguracaoTelaPage extends StatelessWidget {
+  const ConfiguracaoTelaPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,8 @@ class ConfiguracaoAmazon extends StatelessWidget {
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Icon(Icons.cloud_queue),
-            Text(Strings.configuracaoAmazon),
+            Icon(Icons.screenshot_sharp),
+            Text(Strings.configuracaoTela),
           ],
         ),
       ),

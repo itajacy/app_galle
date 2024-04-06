@@ -8,8 +8,8 @@ import '../../../core/space.dart';
 import '../../../core/strings.dart';
 import '../widgets/pessoafj_button.dart';
 
-class ClientesCadastro extends StatelessWidget {
-  ClientesCadastro({super.key});
+class ClientesCadastroPage extends StatelessWidget {
+  ClientesCadastroPage({super.key});
 
   final nomeFantasiaController = TextEditingController();
   final razaoSocialController = TextEditingController();

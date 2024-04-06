@@ -6,12 +6,12 @@ class Routes {
   static const catalogoPage = '/catalogoPage';
   static const sincronizacaoPage = '/sincronizacaoPage';
   static const configuracaoPage = '/configuracaoPage';
-  static const clientesCadastro = '/clientesCadastro';
-  static const clientesConsulta = '/clientesConsulta';
-  static const pedidosCadastro = '/pedidosCadastro';
-  static const pedidosConsulta = '/pedidosConsulta';
-  static const pedidosCadastroItens = '/pedidosCadastroItens';
-  static const configuracaoFtp = '/configuracaoFtp';
-  static const configuracaoAmazon = '/configuracaoAmazon';
-  static const configuracaoTela = '/configuracaoTela';
+  static const clientesCadastroPage = '/clientesCadastroPage';
+  static const clientesConsultaPage = '/clientesConsultaPage';
+  static const pedidosCadastroPage = '/pedidosCadastroPage';
+  static const pedidosConsultaPage = '/pedidosConsultaPage';
+  static const pedidosCadastroItensPage = '/pedidosCadastroItensPage';
+  static const configuracaoFtpPage = '/configuracaoFtpPage';
+  static const configuracaoAmazonPage = '/configuracaoAmazonPage';
+  static const configuracaoTelaPage = '/configuracaoTelaPage';
 }

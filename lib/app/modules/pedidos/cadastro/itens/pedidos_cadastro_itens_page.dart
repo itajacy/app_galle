@@ -8,8 +8,8 @@ import '../../../../core/colors_app.dart';
 import '../../../../core/font.dart';
 import '../../../../core/strings.dart';
 
-class PedidosCadastroItens extends StatelessWidget {
-  PedidosCadastroItens({super.key});
+class PedidosCadastroItensPage extends StatelessWidget {
+  PedidosCadastroItensPage({super.key});
 
   final valorTotalDoPedidoControllerr = TextEditingController();
   final codigoDoProdutoController = TextEditingController();
@@ -110,7 +110,6 @@ class PedidosCadastroItens extends StatelessWidget {
                     ),
                   ],
                 ),
-               
                 SizedBox(
                   width: MediaQuery.of(context).size.width > 450
                       ? Sizes.sizeW_250

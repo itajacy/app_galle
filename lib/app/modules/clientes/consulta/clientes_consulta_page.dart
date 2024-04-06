@@ -8,8 +8,8 @@ import 'package:galle/app/widgets/general_icon_button.dart';
 import '../../../core/font.dart';
 import '../../../core/strings.dart';
 
-class ClientesConsulta extends StatelessWidget {
-  ClientesConsulta({super.key});
+class ClientesConsultaPage extends StatelessWidget {
+  ClientesConsultaPage({super.key});
 
   final clienteController = TextEditingController();
   @override
@@ -53,7 +53,8 @@ class ClientesConsulta extends StatelessWidget {
                 ),
                 GeneralIconButton(
                   onPress: () {
-                    Navigator.of(context).pushNamed(Routes.clientesCadastro);
+                    Navigator.of(context)
+                        .pushNamed(Routes.clientesCadastroPage);
                   },
                   icone: Icons.person_add_alt_1,
                   iconSize: Sizes.sizeH_35,

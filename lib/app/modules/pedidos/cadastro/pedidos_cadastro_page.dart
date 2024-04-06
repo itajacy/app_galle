@@ -9,8 +9,8 @@ import '../../../core/colors_app.dart';
 import '../../../core/font.dart';
 import '../../../core/strings.dart';
 
-class PedidosCadastro extends StatelessWidget {
-  PedidosCadastro({super.key});
+class PedidosCadastroPage extends StatelessWidget {
+  PedidosCadastroPage({super.key});
 
   final pedidoQtdItensController = TextEditingController();
   final pedidoValorTotalController = TextEditingController();
@@ -58,7 +58,7 @@ class PedidosCadastro extends StatelessWidget {
                 GeneralIconButton(
                   onPress: () {
                     Navigator.of(context)
-                        .pushNamed(Routes.pedidosCadastroItens);
+                        .pushNamed(Routes.pedidosCadastroItensPage);
                   },
                   icone: Icons.article_outlined,
                   iconSize: Sizes.sizeH_35,

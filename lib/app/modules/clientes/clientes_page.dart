@@ -36,14 +36,14 @@ class ClientesPage extends StatelessWidget {
             children: [
               GalleButton(
                 onPress: () {
-                  Navigator.of(context).pushNamed(Routes.clientesCadastro);
+                  Navigator.of(context).pushNamed(Routes.clientesCadastroPage);
                 },
                 titulo: Strings.novo,
                 icone: Icons.person_add_alt_1,
               ),
               GalleButton(
                 onPress: () {
-                  Navigator.of(context).pushNamed(Routes.clientesConsulta);
+                  Navigator.of(context).pushNamed(Routes.clientesConsultaPage);
                 },
                 titulo: Strings.consulta,
                 icone: Icons.search,

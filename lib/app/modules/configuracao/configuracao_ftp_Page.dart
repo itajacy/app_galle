@@ -6,8 +6,8 @@ import '../../core/space.dart';
 import '../../core/strings.dart';
 import '../clientes/widgets/clientes_button.dart';
 
-class ConfiguracaoFtp extends StatelessWidget {
-  ConfiguracaoFtp({super.key});
+class ConfiguracaoFtpPage extends StatelessWidget {
+  ConfiguracaoFtpPage({super.key});
 
   final enderecoSincronizacaoController = TextEditingController();
   final enderecoImagensController = TextEditingController();

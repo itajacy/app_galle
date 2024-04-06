@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/catalogo/catalogo_page.dart';
-import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro.dart';
-import 'package:galle/app/modules/clientes/consulta/clientes_consulta.dart';
+import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_page.dart';
+import 'package:galle/app/modules/clientes/consulta/clientes_consulta_page.dart';
 import 'package:galle/app/modules/clientes/clientes_page.dart';
-import 'package:galle/app/modules/configuracao/configuracao_amazon.dart';
-import 'package:galle/app/modules/configuracao/configuracao_ftp.dart';
+import 'package:galle/app/modules/configuracao/configuracao_amazon_page.dart';
+import 'package:galle/app/modules/configuracao/configuracao_ftp_Page.dart';
 import 'package:galle/app/modules/configuracao/configuracao_page.dart';
-import 'package:galle/app/modules/configuracao/configuracao_tela.dart';
+import 'package:galle/app/modules/configuracao/configuracao_tela_Page.dart';
 import 'package:galle/app/modules/homepage/home_page.dart';
-import 'package:galle/app/modules/pedidos/cadastro/pedidos_cadastro.dart';
-import 'package:galle/app/modules/pedidos/cadastro/itens/pedidos_cadastro_itens.dart';
-import 'package:galle/app/modules/pedidos/consulta/pedidos_consulta.dart';
+import 'package:galle/app/modules/pedidos/cadastro/pedidos_cadastro_page.dart';
+import 'package:galle/app/modules/pedidos/cadastro/itens/pedidos_cadastro_itens_page.dart';
+import 'package:galle/app/modules/pedidos/consulta/pedidos_consulta_page.dart';
 import 'package:galle/app/modules/pedidos/pedidos_page.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_page.dart';
 
@@ -36,14 +36,15 @@ class App extends StatelessWidget {
         Routes.catalogoPage: (context) => CatalogoPage(),
         Routes.sincronizacaoPage: (context) => SincronizacaoPage(),
         Routes.configuracaoPage: (context) => ConfiguracaoPage(),
-        Routes.clientesCadastro: (context) => ClientesCadastro(),
-        Routes.clientesConsulta: (context) => ClientesConsulta(),
-        Routes.pedidosCadastro: (context) => PedidosCadastro(),
-        Routes.pedidosConsulta: (context) => PedidosConsulta(),
-        Routes.pedidosCadastroItens: (context) => PedidosCadastroItens(),
-        Routes.configuracaoFtp: (context) => ConfiguracaoFtp(),
-        Routes.configuracaoAmazon: (context) => ConfiguracaoAmazon(),
-        Routes.configuracaoTela: (context) => ConfiguracaoTela(),
+        Routes.clientesCadastroPage: (context) => ClientesCadastroPage(),
+        Routes.clientesConsultaPage: (context) => ClientesConsultaPage(),
+        Routes.pedidosCadastroPage: (context) => PedidosCadastroPage(),
+        Routes.pedidosConsultaPage: (context) => PedidosConsultaPage(),
+        Routes.pedidosCadastroItensPage: (context) =>
+            PedidosCadastroItensPage(),
+        Routes.configuracaoFtpPage: (context) => ConfiguracaoFtpPage(),
+        Routes.configuracaoAmazonPage: (context) => ConfiguracaoAmazonPage(),
+        Routes.configuracaoTelaPage: (context) => ConfiguracaoTelaPage(),
       },
     );
   }

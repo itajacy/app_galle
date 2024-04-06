@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../core/colors_app.dart';
 import '../../../core/strings.dart';
 
-class PedidosConsulta extends StatelessWidget {
-  const PedidosConsulta({super.key});
+class PedidosConsultaPage extends StatelessWidget {
+  const PedidosConsultaPage({super.key});
 
   @override
   Widget build(BuildContext context) {

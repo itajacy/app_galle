@@ -36,14 +36,15 @@ class ConfiguracaoPage extends StatelessWidget {
             children: [
               GalleButton(
                 onPress: () {
-                  Navigator.of(context).pushNamed(Routes.configuracaoAmazon);
+                  Navigator.of(context)
+                      .pushNamed(Routes.configuracaoAmazonPage);
                 },
                 titulo: Strings.amazon,
                 icone: Icons.cloud_queue,
               ),
               GalleButton(
                 onPress: () {
-                  Navigator.of(context).pushNamed(Routes.configuracaoFtp);
+                  Navigator.of(context).pushNamed(Routes.configuracaoFtpPage);
                 },
                 titulo: Strings.ftp,
                 icone: Icons.filter_drama,
@@ -58,7 +59,7 @@ class ConfiguracaoPage extends StatelessWidget {
             children: [
               GalleButton(
                 onPress: () {
-                  Navigator.of(context).pushNamed(Routes.configuracaoTela);
+                  Navigator.of(context).pushNamed(Routes.configuracaoTelaPage);
                 },
                 titulo: Strings.tela,
                 icone: Icons.screenshot,

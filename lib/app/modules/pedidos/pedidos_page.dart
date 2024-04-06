@@ -36,14 +36,14 @@ class PedidosPage extends StatelessWidget {
             children: [
               GalleButton(
                 onPress: () {
-                  Navigator.of(context).pushNamed(Routes.pedidosCadastro);
+                  Navigator.of(context).pushNamed(Routes.pedidosCadastroPage);
                 },
                 titulo: Strings.novo,
                 icone: Icons.add_shopping_cart_rounded,
               ),
               GalleButton(
                 onPress: () {
-                  Navigator.of(context).pushNamed(Routes.pedidosConsulta);
+                  Navigator.of(context).pushNamed(Routes.pedidosConsultaPage);
                 },
                 titulo: Strings.consulta,
                 icone: Icons.search,
