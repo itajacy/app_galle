@@ -80,7 +80,9 @@ class PedidosCadastro extends StatelessWidget {
                       Text(
                         Strings.status,
                         style: TextStyle(
-                            fontSize: Font.title_16,
+                            fontSize: MediaQuery.of(context).size.width > 450
+                                ? Font.title_24
+                                : Font.title_16,
                             fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -101,7 +103,9 @@ class PedidosCadastro extends StatelessWidget {
                   Text(
                     Strings.itens,
                     style: TextStyle(
-                      fontSize: Font.title_16,
+                      fontSize: MediaQuery.of(context).size.width > 450
+                          ? Font.title_24
+                          : Font.title_16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -117,10 +121,12 @@ class PedidosCadastro extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: Space.spacing_5),
-                  const Text(
+                  Text(
                     Strings.total,
                     style: TextStyle(
-                      fontSize: Font.title_16,
+                      fontSize: MediaQuery.of(context).size.width > 450
+                          ? Font.title_24
+                          : Font.title_16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

@@ -27,14 +27,16 @@ class _PedidosStatusButtonState extends State<PedidosStatusButton> {
           padding: const EdgeInsets.all(Space.spacing_0),
           child: SizedBox(
             height: Sizes.sizeH_50,
-            width: Sizes.sizeW_180,
+            width: Sizes.sizeW_200,
             child: ListTile(
               dense: true,
               contentPadding: EdgeInsets.all(Space.spacing_0),
-              title: const Text(
+              title: Text(
                 Strings.aberto,
                 style: TextStyle(
-                  fontSize: Font.title_16,
+                  fontSize: MediaQuery.of(context).size.width > 450
+                      ? Font.title_24
+                      : Font.title_16,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -54,14 +56,16 @@ class _PedidosStatusButtonState extends State<PedidosStatusButton> {
           padding: const EdgeInsets.all(Space.spacing_0),
           child: SizedBox(
             height: Sizes.sizeH_50,
-            width: Sizes.sizeW_180,
+            width: Sizes.sizeW_200,
             child: ListTile(
               dense: true,
               contentPadding: EdgeInsets.all(Space.spacing_0),
-              title: const Text(
+              title: Text(
                 Strings.fechado,
                 style: TextStyle(
-                  fontSize: Font.title_16,
+                  fontSize: MediaQuery.of(context).size.width > 450
+                      ? Font.title_24
+                      : Font.title_16,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -81,14 +85,18 @@ class _PedidosStatusButtonState extends State<PedidosStatusButton> {
           padding: const EdgeInsets.all(Space.spacing_0),
           child: SizedBox(
             height: Sizes.sizeH_50,
-            width: Sizes.sizeW_180,
+            width: Sizes.sizeW_200,
             child: ListTile(
               dense: true,
               contentPadding: EdgeInsets.all(Space.spacing_0),
-              title: const Text(
+              title: Text(
                 Strings.transmitido,
                 style: TextStyle(
-                    fontSize: Font.title_16, fontWeight: FontWeight.bold),
+                  fontSize: MediaQuery.of(context).size.width > 450
+                      ? Font.title_24
+                      : Font.title_16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               leading: Radio<PedidoStatus>(
                 value: PedidoStatus.transmitido,
