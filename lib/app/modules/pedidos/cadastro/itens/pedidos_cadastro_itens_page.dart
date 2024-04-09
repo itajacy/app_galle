@@ -27,6 +27,13 @@ class PedidosCadastroItensPage extends StatelessWidget {
     '01-0028',
     '01-0029',
     '01-0030',
+    '01-0031',
+    '01-0032',
+    '01-0033',
+    '01-0034',
+    '01-0035',
+    '01-0036',
+    '01-0037',
   ];
 
   @override
@@ -65,7 +72,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                     keyboardType: TextInputType.number,
                   ),
                 ),
-                SizedBox(width: 15),
+                SizedBox(width: Space.spacing_15),
                 GeneralIconButton(
                   onPress: () {},
                   icone: Icons.article_outlined,
@@ -85,7 +92,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                   children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width > 450
-                          ? Sizes.sizeW_400
+                          ? (MediaQuery.of(context).size.width - 104) / 3 * 2
                           : Sizes.sizeW_200,
                       child: TextField(
                         controller: codigoDoProdutoController,
@@ -112,7 +119,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width > 450
-                      ? Sizes.sizeW_250
+                      ? (MediaQuery.of(context).size.width - 104) / 3 * 1
                       : Sizes.sizeW_90,
                   child: TextField(
                     controller: quantidadeDoProdutoController,
