@@ -110,16 +110,20 @@ class PedidosCadastroPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
+                    width: Space.spacing_2,
+                  ),
+                  SizedBox(
                     height: Sizes.sizeH_60,
-                    width: MediaQuery.of(context).size.width > 450
-                        ? Sizes.sizeW_180
-                        : Sizes.sizeW_80,
+                    // width: MediaQuery.of(context).size.width > 450
+                    //     ? Sizes.sizeW_180
+                    //     : Sizes.sizeW_80,
+                    width: (MediaQuery.of(context).size.width - 250) / 8 * 3,
                     child: TextField(
                       controller: pedidoQtdItensController,
                       keyboardType: TextInputType.number,
                     ),
                   ),
-                  const SizedBox(width: Space.spacing_5),
+                  const SizedBox(width: Space.spacing_2),
                   Text(
                     Strings.total,
                     style: TextStyle(
@@ -130,17 +134,21 @@ class PedidosCadastroPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
+                    width: Space.spacing_2,
+                  ),
+                  SizedBox(
                     height: Sizes.sizeH_60,
-                    width: MediaQuery.of(context).size.width > 450
-                        ? Sizes.sizeW_180
-                        : Sizes.sizeW_100,
+                    // width: MediaQuery.of(context).size.width > 450
+                    //     ? Sizes.sizeW_180
+                    //     : Sizes.sizeW_100,
+                    width: (MediaQuery.of(context).size.width - 238) / 8 * 5,
                     child: TextField(
                       controller: pedidoValorTotalController,
                       keyboardType: TextInputType.number,
                     ),
                   ),
                   SizedBox(
-                    width: Space.spacing_8,
+                    width: 20,
                   ),
                   GeneralIconButton(
                     onPress: () {},

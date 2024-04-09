@@ -91,9 +91,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(
-                      width: MediaQuery.of(context).size.width > 450
-                          ? (MediaQuery.of(context).size.width - 104) / 3 * 2
-                          : Sizes.sizeW_200,
+                      width: (MediaQuery.of(context).size.width - 104) / 3 * 2,
                       child: TextField(
                         controller: codigoDoProdutoController,
                         keyboardType: TextInputType.text,
@@ -118,9 +116,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width > 450
-                      ? (MediaQuery.of(context).size.width - 104) / 3 * 1
-                      : Sizes.sizeW_90,
+                  width: (MediaQuery.of(context).size.width - 104) / 3 * 1,
                   child: TextField(
                     controller: quantidadeDoProdutoController,
                     keyboardType: TextInputType.number,
