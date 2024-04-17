@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_controller.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
 import '../../../core/colors_app.dart';
@@ -10,6 +11,9 @@ import '../widgets/pessoafj_button.dart';
 
 class ClientesCadastroPage extends StatelessWidget {
   ClientesCadastroPage({super.key});
+
+  ClientesCadastroController clientesCadastroController =
+      ClientesCadastroController();
 
   final nomeFantasiaController = TextEditingController();
   final razaoSocialController = TextEditingController();
@@ -66,7 +70,14 @@ class ClientesCadastroPage extends StatelessWidget {
                     titulo: Strings.cancelar,
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
-                  onPress: () {},
+                  onPress: () {
+                    //!! Atribuir os controllers para o objeto cliente para salvar
+                    clientesCadastroController.cliente.contato =
+                        contatoController.text;
+                    //!!
+
+                    clientesCadastroController.salvar();
+                  },
                   titulo: Strings.salvar,
                   icone: Icons.check_box,
                 ),

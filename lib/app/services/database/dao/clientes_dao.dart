@@ -1,3 +1,8 @@
+import 'package:galle/app/services/database/app_database.dart';
+import 'package:sqflite/sqflite.dart';
+
+import '../../../models/cliente.dart';
+
 class ClientesDao {
   static const String tabelaClientes = 'CREATE TABLE $_tableName('
       '$_clienteId INTEGER PRIMARY KEY, '
@@ -58,4 +63,12 @@ class ClientesDao {
   static const String _eBairro = 'eBairro';
   static const String _eCEP = 'eCEP';
   static const String _ativo = 'ativo';
+
+  Future<int> salvar(Cliente cliente) async {
+    final Database db = await getDatabase();
+    Map<String, dynamic> clienteMap = cliente.toMap();
+    return db.insert(_tableName, clienteMap);
+  }
+
+  
 }
