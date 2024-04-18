@@ -7,7 +7,7 @@ class ClientesCadastroController {
   ClientesDao clientesDao = ClientesDao();
   Cliente cliente = Cliente();
 
-  salvar() async {
+  save() async {
     int resposta = await clientesDao.salvar(cliente);
     
   }

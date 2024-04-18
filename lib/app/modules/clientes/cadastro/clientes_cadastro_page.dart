@@ -72,11 +72,62 @@ class ClientesCadastroPage extends StatelessWidget {
                 ClientesButton(
                   onPress: () {
                     //!! Atribuir os controllers para o objeto cliente para salvar
+                    //!  Verificar se não há necessidade do clienteId, e do Ativo
                     clientesCadastroController.cliente.contato =
                         contatoController.text;
+                    clientesCadastroController.cliente.nomeFantasia =
+                        nomeFantasiaController.text;
+
+                    clientesCadastroController.cliente.razaoSocial =
+                        razaoSocialController.text;
+                    clientesCadastroController.cliente.tipoPessoa =
+                        pessoaFJController.text;
+                    clientesCadastroController.cliente.cNPJCPF =
+                        cnpjCpfController.text;
+                    clientesCadastroController.cliente.iERG =
+                        ieRgController.text;
+                    clientesCadastroController.cliente.contato =
+                        contatoController.text;
+                    clientesCadastroController.cliente.email =
+                        emailController.text;
+                    clientesCadastroController.cliente.fone1 =
+                        foneCom1Controller.text;
+                    clientesCadastroController.cliente.fone2 =
+                        foneCom2Controller.text;
+                    clientesCadastroController.cliente.foneRes =
+                        foneResController.text;
+                    clientesCadastroController.cliente.fax = faxController.text;
+                    clientesCadastroController.cliente.pUF =
+                        principalUfController.text;
+                    clientesCadastroController.cliente.pCidade =
+                        principalCidadeController.text;
+                    clientesCadastroController.cliente.pEndereco =
+                        principalEnderecoController.text;
+                    clientesCadastroController.cliente.pComplemento =
+                        principalComplementoController.text;
+                    clientesCadastroController.cliente.pBairro =
+                        principalBairroController.text;
+                    clientesCadastroController.cliente.pCEP =
+                        principalCepController.text;
+                    clientesCadastroController.cliente.eUF =
+                        entregaUfController.text;
+                    clientesCadastroController.cliente.eCEP =
+                        entregaCidadeController.text;
+                    clientesCadastroController.cliente.eEndereco =
+                        entregaEnderecoController.text;
+                    clientesCadastroController.cliente.eComplemento =
+                        entregaComplementoController.text;
+                    clientesCadastroController.cliente.eBairro =
+                        entregaBairroController.text;
+                    clientesCadastroController.cliente.eCEP =
+                        entregaCepController.text;
+                    
+ 
+
+
                     //!!
 
-                    clientesCadastroController.salvar();
+                    clientesCadastroController.save();
                   },
                   titulo: Strings.salvar,
                   icone: Icons.check_box,
