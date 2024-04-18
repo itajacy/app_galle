@@ -73,6 +73,13 @@ class ClientesCadastroPage extends StatelessWidget {
                   onPress: () {
                     //!! Atribuir os controllers para o objeto cliente para salvar
                     //!  Verificar se não há necessidade do clienteId, e do Ativo
+
+                    //! O clienteId deve ser igual a zero pois é autoincremento?
+                    clientesCadastroController.cliente.clienteId = 0;
+
+                    //! tem os campos clienteIdMob, ClienteIdInt, Ativo
+                    //! pensar nisso
+
                     clientesCadastroController.cliente.contato =
                         contatoController.text;
                     clientesCadastroController.cliente.nomeFantasia =
@@ -121,9 +128,6 @@ class ClientesCadastroPage extends StatelessWidget {
                         entregaBairroController.text;
                     clientesCadastroController.cliente.eCEP =
                         entregaCepController.text;
-                    
- 
-
 
                     //!!
 
