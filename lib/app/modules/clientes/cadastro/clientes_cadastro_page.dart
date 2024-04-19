@@ -9,34 +9,61 @@ import '../../../core/space.dart';
 import '../../../core/strings.dart';
 import '../widgets/pessoafj_button.dart';
 
-class ClientesCadastroPage extends StatelessWidget {
+class ClientesCadastroPage extends StatefulWidget {
   ClientesCadastroPage({super.key});
 
+  @override
+  State<ClientesCadastroPage> createState() => _ClientesCadastroPageState();
+}
+
+class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesCadastroController clientesCadastroController =
       ClientesCadastroController();
 
   final nomeFantasiaController = TextEditingController();
+
   final razaoSocialController = TextEditingController();
+
   final pessoaFJController = TextEditingController();
+
   final cnpjCpfController = TextEditingController();
+
   final ieRgController = TextEditingController();
+
   final contatoController = TextEditingController();
+
   final emailController = TextEditingController();
+
   final foneCom1Controller = TextEditingController();
+
   final foneCom2Controller = TextEditingController();
+
   final foneResController = TextEditingController();
+
   final faxController = TextEditingController();
+
   final principalUfController = TextEditingController();
+
   final principalCidadeController = TextEditingController();
+
   final principalEnderecoController = TextEditingController();
+
   final principalComplementoController = TextEditingController();
+
   final principalBairroController = TextEditingController();
+
   final principalCepController = TextEditingController();
+
   final entregaUfController = TextEditingController();
+
   final entregaCidadeController = TextEditingController();
+
   final entregaEnderecoController = TextEditingController();
+
   final entregaComplementoController = TextEditingController();
+
   final entregaBairroController = TextEditingController();
+
   final entregaCepController = TextEditingController();
 
   @override
