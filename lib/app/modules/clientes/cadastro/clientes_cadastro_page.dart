@@ -17,6 +17,7 @@ class ClientesCadastroPage extends StatefulWidget {
 }
 
 class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
+
   ClientesCadastroController clientesCadastroController =
       ClientesCadastroController();
 
@@ -98,12 +99,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
                   onPress: () {
-                    //!! Atribuir os controllers para o objeto cliente para salvar
-                    //!  Verificar se não há necessidade do clienteId, e do Ativo
-
-                    //! O clienteId deve ser igual a zero pois é autoincremento?
-                    clientesCadastroController.cliente.clienteId = 0;
-
+                    
                     //! tem os campos clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
 
@@ -177,11 +173,14 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      onChanged: clientesCadastroController.setNomeFantasia,
+                      
                       controller: nomeFantasiaController,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.nomeFantasia,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.nomeFantasiaError,
                       ),
                     ),
                   ),
@@ -189,10 +188,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: razaoSocialController,
+                      onChanged: clientesCadastroController.setRazaoSocial,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.razaoSocial,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.razaoSocialError,
                       ),
                     ),
                   ),
@@ -209,10 +210,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: cnpjCpfController,
+                      onChanged: clientesCadastroController.setCnpjCpf,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: Strings.cnpjCpf,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.cnpjCpfError,
                       ),
                     ),
                   ),
@@ -220,10 +223,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: ieRgController,
+                      onChanged: clientesCadastroController.setIeRg,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: Strings.ieRg,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.iERGError,
                       ),
                     ),
                   ),
@@ -231,10 +236,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: contatoController,
+                      onChanged: clientesCadastroController.setContato,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.contato,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.contatoError,
                       ),
                     ),
                   ),
@@ -242,10 +249,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: emailController,
+                      onChanged: clientesCadastroController.setEmail,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         labelText: Strings.email,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.emailError,
                       ),
                     ),
                   ),
@@ -253,10 +262,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: foneCom1Controller,
+                      onChanged: clientesCadastroController.setFone1,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: Strings.foneCom1,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.fone1Error,
                       ),
                     ),
                   ),
@@ -264,10 +275,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: foneCom2Controller,
+                      onChanged: clientesCadastroController.setFone2,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: Strings.foneCom2,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.fone2Error,
                       ),
                     ),
                   ),
@@ -275,10 +288,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: foneResController,
+                      onChanged: clientesCadastroController.setFoneRes,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: Strings.foneRes,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.foneResError,
                       ),
                     ),
                   ),
@@ -310,10 +325,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: principalCidadeController,
+                      onChanged: clientesCadastroController.setpCidade,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.cidade,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.pCidadeError,
                       ),
                     ),
                   ),
@@ -321,10 +338,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: principalEnderecoController,
+                      onChanged: clientesCadastroController.setpEndereco,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.endereco,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.pEnderecoError,
                       ),
                     ),
                   ),
@@ -332,10 +351,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: principalComplementoController,
+                      onChanged: clientesCadastroController.setpComplemento,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.complemento,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.pComplementoError,
                       ),
                     ),
                   ),
@@ -343,10 +364,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: principalBairroController,
+                      onChanged: clientesCadastroController.setpBairro,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.bairro,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.pBairroError,
                       ),
                     ),
                   ),
@@ -354,10 +377,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: principalCepController,
+                      onChanged: clientesCadastroController.setpCEP,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: Strings.cep,
                         border: OutlineInputBorder(),
+                          errorText: clientesCadastroController.pCEPError
                       ),
                     ),
                   ),
@@ -400,10 +425,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: entregaCidadeController,
+                      onChanged: clientesCadastroController.seteCidade,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.cidade,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.eCidadeError,
                       ),
                     ),
                   ),
@@ -411,10 +438,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: entregaEnderecoController,
+                      onChanged: clientesCadastroController.seteEndereco,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.endereco,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.eEnderecoError,
                       ),
                     ),
                   ),
@@ -422,10 +451,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: entregaComplementoController,
+                      onChanged: clientesCadastroController.seteComplemento,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.complemento,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.eEnderecoError,
                       ),
                     ),
                   ),
@@ -433,10 +464,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: entregaBairroController,
+                      onChanged: clientesCadastroController.seteBairro,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.bairro,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.eBairroError,
                       ),
                     ),
                   ),
@@ -444,10 +477,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       controller: entregaCepController,
+                      onChanged: clientesCadastroController.seteBairro,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: Strings.cep,
                         border: OutlineInputBorder(),
+                        errorText: clientesCadastroController.eCEPError,
                       ),
                     ),
                   ),
