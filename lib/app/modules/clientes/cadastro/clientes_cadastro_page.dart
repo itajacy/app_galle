@@ -17,7 +17,6 @@ class ClientesCadastroPage extends StatefulWidget {
 }
 
 class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
-
   ClientesCadastroController clientesCadastroController =
       ClientesCadastroController();
 
@@ -99,7 +98,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
                   onPress: () {
-                    
                     //! tem os campos clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
 
@@ -174,7 +172,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       onChanged: clientesCadastroController.setNomeFantasia,
-                      
                       controller: nomeFantasiaController,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
@@ -380,10 +377,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       onChanged: clientesCadastroController.setpCEP,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
-                        labelText: Strings.cep,
-                        border: OutlineInputBorder(),
-                          errorText: clientesCadastroController.pCEPError
-                      ),
+                          labelText: Strings.cep,
+                          border: OutlineInputBorder(),
+                          errorText: clientesCadastroController.pCEPError),
                     ),
                   ),
                   Padding(
@@ -400,7 +396,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: ClientesButton(
-                      onPress: () {},
+                      onPress: () {
+                        clientesCadastroController.copiarEnderecoPrincipal();
+                      },
                       titulo: Strings.copiarPrincipal,
                       icone: Icons.copy,
                     ),

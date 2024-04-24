@@ -30,7 +30,6 @@ class ClientesCadastroController {
   String? eBairroError;
   String? eCEPError;
 
-
   save() async {
     if (cliente.nomeFantasia!.isEmpty) {
       nomeFantasiaError = 'O NOME NÃO PODE SER VAZIO!';
@@ -47,9 +46,48 @@ class ClientesCadastroController {
       return;
     }
 
+    if (cliente.contato!.isEmpty) {
+      contatoError = 'O CONTATO NÃO PODE SER VAZIO!';
+      return;
+    }
+
+    if (cliente.email!.isEmpty) {
+      emailError = 'O EMAIL NÃO PODE SER VAZIO!';
+      return;
+    }
+
+    if (cliente.fone1!.isEmpty) {
+      fone1Error = 'O TELEFONE NÃO PODE SER VAZIO!';
+      return;
+    }
+
+    if (cliente.pCidade!.isEmpty) {
+      pCidadeError = 'A CIDADE NÃO PODE SER VAZIA!';
+      return;
+    }
+
+    if (cliente.pEndereco!.isEmpty) {
+      pEnderecoError = 'O ENDEREÇO NÃO PODE SER VAZIO!';
+      return;
+    }
+
+    if (cliente.pBairro!.isEmpty) {
+      pBairroError = 'O BAIRRO NÃO PODE SER VAZIO!';
+      return;
+    }
+
+    if (cliente.pCEP!.isEmpty) {
+      pCEPError = 'O CEP NÃO PODE SER VAZIO!';
+      return;
+    }
+
+//!
+
     int resposta = await clientesDao.salvar(cliente);
     // print('reposta do clientesDao.salvar(cliente)..: ' + resposta.toString());
   }
+
+//
 
   void setNomeFantasia(String value) {
     cliente.nomeFantasia = value;
@@ -61,17 +99,19 @@ class ClientesCadastroController {
     razaoSocialError = null;
   }
 
-  //! ser visto depois
+  //! ser visto depois.  deve ser "F" ou "J"
   void setTipoPessoa(String value) {
     cliente.tipoPessoa = value;
     tipoPessoaError = null;
   }
 
+  //! Como Validar?  Como definir a formatação?
   void setCnpjCpf(String value) {
     cliente.cNPJCPF = value;
     cnpjCpfError = null;
   }
 
+//! Como Validar?  Definir formatação
   void setIeRg(String value) {
     cliente.iERG = value;
     iERGError = null;
@@ -82,6 +122,7 @@ class ClientesCadastroController {
     contatoError = null;
   }
 
+//! Como Validar?
   void setEmail(String value) {
     cliente.email = value;
     emailError = null;
@@ -103,6 +144,9 @@ class ClientesCadastroController {
   }
 
 //---
+
+//!  Como receber e tratar UF principal
+
   void setpCidade(String value) {
     cliente.pCidade = value;
     pCidadeError = null;
@@ -129,6 +173,8 @@ class ClientesCadastroController {
   }
 
 //---
+//!  Como receber e tratar UF de entrega
+
   void seteCidade(String value) {
     cliente.eCidade = value;
     eCidadeError = null;
@@ -154,6 +200,14 @@ class ClientesCadastroController {
     eCEPError = null;
   }
 
+  void copiarEnderecoPrincipal() {
+    cliente.eUF = cliente.pUF;
+    cliente.eCidade = cliente.pCidade;
+    cliente.eEndereco = cliente.pEndereco;
+    cliente.eComplemento = cliente.pComplemento;
+    cliente.eBairro = cliente.pBairro;
+    cliente.eCEP = cliente.pCEP;
+  }
 
 //!  FAZER PARA TODOS OS CAMPOS E LEMBRAR DE ALTERAR EM CLIENTES CADASTRO
 }
