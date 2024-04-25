@@ -1,8 +1,9 @@
 import 'package:galle/app/services/database/dao/clientes_dao.dart';
+import 'package:get/get.dart';
 
 import '../../../models/cliente.dart';
 
-class ClientesCadastroController {
+class ClientesCadastroController extends GetxController {
   ClientesDao clientesDao = ClientesDao();
 
   Cliente cliente = Cliente();
@@ -85,6 +86,8 @@ class ClientesCadastroController {
 
     int resposta = await clientesDao.salvar(cliente);
     // print('reposta do clientesDao.salvar(cliente)..: ' + resposta.toString());
+
+    update();
   }
 
 //
@@ -207,6 +210,8 @@ class ClientesCadastroController {
     cliente.eComplemento = cliente.pComplemento;
     cliente.eBairro = cliente.pBairro;
     cliente.eCEP = cliente.pCEP;
+
+    update();
   }
 
 //!  FAZER PARA TODOS OS CAMPOS E LEMBRAR DE ALTERAR EM CLIENTES CADASTRO

@@ -38,6 +38,7 @@ dependencies:
   flutter_native_splash: ^2.3.11
   sqflite: ^2.3.2
   path: 
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:

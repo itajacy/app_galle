@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_controller.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
+import 'package:get/get.dart';
 import '../../../core/colors_app.dart';
 import '../../../core/font.dart';
 import '../../../core/sizes.dart';
@@ -18,7 +19,7 @@ class ClientesCadastroPage extends StatefulWidget {
 
 class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesCadastroController clientesCadastroController =
-      ClientesCadastroController();
+      Get.put(ClientesCadastroController());
 
   final nomeFantasiaController = TextEditingController();
 
@@ -397,23 +398,24 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: ClientesButton(
                       onPress: () {
-                        //!
+                        
 
-                        setState(() {
-                          clientesCadastroController.cliente.eUF =
-                              clientesCadastroController.cliente.pUF;
-                          clientesCadastroController.cliente.eCidade =
-                              clientesCadastroController.cliente.pCidade;
-                          clientesCadastroController.cliente.eEndereco =
-                              clientesCadastroController.cliente.pEndereco;
-                          clientesCadastroController.cliente.eComplemento =
-                              clientesCadastroController.cliente.pComplemento;
-                          clientesCadastroController.cliente.eBairro =
-                              clientesCadastroController.cliente.pBairro;
-                          clientesCadastroController.cliente.eCEP =
-                              clientesCadastroController.cliente.pCEP;
-                        });
-                        // clientesCadastroController.copiarEnderecoPrincipal();
+                        clientesCadastroController.copiarEnderecoPrincipal();
+
+                        entregaCidadeController.text =
+                            clientesCadastroController.cliente.pCidade!;
+                        entregaEnderecoController.text =
+                            clientesCadastroController.cliente.pEndereco!;
+                        entregaComplementoController.text =
+                            clientesCadastroController.cliente.pComplemento!;
+                        entregaBairroController.text =
+                            clientesCadastroController.cliente.pBairro!;
+                        entregaCepController.text =
+                            clientesCadastroController.cliente.pCEP!;
+                          
+
+
+                       
                       },
                       titulo: Strings.copiarPrincipal,
                       icone: Icons.copy,
