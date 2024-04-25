@@ -397,7 +397,23 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: ClientesButton(
                       onPress: () {
-                        clientesCadastroController.copiarEnderecoPrincipal();
+                        //!
+
+                        setState(() {
+                          clientesCadastroController.cliente.eUF =
+                              clientesCadastroController.cliente.pUF;
+                          clientesCadastroController.cliente.eCidade =
+                              clientesCadastroController.cliente.pCidade;
+                          clientesCadastroController.cliente.eEndereco =
+                              clientesCadastroController.cliente.pEndereco;
+                          clientesCadastroController.cliente.eComplemento =
+                              clientesCadastroController.cliente.pComplemento;
+                          clientesCadastroController.cliente.eBairro =
+                              clientesCadastroController.cliente.pBairro;
+                          clientesCadastroController.cliente.eCEP =
+                              clientesCadastroController.cliente.pCEP;
+                        });
+                        // clientesCadastroController.copiarEnderecoPrincipal();
                       },
                       titulo: Strings.copiarPrincipal,
                       icone: Icons.copy,
