@@ -21,6 +21,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesCadastroController clientesCadastroController =
       Get.put(ClientesCadastroController());
 
+  PessoafjButton pessoaFJB = Get.put(PessoafjButton(
+    builder: (controller) => x,
+  ));
+
   final nomeFantasiaController = TextEditingController();
 
   final razaoSocialController = TextEditingController();
@@ -201,6 +205,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         fontWeight: FontWeight.bold, fontSize: Font.title_18),
                   ),
                   //!
+
                   PessoafjButton(),
 
                   //!
@@ -398,8 +403,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: ClientesButton(
                       onPress: () {
-                        
-
                         clientesCadastroController.copiarEnderecoPrincipal();
 
                         entregaCidadeController.text =
@@ -412,10 +415,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                             clientesCadastroController.cliente.pBairro!;
                         entregaCepController.text =
                             clientesCadastroController.cliente.pCEP!;
-                          
-
-
-                       
                       },
                       titulo: Strings.copiarPrincipal,
                       icone: Icons.copy,

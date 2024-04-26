@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/sizes.dart';
 import '../../../core/strings.dart';
 
-enum PessoaFJ { fisica, juridica }
+enum PessoaFJ<String> { fisica, juridica }
 
-class PessoafjButton extends StatefulWidget {
-  PessoafjButton({super.key});
-
-  @override
-  State<PessoafjButton> createState() => _PessoafjButtonState();
-}
-
-class _PessoafjButtonState extends State<PessoafjButton> {
+class PessoafjButton extends GetX {
   PessoaFJ? _pessoaFJ = PessoaFJ.fisica;
+  String pessoa = "F";
 
-  @override
+  PessoafjButton({required super.builder});
+
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -30,11 +26,8 @@ class _PessoafjButtonState extends State<PessoafjButton> {
               value: PessoaFJ.fisica,
               groupValue: _pessoaFJ,
               onChanged: (PessoaFJ? value) {
-                setState(
-                  () {
-                    _pessoaFJ = value;
-                  },
-                );
+                _pessoaFJ = value;
+                pessoa = "F";
               },
             ),
           ),
@@ -48,11 +41,9 @@ class _PessoafjButtonState extends State<PessoafjButton> {
               value: PessoaFJ.juridica,
               groupValue: _pessoaFJ,
               onChanged: (PessoaFJ? value) {
-                setState(
-                  () {
-                    _pessoaFJ = value;
-                  },
-                );
+                _pessoaFJ = value;
+                pessoa = "J";
+                // retornaPessoa(pessoa);
               },
             ),
           ),
@@ -61,3 +52,9 @@ class _PessoafjButtonState extends State<PessoafjButton> {
     );
   }
 }
+
+// String retornaPessoa(String pessoaFJ) {
+//   String pessoa = pessoaFJ;
+  
+//   return pessoa;
+// }
