@@ -138,9 +138,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         principalBairroController.text;
                     clientesCadastroController.cliente.pCEP =
                         principalCepController.text;
+
+
                     clientesCadastroController.cliente.eUF =
                         entregaUfController.text;
-                    clientesCadastroController.cliente.eCEP =
+                    clientesCadastroController.cliente.eCidade =
                         entregaCidadeController.text;
                     clientesCadastroController.cliente.eEndereco =
                         entregaEnderecoController.text;
@@ -151,9 +153,16 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     clientesCadastroController.cliente.eCEP =
                         entregaCepController.text;
 
-                    //!!
+                    //! O print abaixo demonstra que o botao
+                    //! "Copiar Principal"  está funcionando
 
-                    clientesCadastroController.save();
+                    print("Cidade da entrega inicio");
+                    print(clientesCadastroController.cliente.eCidade);
+                    print("Cidade da entrega fim");
+
+                    //!! salvar
+
+                    // clientesCadastroController.save();
                   },
                   titulo: Strings.salvar,
                   icone: Icons.check_box,
@@ -398,9 +407,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: ClientesButton(
                       onPress: () {
-                        
 
-                        clientesCadastroController.copiarEnderecoPrincipal();
+                        //! está funcionando sem chamar o método
+                        //! e NÃO entendo o pq que está funcionando
+                        // clientesCadastroController.copiarEnderecoPrincipal();
 
                         entregaCidadeController.text =
                             clientesCadastroController.cliente.pCidade!;
@@ -412,10 +422,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                             clientesCadastroController.cliente.pBairro!;
                         entregaCepController.text =
                             clientesCadastroController.cliente.pCEP!;
-                          
-
-
-                       
                       },
                       titulo: Strings.copiarPrincipal,
                       icone: Icons.copy,

@@ -32,55 +32,55 @@ class ClientesCadastroController extends GetxController {
   String? eCEPError;
 
   save() async {
-    if (cliente.nomeFantasia!.isEmpty) {
-      nomeFantasiaError = 'O NOME NÃO PODE SER VAZIO!';
-      return;
-    }
+    // if (cliente.nomeFantasia!.isEmpty) {
+    //   nomeFantasiaError = 'O NOME NÃO PODE SER VAZIO!';
+    //   return;
+    // }
 
-    if (cliente.razaoSocial!.isEmpty) {
-      razaoSocialError = 'A RAZÃO SOCIAL NÃO PODE SER VAZIA!';
-      return;
-    }
+    // if (cliente.razaoSocial!.isEmpty) {
+    //   razaoSocialError = 'A RAZÃO SOCIAL NÃO PODE SER VAZIA!';
+    //   return;
+    // }
 
-    if (cliente.cNPJCPF!.isEmpty) {
-      cnpjCpfError = 'O CNP/CPF NÃO PODE SER VAZIO!';
-      return;
-    }
+    // if (cliente.cNPJCPF!.isEmpty) {
+    //   cnpjCpfError = 'O CNP/CPF NÃO PODE SER VAZIO!';
+    //   return;
+    // }
 
-    if (cliente.contato!.isEmpty) {
-      contatoError = 'O CONTATO NÃO PODE SER VAZIO!';
-      return;
-    }
+    // if (cliente.contato!.isEmpty) {
+    //   contatoError = 'O CONTATO NÃO PODE SER VAZIO!';
+    //   return;
+    // }
 
-    if (cliente.email!.isEmpty) {
-      emailError = 'O EMAIL NÃO PODE SER VAZIO!';
-      return;
-    }
+    // if (cliente.email!.isEmpty) {
+    //   emailError = 'O EMAIL NÃO PODE SER VAZIO!';
+    //   return;
+    // }
 
-    if (cliente.fone1!.isEmpty) {
-      fone1Error = 'O TELEFONE NÃO PODE SER VAZIO!';
-      return;
-    }
+    // if (cliente.fone1!.isEmpty) {
+    //   fone1Error = 'O TELEFONE NÃO PODE SER VAZIO!';
+    //   return;
+    // }
 
-    if (cliente.pCidade!.isEmpty) {
-      pCidadeError = 'A CIDADE NÃO PODE SER VAZIA!';
-      return;
-    }
+    // if (cliente.pCidade!.isEmpty) {
+    //   pCidadeError = 'A CIDADE NÃO PODE SER VAZIA!';
+    //   return;
+    // }
 
-    if (cliente.pEndereco!.isEmpty) {
-      pEnderecoError = 'O ENDEREÇO NÃO PODE SER VAZIO!';
-      return;
-    }
+    // if (cliente.pEndereco!.isEmpty) {
+    //   pEnderecoError = 'O ENDEREÇO NÃO PODE SER VAZIO!';
+    //   return;
+    // }
 
-    if (cliente.pBairro!.isEmpty) {
-      pBairroError = 'O BAIRRO NÃO PODE SER VAZIO!';
-      return;
-    }
+    // if (cliente.pBairro!.isEmpty) {
+    //   pBairroError = 'O BAIRRO NÃO PODE SER VAZIO!';
+    //   return;
+    // }
 
-    if (cliente.pCEP!.isEmpty) {
-      pCEPError = 'O CEP NÃO PODE SER VAZIO!';
-      return;
-    }
+    // if (cliente.pCEP!.isEmpty) {
+    //   pCEPError = 'O CEP NÃO PODE SER VAZIO!';
+    //   return;
+    // }
 
 //!
 
@@ -203,16 +203,18 @@ class ClientesCadastroController extends GetxController {
     eCEPError = null;
   }
 
-  void copiarEnderecoPrincipal() {
-    cliente.eUF = cliente.pUF;
-    cliente.eCidade = cliente.pCidade;
-    cliente.eEndereco = cliente.pEndereco;
-    cliente.eComplemento = cliente.pComplemento;
-    cliente.eBairro = cliente.pBairro;
-    cliente.eCEP = cliente.pCEP;
+//! ESTÁ FUNCIONANDO SEM O MÉTODO abaixo, e sem o update()
 
-    update();
-  }
+  // void copiarEnderecoPrincipal() {
+  //   cliente.eUF = cliente.pUF;
+  //   cliente.eCidade = cliente.pCidade;
+  //   cliente.eEndereco = cliente.pEndereco;
+  //   cliente.eComplemento = cliente.pComplemento;
+  //   cliente.eBairro = cliente.pBairro;
+  //   cliente.eCEP = cliente.pCEP;
+
+  //   update();
+  // }
 
 //!  FAZER PARA TODOS OS CAMPOS E LEMBRAR DE ALTERAR EM CLIENTES CADASTRO
 }
