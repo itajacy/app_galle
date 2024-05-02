@@ -21,9 +21,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesCadastroController clientesCadastroController =
       Get.put(ClientesCadastroController());
 
-  PessoafjButton pessoaFJB = Get.put(PessoafjButton(
-    builder: (controller) => x,
-  ));
+  // PessoafjButton pessoaFJB = Get.put(PessoafjButton(
+  //   builder: (controller) => x,
+  // ));
 
   final nomeFantasiaController = TextEditingController();
 
