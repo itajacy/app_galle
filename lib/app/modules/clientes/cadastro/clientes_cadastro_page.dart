@@ -21,6 +21,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesCadastroController clientesCadastroController =
       Get.put(ClientesCadastroController());
 
+  PessoafjButton pessoaFJB = Get.put(PessoafjButton(
+    builder: (controller) => x,
+  ));
+
   final nomeFantasiaController = TextEditingController();
 
   final razaoSocialController = TextEditingController();
@@ -210,6 +214,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         fontWeight: FontWeight.bold, fontSize: Font.title_18),
                   ),
                   //!
+
                   PessoafjButton(),
 
                   //!
