@@ -205,16 +205,16 @@ class ClientesCadastroController extends GetxController {
 
 //! ESTÁ FUNCIONANDO SEM O MÉTODO abaixo, e sem o update()
 
-  // void copiarEnderecoPrincipal() {
-  //   cliente.eUF = cliente.pUF;
-  //   cliente.eCidade = cliente.pCidade;
-  //   cliente.eEndereco = cliente.pEndereco;
-  //   cliente.eComplemento = cliente.pComplemento;
-  //   cliente.eBairro = cliente.pBairro;
-  //   cliente.eCEP = cliente.pCEP;
+  void copiarEnderecoPrincipal() {
+    cliente.eUF = cliente.pUF;
+    cliente.eCidade = cliente.pCidade;
+    cliente.eEndereco = cliente.pEndereco;
+    cliente.eComplemento = cliente.pComplemento;
+    cliente.eBairro = cliente.pBairro;
+    cliente.eCEP = cliente.pCEP;
 
-  //   update();
-  // }
+    update();
+  }
 
 //!  FAZER PARA TODOS OS CAMPOS E LEMBRAR DE ALTERAR EM CLIENTES CADASTRO
 }

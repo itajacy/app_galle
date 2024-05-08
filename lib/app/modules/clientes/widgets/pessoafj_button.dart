@@ -6,7 +6,9 @@ import '../../../core/strings.dart';
 enum PessoaFJ { fisica, juridica }
 
 class PessoafjButton extends StatefulWidget {
-  PessoafjButton({super.key});
+  Function(String) pessoa;
+
+  PessoafjButton({required this.pessoa});
 
   @override
   State<PessoafjButton> createState() => _PessoafjButtonState();
@@ -32,6 +34,9 @@ class _PessoafjButtonState extends State<PessoafjButton> {
               onChanged: (PessoaFJ? value) {
                 setState(
                   () {
+                    
+                    // widget.pessoa(value.toString());
+                    widget.pessoa("F");
                     _pessoaFJ = value;
                   },
                 );
@@ -50,6 +55,8 @@ class _PessoafjButtonState extends State<PessoafjButton> {
               onChanged: (PessoaFJ? value) {
                 setState(
                   () {
+                    // widget.pessoa(value.toString());
+                    widget.pessoa("J");
                     _pessoaFJ = value;
                   },
                 );

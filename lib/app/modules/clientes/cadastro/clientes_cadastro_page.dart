@@ -98,7 +98,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ClientesButton(
-                    onPress: () {},
+                    onPress: () {
+                      Navigator.of(context).pop();
+                    },
                     titulo: Strings.cancelar,
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
@@ -143,7 +145,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     clientesCadastroController.cliente.pCEP =
                         principalCepController.text;
 
-
                     clientesCadastroController.cliente.eUF =
                         entregaUfController.text;
                     clientesCadastroController.cliente.eCidade =
@@ -156,17 +157,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         entregaBairroController.text;
                     clientesCadastroController.cliente.eCEP =
                         entregaCepController.text;
-
-                    //! O print abaixo demonstra que o botao
-                    //! "Copiar Principal"  está funcionando
-
-                    print("Cidade da entrega inicio");
-                    print(clientesCadastroController.cliente.eCidade);
-                    print("Cidade da entrega fim");
-
-                    //!! salvar
-
+//!  Comentei para não salvar por enquanto para testes
                     // clientesCadastroController.save();
+
+                    print(
+                        'Pessoa Fisica ou Juridica ${clientesCadastroController.cliente.tipoPessoa}');
                   },
                   titulo: Strings.salvar,
                   icone: Icons.check_box,
@@ -214,10 +209,29 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         fontWeight: FontWeight.bold, fontSize: Font.title_18),
                   ),
                   //!
+                  //!
+                  //!
+                  //!
+                  //!
+                  //!
 
-                  PessoafjButton(),
+                  PessoafjButton(
+                    pessoa: (pessoa) {
+                      pessoaFJController.text = pessoa;
+                    },
+                  ),
+                  // PessoafjButton((pessoa) {
+                  //   pessoaFJController.text;
+                  // }),
 
                   //!
+                  //!
+                  //!
+                  //!
+                  //!
+                  //!
+
+                  //
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
@@ -412,10 +426,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: ClientesButton(
                       onPress: () {
-
-                        //! está funcionando sem chamar o método
-                        //! e NÃO entendo o pq que está funcionando
-                        // clientesCadastroController.copiarEnderecoPrincipal();
+                        clientesCadastroController.copiarEnderecoPrincipal();
 
                         entregaCidadeController.text =
                             clientesCadastroController.cliente.pCidade!;
