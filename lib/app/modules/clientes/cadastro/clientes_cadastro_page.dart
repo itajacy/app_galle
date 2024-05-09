@@ -208,30 +208,18 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold, fontSize: Font.title_18),
                   ),
-                  //!
-                  //!
-                  //!
-                  //!
-                  //!
-                  //!
-
+                 
+                  //*  Determina se a pessoa é Física ou Jurídica
                   PessoafjButton(
-                    pessoa: (pessoa) {
-                      pessoaFJController.text = pessoa;
+                    pessoa: (pessoaFouJ) {
+                      pessoaFJController.text = pessoaFouJ;
                     },
                   ),
                   // PessoafjButton((pessoa) {
                   //   pessoaFJController.text;
                   // }),
 
-                  //!
-                  //!
-                  //!
-                  //!
-                  //!
-                  //!
-
-                  //
+                  
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
@@ -343,6 +331,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         SizedBox(
                           width: Space.spacing_8,
                         ),
+                        //* Widget para selecionar o Estado(UF principal)
                         ClientesUfDropdown(),
                       ],
                     ),
