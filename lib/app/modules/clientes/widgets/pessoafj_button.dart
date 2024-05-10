@@ -18,6 +18,16 @@ class _PessoafjButtonState extends State<PessoafjButton> {
   PessoaFJ? _pessoaFJ = PessoaFJ.fisica;
 
   @override
+
+  //! tentei com initState, mas não deu certo, inclusive parou de funcionar
+  // void initState() {
+  //   widget.pessoa = (p0) {
+  //     p0 = "F";
+  //   };
+  //   super.initState();
+  // }
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -34,7 +44,6 @@ class _PessoafjButtonState extends State<PessoafjButton> {
               onChanged: (PessoaFJ? value) {
                 setState(
                   () {
-                    
                     // widget.pessoa(value.toString());
                     widget.pessoa("F");
                     _pessoaFJ = value;

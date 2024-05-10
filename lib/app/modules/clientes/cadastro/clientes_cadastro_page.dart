@@ -161,7 +161,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     // clientesCadastroController.save();
 
                     print(
-                        'Pessoa Fisica ou Juridica ${clientesCadastroController.cliente.tipoPessoa}');
+                        'Pessoa Fisica ou Juridica..(F/J):  ${clientesCadastroController.cliente.tipoPessoa}');
+
+                    print(
+                        "ESTADO UF Principal..: ${principalUfController.text}");
+                    print("ESTADO UF Entrega..: ${entregaUfController.text}");
                   },
                   titulo: Strings.salvar,
                   icone: Icons.check_box,
@@ -208,7 +212,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold, fontSize: Font.title_18),
                   ),
-                 
+
                   //*  Determina se a pessoa é Física ou Jurídica
                   PessoafjButton(
                     pessoa: (pessoaFouJ) {
@@ -219,7 +223,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   //   pessoaFJController.text;
                   // }),
 
-                  
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
@@ -331,8 +334,14 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         SizedBox(
                           width: Space.spacing_8,
                         ),
-                        //* Widget para selecionar o Estado(UF principal)
-                        ClientesUfDropdown(),
+                        //! Widget para selecionar o Estado(UF principal)
+                        ClientesUfDropdown(
+                          (uf) {
+                            principalUfController.text = uf;
+                            print(
+                                "ESTADO UF RETORNADA..: ${principalUfController.text}");
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -443,7 +452,14 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         SizedBox(
                           width: Space.spacing_8,
                         ),
-                        ClientesUfDropdown(),
+                        //! ClientesUfDropdown(),
+                        ClientesUfDropdown(
+                          (uf) {
+                            entregaUfController.text = uf;
+                            print(
+                                "ESTADO UF RETORNADA Entrega..: ${entregaUfController.text}");
+                          },
+                        ),
                       ],
                     ),
                   ),

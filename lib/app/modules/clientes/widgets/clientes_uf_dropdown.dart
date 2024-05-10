@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
+import 'package:get/get.dart';
 
 enum ClienteUF {
   ac('AC'),
@@ -35,7 +36,9 @@ enum ClienteUF {
 }
 
 class ClientesUfDropdown extends StatefulWidget {
-  const ClientesUfDropdown({super.key});
+  Function(String) ufRetorno;
+
+  ClientesUfDropdown(this.ufRetorno);
 
   @override
   State<ClientesUfDropdown> createState() => _ClientesUfDropdownState();
@@ -49,6 +52,11 @@ class _ClientesUfDropdownState extends State<ClientesUfDropdown> {
     return DropdownMenu<ClienteUF>(
       initialSelection: ClienteUF.ac,
       controller: ufController,
+      onSelected: (ClienteUF? value) {
+        setState(() {
+          widget.ufRetorno((value?.uf.toString().toUpperCase()) ?? "AC");
+        });
+      },
       requestFocusOnTap: true,
       menuHeight: Sizes.sizeH_200,
       width: Sizes.sizeW_100,
