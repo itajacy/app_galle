@@ -17,15 +17,13 @@ class PessoafjButton extends StatefulWidget {
 class _PessoafjButtonState extends State<PessoafjButton> {
   PessoaFJ? _pessoaFJ = PessoaFJ.fisica;
 
-  @override
-
   //! tentei com initState, mas não deu certo, inclusive parou de funcionar
-  // void initState() {
-  //   widget.pessoa = (p0) {
-  //     p0 = "F";
-  //   };
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    widget.pessoa("F");
+    print("INIT STATE do pessoafjButton-- ");
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +37,7 @@ class _PessoafjButtonState extends State<PessoafjButton> {
           child: ListTile(
             title: const Text(Strings.fisica),
             leading: Radio<PessoaFJ>(
+              // mouseCursor: MaterialStateMouseCursor.clickable,
               value: PessoaFJ.fisica,
               groupValue: _pessoaFJ,
               onChanged: (PessoaFJ? value) {

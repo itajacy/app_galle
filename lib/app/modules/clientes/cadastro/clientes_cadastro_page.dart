@@ -213,10 +213,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         fontWeight: FontWeight.bold, fontSize: Font.title_18),
                   ),
 
-                  //*  Determina se a pessoa é Física ou Jurídica
+                  //!  Determina se a pessoa é Física ou Jurídica
                   PessoafjButton(
                     pessoa: (pessoaFouJ) {
                       pessoaFJController.text = pessoaFouJ;
+                      print(
+                          "Widget Pessoafj em clientes_cadastro_page--> ${pessoaFJController.text}");
                     },
                   ),
                   // PessoafjButton((pessoa) {
