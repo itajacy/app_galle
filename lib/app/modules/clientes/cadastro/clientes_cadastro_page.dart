@@ -338,8 +338,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         ClientesUfDropdown(
                           (uf) {
                             principalUfController.text = uf;
+                            clientesCadastroController.cliente.pUF = uf;
                             print(
-                                "ESTADO UF RETORNADA..: ${principalUfController.text}");
+                                "ESTADO UF Principal RETORNADA..: ${principalUfController.text}");
                           },
                         ),
                       ],
@@ -436,6 +437,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                             clientesCadastroController.cliente.pBairro!;
                         entregaCepController.text =
                             clientesCadastroController.cliente.pCEP!;
+
+                        entregaUfController.text =
+                            clientesCadastroController.cliente.pUF!;
                       },
                       titulo: Strings.copiarPrincipal,
                       icone: Icons.copy,
@@ -452,7 +456,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         SizedBox(
                           width: Space.spacing_8,
                         ),
-                        //! ClientesUfDropdown(),
+                        //! Widget para selecionar o Estado(UF ENTREGA)
                         ClientesUfDropdown(
                           (uf) {
                             entregaUfController.text = uf;

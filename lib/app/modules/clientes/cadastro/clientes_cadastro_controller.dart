@@ -213,6 +213,13 @@ class ClientesCadastroController extends GetxController {
     cliente.eBairro = cliente.pBairro;
     cliente.eCEP = cliente.pCEP;
 
+    print("Objeto Cliente eUF.. ${cliente.eUF}");
+    print("Objeto Cliente eCidade.. ${cliente.eCidade}");
+    print("Objeto Cliente eEndereco.. ${cliente.eEndereco}");
+    print("Objeto Cliente eComplemento.. ${cliente.eComplemento}");
+    print("Objeto Cliente eBairro.. ${cliente.eBairro}");
+    print("Objeto Cliente eCEP.. ${cliente.eCEP}");
+
     update();
   }
 
