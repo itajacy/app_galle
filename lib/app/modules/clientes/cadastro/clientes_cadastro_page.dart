@@ -429,7 +429,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     child: ClientesButton(
                       onPress: () {
                         clientesCadastroController.copiarEnderecoPrincipal();
-
+                        if (clientesCadastroController.cliente.pUF == null) {
+                          // pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
+                          return;
+                        }
                         entregaCidadeController.text =
                             clientesCadastroController.cliente.pCidade!;
                         entregaEnderecoController.text =

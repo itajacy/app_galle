@@ -19,6 +19,7 @@ class ClientesCadastroController extends GetxController {
   String? fone2Error;
   String? foneResError;
 
+  String? pUFError;
   String? pCidadeError;
   String? pEnderecoError;
   String? pComplementoError;
@@ -62,6 +63,10 @@ class ClientesCadastroController extends GetxController {
     //   return;
     // }
 
+    if (cliente.pUF!.isEmpty) {
+      pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
+      return;
+    }
     // if (cliente.pCidade!.isEmpty) {
     //   pCidadeError = 'A CIDADE NÃO PODE SER VAZIA!';
     //   return;
@@ -204,21 +209,26 @@ class ClientesCadastroController extends GetxController {
   }
 
   void copiarEnderecoPrincipal() {
-    cliente.eUF = cliente.pUF;
-    cliente.eCidade = cliente.pCidade;
-    cliente.eEndereco = cliente.pEndereco;
-    cliente.eComplemento = cliente.pComplemento;
-    cliente.eBairro = cliente.pBairro;
-    cliente.eCEP = cliente.pCEP;
+    if (cliente.pUF == null) {
+      pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
+      return;
+    } else {
+      cliente.eUF = cliente.pUF;
+      cliente.eCidade = cliente.pCidade;
+      cliente.eEndereco = cliente.pEndereco;
+      cliente.eComplemento = cliente.pComplemento;
+      cliente.eBairro = cliente.pBairro;
+      cliente.eCEP = cliente.pCEP;
 
-    print("Objeto Cliente eUF.. ${cliente.eUF}");
-    print("Objeto Cliente eCidade.. ${cliente.eCidade}");
-    print("Objeto Cliente eEndereco.. ${cliente.eEndereco}");
-    print("Objeto Cliente eComplemento.. ${cliente.eComplemento}");
-    print("Objeto Cliente eBairro.. ${cliente.eBairro}");
-    print("Objeto Cliente eCEP.. ${cliente.eCEP}");
+      print("Objeto Cliente eUF.. ${cliente.eUF}");
+      print("Objeto Cliente eCidade.. ${cliente.eCidade}");
+      print("Objeto Cliente eEndereco.. ${cliente.eEndereco}");
+      print("Objeto Cliente eComplemento.. ${cliente.eComplemento}");
+      print("Objeto Cliente eBairro.. ${cliente.eBairro}");
+      print("Objeto Cliente eCEP.. ${cliente.eCEP}");
 
-    update();
+      update();
+    }
   }
 
 //!  FAZER PARA TODOS OS CAMPOS E LEMBRAR DE ALTERAR EM CLIENTES CADASTRO
