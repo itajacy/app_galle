@@ -339,10 +339,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         //! Widget para selecionar o Estado(UF principal)
                         ClientesUfDropdown(
                           (uf) {
+                            print('uf--> $uf');
                             principalUfController.text = uf;
                             clientesCadastroController.cliente.pUF = uf;
                             print(
-                                "ESTADO UF Principal RETORNADA..: ${principalUfController.text}");
+                                "ESTADO UF Principal RETORNADA..: ${clientesCadastroController.cliente.pUF}");
                           },
                         ),
                       ],

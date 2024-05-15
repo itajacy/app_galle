@@ -203,8 +203,6 @@ class ClientesCadastroController extends GetxController {
     eCEPError = null;
   }
 
-//! ESTÁ FUNCIONANDO SEM O MÉTODO abaixo, e sem o update()
-
   void copiarEnderecoPrincipal() {
     cliente.eUF = cliente.pUF;
     cliente.eCidade = cliente.pCidade;

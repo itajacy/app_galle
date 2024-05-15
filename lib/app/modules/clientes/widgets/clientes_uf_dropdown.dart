@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
-import 'package:get/get.dart';
 
 enum ClienteUF {
+  selecione('UF'),
   ac('AC'),
   al('AL'),
   ap('AP'),
@@ -48,18 +48,35 @@ class _ClientesUfDropdownState extends State<ClientesUfDropdown> {
   final ufController = TextEditingController();
 
   @override
+  void initState() {
+    ufController.text = 'AC';
+    print('ufController.text em clientes_uf_dropdown --> ${ufController.text}');
+    setState(() {
+      widget.ufRetorno = (p0) {
+        return 'AC';
+      };
+    });
+    print('${widget.ufRetorno.toString()}');
+    // ClienteUF? value;
+    // print(widget.ufRetorno((value?.uf.toString().toUpperCase()) ?? "AC"));
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return DropdownMenu<ClienteUF>(
-      initialSelection: ClienteUF.ac,
+      initialSelection: ClienteUF.selecione,
       controller: ufController,
       onSelected: (ClienteUF? value) {
         setState(() {
           widget.ufRetorno((value?.uf.toString().toUpperCase()) ?? "AC");
         });
       },
-      requestFocusOnTap: true,
+      // requestFocusOnTap: true,
       menuHeight: Sizes.sizeH_200,
-      width: Sizes.sizeW_100,
+      width: Sizes.sizeW_170,
+      enableSearch: false,
       dropdownMenuEntries:
           ClienteUF.values.map<DropdownMenuEntry<ClienteUF>>((ClienteUF uf) {
         return DropdownMenuEntry<ClienteUF>(
