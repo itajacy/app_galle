@@ -67,10 +67,10 @@ class ClientesCadastroController extends GetxController {
       pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
       return;
     }
-    // if (cliente.pCidade!.isEmpty) {
-    //   pCidadeError = 'A CIDADE NÃO PODE SER VAZIA!';
-    //   return;
-    // }
+    if (cliente.pCidade!.isEmpty) {
+      pCidadeError = 'A CIDADE NÃO PODE SER VAZIA!';
+      return;
+    }
 
     // if (cliente.pEndereco!.isEmpty) {
     //   pEnderecoError = 'O ENDEREÇO NÃO PODE SER VAZIO!';
@@ -154,6 +154,11 @@ class ClientesCadastroController extends GetxController {
 //---
 
 //!  Como receber e tratar UF principal
+
+  void setpUF(String value) {
+    cliente.pUF = value;
+    pUFError = "";
+  }
 
   void setpCidade(String value) {
     cliente.pCidade = value;

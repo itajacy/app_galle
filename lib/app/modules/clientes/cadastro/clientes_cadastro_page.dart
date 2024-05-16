@@ -21,10 +21,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesCadastroController clientesCadastroController =
       Get.put(ClientesCadastroController());
 
-  // PessoafjButton pessoaFJB = Get.put(PessoafjButton(
-  //   builder: (controller) => x,
-  // ));
-
   final nomeFantasiaController = TextEditingController();
 
   final razaoSocialController = TextEditingController();
@@ -327,16 +323,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
-                    child: Row(
-                      children: [
-                        Text(
-                          Strings.uf,
-                          style: TextStyle(fontSize: Font.title_18),
-                        ),
-                        SizedBox(
-                          width: Space.spacing_8,
-                        ),
+                    child:
                         //! Widget para selecionar o Estado(UF principal)
+                        Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
                         ClientesUfDropdown(
                           (uf) {
                             print('uf--> $uf');
@@ -345,6 +336,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                             print(
                                 "ESTADO UF Principal RETORNADA..: ${clientesCadastroController.cliente.pUF}");
                           },
+                          (principalUfController.text.isEmpty)
+                              ? "Escolha um Estado"
+                              : null,
                         ),
                       ],
                     ),
@@ -455,13 +449,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: Row(
                       children: [
-                        Text(
-                          Strings.uf,
-                          style: TextStyle(fontSize: Font.title_18),
-                        ),
-                        SizedBox(
-                          width: Space.spacing_8,
-                        ),
                         //! Widget para selecionar o Estado(UF ENTREGA)
                         ClientesUfDropdown(
                           (uf) {
@@ -469,6 +456,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                             print(
                                 "ESTADO UF RETORNADA Entrega..: ${entregaUfController.text}");
                           },
+                          (entregaUfController.text.isEmpty)
+                              ? "Selecione uma UF"
+                              : null,
                         ),
                       ],
                     ),
