@@ -38,9 +38,15 @@ enum ClienteUF {
 
 class ClientesUfDropdown extends StatefulWidget {
   Function(String) ufRetorno;
-  String? pUFError;
+  String? msgUFError;
+ 
 
-  ClientesUfDropdown(this.ufRetorno, this.pUFError);
+  String ufRecebido;
+
+  ClientesUfDropdown(
+      {required this.ufRetorno,
+      required this.msgUFError,
+      required this.ufRecebido});
 
   @override
   State<ClientesUfDropdown> createState() => _ClientesUfDropdownState();
@@ -49,29 +55,28 @@ class ClientesUfDropdown extends StatefulWidget {
 class _ClientesUfDropdownState extends State<ClientesUfDropdown> {
   final ufController = TextEditingController();
 
+
+
   @override
   Widget build(BuildContext context) {
     return DropdownMenu<ClienteUF>(
-      label: Text(Strings.uf),
-      // hintText: "Escolha o Estado",
-      // initialSelection: ClienteUF.ac,
-      errorText: widget.pUFError,
+      label: const Text(Strings.estado),
+      errorText: widget.msgUFError,
       controller: ufController,
       onSelected: (ClienteUF? value) {
         setState(() {
           widget.ufRetorno((value!.uf.toString().toUpperCase()));
-          widget.pUFError = null;
+          widget.msgUFError = null;
         });
       },
 
-      // requestFocusOnTap: true,
       menuHeight: Sizes.sizeH_200,
       width: Sizes.sizeW_170,
       // enableSearch: false,
       dropdownMenuEntries:
           ClienteUF.values.map<DropdownMenuEntry<ClienteUF>>((ClienteUF uf) {
         return DropdownMenuEntry<ClienteUF>(
-          value: uf,
+          value: uf, 
           label: uf.name.toUpperCase(),
         );
       }).toList(),

@@ -67,6 +67,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   final entregaCepController = TextEditingController();
 
+  bool copiarUF = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +87,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
       ),
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: Space.spacing_12,
           ),
           Container(
@@ -169,7 +171,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: Space.spacing_8,
           ),
           Expanded(
@@ -185,7 +187,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.nomeFantasia,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.nomeFantasiaError,
                       ),
                     ),
@@ -198,12 +200,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.razaoSocial,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.razaoSocialError,
                       ),
                     ),
                   ),
-                  Text(
+                  const Text(
                     Strings.pessoaFJ,
                     style: TextStyle(
                         fontWeight: FontWeight.bold, fontSize: Font.title_18),
@@ -213,13 +215,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   PessoafjButton(
                     pessoa: (pessoaFouJ) {
                       pessoaFJController.text = pessoaFouJ;
-                      print(
-                          "Widget Pessoafj em clientes_cadastro_page--> ${pessoaFJController.text}");
+                      // print(
+                      //     "Widget Pessoafj em clientes_cadastro_page--> ${pessoaFJController.text}");
                     },
                   ),
-                  // PessoafjButton((pessoa) {
-                  //   pessoaFJController.text;
-                  // }),
 
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
@@ -229,7 +228,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: Strings.cnpjCpf,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.cnpjCpfError,
                       ),
                     ),
@@ -242,7 +241,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: Strings.ieRg,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.iERGError,
                       ),
                     ),
@@ -255,7 +254,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.contato,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.contatoError,
                       ),
                     ),
@@ -268,7 +267,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         labelText: Strings.email,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.emailError,
                       ),
                     ),
@@ -281,7 +280,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: Strings.foneCom1,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.fone1Error,
                       ),
                     ),
@@ -294,7 +293,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: Strings.foneCom2,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.fone2Error,
                       ),
                     ),
@@ -307,13 +306,13 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: Strings.foneRes,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.foneResError,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
+                  const Padding(
+                    padding: EdgeInsets.all(Space.spacing_8),
                     child: Text(
                       Strings.enderecoPrincipal,
                       style:
@@ -329,16 +328,19 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         ClientesUfDropdown(
-                          (uf) {
-                            print('uf--> $uf');
+                          ufRetorno: (uf) {
+                            
+                            // print('uf--> $uf');
                             principalUfController.text = uf;
                             clientesCadastroController.cliente.pUF = uf;
-                            print(
-                                "ESTADO UF Principal RETORNADA..: ${clientesCadastroController.cliente.pUF}");
+                            // print(
+                            //     "ESTADO UF Principal RETORNADA..: ${clientesCadastroController.cliente.pUF}");
                           },
-                          (principalUfController.text.isEmpty)
+                          msgUFError: (principalUfController.text.isEmpty)
                               ? "Escolha um Estado"
                               : null,
+                          ufRecebido:
+                              clientesCadastroController.cliente.pUF ?? "",
                         ),
                       ],
                     ),
@@ -351,7 +353,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.cidade,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.pCidadeError,
                       ),
                     ),
@@ -364,7 +366,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.endereco,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.pEnderecoError,
                       ),
                     ),
@@ -377,7 +379,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.complemento,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.pComplementoError,
                       ),
                     ),
@@ -390,7 +392,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.bairro,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.pBairroError,
                       ),
                     ),
@@ -403,12 +405,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           labelText: Strings.cep,
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           errorText: clientesCadastroController.pCEPError),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
+                  const Padding(
+                    padding: EdgeInsets.all(Space.spacing_8),
                     child: Text(
                       Strings.enderecoEntrega,
                       style: TextStyle(
@@ -427,6 +429,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                           // pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
                           return;
                         }
+                        copiarUF = true;
+                        //!  tentando atualizar a UF do endereco de entrega
+                        setState(() {
+                          entregaUfController.text =
+                              clientesCadastroController.cliente.pUF!;
+                        });
                         entregaCidadeController.text =
                             clientesCadastroController.cliente.pCidade!;
                         entregaEnderecoController.text =
@@ -451,14 +459,24 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       children: [
                         //! Widget para selecionar o Estado(UF ENTREGA)
                         ClientesUfDropdown(
-                          (uf) {
+                          ufRetorno: (uf) {
+                            if (copiarUF == false) {
                             entregaUfController.text = uf;
-                            print(
-                                "ESTADO UF RETORNADA Entrega..: ${entregaUfController.text}");
+                              clientesCadastroController.cliente.eUF = uf;
+                              // print(
+                              //     "ESTADO UF RETORNADA Entrega..: ${entregaUfController.text}");
+                            } else {
+                              entregaUfController.text =
+                                  principalUfController.text;
+                              clientesCadastroController.cliente.eUF =
+                                  entregaUfController.text;
+                            }
                           },
-                          (entregaUfController.text.isEmpty)
+                          msgUFError: (entregaUfController.text.isEmpty)
                               ? "Selecione uma UF"
                               : null,
+                          ufRecebido:
+                              clientesCadastroController.cliente.eUF ?? "",
                         ),
                       ],
                     ),
@@ -472,7 +490,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.cidade,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.eCidadeError,
                       ),
                     ),
@@ -485,7 +503,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.endereco,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.eEnderecoError,
                       ),
                     ),
@@ -498,7 +516,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.complemento,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.eEnderecoError,
                       ),
                     ),
@@ -511,7 +529,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.bairro,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.eBairroError,
                       ),
                     ),
@@ -524,7 +542,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: Strings.cep,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.eCEPError,
                       ),
                     ),
