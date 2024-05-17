@@ -41,12 +41,12 @@ class ClientesUfDropdown extends StatefulWidget {
   String? msgUFError;
  
 
-  String ufRecebido;
+ 
 
   ClientesUfDropdown(
       {required this.ufRetorno,
       required this.msgUFError,
-      required this.ufRecebido});
+  });
 
   @override
   State<ClientesUfDropdown> createState() => _ClientesUfDropdownState();
@@ -54,8 +54,6 @@ class ClientesUfDropdown extends StatefulWidget {
 
 class _ClientesUfDropdownState extends State<ClientesUfDropdown> {
   final ufController = TextEditingController();
-
-
 
   @override
   Widget build(BuildContext context) {

@@ -130,6 +130,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     clientesCadastroController.cliente.foneRes =
                         foneResController.text;
                     clientesCadastroController.cliente.fax = faxController.text;
+
                     clientesCadastroController.cliente.pUF =
                         principalUfController.text;
                     clientesCadastroController.cliente.pCidade =
@@ -156,7 +157,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     clientesCadastroController.cliente.eCEP =
                         entregaCepController.text;
 //!  Comentei para não salvar por enquanto para testes
-                    // clientesCadastroController.save();
+                    clientesCadastroController.save();
 
                     print(
                         'Pessoa Fisica ou Juridica..(F/J):  ${clientesCadastroController.cliente.tipoPessoa}');
@@ -327,20 +328,19 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        ClientesUfDropdown(
-                          ufRetorno: (uf) {
-                            
-                            // print('uf--> $uf');
-                            principalUfController.text = uf;
-                            clientesCadastroController.cliente.pUF = uf;
-                            // print(
-                            //     "ESTADO UF Principal RETORNADA..: ${clientesCadastroController.cliente.pUF}");
+                        GetBuilder<ClientesCadastroController>(
+                          builder: (_) {
+                            return ClientesUfDropdown(
+                              ufRetorno: (uf) {
+                                // print('uf--> $uf');
+                                principalUfController.text = uf;
+                                clientesCadastroController.setpUF(uf);
+                                // print(
+                                //     "ESTADO UF Principal RETORNADA..: ${clientesCadastroController.cliente.pUF}");
+                              },
+                              msgUFError: clientesCadastroController.pUFError,
+                            );
                           },
-                          msgUFError: (principalUfController.text.isEmpty)
-                              ? "Escolha um Estado"
-                              : null,
-                          ufRecebido:
-                              clientesCadastroController.cliente.pUF ?? "",
                         ),
                       ],
                     ),
@@ -425,11 +425,14 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     child: ClientesButton(
                       onPress: () {
                         clientesCadastroController.copiarEnderecoPrincipal();
+                        clientesCadastroController
+                            .seteUF(principalUfController.text);
                         if (clientesCadastroController.cliente.pUF == null) {
                           // pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
                           return;
                         }
                         copiarUF = true;
+
                         //!  tentando atualizar a UF do endereco de entrega
                         setState(() {
                           entregaUfController.text =
@@ -458,25 +461,17 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     child: Row(
                       children: [
                         //! Widget para selecionar o Estado(UF ENTREGA)
-                        ClientesUfDropdown(
-                          ufRetorno: (uf) {
-                            if (copiarUF == false) {
-                            entregaUfController.text = uf;
-                              clientesCadastroController.cliente.eUF = uf;
-                              // print(
-                              //     "ESTADO UF RETORNADA Entrega..: ${entregaUfController.text}");
-                            } else {
-                              entregaUfController.text =
-                                  principalUfController.text;
-                              clientesCadastroController.cliente.eUF =
-                                  entregaUfController.text;
-                            }
+
+                        GetBuilder<ClientesCadastroController>(
+                          builder: (_) {
+                            return ClientesUfDropdown(
+                              ufRetorno: (uf) {
+                                entregaUfController.text = uf;
+                                clientesCadastroController.seteUF(uf);
+                              },
+                              msgUFError: clientesCadastroController.eUFError,
+                            );
                           },
-                          msgUFError: (entregaUfController.text.isEmpty)
-                              ? "Selecione uma UF"
-                              : null,
-                          ufRecebido:
-                              clientesCadastroController.cliente.eUF ?? "",
                         ),
                       ],
                     ),

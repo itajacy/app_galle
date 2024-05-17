@@ -26,6 +26,7 @@ class ClientesCadastroController extends GetxController {
   String? pBairroError;
   String? pCEPError;
 
+  String? eUFError;
   String? eCidadeError;
   String? eEnderecoError;
   String? eComplementoError;
@@ -89,7 +90,14 @@ class ClientesCadastroController extends GetxController {
 
 //!
 
-    int resposta = await clientesDao.salvar(cliente);
+    if (cliente.eUF == null) {
+      eUFError = 'SELECIONE O ESTADO';
+      update();
+      return;
+    }
+
+    //!  NÃO ESTÁ SALVANDO PARA TESTAR
+    //! int resposta = await clientesDao.salvar(cliente);
     // print('reposta do clientesDao.salvar(cliente)..: ' + resposta.toString());
 
     update();
@@ -157,7 +165,7 @@ class ClientesCadastroController extends GetxController {
 
   void setpUF(String value) {
     cliente.pUF = value;
-    pUFError = "";
+    pUFError = null;
   }
 
   void setpCidade(String value) {
@@ -188,6 +196,11 @@ class ClientesCadastroController extends GetxController {
 //---
 //!  Como receber e tratar UF de entrega
 
+  void seteUF(String value) {
+    cliente.eUF = value;
+    eUFError = null;
+  }
+
   void seteCidade(String value) {
     cliente.eCidade = value;
     eCidadeError = null;
@@ -214,11 +227,18 @@ class ClientesCadastroController extends GetxController {
   }
 
   void copiarEnderecoPrincipal() {
+    print('cliente.pUF --> ${cliente.pUF}');
     if (cliente.pUF == null) {
-      pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
+      //! Oque/Como fazer para exibir a mensagem de erro abaixo?
+      //! exibi-la na mensagem no errorText: do Estado Principal, ou
+      //! ou abrir um pop-up ou algo do tipo com a mensagem na tela?
+      pUFError = 'SELECIONE O ESTADO';
+      print(pUFError);
+      update();
       return;
     } else {
-      cliente.eUF = cliente.pUF;
+      //! não faz a copia do cliente principal para o de entrega para testar
+      //! cliente.eUF = cliente.pUF;
       cliente.eCidade = cliente.pCidade;
       cliente.eEndereco = cliente.pEndereco;
       cliente.eComplemento = cliente.pComplemento;
