@@ -64,14 +64,14 @@ class ClientesCadastroController extends GetxController {
     //   return;
     // }
 
-    if (cliente.pUF!.isEmpty) {
-      pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
-      return;
-    }
-    if (cliente.pCidade!.isEmpty) {
-      pCidadeError = 'A CIDADE NÃO PODE SER VAZIA!';
-      return;
-    }
+    // if (cliente.pUF!.isEmpty) {
+    //   pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
+    //   return;
+    // }
+    // if (cliente.pCidade!.isEmpty) {
+    //   pCidadeError = 'A CIDADE NÃO PODE SER VAZIA!';
+    //   return;
+    // }
 
     // if (cliente.pEndereco!.isEmpty) {
     //   pEnderecoError = 'O ENDEREÇO NÃO PODE SER VAZIO!';
@@ -91,7 +91,7 @@ class ClientesCadastroController extends GetxController {
 //!
 
     if (cliente.eUF == null) {
-      eUFError = 'SELECIONE O ESTADO';
+      eUFError = 'ESCOLHA O ESTADO';
       update();
       return;
     }
@@ -238,7 +238,7 @@ class ClientesCadastroController extends GetxController {
       return;
     } else {
       //! não faz a copia do cliente principal para o de entrega para testar
-      //! cliente.eUF = cliente.pUF;
+      cliente.eUF = cliente.pUF;
       cliente.eCidade = cliente.pCidade;
       cliente.eEndereco = cliente.pEndereco;
       cliente.eComplemento = cliente.pComplemento;

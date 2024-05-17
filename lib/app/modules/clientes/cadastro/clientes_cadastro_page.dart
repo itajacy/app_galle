@@ -67,7 +67,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   final entregaCepController = TextEditingController();
 
-  bool copiarUF = false;
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -332,11 +332,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                           builder: (_) {
                             return ClientesUfDropdown(
                               ufRetorno: (uf) {
-                                // print('uf--> $uf');
                                 principalUfController.text = uf;
                                 clientesCadastroController.setpUF(uf);
-                                // print(
-                                //     "ESTADO UF Principal RETORNADA..: ${clientesCadastroController.cliente.pUF}");
                               },
                               msgUFError: clientesCadastroController.pUFError,
                             );
@@ -422,6 +419,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
+
+                    //! botao copiarEnderecoPrincipal
                     child: ClientesButton(
                       onPress: () {
                         clientesCadastroController.copiarEnderecoPrincipal();
@@ -431,7 +430,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                           // pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
                           return;
                         }
-                        copiarUF = true;
+                        
 
                         //!  tentando atualizar a UF do endereco de entrega
                         setState(() {
