@@ -67,8 +67,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   final entregaCepController = TextEditingController();
 
- 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -424,19 +422,19 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     child: ClientesButton(
                       onPress: () {
                         clientesCadastroController.copiarEnderecoPrincipal();
-                        clientesCadastroController
-                            .seteUF(principalUfController.text);
+                        //! PARA NÃO COPIAR O UF PRINCIPAL PARA A ENTREGA P TESTE
+                        // clientesCadastroController
+                        //     .seteUF(principalUfController.text);
                         if (clientesCadastroController.cliente.pUF == null) {
                           // pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
                           return;
                         }
-                        
 
                         //!  tentando atualizar a UF do endereco de entrega
-                        setState(() {
-                          entregaUfController.text =
-                              clientesCadastroController.cliente.pUF!;
-                        });
+                        // setState(() {
+                        //   entregaUfController.text =
+                        //       clientesCadastroController.cliente.pUF!;
+                        // });
                         entregaCidadeController.text =
                             clientesCadastroController.cliente.pCidade!;
                         entregaEnderecoController.text =
@@ -448,8 +446,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         entregaCepController.text =
                             clientesCadastroController.cliente.pCEP!;
 
-                        entregaUfController.text =
-                            clientesCadastroController.cliente.pUF!;
+                      
                       },
                       titulo: Strings.copiarPrincipal,
                       icone: Icons.copy,
@@ -464,9 +461,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         GetBuilder<ClientesCadastroController>(
                           builder: (_) {
                             return ClientesUfDropdown(
-                              ufRetorno: (uf) {
-                                entregaUfController.text = uf;
-                                clientesCadastroController.seteUF(uf);
+                              ufRetorno: (ufEntrega) {
+                                entregaUfController.text = ufEntrega;
+                                clientesCadastroController.seteUF(ufEntrega);
                               },
                               msgUFError: clientesCadastroController.eUFError,
                             );

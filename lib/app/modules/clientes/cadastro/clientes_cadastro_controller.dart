@@ -89,9 +89,18 @@ class ClientesCadastroController extends GetxController {
     // }
 
 //!
+    print("CONTEUDO DE cliente.eUF --> ${cliente.eUF}");
+    print(cliente.eUF == null);
+    print(cliente.eUF.isBlank);
+    var x = cliente.eUF.isBlank;
+    if (x == true) {
+      cliente.eUF = null;
+    }
+  
 
     if (cliente.eUF == null) {
       eUFError = 'ESCOLHA O ESTADO';
+      print("mensagem de rro do cliente,eUF --> $eUFError");
       update();
       return;
     }
@@ -232,13 +241,13 @@ class ClientesCadastroController extends GetxController {
       //! Oque/Como fazer para exibir a mensagem de erro abaixo?
       //! exibi-la na mensagem no errorText: do Estado Principal, ou
       //! ou abrir um pop-up ou algo do tipo com a mensagem na tela?
-      pUFError = 'SELECIONE O ESTADO';
+      pUFError = 'SELECIONE O ESTADO!!';
       print(pUFError);
       update();
       return;
     } else {
       //! não faz a copia do cliente principal para o de entrega para testar
-      cliente.eUF = cliente.pUF;
+      // cliente.eUF = cliente.pUF;
       cliente.eCidade = cliente.pCidade;
       cliente.eEndereco = cliente.pEndereco;
       cliente.eComplemento = cliente.pComplemento;
