@@ -89,6 +89,9 @@ class ClientesCadastroController extends GetxController {
     // }
 
 //!
+
+//! PROBLEMA COM O NULL, VERIFICAR PQ FUNCIONOU COM O BLANK
+
     print("CONTEUDO DE cliente.eUF --> ${cliente.eUF}");
     print(cliente.eUF == null);
     print(cliente.eUF.isBlank);
