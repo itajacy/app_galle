@@ -92,14 +92,14 @@ class ClientesCadastroController extends GetxController {
 
 //! PROBLEMA COM O NULL, VERIFICAR PQ FUNCIONOU COM O BLANK
 
-    print("CONTEUDO DE cliente.eUF --> ${cliente.eUF}");
-    print(cliente.eUF == null);
-    print(cliente.eUF.isBlank);
+    print("CONTEUDO DE cliente.eUF --> [${cliente.eUF}]");
+    print('cliente.eUF é nulo? ${cliente.eUF == null}');
+    print('cliente.eUF é Blank? ${cliente.eUF.isBlank}');
+    // print(cliente.eUF.isBlank);
     var x = cliente.eUF.isBlank;
     if (x == true) {
       cliente.eUF = null;
     }
-  
 
     if (cliente.eUF == null) {
       eUFError = 'ESCOLHA O ESTADO';
