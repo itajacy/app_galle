@@ -92,18 +92,18 @@ class ClientesCadastroController extends GetxController {
 
 //! PROBLEMA COM O NULL, VERIFICAR PQ FUNCIONOU COM O BLANK
 
-    print("CONTEUDO DE cliente.eUF --> [${cliente.eUF}]");
-    print('cliente.eUF é nulo? ${cliente.eUF == null}');
-    print('cliente.eUF é Blank? ${cliente.eUF.isBlank}');
-    // print(cliente.eUF.isBlank);
-    var x = cliente.eUF.isBlank;
-    if (x == true) {
-      cliente.eUF = null;
-    }
+    // print("CONTEUDO DE cliente.eUF --> [${cliente.eUF}]");
+    // print('cliente.eUF é nulo? ${cliente.eUF == null}');
+    // print('cliente.eUF é Blank? ${cliente.eUF.isBlank}');
+    // // print(cliente.eUF.isBlank);
+    // var x = cliente.eUF.isBlank;
+    // if (x == true) {
+    //   cliente.eUF = null;
+    // }
 
     if (cliente.eUF == null) {
       eUFError = 'ESCOLHA O ESTADO';
-      print("mensagem de rro do cliente,eUF --> $eUFError");
+      print("mensagem de Erro do cliente,eUF --> $eUFError");
       update();
       return;
     }
@@ -240,6 +240,7 @@ class ClientesCadastroController extends GetxController {
 
   void copiarEnderecoPrincipal() {
     print('cliente.pUF --> ${cliente.pUF}');
+    print('cliente.eUF --> ${cliente.eUF}');
     if (cliente.pUF == null) {
       //! Oque/Como fazer para exibir a mensagem de erro abaixo?
       //! exibi-la na mensagem no errorText: do Estado Principal, ou
@@ -257,12 +258,18 @@ class ClientesCadastroController extends GetxController {
       cliente.eBairro = cliente.pBairro;
       cliente.eCEP = cliente.pCEP;
 
-      print("Objeto Cliente eUF.. ${cliente.eUF}");
+      print("===============Dados Copiados===============");
+      print("Objeto Cliente pUF  Principal.. ${cliente.pUF}");
+      print("---------------");
+      print("Objeto Cliente eUF  Entrega.... ${cliente.eUF}");
+      print("---------------");
       print("Objeto Cliente eCidade.. ${cliente.eCidade}");
       print("Objeto Cliente eEndereco.. ${cliente.eEndereco}");
       print("Objeto Cliente eComplemento.. ${cliente.eComplemento}");
       print("Objeto Cliente eBairro.. ${cliente.eBairro}");
       print("Objeto Cliente eCEP.. ${cliente.eCEP}");
+      print("Dados Copiados do Principal -->  Entrega");
+      print("----");
 
       update();
     }

@@ -101,6 +101,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
                   onPress: () {
+
+                    //! BOTAO SALVAR
                     //! tem os campos clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
 
@@ -142,8 +144,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     clientesCadastroController.cliente.pCEP =
                         principalCepController.text;
 
-                    clientesCadastroController.cliente.eUF =
-                        entregaUfController.text;
+//! Resolvido o problema do blank no cliente.eUF com o ternário abaixo
+                    (clientesCadastroController.cliente.eUF != null)
+                        ? entregaUfController.text
+                        : null;
+
                     clientesCadastroController.cliente.eCidade =
                         entregaCidadeController.text;
                     clientesCadastroController.cliente.eEndereco =
