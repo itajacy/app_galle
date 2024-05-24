@@ -7,7 +7,7 @@ class Strings {
   static const sincronizacao = 'SINCRONIZAÇÃO';
   static const configuracao = 'CONFIGURAÇÃO';
   static const empresa = "Galle";
-  static const versao = "versão:  0.03";
+  static const versao = "versão:  0.04";
 
   // DIVERSOS
   static const novo = 'NOVO';
