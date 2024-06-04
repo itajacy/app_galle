@@ -37,7 +37,7 @@ enum ClienteUF {
 }
 
 class ClientesUfDropdown extends StatefulWidget {
-  Function(String) ufRetorno;
+  final Function(String) ufRetorno;
   String? msgUFError;
  
 

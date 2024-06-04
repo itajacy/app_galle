@@ -6,7 +6,7 @@ import '../../../core/strings.dart';
 enum PessoaFJ { fisica, juridica }
 
 class PessoafjButton extends StatefulWidget {
-  Function(String) pessoa;
+  final Function(String) pessoa;
 
   PessoafjButton({required this.pessoa});
 

@@ -7,9 +7,9 @@ import '../../../core/sizes.dart';
 import '../../../core/space.dart';
 
 class ClientesButton extends StatelessWidget {
-  late Function onPress;
-  late String titulo;
-  late IconData icone;
+  final Function onPress;
+  final String titulo;
+  final IconData icone;
 
   ClientesButton({
     required this.onPress,
