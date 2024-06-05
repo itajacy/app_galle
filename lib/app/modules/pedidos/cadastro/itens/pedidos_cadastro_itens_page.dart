@@ -17,7 +17,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
   final umDoProdutoController = TextEditingController();
   final observacaoDoProdutoController = TextEditingController();
 
-  List<String> lista = [
+  final List<String> lista = [
     '01-002',
     '01-0023',
     '01-0024',

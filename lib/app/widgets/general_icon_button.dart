@@ -7,13 +7,13 @@ import '../core/sizes.dart';
 import '../core/space.dart';
 
 class GeneralIconButton extends StatelessWidget {
-  late Function onPress;
-  late IconData? icone;
-  late double? iconSize;
-  late Color? iconeForegroundColor;
-  late double? buttonWidth;
-  late double? buttonHeight;
-  late String? titulo;
+  final Function onPress;
+  final IconData? icone;
+  final double? iconSize;
+  final Color? iconeForegroundColor;
+  final double? buttonWidth;
+  final double? buttonHeight;
+  final String? titulo;
 
   GeneralIconButton({
     required this.onPress,

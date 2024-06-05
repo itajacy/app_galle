@@ -39,13 +39,10 @@ enum ClienteUF {
 class ClientesUfDropdown extends StatefulWidget {
   final Function(String) ufRetorno;
   String? msgUFError;
- 
 
- 
-
-  ClientesUfDropdown(
-      {required this.ufRetorno,
-      required this.msgUFError,
+  ClientesUfDropdown({
+    required this.ufRetorno,
+    required this.msgUFError,
   });
 
   @override
@@ -74,7 +71,7 @@ class _ClientesUfDropdownState extends State<ClientesUfDropdown> {
       dropdownMenuEntries:
           ClienteUF.values.map<DropdownMenuEntry<ClienteUF>>((ClienteUF uf) {
         return DropdownMenuEntry<ClienteUF>(
-          value: uf, 
+          value: uf,
           label: uf.name.toUpperCase(),
         );
       }).toList(),
