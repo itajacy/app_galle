@@ -9,6 +9,7 @@ import '../../../core/sizes.dart';
 import '../../../core/space.dart';
 import '../../../core/strings.dart';
 import '../widgets/pessoafj_button.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class ClientesCadastroPage extends StatefulWidget {
   ClientesCadastroPage({super.key});
@@ -66,6 +67,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   final entregaBairroController = TextEditingController();
 
   final entregaCepController = TextEditingController();
+
+  var cepMaskFormatter = MaskTextInputFormatter(
+      mask: '#####-###', filter: {"#": RegExp(r'[0-9]')});
 
   @override
   Widget build(BuildContext context) {
@@ -402,6 +406,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [cepMaskFormatter],
                       controller: principalCepController,
                       onChanged: clientesCadastroController.setpCEP,
                       keyboardType: TextInputType.number,
@@ -437,10 +442,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                           return;
                         }
 
-                       
                         entregaUfController.text =
                             clientesCadastroController.cliente.pUF!;
-                     
+
                         entregaCidadeController.text =
                             clientesCadastroController.cliente.pCidade!;
                         entregaEnderecoController.text =
@@ -468,7 +472,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                               ufRetorno: (ufEntrega) {
                                 entregaUfController.text = ufEntrega;
                                 clientesCadastroController.seteUF(ufEntrega);
-
                               },
                               msgUFError: clientesCadastroController.eUFError,
                               ufController: entregaUfController,

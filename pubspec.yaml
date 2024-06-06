@@ -39,6 +39,7 @@ dependencies:
   sqflite: ^2.3.2
   path: 
   get: ^4.6.6
+  mask_text_input_formatter: ^2.9.0
 
 dev_dependencies:
   flutter_test:
