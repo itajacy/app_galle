@@ -101,7 +101,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
                   onPress: () {
-
                     //! BOTAO SALVAR
                     //! tem os campos clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
@@ -145,9 +144,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         principalCepController.text;
 
 //! Resolvido o problema do blank no cliente.eUF com o ternário abaixo
-                    (clientesCadastroController.cliente.eUF != null)
-                        ? entregaUfController.text
-                        : null;
+                    // entregaUfController.text = principalUfController.text;
+
+                    clientesCadastroController.cliente.eUF =
+                        entregaUfController.text;
 
                     clientesCadastroController.cliente.eCidade =
                         entregaCidadeController.text;
@@ -168,6 +168,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     print(
                         "ESTADO UF Principal..: ${principalUfController.text}");
                     print("ESTADO UF Entrega..: ${entregaUfController.text}");
+                    print(entregaUfController.text == '');
                   },
                   titulo: Strings.salvar,
                   icone: Icons.check_box,
@@ -339,6 +340,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                                 clientesCadastroController.setpUF(uf);
                               },
                               msgUFError: clientesCadastroController.pUFError,
+                              ufController: principalUfController,
                             );
                           },
                         ),
@@ -428,18 +430,17 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       onPress: () {
                         clientesCadastroController.copiarEnderecoPrincipal();
                         //! PARA NÃO COPIAR O UF PRINCIPAL PARA A ENTREGA P TESTE
-                        // clientesCadastroController
-                        //     .seteUF(principalUfController.text);
+                        clientesCadastroController
+                            .seteUF(principalUfController.text);
                         if (clientesCadastroController.cliente.pUF == null) {
                           // pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
                           return;
                         }
 
-                        //!  tentando atualizar a UF do endereco de entrega
-                        // setState(() {
-                        //   entregaUfController.text =
-                        //       clientesCadastroController.cliente.pUF!;
-                        // });
+                       
+                        entregaUfController.text =
+                            clientesCadastroController.cliente.pUF!;
+                     
                         entregaCidadeController.text =
                             clientesCadastroController.cliente.pCidade!;
                         entregaEnderecoController.text =
@@ -450,8 +451,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                             clientesCadastroController.cliente.pBairro!;
                         entregaCepController.text =
                             clientesCadastroController.cliente.pCEP!;
-
-                      
                       },
                       titulo: Strings.copiarPrincipal,
                       icone: Icons.copy,
@@ -469,8 +468,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                               ufRetorno: (ufEntrega) {
                                 entregaUfController.text = ufEntrega;
                                 clientesCadastroController.seteUF(ufEntrega);
+
                               },
                               msgUFError: clientesCadastroController.eUFError,
+                              ufController: entregaUfController,
                             );
                           },
                         ),

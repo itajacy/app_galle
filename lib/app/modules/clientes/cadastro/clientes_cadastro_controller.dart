@@ -251,7 +251,7 @@ class ClientesCadastroController extends GetxController {
       return;
     } else {
       //! não faz a copia do cliente principal para o de entrega para testar
-      // cliente.eUF = cliente.pUF;
+      cliente.eUF = cliente.pUF;
       cliente.eCidade = cliente.pCidade;
       cliente.eEndereco = cliente.pEndereco;
       cliente.eComplemento = cliente.pComplemento;

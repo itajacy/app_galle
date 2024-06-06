@@ -39,10 +39,13 @@ enum ClienteUF {
 class ClientesUfDropdown extends StatefulWidget {
   final Function(String) ufRetorno;
   String? msgUFError;
+  TextEditingController ufController;
+
 
   ClientesUfDropdown({
     required this.ufRetorno,
     required this.msgUFError,
+    required this.ufController,
   });
 
   @override
@@ -50,14 +53,14 @@ class ClientesUfDropdown extends StatefulWidget {
 }
 
 class _ClientesUfDropdownState extends State<ClientesUfDropdown> {
-  final ufController = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) {
     return DropdownMenu<ClienteUF>(
       label: const Text(Strings.estado),
       errorText: widget.msgUFError,
-      controller: ufController,
+      controller: widget.ufController,
       onSelected: (ClienteUF? value) {
         setState(() {
           widget.ufRetorno((value!.uf.toString().toUpperCase()));
