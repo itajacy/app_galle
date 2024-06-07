@@ -68,8 +68,17 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   final entregaCepController = TextEditingController();
 
+//* Máscaras de formatação abaixo
   var cepMaskFormatter = MaskTextInputFormatter(
-      mask: '#####-###', filter: {"#": RegExp(r'[0-9]')});
+    mask: '#####-###',
+    filter: {"#": RegExp(r'[0-9]')},
+  );
+
+  var foneMaskFormatter = MaskTextInputFormatter(
+    mask: '(##) #####-####',
+    // filter: {"#": RegExp(r'[0-9]')},
+    // type: MaskAutoCompletionType.lazy,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -146,9 +155,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         principalBairroController.text;
                     clientesCadastroController.cliente.pCEP =
                         principalCepController.text;
-
-//! Resolvido o problema do blank no cliente.eUF com o ternário abaixo
-                    // entregaUfController.text = principalUfController.text;
 
                     clientesCadastroController.cliente.eUF =
                         entregaUfController.text;
@@ -284,8 +290,22 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [foneMaskFormatter],
                       controller: foneCom1Controller,
-                      onChanged: clientesCadastroController.setFone1,
+                      // onChanged: clientesCadastroController.setFone1,
+                      onChanged: (text) {
+                        print(text.length);
+                        if (text.length == 15) {
+                          // se o texto estiver no formato de celular
+                          foneMaskFormatter.updateMask(mask: "(##) #####-####");
+                          // foneMaskFormatter.updateMask(mask: '(##) #####-####');
+                        } else if (text.length == 14) {
+                          // se o texto estiver no formato de telefone fixo
+                          foneMaskFormatter.updateMask(mask: "(##) ####-####");
+                          // foneMaskFormatter.updateMask(mask: '(##) ####-####');
+                        }
+                        clientesCadastroController.setFone1;
+                      },
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: Strings.foneCom1,
@@ -297,6 +317,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [foneMaskFormatter],
                       controller: foneCom2Controller,
                       onChanged: clientesCadastroController.setFone2,
                       keyboardType: TextInputType.phone,
@@ -310,6 +331,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [foneMaskFormatter],
                       controller: foneResController,
                       onChanged: clientesCadastroController.setFoneRes,
                       keyboardType: TextInputType.phone,
@@ -320,6 +342,21 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      inputFormatters: [foneMaskFormatter],
+                      controller: faxController,
+                      onChanged: clientesCadastroController.setFax,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        labelText: Strings.fax,
+                        border: const OutlineInputBorder(),
+                        errorText: clientesCadastroController.faxError,
+                      ),
+                    ),
+                  ),
+
                   const Padding(
                     padding: EdgeInsets.all(Space.spacing_8),
                     child: Text(
@@ -537,8 +574,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [cepMaskFormatter],
                       controller: entregaCepController,
-                      onChanged: clientesCadastroController.seteBairro,
+                      onChanged: clientesCadastroController.seteCEP,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: Strings.cep,

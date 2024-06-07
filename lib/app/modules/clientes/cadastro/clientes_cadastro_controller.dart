@@ -18,6 +18,7 @@ class ClientesCadastroController extends GetxController {
   String? fone1Error;
   String? fone2Error;
   String? foneResError;
+  String? faxError;
 
   String? pUFError;
   String? pCidadeError;
@@ -90,17 +91,6 @@ class ClientesCadastroController extends GetxController {
 
 //!
 
-//! PROBLEMA COM O NULL, VERIFICAR PQ FUNCIONOU COM O BLANK
-
-    // print("CONTEUDO DE cliente.eUF --> [${cliente.eUF}]");
-    // print('cliente.eUF é nulo? ${cliente.eUF == null}');
-    // print('cliente.eUF é Blank? ${cliente.eUF.isBlank}');
-    // // print(cliente.eUF.isBlank);
-    // var x = cliente.eUF.isBlank;
-    // if (x == true) {
-    //   cliente.eUF = null;
-    // }
-
     if (cliente.eUF == null) {
       eUFError = 'ESCOLHA O ESTADO';
       print("mensagem de Erro do cliente,eUF --> $eUFError");
@@ -109,7 +99,8 @@ class ClientesCadastroController extends GetxController {
     }
 
     //!  NÃO ESTÁ SALVANDO PARA TESTAR
-    //! int resposta = await clientesDao.salvar(cliente);
+    //! descomentar a linha abaixo para salvar
+    //* int resposta = await clientesDao.salvar(cliente);
     // print('reposta do clientesDao.salvar(cliente)..: ' + resposta.toString());
 
     update();
@@ -169,6 +160,11 @@ class ClientesCadastroController extends GetxController {
   void setFoneRes(String value) {
     cliente.foneRes = value;
     foneResError = null;
+  }
+
+  void setFax(String value) {
+    cliente.fax = value;
+    faxError = null;
   }
 
 //---
