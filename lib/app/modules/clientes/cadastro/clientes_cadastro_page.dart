@@ -1,3 +1,4 @@
+import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_controller.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
@@ -9,7 +10,6 @@ import '../../../core/sizes.dart';
 import '../../../core/space.dart';
 import '../../../core/strings.dart';
 import '../widgets/pessoafj_button.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class ClientesCadastroPage extends StatefulWidget {
   ClientesCadastroPage({super.key});
@@ -68,17 +68,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   final entregaCepController = TextEditingController();
 
-//* Máscaras de formatação abaixo
-  var cepMaskFormatter = MaskTextInputFormatter(
-    mask: '#####-###',
-    filter: {"#": RegExp(r'[0-9]')},
-  );
+//!  VER RegExp
+//*  Abaixo um RegExp para validação de e-mail
 
-  var foneMaskFormatter = MaskTextInputFormatter(
-    mask: '(##) #####-####',
-    // filter: {"#": RegExp(r'[0-9]')},
-    // type: MaskAutoCompletionType.lazy,
-  );
+// return RegExp(
+//                 r'^(([^<>()[\]\\.,&";:\s@\"]+(\.[^<>()[\]\\.,&";:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
 
   @override
   Widget build(BuildContext context) {
@@ -238,6 +232,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        TextInputMask(
+                            mask: ['999.999.999-99', '99.999.999/9999-99'],
+                            reverse: false)
+                      ],
                       controller: cnpjCpfController,
                       onChanged: clientesCadastroController.setCnpjCpf,
                       keyboardType: TextInputType.number,
@@ -251,6 +250,13 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        TextInputMask(
+                          //! VER COMO ACEITAR A LETRA DO RH MAIUSCULA
+                          mask: ['99.999.999-N', '999.999.999.999'],
+                          reverse: false,
+                        ),
+                      ],
                       controller: ieRgController,
                       onChanged: clientesCadastroController.setIeRg,
                       keyboardType: TextInputType.number,
@@ -290,22 +296,15 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
-                      inputFormatters: [foneMaskFormatter],
+                      //! fone
+                      inputFormatters: [
+                        TextInputMask(
+                            mask: ['(99) 9999-9999', '(99) 99999-9999'],
+                            reverse: false)
+                      ],
                       controller: foneCom1Controller,
-                      // onChanged: clientesCadastroController.setFone1,
-                      onChanged: (text) {
-                        print(text.length);
-                        if (text.length == 15) {
-                          // se o texto estiver no formato de celular
-                          foneMaskFormatter.updateMask(mask: "(##) #####-####");
-                          // foneMaskFormatter.updateMask(mask: '(##) #####-####');
-                        } else if (text.length == 14) {
-                          // se o texto estiver no formato de telefone fixo
-                          foneMaskFormatter.updateMask(mask: "(##) ####-####");
-                          // foneMaskFormatter.updateMask(mask: '(##) ####-####');
-                        }
-                        clientesCadastroController.setFone1;
-                      },
+                      onChanged: clientesCadastroController.setFone1,
+
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: Strings.foneCom1,
@@ -317,7 +316,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
-                      inputFormatters: [foneMaskFormatter],
+                      inputFormatters: [
+                        TextInputMask(
+                            mask: ['(99) 9999-9999', '(99) 99999-9999'],
+                            reverse: false),
+                      ],
                       controller: foneCom2Controller,
                       onChanged: clientesCadastroController.setFone2,
                       keyboardType: TextInputType.phone,
@@ -331,7 +334,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
-                      inputFormatters: [foneMaskFormatter],
+                      inputFormatters: [
+                        TextInputMask(
+                            mask: ['(99) 9999-9999', '(99) 99999-9999'],
+                            reverse: false),
+                      ],
                       controller: foneResController,
                       onChanged: clientesCadastroController.setFoneRes,
                       keyboardType: TextInputType.phone,
@@ -345,7 +352,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
-                      inputFormatters: [foneMaskFormatter],
+                      inputFormatters: [
+                        TextInputMask(
+                            mask: ['(99) 9999-9999', '(99) 99999-9999'],
+                            reverse: false),
+                      ],
                       controller: faxController,
                       onChanged: clientesCadastroController.setFax,
                       keyboardType: TextInputType.phone,
@@ -443,7 +454,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
-                      inputFormatters: [cepMaskFormatter],
+                      inputFormatters: [
+                        TextInputMask(
+                          mask: ['99999-999'],
+                          reverse: false,
+                        ),
+                      ],
                       controller: principalCepController,
                       onChanged: clientesCadastroController.setpCEP,
                       keyboardType: TextInputType.number,
@@ -574,7 +590,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
-                      inputFormatters: [cepMaskFormatter],
+                      inputFormatters: [
+                        TextInputMask(
+                          mask: ['99999-999'],
+                          reverse: false,
+                        ),
+                      ],
                       controller: entregaCepController,
                       onChanged: clientesCadastroController.seteCEP,
                       keyboardType: TextInputType.number,
