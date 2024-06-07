@@ -10,6 +10,7 @@ import '../../../core/sizes.dart';
 import '../../../core/space.dart';
 import '../../../core/strings.dart';
 import '../widgets/pessoafj_button.dart';
+import '../widgets/upper_case_text_formatter.dart';
 
 class ClientesCadastroPage extends StatefulWidget {
   ClientesCadastroPage({super.key});
@@ -191,8 +192,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
-                      onChanged: clientesCadastroController.setNomeFantasia,
+                      inputFormatters: [UpperCaseTextFormatter()],
                       controller: nomeFantasiaController,
+                      onChanged: clientesCadastroController.setNomeFantasia,
+                    
+
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.nomeFantasia,
@@ -615,3 +619,15 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
     );
   }
 }
+
+
+// class UpperCaseTextFormatter extends TextInputFormatter {
+//   @override
+//   TextEditingValue formatEditUpdate(
+//       TextEditingValue oldValue, TextEditingValue newValue) {
+//     return newValue.copyWith(
+//       text: newValue.text.toUpperCase(),
+//       selection: newValue.selection,
+//     );
+//   }
+// }
