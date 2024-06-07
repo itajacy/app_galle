@@ -39,7 +39,7 @@ dependencies:
   sqflite: ^2.3.2
   path: 
   get: ^4.6.6
-  # mask_text_input_formatter: ^2.9.0
+  # mask_text_input_formatter: ^2.9.0easy
   easy_mask: ^2.0.1
 
 dev_dependencies:
