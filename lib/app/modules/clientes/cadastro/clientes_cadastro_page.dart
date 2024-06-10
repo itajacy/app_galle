@@ -192,11 +192,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
-                      inputFormatters: [UpperCaseTextFormatter()],
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
                       controller: nomeFantasiaController,
                       onChanged: clientesCadastroController.setNomeFantasia,
-                    
-
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.nomeFantasia,
@@ -208,6 +208,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
                       controller: razaoSocialController,
                       onChanged: clientesCadastroController.setRazaoSocial,
                       keyboardType: TextInputType.name,
@@ -274,6 +277,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
                       controller: contatoController,
                       onChanged: clientesCadastroController.setContato,
                       keyboardType: TextInputType.name,
@@ -287,6 +293,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      //!  FORMATAÇÀO DO E-MAIL
                       controller: emailController,
                       onChanged: clientesCadastroController.setEmail,
                       keyboardType: TextInputType.emailAddress,
@@ -308,7 +315,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       ],
                       controller: foneCom1Controller,
                       onChanged: clientesCadastroController.setFone1,
-
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: Strings.foneCom1,
@@ -406,6 +412,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
                       controller: principalCidadeController,
                       onChanged: clientesCadastroController.setpCidade,
                       keyboardType: TextInputType.name,
@@ -419,6 +428,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
                       controller: principalEnderecoController,
                       onChanged: clientesCadastroController.setpEndereco,
                       keyboardType: TextInputType.name,
@@ -432,6 +444,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
                       controller: principalComplementoController,
                       onChanged: clientesCadastroController.setpComplemento,
                       keyboardType: TextInputType.text,
@@ -445,6 +460,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
                       controller: principalBairroController,
                       onChanged: clientesCadastroController.setpBairro,
                       keyboardType: TextInputType.text,
@@ -542,6 +560,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
                       controller: entregaCidadeController,
                       onChanged: clientesCadastroController.seteCidade,
                       keyboardType: TextInputType.name,
@@ -555,6 +576,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
                       controller: entregaEnderecoController,
                       onChanged: clientesCadastroController.seteEndereco,
                       keyboardType: TextInputType.name,
@@ -568,6 +592,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
                       controller: entregaComplementoController,
                       onChanged: clientesCadastroController.seteComplemento,
                       keyboardType: TextInputType.text,
@@ -581,6 +608,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      inputFormatters: [
+                        UpperCaseTextFormatter(),
+                      ],
                       controller: entregaBairroController,
                       onChanged: clientesCadastroController.seteBairro,
                       keyboardType: TextInputType.text,
@@ -619,15 +649,3 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
     );
   }
 }
-
-
-// class UpperCaseTextFormatter extends TextInputFormatter {
-//   @override
-//   TextEditingValue formatEditUpdate(
-//       TextEditingValue oldValue, TextEditingValue newValue) {
-//     return newValue.copyWith(
-//       text: newValue.text.toUpperCase(),
-//       selection: newValue.selection,
-//     );
-//   }
-// }
