@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_controller.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
+import 'package:galle/app/modules/clientes/widgets/lower_case_text_formatter.dart';
 import 'package:get/get.dart';
 import '../../../core/colors_app.dart';
 import '../../../core/font.dart';
@@ -70,6 +71,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   final entregaCepController = TextEditingController();
 
 //!  VER RegExp
+
 //*  Abaixo um RegExp para validação de e-mail
 
 // return RegExp(
@@ -231,8 +233,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   PessoafjButton(
                     pessoa: (pessoaFouJ) {
                       pessoaFJController.text = pessoaFouJ;
-                      // print(
-                      //     "Widget Pessoafj em clientes_cadastro_page--> ${pessoaFJController.text}");
                     },
                   ),
 
@@ -259,7 +259,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     child: TextField(
                       inputFormatters: [
                         TextInputMask(
-                          //! VER COMO ACEITAR A LETRA DO RH MAIUSCULA
+                          //! VER COMO ACEITAR A LETRA DO RG MAIUSCULA
                           mask: ['99.999.999-N', '999.999.999.999'],
                           reverse: false,
                         ),
@@ -294,6 +294,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       //!  FORMATAÇÀO DO E-MAIL
+                      // inputFormatters: [emailMaskFormatter],
+                      inputFormatters: [
+                        LowerCaseTextFormatter(),
+                      ],
+
                       controller: emailController,
                       onChanged: clientesCadastroController.setEmail,
                       keyboardType: TextInputType.emailAddress,

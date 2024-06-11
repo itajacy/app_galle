@@ -17,18 +17,6 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
-      // appBar: AppBar(
-      //   backgroundColor: ColorsApp.appBarBackground,
-      //   foregroundColor: ColorsApp.appBarForeground,
-      //   centerTitle: true,
-      //   title: const Column(
-      //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //     children: [
-      //       // Icon(Icons.login),
-      //       // Text(Strings.login),
-      //     ],
-      //   ),
-      // ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -46,7 +34,7 @@ class LoginPage extends StatelessWidget {
                 child: TextField(
                   controller: usuarioController,
                   keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: Strings.digiteEmail,
                     border: OutlineInputBorder(),
                   ),
@@ -63,7 +51,7 @@ class LoginPage extends StatelessWidget {
                 child: TextField(
                   controller: senhaController,
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: Strings.digiteSenha,
                     border: OutlineInputBorder(),
                   ),
