@@ -120,7 +120,6 @@ class ClientesConsultaPage extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: Space.spacing_8),
           Expanded(
             flex: 1,
             child: ListView.builder(
