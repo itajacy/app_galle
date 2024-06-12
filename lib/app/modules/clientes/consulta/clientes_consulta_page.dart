@@ -56,7 +56,7 @@ class ClientesConsultaPage extends StatelessWidget {
     'VIPFOLHEADOS COMERCIO DE BIJOUTERIAS ME',
     'GULLO SEMI-JOIAS LTDA',
     'GAZIN FOLHEADOS E DIVERSOS',
-    'DUTRA INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA',
+    'DUTRA INDUSTRIA E COMERCIO DE BIJOUTERIAS E PRODUTOS ESTETICOS',
     'CARMINHA BRUTOS E ACESSORIOS',
     'REOUX LOUZ ACESSORIOS E BRUTOS',
     'ATRIZ LUZ LINDA OBJETOS DE VALOR',
@@ -65,7 +65,6 @@ class ClientesConsultaPage extends StatelessWidget {
     'CURURU IND E COM DE BIJOUTERIAS  ',
     'RAMIS E FILHAS SEMIJOIAS',
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +95,7 @@ class ClientesConsultaPage extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width - 100,
                   child: TextField(
+                    // focusNode: primaryFocus,
                     inputFormatters: [UpperCaseTextFormatter()],
                     controller: clienteController,
                     keyboardType: TextInputType.text,
@@ -127,9 +127,10 @@ class ClientesConsultaPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   shape: Border.all(width: 1, style: BorderStyle.none),
-                  contentPadding: const EdgeInsets.all(Space.spacing_0),
+                  contentPadding: const EdgeInsets.only(
+                      left: Space.spacing_8, right: Space.spacing_8),
                   title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -161,7 +162,7 @@ class ClientesConsultaPage extends StatelessWidget {
                             children: [
                               Container(
                                 width: MediaQuery.of(context).size.width > 450
-                                    ? Sizes.sizeW_600
+                                    ? Sizes.sizeW_400
                                     : Sizes.sizeW_230,
                                 child: Text(
                                   razaoClientes[index],
@@ -175,22 +176,32 @@ class ClientesConsultaPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // const SizedBox(width: Space.spacing_5),
-                      GeneralIconButton(
-                        onPress: () {},
-                        icone: Icons.folder_shared_outlined,
-                        iconSize: Sizes.sizeH_30,
-                        buttonWidth: Sizes.sizeW_50,
-                        buttonHeight: Sizes.sizeW_50,
-                      ),
-                      // const SizedBox(width: Space.spacing_5),
-                      GeneralIconButton(
-                        onPress: () {},
-                        icone: Icons.delete_forever_rounded,
-                        iconSize: Sizes.sizeH_30,
-                        buttonWidth: Sizes.sizeW_50,
-                        buttonHeight: Sizes.sizeW_50,
-                        // iconeForegroundColor: ColorsApp.iconeForegroundThird,
+                      Row(
+                        children: [
+                          // const SizedBox(width: Space.spacing_5),
+                          GeneralIconButton(
+                            onPress: () {},
+                            icone: Icons.folder_shared_outlined,
+                            iconSize: Sizes.sizeH_30,
+                            buttonWidth: Sizes.sizeW_50,
+                            buttonHeight: Sizes.sizeW_50,
+                            iconeForegroundColor:
+                                //  Colors.white70,
+                                ColorsApp.iconeForegroundLSecond,
+                          ),
+                          const SizedBox(width: Space.spacing_8),
+                          GeneralIconButton(
+                            onPress: () {},
+                            icone: Icons.delete_forever_rounded,
+                            iconSize: Sizes.sizeH_30,
+                            buttonWidth: Sizes.sizeW_50,
+                            buttonHeight: Sizes.sizeW_50,
+                            iconeForegroundColor:
+                                ColorsApp.iconeForegroundThird,
+                            // Colors.grey[350],
+                            // Colors.white70,
+                          ),
+                        ],
                       ),
                     ],
                   ),

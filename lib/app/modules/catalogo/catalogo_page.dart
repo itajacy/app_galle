@@ -45,7 +45,6 @@ class CatalogoPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              
               Padding(
                 padding: const EdgeInsets.only(left: Space.spacing_8),
                 child: SizedBox(
@@ -96,7 +95,9 @@ class CatalogoPage extends StatelessWidget {
           Expanded(
             child: GridView.count(
               // padding: EdgeInsets.only(bottom: 100),
-              childAspectRatio: (13 / 16),
+              childAspectRatio:
+                  //  (13 / 16),
+                  (11 / 16),
               // Create a grid with 2 columns. If you change the scrollDirection to
               // horizontal, this produces 2 rows.
               crossAxisCount: 2,
