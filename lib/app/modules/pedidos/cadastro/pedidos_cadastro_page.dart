@@ -147,7 +147,7 @@ class PedidosCadastroPage extends StatelessWidget {
                       keyboardType: TextInputType.number,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   GeneralIconButton(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_controller.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
+import 'package:galle/app/modules/clientes/widgets/lower_case_text_formatter.dart';
 import 'package:get/get.dart';
 import '../../../core/colors_app.dart';
 import '../../../core/font.dart';
@@ -294,6 +295,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       //!  FORMATAÇÀO DO E-MAIL
+                      inputFormatters: [
+                        LowerCaseTextFormatter(),
+                      ],
                       controller: emailController,
                       onChanged: clientesCadastroController.setEmail,
                       keyboardType: TextInputType.emailAddress,
