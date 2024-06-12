@@ -294,11 +294,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       //!  FORMATAÇÀO DO E-MAIL
-                      // inputFormatters: [emailMaskFormatter],
                       inputFormatters: [
                         LowerCaseTextFormatter(),
                       ],
-
                       controller: emailController,
                       onChanged: clientesCadastroController.setEmail,
                       keyboardType: TextInputType.emailAddress,

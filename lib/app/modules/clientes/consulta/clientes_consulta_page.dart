@@ -3,6 +3,7 @@ import 'package:galle/app/core/colors_app.dart';
 import 'package:galle/app/core/navigation/routes.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
+import 'package:galle/app/modules/clientes/widgets/upper_case_text_formatter.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 
 import '../../../core/font.dart';
@@ -12,6 +13,60 @@ class ClientesConsultaPage extends StatelessWidget {
   ClientesConsultaPage({super.key});
 
   final clienteController = TextEditingController();
+
+  final List<String> codigoClientes = [
+    '1234-00',
+    '3453-03',
+    '4784-02',
+    '1235-00',
+    '8906-00',
+    '5798-01',
+    '2345-00',
+    '6543-02',
+    '8946-00',
+    '1256-00',
+    '3456-01',
+    '6783-00',
+    '9045-03',
+    '1245-02',
+    '6783-01',
+  ];
+  final List<String> fantasiaClientes = [
+    'UNIKA  ',
+    'BRUTOS FOLHEADOS',
+    'MELODIA BIJOUX',
+    'GALLE FOLHEADOS',
+    'VIPFOLHEADOS',
+    'GULLO SEMI-JOIAS',
+    'GAZIN FOLHEADOS',
+    'DUTRA FOLHEADOS',
+    'CARMINHA BRUTOS',
+    'REOUX LOUZ DAS',
+    'ATRIZ LUZ LINDA',
+    'TEGUCIGALPA JUI',
+    'CANNABIS SATIVA',
+    'CURURU DAS TREVAS',
+    'RAMINHA JOIAS',
+  ];
+  final List<String> razaoClientes = [
+    'UNIKA ',
+    'BRUTOS FOLHEADOS E COMPANHIA LIMITADA',
+    'MELODIA BIJOUX E FILHOS LTDA',
+    'GALLE INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA',
+    'VIPFOLHEADOS COMERCIO DE BIJOUTERIAS ME',
+    'GULLO SEMI-JOIAS LTDA',
+    'GAZIN FOLHEADOS E DIVERSOS',
+    'DUTRA INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA',
+    'CARMINHA BRUTOS E ACESSORIOS',
+    'REOUX LOUZ ACESSORIOS E BRUTOS',
+    'ATRIZ LUZ LINDA OBJETOS DE VALOR',
+    'TEGUCIGALPA E FILHOS LTDA',
+    'CANNABIS DEIXA TUDO MUITO DOIDO',
+    'CURURU IND E COM DE BIJOUTERIAS  ',
+    'RAMIS E FILHAS SEMIJOIAS',
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +85,7 @@ class ClientesConsultaPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: Space.spacing_8,
           ),
           Padding(
@@ -41,9 +96,10 @@ class ClientesConsultaPage extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width - 100,
                   child: TextField(
+                    inputFormatters: [UpperCaseTextFormatter()],
                     controller: clienteController,
                     keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: Strings.cliente,
                       labelStyle: TextStyle(fontSize: Font.title_24),
                       border: OutlineInputBorder(),
@@ -64,10 +120,83 @@ class ClientesConsultaPage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: Space.spacing_8),
           Expanded(
             flex: 1,
-            child: SingleChildScrollView(),
+            child: ListView.builder(
+              itemCount: codigoClientes.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  shape: Border.all(width: 1, style: BorderStyle.none),
+                  contentPadding: const EdgeInsets.all(Space.spacing_0),
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                codigoClientes[index],
+                                style: TextStyle(fontSize: Font.title_16),
+                              ),
+                              SizedBox(
+                                width: Space.spacing_8,
+                              ),
+                              Container(
+                                width: MediaQuery.of(context).size.width > 450
+                                    ? Sizes.sizeW_400
+                                    : Sizes.sizeW_150,
+                                child: Text(
+                                  fantasiaClientes[index],
+                                  style: TextStyle(
+                                    fontSize: Font.title_16,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width > 450
+                                    ? Sizes.sizeW_600
+                                    : Sizes.sizeW_230,
+                                child: Text(
+                                  razaoClientes[index],
+                                  style: TextStyle(
+                                    fontSize: Font.title_16,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      // const SizedBox(width: Space.spacing_5),
+                      GeneralIconButton(
+                        onPress: () {},
+                        icone: Icons.folder_shared_outlined,
+                        iconSize: Sizes.sizeH_30,
+                        buttonWidth: Sizes.sizeW_50,
+                        buttonHeight: Sizes.sizeW_50,
+                      ),
+                      // const SizedBox(width: Space.spacing_5),
+                      GeneralIconButton(
+                        onPress: () {},
+                        icone: Icons.delete_forever_rounded,
+                        iconSize: Sizes.sizeH_30,
+                        buttonWidth: Sizes.sizeW_50,
+                        buttonHeight: Sizes.sizeW_50,
+                        // iconeForegroundColor: ColorsApp.iconeForegroundThird,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         ],
       ),
