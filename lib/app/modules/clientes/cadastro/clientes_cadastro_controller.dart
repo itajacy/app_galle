@@ -100,8 +100,8 @@ class ClientesCadastroController extends GetxController {
 
     //!  NÃO ESTÁ SALVANDO PARA TESTAR
     //! descomentar a linha abaixo para salvar
-    //* int resposta = await clientesDao.salvar(cliente);
-    // print('reposta do clientesDao.salvar(cliente)..: ' + resposta.toString());
+    int resposta = await clientesDao.salvar(cliente);
+    print('reposta do clientesDao.salvar(cliente)..: ' + resposta.toString());
 
     update();
   }

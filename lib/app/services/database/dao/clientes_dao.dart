@@ -70,7 +70,24 @@ class ClientesDao {
     return db.insert(_tableName, clienteMap);
   }
 
-  
+  Future<List<Cliente>> findAll() async {
+    final Database db = await getDatabase();
+    final List<Map<String, dynamic>> result = await db.query(_tableName);
+    final List<Cliente> clientes = [];
+    result.forEach((v) => clientes.add(Cliente.fromMap(v)));
+    return clientes;
+  }
 
-  
+ 
 }
+
+
+
+
+  // final List<Map<String, dynamic>> result = await db.query(
+//       _tableName,
+//       where: 'funcaoColaborador = ?',
+//       whereArgs: [funcao],
+//     );
+
+// final List<Map<String, dynamic>> result = await db.query(_tableName);
