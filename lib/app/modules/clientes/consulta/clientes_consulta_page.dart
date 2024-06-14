@@ -3,15 +3,26 @@ import 'package:galle/app/core/colors_app.dart';
 import 'package:galle/app/core/navigation/routes.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
+import 'package:galle/app/modules/clientes/consulta/clientes_consulta_controller.dart';
 import 'package:galle/app/modules/clientes/widgets/upper_case_text_formatter.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 
 import '../../../core/font.dart';
 import '../../../core/strings.dart';
+import '../../../models/cliente.dart';
 
-class ClientesConsultaPage extends StatelessWidget {
+class ClientesConsultaPage extends StatefulWidget {
   ClientesConsultaPage({super.key});
 
+  @override
+  State<ClientesConsultaPage> createState() => _ClientesConsultaPageState();
+}
+
+class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
+  final ClientesConsultaController clientesConsultaController =
+      ClientesConsultaController();
+
+  // List<Cliente> listaDeClientes = [];
   final clienteController = TextEditingController();
 
   final List<String> codigoClientes = [
@@ -31,6 +42,7 @@ class ClientesConsultaPage extends StatelessWidget {
     '1245-02',
     '6783-01',
   ];
+
   final List<String> fantasiaClientes = [
     'UNIKA  ',
     'BRUTOS FOLHEADOS',
@@ -48,6 +60,7 @@ class ClientesConsultaPage extends StatelessWidget {
     'CURURU DAS TREVAS',
     'RAMINHA JOIAS',
   ];
+
   final List<String> razaoClientes = [
     'UNIKA ',
     'BRUTOS FOLHEADOS E COMPANHIA LIMITADA',
@@ -68,6 +81,15 @@ class ClientesConsultaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    // List<Cliente> listaDeClientes = clientesConsultaController.buscarTodos();
+    // List<Map<String, dynamic>> clientesMap = [];
+    // for (var element in listaDeClientes) {
+    //   Map<String, dynamic> cliente = {};
+    //   cliente = element.toMap();
+    //   clientesMap.add(cliente);
+    // }
+
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
       appBar: AppBar(
