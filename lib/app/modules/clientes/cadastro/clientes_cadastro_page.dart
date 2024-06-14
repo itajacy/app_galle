@@ -528,7 +528,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         entregaEnderecoController.text =
                             clientesCadastroController.cliente.pEndereco!;
                         entregaComplementoController.text =
-                            clientesCadastroController.cliente.pComplemento!;
+                            clientesCadastroController.cliente.pComplemento ??
+                                "";
                         entregaBairroController.text =
                             clientesCadastroController.cliente.pBairro!;
                         entregaCepController.text =

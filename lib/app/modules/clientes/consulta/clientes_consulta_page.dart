@@ -28,6 +28,13 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
   ClientesConsultaController listaDeClientesController =
       ClientesConsultaController();
 
+// O PROBLEMA DELE NÃO CONSEGUIR EXECUTAR A CONSULTA PROVAVELMENTE SE DEVE PELO FATO DELE NÃO
+// CONSEGUIR SALVAR TODOS OS DADOS DO CLIENTE POIS PELO VISTO ALGUNS CAMPOS FALTARAM
+// 'clienteId': clienteId,
+// 'dispositivoId': dispositivoId,
+// 'clienteIdMob': clienteIdMob,
+// 'clienteIdInt': clienteIdInt,
+
   // final List<String> codigoClientes = [
   //   '1234-00',
   //   '3453-03',
@@ -178,6 +185,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                   } else {
                     final List<Cliente> listaClientes =
                         snapshot.data as List<Cliente>;
+                    print(listaClientes.length);
 
                     return ListView.builder(
                       itemCount: listaClientes.length,
@@ -196,7 +204,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                   Row(
                                     children: [
                                       Text(
-                                        cliente.clienteId.toString(),
+                                        cliente.clienteIdInt.toString() ?? "",
                                         style:
                                             TextStyle(fontSize: Font.title_16),
                                       ),
@@ -210,7 +218,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                                 ? Sizes.sizeW_400
                                                 : Sizes.sizeW_150,
                                         child: Text(
-                                          cliente.nomeFantasia.toString(),
+                                          cliente.nomeFantasia.toString() ?? "",
                                           style: TextStyle(
                                             fontSize: Font.title_16,
                                             overflow: TextOverflow.ellipsis,
@@ -228,7 +236,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                                 ? Sizes.sizeW_400
                                                 : Sizes.sizeW_230,
                                         child: Text(
-                                          cliente.razaoSocial.toString(),
+                                          cliente.razaoSocial.toString() ?? "",
                                           style: TextStyle(
                                             fontSize: Font.title_16,
                                             overflow: TextOverflow.ellipsis,
