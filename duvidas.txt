@@ -1,0 +1,145 @@
+Vamos lá... recordar é viver,  quem sabe você recorde.
+
+No arquivo Cliente.xml tem esse layout :
+
+<DataSet>
+    <Row>
+    <ClienteID_Int>0339-00</ClienteID_Int>
+    <DispositivoID>0</DispositivoID>
+    <ClienteID_Mob>6692</ClienteID_Mob>
+    <TipoPessoa>J</TipoPessoa>
+    <CGCCPF>71.951.149/0001-02</CGCCPF>
+    <IERG>392.073.527.110</IERG>
+    <RazaoSocial>ELIANA ANGELA RAMOS BIONDI ME</RazaoSocial>
+    <NomeFantasia>ELIANA ANGELA RAMOS BIONDI ME</NomeFantasia>
+    <Contato>PEDRO</Contato>
+    <FoneCom1>012-3951 9792</FoneCom1>
+    <FoneCom2/>
+    <FoneCel/>
+    <FoneRes/>
+    <FoneFax/>
+    <Email/>
+    <S_Endereco>R.CHAQUIB SLEIMAN AHMED, 13</S_Endereco>
+    <S_Complemento/>
+    <S_Bairro>JD.PEREIRA DO AMPARO</S_Bairro>
+    <S_Cidade>JACAREI</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>12.327-700</S_CEP>
+    <E_Endereco>R.CHAQUIB SLEIMAN AHMED, 13</E_Endereco>
+    <E_Complemento/>
+    <E_Bairro>JD.PEREIRA DO AMPARO</E_Bairro>
+    <E_Cidade>JACAREI</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>12.327-700</E_CEP>
+  </Row>
+</DataSet>
+
+
+Olhando para as primeira linhas:
+
+1 - <ClienteID_Int>0339-00</ClienteID_Int>
+2 - <DispositivoID>0</DispositivoID>
+3 - <ClienteID_Mob>6692</ClienteID_Mob>
+
+Na linha 1 temos o código interno do cliente do GV
+
+Na linha 2 temos o código do Dispositivo, que é aquele que é definido dentro da rotina do 
+	cadastro de Palm no GV
+
+Na linha 3 temos eo clienteId_Mob  que eu "ACHO" que é um código de cliente que foi
+	gerado a partir de um cadastro de um novo cliente feito através do palm
+
+	Porque eu peguei o arquivo dispositivo.xml do palm3 que é o meu, e do palm9 que é
+	do marabeze e conclui isso olhando para a tag  <SeqCliente> conforme abaixo:
+
+palm3 - meu
+<DataSet>
+  <Row>
+    <DispositivoID>3</DispositivoID>
+    <RepresentanteID_Int>33-0</RepresentanteID_Int>
+    <SeqCliente>0</SeqCliente>
+    <PrecoEsp>0</PrecoEsp>
+    <Mercado>1</Mercado>
+    <email>amarabeze@galle.com.br</email>
+  </Row>
+</DataSet>
+
+palm9 - marabeze
+<DataSet>
+  <Row>
+    <DispositivoID>9</DispositivoID>
+    <RepresentanteID_Int>33-0</RepresentanteID_Int>
+    <SeqCliente>118</SeqCliente>
+    <PrecoEsp>0</PrecoEsp>
+    <Mercado>1</Mercado>
+    <email>amarabeze@galle.com.br</email>
+  </Row>
+</DataSet>
+
+===============================================================
+
+
+Gerei um pedido com o cadastro de um CLIENTE NOVO  
+
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Pedidos>
+    <Versao>
+        <Numero>1.12</Numero>
+    </Versao>
+    <Pedido>
+        <PedidoID>2</PedidoID>
+        <DispositivoID>3</DispositivoID>
+        <RepresentanteID_Int>33-0</RepresentanteID_Int>
+        <DataTransmissao>20240617144437</DataTransmissao>
+        <Observacao>PEDIDO DE TESTE.  IGNORAR.  ITA</Observacao>
+        <Cliente>
+            <ClienteID_Int></ClienteID_Int>
+            <DispositivoID>3</DispositivoID>
+            <ClienteID_Mob>1</ClienteID_Mob>
+            <RazaoSocial>itajacy furtado</RazaoSocial>
+            <NomeFantasia>ITAJACY FURTADO </NomeFantasia>
+            <TipoPessoa>F</TipoPessoa>
+            <CGCCPF>588.585.585-55</CGCCPF>
+            <IERG></IERG>
+            <Contato></Contato>
+            <Fone1>1934046525</Fone1>
+            <Fone2></Fone2>
+            <Fax></Fax>
+            <FoneRes></FoneRes>
+            <Email></Email>
+            <S_CEP></S_CEP>
+            <S_UF>SP</S_UF>
+            <S_Cidade></S_Cidade>
+            <S_Bairro></S_Bairro>
+            <S_Endereco></S_Endereco>
+            <S_Complemento></S_Complemento>
+            <E_CEP></E_CEP>
+            <E_UF>SP</E_UF>
+            <E_Cidade></E_Cidade>
+            <E_Bairro></E_Bairro>
+            <E_Endereco></E_Endereco>
+            <E_Complemento></E_Complemento>
+        </Cliente>
+        <Tabelas>
+            <Tabela>
+                <TabelaID_Int>626</TabelaID_Int>
+                <Fator>1.0</Fator>
+            </Tabela>
+        </Tabelas>
+        <Itens>
+            <Item>
+                <ProdutoID_Int>01-002</ProdutoID_Int>
+                <Quantidade>1.0</Quantidade>
+                <QuantidadeEmGrama>0</QuantidadeEmGrama>
+                <TabelaID_Int>626</TabelaID_Int>
+                <Observacao></Observacao>
+            </Item>
+        </Itens>
+    </Pedido>
+</Pedidos>
+
+
+	
+
+
+

@@ -115,6 +115,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     //! tem os campos clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
 
+                    // 'clienteId': clienteId,
+                    // 'dispositivoId': dispositivoId,
+                    // 'clienteIdMob': clienteIdMob,
+                    // 'clienteIdInt': clienteIdInt,
+
                     clientesCadastroController.cliente.contato =
                         contatoController.text;
                     clientesCadastroController.cliente.nomeFantasia =
@@ -240,9 +245,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
                       inputFormatters: [
-                        TextInputMask(
-                            mask: ['999.999.999-99', '99.999.999/9999-99'],
-                            reverse: false)
+                        TextInputMask(mask: [
+                          'AAA AAA',
+                          '999.999.999-99',
+                          '99.999.999/9999-99'
+                        ], reverse: false)
                       ],
                       controller: cnpjCpfController,
                       onChanged: clientesCadastroController.setCnpjCpf,
