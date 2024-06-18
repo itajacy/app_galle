@@ -11,6 +11,7 @@ class Cliente {
   String? contato;
   String? fone1;
   String? fone2;
+  String? foneCel;
   String? foneRes;
   String? fax;
   String? email;
@@ -41,6 +42,7 @@ class Cliente {
     this.contato,
     this.fone1,
     this.fone2,
+    this.foneCel,
     this.foneRes,
     this.fax,
     this.email,
@@ -73,6 +75,7 @@ class Cliente {
       'contato': contato,
       'fone1': fone1,
       'fone2': fone2,
+      'foneCel': foneCel,
       'foneRes': foneRes,
       'fax': fax,
       'email': email,
@@ -106,6 +109,7 @@ class Cliente {
       contato: mapaCliente['contato'],
       fone1: mapaCliente['fone1'],
       fone2: mapaCliente['fone2'],
+      foneCel: mapaCliente['foneCel'],
       foneRes: mapaCliente['foneRes'],
       fax: mapaCliente['fax'],
       email: mapaCliente['email'],

@@ -17,6 +17,7 @@ class ClientesDao {
       '$_contato TEXT, '
       '$_fone1 TEXT, '
       '$_fone2 TEXT, '
+      '$_foneCel TEXT, '
       '$_foneRes TEXT, '
       '$_fax TEXT, '
       '$_email TEXT, '
@@ -47,6 +48,7 @@ class ClientesDao {
   static const String _contato = 'contato';
   static const String _fone1 = 'fone1';
   static const String _fone2 = 'fone2';
+  static const String _foneCel = 'foneCel';
   static const String _foneRes = 'foneRes';
   static const String _fax = 'fax';
   static const String _email = 'email';

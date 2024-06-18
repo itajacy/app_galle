@@ -34,6 +34,7 @@ class Strings {
   static const email = "Digite o E-mail";
   static const foneCom1 = "Digite o Fone Coml. 1";
   static const foneCom2 = "Digite o Fone Coml. 2";
+  static const foneCel = "Digite o Fone Celular";
   static const foneRes = "Digite o Fone Residencial";
   static const fax = "Digite o Fax";
   static const estado = "Estado";

@@ -42,6 +42,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   final foneCom2Controller = TextEditingController();
 
+  final foneCelController = TextEditingController();
+
   final foneResController = TextEditingController();
 
   final faxController = TextEditingController();
@@ -114,6 +116,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     //! BOTAO SALVAR
                     //! tem os campos clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
+                    clientesCadastroController.cliente.dispositivoId = 3;
+                    clientesCadastroController.cliente.clienteIdMob = 0;
+                    clientesCadastroController.cliente.clienteIdInt = "";
 
                     // 'clienteId': clienteId,
                     // 'dispositivoId': dispositivoId,
@@ -346,6 +351,24 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: Strings.foneCom2,
+                        border: const OutlineInputBorder(),
+                        errorText: clientesCadastroController.fone2Error,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(Space.spacing_8),
+                    child: TextField(
+                      inputFormatters: [
+                        TextInputMask(
+                            mask: ['(99) 9999-9999', '(99) 99999-9999'],
+                            reverse: false),
+                      ],
+                      controller: foneCelController,
+                      onChanged: clientesCadastroController.setFoneCel,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                        labelText: Strings.foneCel,
                         border: const OutlineInputBorder(),
                         errorText: clientesCadastroController.fone2Error,
                       ),

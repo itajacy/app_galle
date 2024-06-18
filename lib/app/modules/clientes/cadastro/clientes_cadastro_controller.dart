@@ -8,6 +8,9 @@ class ClientesCadastroController extends GetxController {
 
   Cliente cliente = Cliente();
 
+  //!  FALTAM OS ALGUNS CAMPOS DA TABELA AQUI
+  //
+
   String? nomeFantasiaError;
   String? razaoSocialError;
   String? tipoPessoaError;
@@ -17,6 +20,7 @@ class ClientesCadastroController extends GetxController {
   String? emailError;
   String? fone1Error;
   String? fone2Error;
+  String? foneCelError;
   String? foneResError;
   String? faxError;
 
@@ -155,6 +159,11 @@ class ClientesCadastroController extends GetxController {
   void setFone2(String value) {
     cliente.fone2 = value;
     fone2Error = null;
+  }
+
+  void setFoneCel(String value) {
+    cliente.foneCel = value;
+    foneCelError = null;
   }
 
   void setFoneRes(String value) {
