@@ -98,8 +98,8 @@ class Cliente {
   factory Cliente.fromMap(Map<String, dynamic> mapaCliente) {
     return Cliente(
       clienteId: mapaCliente['clienteId'] as int,
-      dispositivoId: mapaCliente['dispositivoId'] as int,
-      clienteIdMob: mapaCliente['clienteIdMob'] as int,
+      dispositivoId: mapaCliente['dispositivoId'],
+      clienteIdMob: mapaCliente['clienteIdMob'],
       clienteIdInt: mapaCliente['clienteIdInt'],
       razaoSocial: mapaCliente['razaoSocial'],
       nomeFantasia: mapaCliente['nomeFantasia'],
@@ -125,7 +125,7 @@ class Cliente {
       eComplemento: mapaCliente['eComplemento'],
       eBairro: mapaCliente['eBairro'],
       eCEP: mapaCliente['eCEP'],
-      ativo: mapaCliente['ativo'] as int,
+      ativo: mapaCliente['ativo'],
     );
   }
 }

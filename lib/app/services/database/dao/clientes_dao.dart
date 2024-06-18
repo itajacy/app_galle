@@ -69,17 +69,23 @@ class ClientesDao {
   Future<int> salvar(Cliente cliente) async {
     final Database db = await getDatabase();
     Map<String, dynamic> clienteMap = cliente.toMap();
+    print(clienteMap);
     return db.insert(_tableName, clienteMap);
   }
 
   Future<List<Cliente>> findAll() async {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> result = await db.query(_tableName);
+    // final List<Map> result = await db.rawQuery("SELECT * FROM $_tableName");
     final List<Cliente> listaDeClientes = [];
-
+    print("clientes");
+    print(result.length);
     for (var cliente in result) {
+      print(cliente);
       listaDeClientes.add(Cliente.fromMap(cliente));
+
     }
+    
 
     // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
     return listaDeClientes;

@@ -114,10 +114,12 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                 ClientesButton(
                   onPress: () {
                     //! BOTAO SALVAR
-                    //! tem os campos clienteIdMob, ClienteIdInt, Ativo
+                    //! tem os campos clienteId, clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
+
+
                     clientesCadastroController.cliente.dispositivoId = 3;
-                    clientesCadastroController.cliente.clienteIdMob = 0;
+                    clientesCadastroController.cliente.clienteIdMob = 1;
                     clientesCadastroController.cliente.clienteIdInt = "";
 
                     // 'clienteId': clienteId,
@@ -251,7 +253,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     child: TextField(
                       inputFormatters: [
                         TextInputMask(mask: [
-                          'AAA AAA',
+                          // 'AAA AAA',
                           '999.999.999-99',
                           '99.999.999/9999-99'
                         ], reverse: false)

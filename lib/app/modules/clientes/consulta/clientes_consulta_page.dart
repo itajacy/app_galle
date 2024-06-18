@@ -28,76 +28,11 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
   ClientesConsultaController listaDeClientesController =
       ClientesConsultaController();
 
-// O PROBLEMA DELE NÃO CONSEGUIR EXECUTAR A CONSULTA PROVAVELMENTE SE DEVE PELO FATO DELE NÃO
-// CONSEGUIR SALVAR TODOS OS DADOS DO CLIENTE POIS PELO VISTO ALGUNS CAMPOS FALTARAM
-// 'clienteId': clienteId,
-// 'dispositivoId': dispositivoId,
-// 'clienteIdMob': clienteIdMob,git
-// 'clienteIdInt': clienteIdInt,
 
-  // final List<String> codigoClientes = [
-  //   '1234-00',
-  //   '3453-03',
-  //   '4784-02',
-  //   '1235-00',
-  //   '8906-00',
-  //   '5798-01',
-  //   '2345-00',
-  //   '6543-02',
-  //   '8946-00',
-  //   '1256-00',
-  //   '3456-01',
-  //   '6783-00',
-  //   '9045-03',
-  //   '1245-02',
-  //   '6783-01',
-  // ];
-
-  // final List<String> fantasiaClientes = [
-  //   'UNIKA  ',
-  //   'BRUTOS FOLHEADOS',
-  //   'MELODIA BIJOUX',
-  //   'GALLE FOLHEADOS',
-  //   'VIPFOLHEADOS',
-  //   'GULLO SEMI-JOIAS',
-  //   'GAZIN FOLHEADOS',
-  //   'DUTRA FOLHEADOS',
-  //   'CARMINHA BRUTOS',
-  //   'REOUX LOUZ DAS',
-  //   'ATRIZ LUZ LINDA',
-  //   'TEGUCIGALPA JUI',
-  //   'CANNABIS SATIVA',
-  //   'CURURU DAS TREVAS',
-  //   'RAMINHA JOIAS',
-  // ];
-
-  // final List<String> razaoClientes = [
-  //   'UNIKA ',
-  //   'BRUTOS FOLHEADOS E COMPANHIA LIMITADA',
-  //   'MELODIA BIJOUX E FILHOS LTDA',
-  //   'GALLE INDUSTRIA E COMERCIO DE BIJOUTERIAS LTDA',
-  //   'VIPFOLHEADOS COMERCIO DE BIJOUTERIAS ME',
-  //   'GULLO SEMI-JOIAS LTDA',
-  //   'GAZIN FOLHEADOS E DIVERSOS',
-  //   'DUTRA INDUSTRIA E COMERCIO DE BIJOUTERIAS E PRODUTOS ESTETICOS',
-  //   'CARMINHA BRUTOS E ACESSORIOS',
-  //   'REOUX LOUZ ACESSORIOS E BRUTOS',
-  //   'ATRIZ LUZ LINDA OBJETOS DE VALOR',
-  //   'TEGUCIGALPA E FILHOS LTDA',
-  //   'CANNABIS DEIXA TUDO MUITO DOIDO',
-  //   'CURURU IND E COM DE BIJOUTERIAS  ',
-  //   'RAMIS E FILHAS SEMIJOIAS',
-  // ];
 
   @override
   Widget build(BuildContext context) {
-    // List<Cliente> listaDeClientes = clientesConsultaController.buscarTodos();
-    // List<Map<String, dynamic>> clientesMap = [];
-    // for (var element in listaDeClientes) {
-    //   Map<String, dynamic> cliente = {};
-    //   cliente = element.toMap();
-    //   clientesMap.add(cliente);
-    // }
+   
 
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
@@ -203,14 +138,14 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                 children: [
                                   Row(
                                     children: [
-                                      Text(
-                                        cliente.clienteIdInt.toString() ?? "",
-                                        style:
-                                            TextStyle(fontSize: Font.title_16),
-                                      ),
-                                      SizedBox(
-                                        width: Space.spacing_8,
-                                      ),
+                                      // Text(
+                                      //   cliente.clienteIdInt!,
+                                      //   style:
+                                      //       TextStyle(fontSize: Font.title_16),
+                                      // ),
+                                      // SizedBox(
+                                      //   width: Space.spacing_8,
+                                      // ),
                                       Container(
                                         width:
                                             MediaQuery.of(context).size.width >
@@ -218,7 +153,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                                 ? Sizes.sizeW_400
                                                 : Sizes.sizeW_150,
                                         child: Text(
-                                          cliente.nomeFantasia.toString() ?? "",
+                                          cliente.nomeFantasia!,
                                           style: TextStyle(
                                             fontSize: Font.title_16,
                                             overflow: TextOverflow.ellipsis,
@@ -236,7 +171,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                                 ? Sizes.sizeW_400
                                                 : Sizes.sizeW_230,
                                         child: Text(
-                                          cliente.razaoSocial.toString() ?? "",
+                                          cliente.razaoSocial!,
                                           style: TextStyle(
                                             fontSize: Font.title_16,
                                             overflow: TextOverflow.ellipsis,
