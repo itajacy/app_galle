@@ -28,12 +28,8 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
   ClientesConsultaController listaDeClientesController =
       ClientesConsultaController();
 
-
-
   @override
   Widget build(BuildContext context) {
-   
-
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
       appBar: AppBar(
@@ -92,8 +88,10 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
             builder: (context, snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
+                  print("CURURU ##### 1");
                   break;
                 case ConnectionState.waiting:
+                  print("CURURU ESPERANDO/CARREGANDO ##### 2");
                   return const Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -105,19 +103,26 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                     ),
                   );
                 case ConnectionState.active:
+                  print("CURURU ##### 3");
                   return const Center(
                     child: Text("Carregamento ativo..."),
                   );
                 case ConnectionState.done:
+                  print("CURURU FEITO ##### 4");
                   if (snapshot.hasError) {
+                    print("CURURU ##### 5 - ESTÁ  PARANDO AQUIAQUI");
                     return Center(
                       child: Text("Erro: ${snapshot.error}"),
                     );
                   } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                    print("CURURU ##### 6");
                     return const Center(
                       child: Text("Nenhum cliente encontrado."),
                     );
                   } else {
+                    print("CURURU ##### 7");
+                    print(
+                        "ENTRANDO NO LISTVIEW BUILDER ########################");
                     final List<Cliente> listaClientes =
                         snapshot.data as List<Cliente>;
                     print(listaClientes.length);
@@ -138,14 +143,14 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                 children: [
                                   Row(
                                     children: [
-                                      // Text(
-                                      //   cliente.clienteIdInt!,
-                                      //   style:
-                                      //       TextStyle(fontSize: Font.title_16),
-                                      // ),
-                                      // SizedBox(
-                                      //   width: Space.spacing_8,
-                                      // ),
+                                      Text(
+                                        cliente.clienteIdInt!,
+                                        style:
+                                            TextStyle(fontSize: Font.title_16),
+                                      ),
+                                      SizedBox(
+                                        width: Space.spacing_8,
+                                      ),
                                       Container(
                                         width:
                                             MediaQuery.of(context).size.width >

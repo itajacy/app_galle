@@ -69,7 +69,9 @@ class ClientesDao {
   Future<int> salvar(Cliente cliente) async {
     final Database db = await getDatabase();
     Map<String, dynamic> clienteMap = cliente.toMap();
+    print("inicio clienteMap");
     print(clienteMap);
+    print("fim clienteMap");
     return db.insert(_tableName, clienteMap);
   }
 
@@ -77,15 +79,48 @@ class ClientesDao {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> result = await db.query(_tableName);
     // final List<Map> result = await db.rawQuery("SELECT * FROM $_tableName");
+    print("result é do tipo==> ${result.runtimeType}");
     final List<Cliente> listaDeClientes = [];
     print("clientes");
     print(result.length);
+    print(result[0]);
+    print(result[1]);
+    print("ximbica");
+    var testecliente = Cliente.fromMap(result[0]);
+    print(testecliente.toString());
+    print(testecliente.runtimeType);
+    print("ximbica");
+    // print(testecliente.clienteId);
+    // print(testecliente.dispositivoId);
+    // print(testecliente.clienteIdMob);
+    // print(testecliente.clienteIdInt);
+    // print(testecliente.nomeFantasia);
+    // print(testecliente.razaoSocial);
+    // print(testecliente.tipoPessoa);
+    // print(testecliente.cNPJCPF);
+    // print(testecliente.iERG);
+    // print(testecliente.contato);
+    // print(testecliente.email);
+    // print(testecliente.fone1);
+    // print(testecliente.fone2);
+    // print(testecliente.foneCel);
+    // print(testecliente.foneRes);
+    // print(testecliente.fax);
+    // print(testecliente.pUF);
+    // print(testecliente.pCidade);
+    // print(testecliente.pEndereco);
+    // print(testecliente.pComplemento);
+    // print(testecliente.pBairro);
+    // print(testecliente.pCEP);
+    // print(testecliente.eUF);
+    // print(testecliente.eCidade);
+    // print(testecliente.eEndereco);
+    // print(testecliente.eComplemento);
+    // print(testecliente.eBairro);
+    // print(testecliente.eCEP);
     for (var cliente in result) {
-      print(cliente);
       listaDeClientes.add(Cliente.fromMap(cliente));
-
     }
-    
 
     // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
     return listaDeClientes;
