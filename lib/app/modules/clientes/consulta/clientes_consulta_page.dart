@@ -111,8 +111,9 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                   print("CURURU FEITO ##### 4");
                   print("snapshot... ${snapshot.data}");
                   if (snapshot.data == null) {
-                    Text("NENHUM CLIENTE CADASTRADO");
-                    break;
+                    print("LISTA DE CLIENTES VAZIA");
+                    return const Center(
+                        child: Text("Não há clientes cadastrados."));
                   }
                   if (snapshot.hasError) {
                     print("CURURU ##### 5 - ESTÁ  PARANDO AQUIAQUI");
