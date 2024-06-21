@@ -81,7 +81,7 @@ class ClientesDao {
     // final List<Map> result = await db.rawQuery("SELECT * FROM $_tableName");
     print("result é do tipo==> ${result.runtimeType}");
     final List<Cliente> listaDeClientes = [];
-    print("clientes");
+    print("clientes no findAll");
     print(result.length);
     print(result[0]);
     print(result[1]);
@@ -90,6 +90,18 @@ class ClientesDao {
     print(testecliente.toString());
     print(testecliente.runtimeType);
     print("ximbica");
+    for (var cliente in result) {
+      listaDeClientes.add(Cliente.fromMap(cliente));
+    }
+
+    // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
+    return listaDeClientes;
+  }
+}
+
+
+
+
     // print(testecliente.clienteId);
     // print(testecliente.dispositivoId);
     // print(testecliente.clienteIdMob);
@@ -118,14 +130,15 @@ class ClientesDao {
     // print(testecliente.eComplemento);
     // print(testecliente.eBairro);
     // print(testecliente.eCEP);
-    for (var cliente in result) {
-      listaDeClientes.add(Cliente.fromMap(cliente));
-    }
 
-    // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
-    return listaDeClientes;
-  }
-}
+
+
+
+
+
+
+
+
 
 
 

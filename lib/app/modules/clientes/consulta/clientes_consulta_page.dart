@@ -109,6 +109,11 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                   );
                 case ConnectionState.done:
                   print("CURURU FEITO ##### 4");
+                  print("snapshot... ${snapshot.data}");
+                  if (snapshot.data == null) {
+                    Text("NENHUM CLIENTE CADASTRADO");
+                    break;
+                  }
                   if (snapshot.hasError) {
                     print("CURURU ##### 5 - ESTÁ  PARANDO AQUIAQUI");
                     return Center(
@@ -121,11 +126,16 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                     );
                   } else {
                     print("CURURU ##### 7");
-                    print(
-                        "ENTRANDO NO LISTVIEW BUILDER ########################");
                     final List<Cliente> listaClientes =
                         snapshot.data as List<Cliente>;
+                    print(
+                        "ENTRANDO NO LISTVIEW BUILDER ########################");
                     print(listaClientes.length);
+                    if (listaClientes.length == 0) {
+                      return const Center(
+                        child: Text("Não há Clientes cadastrados"),
+                      );
+                    }
 
                     return ListView.builder(
                       itemCount: listaClientes.length,
