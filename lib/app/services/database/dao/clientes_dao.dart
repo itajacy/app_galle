@@ -85,6 +85,8 @@ class ClientesDao {
     print(result.length);
     print(result[0]);
     print(result[1]);
+    print(result[2]);
+
     print("ximbica");
     var testecliente = Cliente.fromMap(result[0]);
     print(testecliente.toString());

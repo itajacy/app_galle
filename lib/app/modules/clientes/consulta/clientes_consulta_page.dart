@@ -110,11 +110,12 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                 case ConnectionState.done:
                   print("CURURU FEITO ##### 4");
                   print("snapshot... ${snapshot.data}");
-                  if (snapshot.data == null) {
-                    print("LISTA DE CLIENTES VAZIA");
-                    return const Center(
-                        child: Text("Não há clientes cadastrados."));
-                  }
+                  // if (snapshot.data == null) {
+                  //   print("LISTA DE CLIENTES VAZIA");
+                  //   return const Center(
+                  //     child: Text("Não há clientes cadastrados. \n "),
+                  //   );
+                  // }
                   if (snapshot.hasError) {
                     print("CURURU ##### 5 - ESTÁ  PARANDO AQUIAQUI");
                     return Center(
@@ -235,95 +236,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
               return const SizedBox.shrink();
             },
           ),
-          // Expanded(
-          //   flex: 1,
-          //   child: ListView.builder(
-          //     itemCount: codigoClientes.length,
-          //     itemBuilder: (context, index) {
-          //       return ListTile(
-          //         shape: Border.all(width: 1, style: BorderStyle.none),
-          //         contentPadding: const EdgeInsets.only(
-          //             left: Space.spacing_8, right: Space.spacing_8),
-          //         title: Row(
-          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //           children: [
-          //             Column(
-          //               crossAxisAlignment: CrossAxisAlignment.start,
-          //               children: [
-          //                 Row(
-          //                   children: [
-          //                     Text(
-          //                       codigoClientes[index],
-          //                       style: TextStyle(fontSize: Font.title_16),
-          //                     ),
-          //                     SizedBox(
-          //                       width: Space.spacing_8,
-          //                     ),
-          //                     Container(
-          //                       width: MediaQuery.of(context).size.width > 450
-          //                           ? Sizes.sizeW_400
-          //                           : Sizes.sizeW_150,
-          //                       child: Text(
-          //                         fantasiaClientes[index],
-          //                         style: TextStyle(
-          //                           fontSize: Font.title_16,
-          //                           overflow: TextOverflow.ellipsis,
-          //                         ),
-          //                       ),
-          //                     ),
-          //                   ],
-          //                 ),
-          //                 Row(
-          //                   children: [
-          //                     Container(
-          //                       width: MediaQuery.of(context).size.width > 450
-          //                           ? Sizes.sizeW_400
-          //                           : Sizes.sizeW_230,
-          //                       child: Text(
-          //                         razaoClientes[index],
-          //                         style: TextStyle(
-          //                           fontSize: Font.title_16,
-          //                           overflow: TextOverflow.ellipsis,
-          //                         ),
-          //                       ),
-          //                     ),
-          //                   ],
-          //                 ),
-          //               ],
-          //             ),
-          //             Row(
-          //               children: [
-          //                 // const SizedBox(width: Space.spacing_5),
-          //                 GeneralIconButton(
-          //                   onPress: () {},
-          //                   icone: Icons.folder_shared_outlined,
-          //                   iconSize: Sizes.sizeH_30,
-          //                   buttonWidth: Sizes.sizeW_50,
-          //                   buttonHeight: Sizes.sizeW_50,
-          //                   iconeForegroundColor:
-          //                       //  Colors.white70,
-          //                       ColorsApp.iconeForegroundLSecond,
-          //                 ),
-          //                 const SizedBox(width: Space.spacing_8),
-          //                 GeneralIconButton(
-          //                   onPress: () {},
-          //                   icone: Icons.delete_forever_rounded,
-          //                   iconSize: Sizes.sizeH_30,
-          //                   buttonWidth: Sizes.sizeW_50,
-          //                   buttonHeight: Sizes.sizeW_50,
-          //                   iconeForegroundColor:
-          //                       ColorsApp.iconeForegroundThird,
-          //                   // Colors.grey[350],
-          //                   // Colors.white70,
-          //                 ),
-          //               ],
-          //             ),
-          //           ],
-          //         ),
-          //       );
-          //     },
-          //   ),
-          // ),
         ],
       ),
     );
