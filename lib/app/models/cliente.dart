@@ -1,7 +1,7 @@
 class Cliente {
   int? clienteId;
-  int? dispositivoId;
-  int? clienteIdMob;
+  String? dispositivoId;
+  String? clienteIdMob;
   String? clienteIdInt;
   String? razaoSocial;
   String? nomeFantasia;
@@ -27,7 +27,7 @@ class Cliente {
   String? eComplemento;
   String? eBairro;
   String? eCEP;
-  int? ativo;
+  String? ativo;
 
   Cliente({
     this.clienteId,

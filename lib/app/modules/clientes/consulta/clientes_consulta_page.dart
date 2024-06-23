@@ -132,7 +132,8 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                         snapshot.data as List<Cliente>;
                     print(
                         "ENTRANDO NO LISTVIEW BUILDER ########################");
-                    print(listaClientes.length);
+                    print(
+                        "Qtde de clientes no ListView Builder--> ${listaClientes.length}");
                     if (listaClientes.length == 0) {
                       return const Center(
                         child: Text("Não há Clientes cadastrados"),
