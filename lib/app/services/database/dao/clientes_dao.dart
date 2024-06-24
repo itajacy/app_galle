@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:galle/app/services/database/app_database.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -91,10 +92,11 @@ class ClientesDao {
     var testecliente = Cliente.fromMap(result[0]);
     print(testecliente.toString());
     print(testecliente.runtimeType);
-    print("ximbica");
+    print("joelma");
     for (var cliente in result) {
       listaDeClientes.add(Cliente.fromMap(cliente));
     }
+    print("depois do FOR do findAll");
 
     // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
     return listaDeClientes;

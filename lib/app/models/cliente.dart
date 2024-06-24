@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class Cliente {
   int? clienteId;
   String? dispositivoId;
@@ -127,5 +128,10 @@ class Cliente {
       eCEP: mapaCliente['eCEP'],
       ativo: mapaCliente['ativo'],
     );
+  }
+
+  @override
+  String toString() {
+    return 'Cliente(clienteId: $clienteId, dispositivoId: $dispositivoId, clienteIdMob: $clienteIdMob, clienteIdInt: $clienteIdInt, razaoSocial: $razaoSocial, nomeFantasia: $nomeFantasia, tipoPessoa: $tipoPessoa, cNPJCPF: $cNPJCPF, iERG: $iERG, contato: $contato, fone1: $fone1, fone2: $fone2, foneCel: $foneCel, foneRes: $foneRes, fax: $fax, email: $email, pCidade: $pCidade, pUF: $pUF, pEndereco: $pEndereco, pComplemento: $pComplemento, pBairro: $pBairro, pCEP: $pCEP, eCidade: $eCidade, eUF: $eUF, eEndereco: $eEndereco, eComplemento: $eComplemento, eBairro: $eBairro, eCEP: $eCEP, ativo: $ativo)';
   }
 }

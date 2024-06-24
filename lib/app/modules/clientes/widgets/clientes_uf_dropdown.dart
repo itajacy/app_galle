@@ -36,13 +36,14 @@ enum ClienteUF {
   final String uf;
 }
 
+// ignore: must_be_immutable
 class ClientesUfDropdown extends StatefulWidget {
   final Function(String) ufRetorno;
   String? msgUFError;
   TextEditingController ufController;
 
-
   ClientesUfDropdown({
+    super.key,
     required this.ufRetorno,
     required this.msgUFError,
     required this.ufController,
@@ -53,8 +54,6 @@ class ClientesUfDropdown extends StatefulWidget {
 }
 
 class _ClientesUfDropdownState extends State<ClientesUfDropdown> {
-  
-
   @override
   Widget build(BuildContext context) {
     return DropdownMenu<ClienteUF>(

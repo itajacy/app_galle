@@ -22,11 +22,19 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
   final ClientesConsultaController clientesConsultaController =
       ClientesConsultaController();
 
-  // List<Cliente> listaDeClientes = [];
   final clienteController = TextEditingController();
 
   ClientesConsultaController listaDeClientesController =
       ClientesConsultaController();
+
+  Future<List<Cliente>>? _listaDeClientes;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _listaDeClientes = listaDeClientesController.buscarTodos();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +91,8 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
             ),
           ),
           FutureBuilder<List<Cliente>>(
-            initialData: const [],
-            future: listaDeClientesController.buscarTodos(),
+            // initialData: const [],
+            future: _listaDeClientes,
             builder: (context, snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
@@ -109,13 +117,13 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                   );
                 case ConnectionState.done:
                   print("CURURU FEITO ##### 4");
-                  print("snapshot... ${snapshot.data}");
-                  // if (snapshot.data == null) {
-                  //   print("LISTA DE CLIENTES VAZIA");
-                  //   return const Center(
-                  //     child: Text("Não há clientes cadastrados. \n "),
-                  //   );
-                  // }
+                  print("snapshot.data ... ${snapshot.data}");
+                  if (snapshot.data == null) {
+                    print("LISTA DE CLIENTES VAZIA");
+                    return const Center(
+                      child: Text("Não há clientes cadastrados. \n "),
+                    );
+                  }
                   if (snapshot.hasError) {
                     print("CURURU ##### 5 - ESTÁ  PARANDO AQUIAQUI");
                     return Center(
@@ -128,22 +136,24 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                     );
                   } else {
                     print("CURURU ##### 7");
-                    final List<Cliente> listaClientes =
-                        snapshot.data as List<Cliente>;
+                    final listaClientes = snapshot.data ?? <Cliente>[];
                     print(
                         "ENTRANDO NO LISTVIEW BUILDER ########################");
                     print(
                         "Qtde de clientes no ListView Builder--> ${listaClientes.length}");
-                    if (listaClientes.length == 0) {
+                    if (listaClientes.isEmpty) {
                       return const Center(
                         child: Text("Não há Clientes cadastrados"),
                       );
                     }
-
+                    print(
+                        "Tamanho de listaClientes.length.. ${listaClientes.length}");
                     return ListView.builder(
                       itemCount: listaClientes.length,
                       itemBuilder: (context, index) {
-                        final Cliente cliente = listaClientes[index];
+                        print(index);
+                        Cliente cliente = listaClientes[index];
+
                         return ListTile(
                           shape: Border.all(width: 1, style: BorderStyle.none),
                           contentPadding: const EdgeInsets.only(
