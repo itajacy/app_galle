@@ -70,9 +70,7 @@ class ClientesDao {
   Future<int> salvar(Cliente cliente) async {
     final Database db = await getDatabase();
     Map<String, dynamic> clienteMap = cliente.toMap();
-    print("inicio clienteMap");
-    print(clienteMap);
-    print("fim clienteMap");
+
     return db.insert(_tableName, clienteMap);
   }
 
@@ -84,19 +82,10 @@ class ClientesDao {
     final List<Cliente> listaDeClientes = [];
     print("clientes no findAll");
     print(result.length);
-    print(result[0]);
-    // print(result[1]);
-    // print(result[2]);
 
-    print("ximbica");
-    var testecliente = Cliente.fromMap(result[0]);
-    print(testecliente.toString());
-    print(testecliente.runtimeType);
-    print("joelma");
     for (var cliente in result) {
       listaDeClientes.add(Cliente.fromMap(cliente));
     }
-    print("depois do FOR do findAll");
 
     // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
     return listaDeClientes;

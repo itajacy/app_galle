@@ -34,6 +34,11 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
     // TODO: implement initState
     super.initState();
     _listaDeClientes = listaDeClientesController.buscarTodos();
+    _listaDeClientes?.then((value) {
+      setState(() {
+        _listaDeClientes = Future.value(value);
+      });
+    });
   }
 
   @override
@@ -177,7 +182,9 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                     Row(
                                       children: [
                                         Text(
-                                          cliente.clienteIdInt!,
+                                          (cliente.clienteIdInt!.isNotEmpty)
+                                              ? cliente.clienteIdInt!
+                                              : "              ",
                                           style: TextStyle(
                                               fontSize: Font.title_16),
                                         ),
