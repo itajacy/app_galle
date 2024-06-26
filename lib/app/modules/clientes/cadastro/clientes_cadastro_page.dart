@@ -80,6 +80,62 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 //                 r'^(([^<>()[\]\\.,&";:\s@\"]+(\.[^<>()[\]\\.,&";:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
 
   @override
+  void dispose() {
+    nomeFantasiaController.dispose();
+    razaoSocialController.dispose();
+    pessoaFJController.dispose();
+    cnpjCpfController.dispose();
+    ieRgController.dispose();
+    contatoController.dispose();
+    emailController.dispose();
+    foneCom1Controller.dispose();
+    foneCom2Controller.dispose();
+    foneCelController.dispose();
+    foneResController.dispose();
+    faxController.dispose();
+    principalUfController.dispose();
+    principalCidadeController.dispose();
+    principalEnderecoController.dispose();
+    principalComplementoController.dispose();
+    principalBairroController.dispose();
+    principalCepController.dispose();
+    entregaUfController.dispose();
+    entregaCidadeController.dispose();
+    entregaEnderecoController.dispose();
+    entregaComplementoController.dispose();
+    entregaBairroController.dispose();
+    entregaCepController.dispose();
+    super.dispose();
+  }
+
+  void _limparCampos() {
+    nomeFantasiaController.clear();
+    razaoSocialController.clear();
+    pessoaFJController.clear();
+    cnpjCpfController.clear();
+    ieRgController.clear();
+    contatoController.clear();
+    emailController.clear();
+    foneCom1Controller.clear();
+    foneCom2Controller.clear();
+    foneCelController.clear();
+    foneResController.clear();
+    faxController.clear();
+    principalUfController.clear();
+    principalCidadeController.clear();
+    principalEnderecoController.clear();
+    principalComplementoController.clear();
+    principalBairroController.clear();
+    principalCepController.clear();
+    entregaUfController.clear();
+    entregaCidadeController.clear();
+    entregaEnderecoController.clear();
+    entregaComplementoController.clear();
+    entregaBairroController.clear();
+    entregaCepController.clear();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
@@ -184,6 +240,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       await clientesCadastroController.save();
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
+                          duration: Duration(seconds: 3),
                           backgroundColor: ColorsApp.appBarBackground,
                           content: Center(
                             child: Text(
@@ -198,6 +255,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                           ),
                         ),
                       );
+                      _limparCampos();
                     } catch (e) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
