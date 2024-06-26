@@ -184,7 +184,18 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       await clientesCadastroController.save();
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                          content: Text('Cliente salvo com sucesso!'),
+                          backgroundColor: ColorsApp.appBarBackground,
+                          content: Center(
+                            child: Text(
+                              'Cliente salvo com sucesso!',
+                              style: TextStyle(
+                                color: ColorsApp.iconeForegroundMain,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold,
+                                fontSize: Font.title_20,
+                              ),
+                            ),
+                          ),
                         ),
                       );
                     } catch (e) {
