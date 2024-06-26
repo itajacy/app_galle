@@ -108,7 +108,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
     super.dispose();
   }
 
-  void _limparCampos() {
+  void _limpaControllers() {
     nomeFantasiaController.clear();
     razaoSocialController.clear();
     pessoaFJController.clear();
@@ -163,6 +163,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
               children: [
                 ClientesButton(
                     onPress: () {
+                      _limpaControllers();
                       Navigator.of(context).pop();
                     },
                     titulo: Strings.cancelar,
@@ -235,46 +236,46 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     clientesCadastroController.cliente.eCEP =
                         entregaCepController.text;
 //!  Comentei para não salvar por enquanto para testes
-                    // clientesCadastroController.save();
-                    try {
-                      await clientesCadastroController.save();
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          duration: Duration(seconds: 3),
-                          backgroundColor: ColorsApp.appBarBackground,
-                          content: Center(
-                            child: Text(
-                              'Cliente salvo com sucesso!',
-                              style: TextStyle(
-                                color: ColorsApp.textoForegYellow,
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold,
-                                fontSize: Font.title_20,
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                      _limparCampos();
-                    } catch (e) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          duration: Duration(seconds: 5),
-                          backgroundColor: ColorsApp.errorBackground,
-                          content: Center(
-                            child: Text(
-                              'ERRO: Cliente NÃO foi salvo!',
-                              style: TextStyle(
-                                color: ColorsApp.textoForegWhite,
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold,
-                                fontSize: Font.title_20,
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    }
+                    clientesCadastroController.save();
+                    // try {
+                    //   await clientesCadastroController.save();
+                    //   ScaffoldMessenger.of(context).showSnackBar(
+                    //     const SnackBar(
+                    //       duration: Duration(seconds: 3),
+                    //       backgroundColor: ColorsApp.appBarBackground,
+                    //       content: Center(
+                    //         child: Text(
+                    //           'Cliente salvo com sucesso!',
+                    //           style: TextStyle(
+                    //             color: ColorsApp.textoForegYellow,
+                    //             fontStyle: FontStyle.italic,
+                    //             fontWeight: FontWeight.bold,
+                    //             fontSize: Font.title_20,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   );
+                    //   _limpaControllers();
+                    // } catch (e) {
+                    //   ScaffoldMessenger.of(context).showSnackBar(
+                    //     const SnackBar(
+                    //       duration: Duration(seconds: 5),
+                    //       backgroundColor: ColorsApp.errorBackground,
+                    //       content: Center(
+                    //         child: Text(
+                    //           'ERRO: Cliente NÃO foi salvo!',
+                    //           style: TextStyle(
+                    //             color: ColorsApp.textoForegWhite,
+                    //             fontStyle: FontStyle.italic,
+                    //             fontWeight: FontWeight.bold,
+                    //             fontSize: Font.title_20,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   );
+                    // }
 
                     print(
                         'Pessoa Fisica ou Juridica..(F/J):  ${clientesCadastroController.cliente.tipoPessoa}');

@@ -49,10 +49,10 @@ class ClientesCadastroController extends GetxController {
     //   return;
     // }
 
-    // if (cliente.cNPJCPF!.isEmpty) {
-    //   cnpjCpfError = 'O CNP/CPF NÃO PODE SER VAZIO!';
-    //   return;
-    // }
+    if (cliente.cNPJCPF == null || cliente.cNPJCPF == "") {
+      cnpjCpfError = 'O CNP/CPF NÃO PODE SER VAZIO!';
+      return;
+    }
 
     // if (cliente.contato!.isEmpty) {
     //   contatoError = 'O CONTATO NÃO PODE SER VAZIO!';
@@ -104,14 +104,14 @@ class ClientesCadastroController extends GetxController {
 
 //!
 
-    if (cliente.pUF == null) {
+    if (cliente.pUF == "" || cliente.pUF == null) {
       pUFError = 'ESCOLHA O ESTADO';
       print("mensagem de Erro do cliente,UF --> $pUFError");
       update();
       return;
     }
 
-    if (cliente.eUF == null) {
+    if (cliente.eUF == "" || cliente.eUF == null) {
       eUFError = 'ESCOLHA O ESTADO';
       print("mensagem de Erro do cliente,eUF --> $eUFError");
       update();
@@ -260,9 +260,10 @@ class ClientesCadastroController extends GetxController {
   }
 
   void copiarEnderecoPrincipal() {
-    print('cliente.pUF --> ${cliente.pUF}');
+    print('cliente.pUF --> ${cliente.pUF.runtimeType}');
+
     print('cliente.eUF --> ${cliente.eUF}');
-    if (cliente.pUF == null) {
+    if (cliente.pUF == "" || cliente.pUF == null) {
       //! Oque/Como fazer para exibir a mensagem de erro abaixo?
       //! exibi-la na mensagem no errorText: do Estado Principal, ou
       //! ou abrir um pop-up ou algo do tipo com a mensagem na tela?
