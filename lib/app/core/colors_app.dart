@@ -30,6 +30,14 @@ class ColorsApp {
   // static const Color iconeForegroundLSecond = Colors.white;
   // botão terciário
   static const Color iconeForegroundThird = Color.fromARGB(255, 0, 255, 255);
+
+  // ERRO
+  static const Color errorBackground = Color.fromARGB(255, 173, 18, 7);
+
+  // TEXTO
+  static const Color textoForegBlack = Colors.black;
+  static const Color textoForegWhite = Colors.white;
+  static const Color textoForegYellow = Colors.yellow;
 }
 
 

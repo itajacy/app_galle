@@ -165,7 +165,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                       child: ListView.builder(
                         itemCount: listaClientes.length,
                         itemBuilder: (context, index) {
-                          print(index);
+                          // print(index);
                           Cliente cliente = listaClientes[index];
 
                           return ListTile(

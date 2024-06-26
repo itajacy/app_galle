@@ -69,10 +69,19 @@ class ClientesCadastroController extends GetxController {
     //   return;
     // }
 
-    // if (cliente.pUF!.isEmpty) {
-    //   pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
-    //   return;
-    // }
+    if (cliente.fone1!.isEmpty &&
+        cliente.fone2!.isEmpty &&
+        cliente.foneCel!.isEmpty &&
+        cliente.foneRes!.isEmpty &&
+        cliente.fax!.isEmpty) {
+      fone1Error = 'É exigido ao menos um telefone de contato!';
+      return;
+    }
+
+    if (cliente.pUF!.isEmpty) {
+      pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
+      return;
+    }
     // if (cliente.pCidade!.isEmpty) {
     //   pCidadeError = 'A CIDADE NÃO PODE SER VAZIA!';
     //   return;
@@ -95,6 +104,13 @@ class ClientesCadastroController extends GetxController {
 
 //!
 
+    if (cliente.pUF == null) {
+      pUFError = 'ESCOLHA O ESTADO';
+      print("mensagem de Erro do cliente,UF --> $pUFError");
+      update();
+      return;
+    }
+
     if (cliente.eUF == null) {
       eUFError = 'ESCOLHA O ESTADO';
       print("mensagem de Erro do cliente,eUF --> $eUFError");
@@ -110,7 +126,7 @@ class ClientesCadastroController extends GetxController {
     update();
   }
 
-//
+// SET'S
 
   void setNomeFantasia(String value) {
     cliente.nomeFantasia = value;

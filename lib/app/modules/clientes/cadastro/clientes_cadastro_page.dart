@@ -246,7 +246,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                             child: Text(
                               'Cliente salvo com sucesso!',
                               style: TextStyle(
-                                color: ColorsApp.iconeForegroundMain,
+                                color: ColorsApp.textoForegYellow,
                                 fontStyle: FontStyle.italic,
                                 fontWeight: FontWeight.bold,
                                 fontSize: Font.title_20,
@@ -259,7 +259,19 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     } catch (e) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                          content: Text('Erro ao salvar cliente.'),
+                          duration: Duration(seconds: 5),
+                          backgroundColor: ColorsApp.errorBackground,
+                          content: Center(
+                            child: Text(
+                              'ERRO: Cliente NÃO foi salvo!',
+                              style: TextStyle(
+                                color: ColorsApp.textoForegWhite,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold,
+                                fontSize: Font.title_20,
+                              ),
+                            ),
+                          ),
                         ),
                       );
                     }
