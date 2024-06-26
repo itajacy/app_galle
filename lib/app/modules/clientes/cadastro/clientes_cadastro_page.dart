@@ -112,7 +112,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     titulo: Strings.cancelar,
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
-                  onPress: () {
+                  onPress: () async {
                     //! BOTAO SALVAR
                     //! tem os campos clienteId, clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
@@ -179,7 +179,21 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     clientesCadastroController.cliente.eCEP =
                         entregaCepController.text;
 //!  Comentei para não salvar por enquanto para testes
-                    clientesCadastroController.save();
+                    // clientesCadastroController.save();
+                    try {
+                      await clientesCadastroController.save();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Cliente salvo com sucesso!'),
+                        ),
+                      );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Erro ao salvar cliente.'),
+                        ),
+                      );
+                    }
 
                     print(
                         'Pessoa Fisica ou Juridica..(F/J):  ${clientesCadastroController.cliente.tipoPessoa}');
