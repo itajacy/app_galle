@@ -69,11 +69,11 @@ class ClientesCadastroController extends GetxController {
     //   return;
     // }
 
-    if (cliente.fone1!.isEmpty &&
-        cliente.fone2!.isEmpty &&
-        cliente.foneCel!.isEmpty &&
-        cliente.foneRes!.isEmpty &&
-        cliente.fax!.isEmpty) {
+    if (cliente.fone1 == null &&
+        cliente.fone2 == null &&
+        cliente.foneCel == null &&
+        cliente.foneRes == null &&
+        cliente.fax == null) {
       fone1Error = 'É exigido ao menos um telefone de contato!';
       return;
     }
