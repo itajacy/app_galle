@@ -184,30 +184,56 @@ class ClientesCadastroController extends GetxController {
 
   void setFone1(String value) {
     cliente.fone1 = value;
+    // fone1Error = null;
     fone1Error = null;
+    fone2Error = null;
+    foneCelError = null;
+    foneResError = null;
+    faxError = null;
     update();
   }
 
   void setFone2(String value) {
     cliente.fone2 = value;
+    // fone2Error = null;
+
+    fone1Error = null;
     fone2Error = null;
+    foneCelError = null;
+    foneResError = null;
+    faxError = null;
     update();
   }
 
   void setFoneCel(String value) {
     cliente.foneCel = value;
+    // foneCelError = null;
+    fone1Error = null;
+    fone2Error = null;
     foneCelError = null;
+    foneResError = null;
+    faxError = null;
     update();
   }
 
   void setFoneRes(String value) {
     cliente.foneRes = value;
+    // foneResError = null;
+    fone1Error = null;
+    fone2Error = null;
+    foneCelError = null;
     foneResError = null;
+    faxError = null;
     update();
   }
 
   void setFax(String value) {
     cliente.fax = value;
+    // faxError = null;
+    fone1Error = null;
+    fone2Error = null;
+    foneCelError = null;
+    foneResError = null;
     faxError = null;
     update();
   }
