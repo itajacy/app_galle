@@ -1,5 +1,6 @@
 import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
+import 'package:galle/app/core/navigation/routes.dart';
 import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_controller.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
@@ -164,6 +165,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                 ClientesButton(
                     onPress: () {
                       _limpaControllers();
+                      
                       Navigator.of(context).pop();
                     },
                     titulo: Strings.cancelar,

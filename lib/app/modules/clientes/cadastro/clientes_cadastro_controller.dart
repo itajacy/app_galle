@@ -8,9 +8,6 @@ class ClientesCadastroController extends GetxController {
 
   Cliente cliente = Cliente();
 
-  //!  FALTAM OS ALGUNS CAMPOS DA TABELA AQUI
-  //
-
   String? nomeFantasiaError;
   String? razaoSocialError;
   String? tipoPessoaError;
@@ -38,6 +35,10 @@ class ClientesCadastroController extends GetxController {
   String? eBairroError;
   String? eCEPError;
 
+
+  //! O método save(), precisa retornar algo indicando que salvou com sucesso, ou não
+  //! para que o retorno possa ser tratado e ser exibida a mensagem de SUCESSO ou ERRO
+  //! na tela de cadastro usando o SNACKBAR
   save() async {
     // if (cliente.nomeFantasia!.isEmpty) {
     //   nomeFantasiaError = 'O NOME NÃO PODE SER VAZIO!';
@@ -85,11 +86,11 @@ class ClientesCadastroController extends GetxController {
       return;
     }
 
-    if (cliente.pUF!.isEmpty) {
-      pUFError = 'SELECIONE O ESTADO';
-      update();
-      return;
-    }
+    // if (cliente.pUF!.isEmpty) {
+    //   pUFError = 'SELECIONE O ESTADO';
+    //   update();
+    //   return;
+    // }
     // if (cliente.pCidade!.isEmpty) {
     //   pCidadeError = 'A CIDADE NÃO PODE SER VAZIA!';
     //   return;
@@ -113,7 +114,7 @@ class ClientesCadastroController extends GetxController {
 //!
 
     if (cliente.pUF == "" || cliente.pUF == null) {
-      pUFError = 'ESCOLHA O ESTADO';
+      pUFError = 'SELECIONE O ESTADO';
       print("mensagem de Erro do cliente,UF --> $pUFError");
       update();
       return;
@@ -126,8 +127,7 @@ class ClientesCadastroController extends GetxController {
       return;
     }
 
-    //!  NÃO ESTÁ SALVANDO PARA TESTAR
-    //! descomentar a linha abaixo para salvar
+    
     int resposta = await clientesDao.salvar(cliente);
     print('reposta do clientesDao.salvar(cliente)..: ' + resposta.toString());
 
@@ -292,42 +292,20 @@ class ClientesCadastroController extends GetxController {
   }
 
   void copiarEnderecoPrincipal() {
-    print('cliente.pUF --> ${cliente.pUF.runtimeType}');
-
-    print('cliente.eUF --> ${cliente.eUF}');
+   
     if (cliente.pUF == "" || cliente.pUF == null) {
-      //! Oque/Como fazer para exibir a mensagem de erro abaixo?
-      //! exibi-la na mensagem no errorText: do Estado Principal, ou
-      //! ou abrir um pop-up ou algo do tipo com a mensagem na tela?
       pUFError = 'SELECIONE O ESTADO!!';
-      print(pUFError);
       update();
       return;
     } else {
-      //! não faz a copia do cliente principal para o de entrega para testar
       cliente.eUF = cliente.pUF;
       cliente.eCidade = cliente.pCidade;
       cliente.eEndereco = cliente.pEndereco;
       cliente.eComplemento = cliente.pComplemento;
       cliente.eBairro = cliente.pBairro;
       cliente.eCEP = cliente.pCEP;
-
-      print("===============Dados Copiados===============");
-      print("Objeto Cliente pUF  Principal.. ${cliente.pUF}");
-      print("---------------");
-      print("Objeto Cliente eUF  Entrega.... ${cliente.eUF}");
-      print("---------------");
-      print("Objeto Cliente eCidade.. ${cliente.eCidade}");
-      print("Objeto Cliente eEndereco.. ${cliente.eEndereco}");
-      print("Objeto Cliente eComplemento.. ${cliente.eComplemento}");
-      print("Objeto Cliente eBairro.. ${cliente.eBairro}");
-      print("Objeto Cliente eCEP.. ${cliente.eCEP}");
-      print("Dados Copiados do Principal -->  Entrega");
-      print("----");
-
       update();
     }
   }
 
-//!  FAZER PARA TODOS OS CAMPOS E LEMBRAR DE ALTERAR EM CLIENTES CADASTRO
 }
