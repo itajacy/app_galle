@@ -205,6 +205,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         foneCom1Controller.text;
                     clientesCadastroController.cliente.fone2 =
                         foneCom2Controller.text;
+                    clientesCadastroController.cliente.foneCel =
+                        foneCelController.text;
+
+
                     clientesCadastroController.cliente.foneRes =
                         foneResController.text;
                     clientesCadastroController.cliente.fax = faxController.text;
@@ -346,25 +350,29 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     },
                   ),
 
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
-                    child: TextField(
-                      inputFormatters: [
-                        TextInputMask(mask: [
-                          // 'AAA AAA',
-                          '999.999.999-99',
-                          '99.999.999/9999-99'
-                        ], reverse: false)
-                      ],
-                      controller: cnpjCpfController,
-                      onChanged: clientesCadastroController.setCnpjCpf,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        labelText: Strings.cnpjCpf,
-                        border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.cnpjCpfError,
-                      ),
-                    ),
+                  GetBuilder<ClientesCadastroController>(
+                    builder: (_) {
+                      return Padding(
+                        padding: const EdgeInsets.all(Space.spacing_8),
+                        child: TextField(
+                          inputFormatters: [
+                            TextInputMask(mask: [
+                              // 'AAA AAA',
+                              '999.999.999-99',
+                              '99.999.999/9999-99'
+                            ], reverse: false)
+                          ],
+                          controller: cnpjCpfController,
+                          onChanged: clientesCadastroController.setCnpjCpf,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            labelText: Strings.cnpjCpf,
+                            border: const OutlineInputBorder(),
+                            errorText: clientesCadastroController.cnpjCpfError,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
@@ -419,96 +427,116 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
-                    child: TextField(
-                      //! fone
-                      inputFormatters: [
-                        TextInputMask(
-                            mask: ['(99) 9999-9999', '(99) 99999-9999'],
-                            reverse: false)
-                      ],
-                      controller: foneCom1Controller,
-                      onChanged: clientesCadastroController.setFone1,
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        labelText: Strings.foneCom1,
-                        border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.fone1Error,
-                      ),
-                    ),
+                  GetBuilder<ClientesCadastroController>(
+                    builder: (_) {
+                      return Padding(
+                        padding: const EdgeInsets.all(Space.spacing_8),
+                        child: TextField(
+                          //! fone
+                          inputFormatters: [
+                            TextInputMask(
+                                mask: ['(99) 9999-9999', '(99) 99999-9999'],
+                                reverse: false)
+                          ],
+                          controller: foneCom1Controller,
+                          onChanged: clientesCadastroController.setFone1,
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                            labelText: Strings.foneCom1,
+                            border: const OutlineInputBorder(),
+                            errorText: clientesCadastroController.fone1Error,
+                          ),
+                        ),
+                      );
+                    },
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
-                    child: TextField(
-                      inputFormatters: [
-                        TextInputMask(
-                            mask: ['(99) 9999-9999', '(99) 99999-9999'],
-                            reverse: false),
-                      ],
-                      controller: foneCom2Controller,
-                      onChanged: clientesCadastroController.setFone2,
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        labelText: Strings.foneCom2,
-                        border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.fone2Error,
-                      ),
-                    ),
+                  GetBuilder<ClientesCadastroController>(
+                    builder: (_) {
+                      return Padding(
+                        padding: const EdgeInsets.all(Space.spacing_8),
+                        child: TextField(
+                          inputFormatters: [
+                            TextInputMask(
+                                mask: ['(99) 9999-9999', '(99) 99999-9999'],
+                                reverse: false),
+                          ],
+                          controller: foneCom2Controller,
+                          onChanged: clientesCadastroController.setFone2,
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                            labelText: Strings.foneCom2,
+                            border: const OutlineInputBorder(),
+                            errorText: clientesCadastroController.fone2Error,
+                          ),
+                        ),
+                      );
+                    },
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
-                    child: TextField(
-                      inputFormatters: [
-                        TextInputMask(
-                            mask: ['(99) 9999-9999', '(99) 99999-9999'],
-                            reverse: false),
-                      ],
-                      controller: foneCelController,
-                      onChanged: clientesCadastroController.setFoneCel,
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        labelText: Strings.foneCel,
-                        border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.fone2Error,
-                      ),
-                    ),
+                  GetBuilder<ClientesCadastroController>(
+                    builder: (_) {
+                      return Padding(
+                        padding: const EdgeInsets.all(Space.spacing_8),
+                        child: TextField(
+                          inputFormatters: [
+                            TextInputMask(
+                                mask: ['(99) 9999-9999', '(99) 99999-9999'],
+                                reverse: false),
+                          ],
+                          controller: foneCelController,
+                          onChanged: clientesCadastroController.setFoneCel,
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                            labelText: Strings.foneCel,
+                            border: const OutlineInputBorder(),
+                            errorText: clientesCadastroController.fone2Error,
+                          ),
+                        ),
+                      );
+                    },
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
-                    child: TextField(
-                      inputFormatters: [
-                        TextInputMask(
-                            mask: ['(99) 9999-9999', '(99) 99999-9999'],
-                            reverse: false),
-                      ],
-                      controller: foneResController,
-                      onChanged: clientesCadastroController.setFoneRes,
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        labelText: Strings.foneRes,
-                        border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.foneResError,
-                      ),
-                    ),
+                  GetBuilder<ClientesCadastroController>(
+                    builder: (_) {
+                      return Padding(
+                        padding: const EdgeInsets.all(Space.spacing_8),
+                        child: TextField(
+                          inputFormatters: [
+                            TextInputMask(
+                                mask: ['(99) 9999-9999', '(99) 99999-9999'],
+                                reverse: false),
+                          ],
+                          controller: foneResController,
+                          onChanged: clientesCadastroController.setFoneRes,
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                            labelText: Strings.foneRes,
+                            border: const OutlineInputBorder(),
+                            errorText: clientesCadastroController.foneResError,
+                          ),
+                        ),
+                      );
+                    },
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
-                    child: TextField(
-                      inputFormatters: [
-                        TextInputMask(
-                            mask: ['(99) 9999-9999', '(99) 99999-9999'],
-                            reverse: false),
-                      ],
-                      controller: faxController,
-                      onChanged: clientesCadastroController.setFax,
-                      keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
-                        labelText: Strings.fax,
-                        border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.faxError,
-                      ),
-                    ),
+                  GetBuilder<ClientesCadastroController>(
+                    builder: (_) {
+                      return Padding(
+                        padding: const EdgeInsets.all(Space.spacing_8),
+                        child: TextField(
+                          inputFormatters: [
+                            TextInputMask(
+                                mask: ['(99) 9999-9999', '(99) 99999-9999'],
+                                reverse: false),
+                          ],
+                          controller: faxController,
+                          onChanged: clientesCadastroController.setFax,
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                            labelText: Strings.fax,
+                            border: const OutlineInputBorder(),
+                            errorText: clientesCadastroController.faxError,
+                          ),
+                        ),
+                      );
+                    },
                   ),
 
                   const Padding(

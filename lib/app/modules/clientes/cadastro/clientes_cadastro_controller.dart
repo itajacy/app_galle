@@ -51,6 +51,7 @@ class ClientesCadastroController extends GetxController {
 
     if (cliente.cNPJCPF == null || cliente.cNPJCPF == "") {
       cnpjCpfError = 'O CNP/CPF NÃO PODE SER VAZIO!';
+      update();
       return;
     }
 
@@ -69,17 +70,24 @@ class ClientesCadastroController extends GetxController {
     //   return;
     // }
 
-    if (cliente.fone1 == null &&
-        cliente.fone2 == null &&
-        cliente.foneCel == null &&
-        cliente.foneRes == null &&
-        cliente.fax == null) {
+    if (cliente.fone1!.isEmpty &&
+        cliente.fone2!.isEmpty &&
+        cliente.foneCel!.isEmpty &&
+        cliente.foneRes!.isEmpty &&
+        cliente.fax!.isEmpty) {
       fone1Error = 'É exigido ao menos um telefone de contato!';
+      fone2Error = 'É exigido ao menos um telefone de contato!';
+      foneCelError = 'É exigido ao menos um telefone de contato!';
+      foneResError = 'É exigido ao menos um telefone de contato!';
+      faxError = 'É exigido ao menos um telefone de contato!';
+
+      update();
       return;
     }
 
     if (cliente.pUF!.isEmpty) {
-      pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
+      pUFError = 'SELECIONE O ESTADO';
+      update();
       return;
     }
     // if (cliente.pCidade!.isEmpty) {
@@ -131,65 +139,77 @@ class ClientesCadastroController extends GetxController {
   void setNomeFantasia(String value) {
     cliente.nomeFantasia = value;
     nomeFantasiaError = null;
+    update();
   }
 
   void setRazaoSocial(String value) {
     cliente.razaoSocial = value;
     razaoSocialError = null;
+    update();
   }
 
   //! ser visto depois.  deve ser "F" ou "J"
   void setTipoPessoa(String value) {
     cliente.tipoPessoa = value;
     tipoPessoaError = null;
+    update();
   }
 
   //! Como Validar?  Como definir a formatação?
   void setCnpjCpf(String value) {
     cliente.cNPJCPF = value;
     cnpjCpfError = null;
+    update();
   }
 
 //! Como Validar?  Definir formatação
   void setIeRg(String value) {
     cliente.iERG = value;
     iERGError = null;
+    update();
   }
 
   void setContato(String value) {
     cliente.contato = value;
     contatoError = null;
+    update();
   }
 
 //! Como Validar?
   void setEmail(String value) {
     cliente.email = value;
     emailError = null;
+    update();
   }
 
   void setFone1(String value) {
     cliente.fone1 = value;
     fone1Error = null;
+    update();
   }
 
   void setFone2(String value) {
     cliente.fone2 = value;
     fone2Error = null;
+    update();
   }
 
   void setFoneCel(String value) {
     cliente.foneCel = value;
     foneCelError = null;
+    update();
   }
 
   void setFoneRes(String value) {
     cliente.foneRes = value;
     foneResError = null;
+    update();
   }
 
   void setFax(String value) {
     cliente.fax = value;
     faxError = null;
+    update();
   }
 
 //---
@@ -199,31 +219,37 @@ class ClientesCadastroController extends GetxController {
   void setpUF(String value) {
     cliente.pUF = value;
     pUFError = null;
+    update();
   }
 
   void setpCidade(String value) {
     cliente.pCidade = value;
     pCidadeError = null;
+    update();
   }
 
   void setpEndereco(String value) {
     cliente.pEndereco = value;
     pEnderecoError = null;
+    update();
   }
 
   void setpComplemento(String value) {
     cliente.pComplemento = value;
     pComplementoError = null;
+    update();
   }
 
   void setpBairro(String value) {
     cliente.pBairro = value;
     pBairroError = null;
+    update();
   }
 
   void setpCEP(String value) {
     cliente.pCEP = value;
     pCEPError = null;
+    update();
   }
 
 //---
@@ -232,31 +258,37 @@ class ClientesCadastroController extends GetxController {
   void seteUF(String value) {
     cliente.eUF = value;
     eUFError = null;
+    update();
   }
 
   void seteCidade(String value) {
     cliente.eCidade = value;
     eCidadeError = null;
+    update();
   }
 
   void seteEndereco(String value) {
     cliente.eEndereco = value;
     pEnderecoError = null;
+    update();
   }
 
   void seteComplemento(String value) {
     cliente.eComplemento = value;
     eComplementoError = null;
+    update();
   }
 
   void seteBairro(String value) {
     cliente.eBairro = value;
     eBairroError = null;
+    update();
   }
 
   void seteCEP(String value) {
     cliente.eCEP = value;
     eCEPError = null;
+    update();
   }
 
   void copiarEnderecoPrincipal() {
