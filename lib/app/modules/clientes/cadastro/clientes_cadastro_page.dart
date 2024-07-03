@@ -165,7 +165,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                 ClientesButton(
                     onPress: () {
                       _limpaControllers();
-                      
+
                       Navigator.of(context).pop();
                     },
                     titulo: Strings.cancelar,
@@ -203,14 +203,13 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         contatoController.text;
                     clientesCadastroController.cliente.email =
                         emailController.text;
+
                     clientesCadastroController.cliente.fone1 =
                         foneCom1Controller.text;
                     clientesCadastroController.cliente.fone2 =
                         foneCom2Controller.text;
                     clientesCadastroController.cliente.foneCel =
                         foneCelController.text;
-
-
                     clientesCadastroController.cliente.foneRes =
                         foneResController.text;
                     clientesCadastroController.cliente.fax = faxController.text;
@@ -287,11 +286,19 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
                     print(
                         'Pessoa Fisica ou Juridica..(F/J):  ${clientesCadastroController.cliente.tipoPessoa}');
-
                     print(
                         "ESTADO UF Principal..: ${principalUfController.text}");
                     print("ESTADO UF Entrega..: ${entregaUfController.text}");
                     print(entregaUfController.text == '');
+                    print('Cidade Entrega..: ${entregaCidadeController.text}');
+                    print(
+                        "Cidade é == null?..: ${entregaCidadeController.text.isNull} ");
+                    print(
+                        "Cidade é == ''..: ${entregaCidadeController.text == ''}");
+                    print(
+                        "Cidade é Blank?..: ${entregaCidadeController.text.isBlank}");
+
+                    print({emailController.text}.isBlank);
                   },
                   titulo: Strings.salvar,
                   icone: Icons.check_box,
@@ -358,11 +365,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         padding: const EdgeInsets.all(Space.spacing_8),
                         child: TextField(
                           inputFormatters: [
-                            TextInputMask(mask: [
-                              // 'AAA AAA',
-                              '999.999.999-99',
-                              '99.999.999/9999-99'
-                            ], reverse: false)
+                            TextInputMask(
+                              mask: ['999.999.999-99', '99.999.999/9999-99'],
+                              reverse: false,
+                            )
                           ],
                           controller: cnpjCpfController,
                           onChanged: clientesCadastroController.setCnpjCpf,
@@ -412,22 +418,26 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
-                    child: TextField(
-                      //!  FORMATAÇÀO DO E-MAIL
-                      inputFormatters: [
-                        LowerCaseTextFormatter(),
-                      ],
-                      controller: emailController,
-                      onChanged: clientesCadastroController.setEmail,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        labelText: Strings.email,
-                        border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.emailError,
-                      ),
-                    ),
+                  GetBuilder<ClientesCadastroController>(
+                    builder: (_) {
+                      return Padding(
+                        padding: const EdgeInsets.all(Space.spacing_8),
+                        child: TextField(
+                          //!  FORMATAÇÀO DO E-MAIL
+                          inputFormatters: [
+                            LowerCaseTextFormatter(),
+                          ],
+                          controller: emailController,
+                          onChanged: clientesCadastroController.setEmail,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                            labelText: Strings.email,
+                            border: const OutlineInputBorder(),
+                            errorText: clientesCadastroController.emailError,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   GetBuilder<ClientesCadastroController>(
                     builder: (_) {

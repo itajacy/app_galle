@@ -77,15 +77,10 @@ class ClientesDao {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> result = await db.query(_tableName);
     // final List<Map> result = await db.rawQuery("SELECT * FROM $_tableName");
-    print("result é do tipo==> ${result.runtimeType}");
     final List<Cliente> listaDeClientes = [];
-    print("clientes no findAll");
-    print(result.length);
-
     for (var cliente in result) {
       listaDeClientes.add(Cliente.fromMap(cliente));
     }
-
     // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
     return listaDeClientes;
   }
