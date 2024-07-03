@@ -1,6 +1,5 @@
 import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
-import 'package:galle/app/core/navigation/routes.dart';
 import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_controller.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
@@ -72,6 +71,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   final entregaBairroController = TextEditingController();
 
   final entregaCepController = TextEditingController();
+
+  bool? salvo;
 
 //!  VER RegExp
 
@@ -241,48 +242,68 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     clientesCadastroController.cliente.eCEP =
                         entregaCepController.text;
 //!  Comentei para não salvar por enquanto para testes
-                    clientesCadastroController.save();
 
+                    //  clientesCadastroController.save(salvo);
+                   
                     //!  mensagem de salvo com sucesso ou não
-                    // try {
-                    //   await clientesCadastroController.save();
-                    //   ScaffoldMessenger.of(context).showSnackBar(
-                    //     const SnackBar(
-                    //       duration: Duration(seconds: 3),
-                    //       backgroundColor: ColorsApp.appBarBackground,
-                    //       content: Center(
-                    //         child: Text(
-                    //           'Cliente salvo com sucesso!',
-                    //           style: TextStyle(
-                    //             color: ColorsApp.textoForegYellow,
-                    //             fontStyle: FontStyle.italic,
-                    //             fontWeight: FontWeight.bold,
-                    //             fontSize: Font.title_20,
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   );
-                    //   _limpaControllers();
-                    // } catch (e) {
-                    //   ScaffoldMessenger.of(context).showSnackBar(
-                    //     const SnackBar(
-                    //       duration: Duration(seconds: 5),
-                    //       backgroundColor: ColorsApp.errorBackground,
-                    //       content: Center(
-                    //         child: Text(
-                    //           'ERRO: Cliente NÃO foi salvo!',
-                    //           style: TextStyle(
-                    //             color: ColorsApp.textoForegWhite,
-                    //             fontStyle: FontStyle.italic,
-                    //             fontWeight: FontWeight.bold,
-                    //             fontSize: Font.title_20,
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   );
-                    // }
+                    try {
+                      await clientesCadastroController.save(salvo);
+                      // ignore: use_build_context_synchronously
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          duration: Duration(seconds: 3),
+                          backgroundColor: ColorsApp.appBarBackground,
+                          content: Center(
+                            child: Text(
+                              'Cliente salvo com SUCESSO!',
+                              style: TextStyle(
+                                color: ColorsApp.textoForegYellow,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold,
+                                fontSize: Font.title_20,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                      _limpaControllers();
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          duration: Duration(seconds: 5),
+                          backgroundColor: ColorsApp.errorBackground,
+                          content: Center(
+                            child: Text(
+                              'ERRO: Cliente NÃO foi salvo!',
+                              style: TextStyle(
+                                color: ColorsApp.textoForegWhite,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold,
+                                fontSize: Font.title_20,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //   const SnackBar(
+                      //     duration: Duration(seconds: 5),
+                      //     backgroundColor: ColorsApp.errorBackground,
+                      //     content: Center(
+                      //       child: Text(
+                      //         'ERRO: Cliente NÃO foi salvo!',
+                      //         style: TextStyle(
+                      //           color: ColorsApp.textoForegWhite,
+                      //           fontStyle: FontStyle.italic,
+                      //           fontWeight: FontWeight.bold,
+                      //           fontSize: Font.title_20,
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // );
+                    }
 
                     print(
                         'Pessoa Fisica ou Juridica..(F/J):  ${clientesCadastroController.cliente.tipoPessoa}');
@@ -351,14 +372,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold, fontSize: Font.title_18),
                   ),
-
-                  //!  Determina se a pessoa é Física ou Jurídica
                   PessoafjButton(
                     pessoa: (pessoaFouJ) {
                       pessoaFJController.text = pessoaFouJ;
                     },
                   ),
-
                   GetBuilder<ClientesCadastroController>(
                     builder: (_) {
                       return Padding(
@@ -550,7 +568,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       );
                     },
                   ),
-
                   const Padding(
                     padding: EdgeInsets.all(Space.spacing_8),
                     child: Text(
@@ -559,7 +576,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child:
@@ -674,7 +690,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       ),
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
 
@@ -730,7 +745,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       ],
                     ),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(

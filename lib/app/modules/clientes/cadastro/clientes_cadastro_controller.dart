@@ -38,17 +38,19 @@ class ClientesCadastroController extends GetxController {
   //! O método save(), precisa retornar algo indicando que salvou com sucesso, ou não
   //! para que o retorno possa ser tratado e ser exibida a mensagem de SUCESSO ou ERRO
   //! na tela de cadastro usando o SNACKBAR
-  save() async {
+
+//! ## INICIO DO save()
+  Future<bool> save(bool? isSave) async {
     if (cliente.cNPJCPF == null || cliente.cNPJCPF == "") {
       cnpjCpfError = 'O CNP/CPF NÃO PODE SER VAZIO!';
       update();
-      return;
+      return isSave!;
     }
 
     if (cliente.email == null || cliente.email == "") {
       emailError = 'O EMAIL NÃO PODE SER VAZIO!';
       update();
-      return;
+      return isSave!;
     }
 
     if (cliente.fone1!.isEmpty &&
@@ -63,14 +65,14 @@ class ClientesCadastroController extends GetxController {
       faxError = 'É exigido ao menos um telefone de contato!';
 
       update();
-      return;
+      return isSave!;
     }
 
     if (cliente.pUF == "" || cliente.pUF == null) {
       pUFError = 'SELECIONE O ESTADO';
       print("mensagem de Erro do cliente,UF --> $pUFError");
       update();
-      return;
+      return isSave!;
     }
 
     if (cliente.eCidade != "") {
@@ -78,14 +80,16 @@ class ClientesCadastroController extends GetxController {
         eUFError = 'ESCOLHA O ESTADO';
         print("mensagem de Erro do cliente,eUF --> $eUFError");
         update();
-        return;
+        return isSave!;
       }
     }
     // print("NAO ESTÁ SALVANDO, TESTE");
     int resposta = await clientesDao.salvar(cliente);
+
     print('reposta do clientesDao.salvar(cliente)..: ' + resposta.toString());
 
     update();
+    return resposta > 0 ? true : false;
     // if (cliente.nomeFantasia!.isEmpty) {
     //   nomeFantasiaError = 'O NOME NÃO PODE SER VAZIO!';
     //   return;
@@ -126,6 +130,7 @@ class ClientesCadastroController extends GetxController {
     //   return;
     // }
   }
+//! ## FIM DO save()
 
 // SET'S
 

@@ -145,7 +145,15 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                   } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
                     print("CASO ##### 6");
                     return const Center(
-                      child: Text("Nenhum cliente encontrado."),
+                      child: Text(
+                        "Nenhum cliente encontrado.",
+                        style: TextStyle(
+                          fontSize: Font.title_24,
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic,
+                          color: ColorsApp.appBarBackground,
+                        ),
+                      ),
                     );
                   } else {
                     print("CASO ##### 7");
