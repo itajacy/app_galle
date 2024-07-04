@@ -14,7 +14,7 @@ import '../widgets/pessoafj_button.dart';
 import '../widgets/upper_case_text_formatter.dart';
 
 class ClientesCadastroPage extends StatefulWidget {
-  ClientesCadastroPage({super.key});
+  const ClientesCadastroPage({super.key});
 
   @override
   State<ClientesCadastroPage> createState() => _ClientesCadastroPageState();
@@ -74,12 +74,20 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   bool? salvo;
 
+  late FocusNode focusNomeFantasia;
+
 //!  VER RegExp
 
 //*  Abaixo um RegExp para validação de e-mail
 
 // return RegExp(
 //                 r'^(([^<>()[\]\\.,&";:\s@\"]+(\.[^<>()[\]\\.,&";:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+
+  @override
+  void initState() {
+    super.initState();
+    focusNomeFantasia = FocusNode();
+  }
 
   @override
   void dispose() {
@@ -107,6 +115,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
     entregaComplementoController.dispose();
     entregaBairroController.dispose();
     entregaCepController.dispose();
+    focusNomeFantasia.dispose();
     super.dispose();
   }
 
@@ -166,7 +175,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                 ClientesButton(
                     onPress: () {
                       _limpaControllers();
-
                       Navigator.of(context).pop();
                     },
                     titulo: Strings.cancelar,
@@ -241,11 +249,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         entregaBairroController.text;
                     clientesCadastroController.cliente.eCEP =
                         entregaCepController.text;
-//!  Comentei para não salvar por enquanto para testes
 
-                    //  clientesCadastroController.save(salvo);
-                   
-                    //!  mensagem de salvo com sucesso ou não
                     try {
                       await clientesCadastroController.save(salvo);
                       // ignore: use_build_context_synchronously
@@ -267,6 +271,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         ),
                       );
                       _limpaControllers();
+                      focusNomeFantasia.requestFocus();
                     } catch (e) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
@@ -285,41 +290,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                           ),
                         ),
                       );
-
-                      // ScaffoldMessenger.of(context).showSnackBar(
-                      //   const SnackBar(
-                      //     duration: Duration(seconds: 5),
-                      //     backgroundColor: ColorsApp.errorBackground,
-                      //     content: Center(
-                      //       child: Text(
-                      //         'ERRO: Cliente NÃO foi salvo!',
-                      //         style: TextStyle(
-                      //           color: ColorsApp.textoForegWhite,
-                      //           fontStyle: FontStyle.italic,
-                      //           fontWeight: FontWeight.bold,
-                      //           fontSize: Font.title_20,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // );
                     }
-
-                    print(
-                        'Pessoa Fisica ou Juridica..(F/J):  ${clientesCadastroController.cliente.tipoPessoa}');
-                    print(
-                        "ESTADO UF Principal..: ${principalUfController.text}");
-                    print("ESTADO UF Entrega..: ${entregaUfController.text}");
-                    print(entregaUfController.text == '');
-                    print('Cidade Entrega..: ${entregaCidadeController.text}');
-                    print(
-                        "Cidade é == null?..: ${entregaCidadeController.text.isNull} ");
-                    print(
-                        "Cidade é == ''..: ${entregaCidadeController.text == ''}");
-                    print(
-                        "Cidade é Blank?..: ${entregaCidadeController.text.isBlank}");
-
-                    print({emailController.text}.isBlank);
                   },
                   titulo: Strings.salvar,
                   icone: Icons.check_box,
@@ -338,6 +309,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
+                      focusNode: focusNomeFantasia,
                       inputFormatters: [
                         UpperCaseTextFormatter(),
                       ],
@@ -370,7 +342,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   const Text(
                     Strings.pessoaFJ,
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: Font.title_18),
+                      fontWeight: FontWeight.bold,
+                      fontSize: Font.title_18,
+                    ),
                   ),
                   PessoafjButton(
                     pessoa: (pessoaFouJ) {
@@ -384,7 +358,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         child: TextField(
                           inputFormatters: [
                             TextInputMask(
-                              mask: ['999.999.999-99', '99.999.999/9999-99'],
+                              mask: [
+                                '999.999.999-99',
+                                '99.999.999/9999-99',
+                              ],
                               reverse: false,
                             )
                           ],
