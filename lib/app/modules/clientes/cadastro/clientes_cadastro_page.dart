@@ -251,7 +251,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         entregaCepController.text;
 
                     try {
-                      await clientesCadastroController.save(salvo);
+                      await clientesCadastroController.save(isSave: salvo);
                       // ignore: use_build_context_synchronously
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
