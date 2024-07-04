@@ -249,48 +249,85 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         entregaBairroController.text;
                     clientesCadastroController.cliente.eCEP =
                         entregaCepController.text;
-
-                    try {
-                      await clientesCadastroController.save(isSave: salvo);
-                      // ignore: use_build_context_synchronously
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          duration: Duration(seconds: 3),
+                    var isSave =
+                        await clientesCadastroController.save(isSave: salvo);
+                    if (isSave) {
+                      Get.showSnackbar(
+                        const GetSnackBar(
                           backgroundColor: ColorsApp.appBarBackground,
-                          content: Center(
-                            child: Text(
-                              'Cliente salvo com SUCESSO!',
-                              style: TextStyle(
-                                color: ColorsApp.textoForegYellow,
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold,
-                                fontSize: Font.title_20,
-                              ),
+                          titleText: Text(
+                            'Cliente salvo com SUCESSO!',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: ColorsApp.textoForegYellow,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.bold,
+                              fontSize: Font.title_20,
                             ),
                           ),
+                          // title: 'CLIENTE SALVO COM SUCESSO!',
+                          message: 'Boas vendas',
+                          duration: Duration(seconds: 7),
                         ),
                       );
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //   const SnackBar(
+                      //     duration: Duration(seconds: 3),
+                      //     backgroundColor: ColorsApp.appBarBackground,
+                      //     content: Center(
+                      //       child: Text(
+                      //         'Cliente salvo com SUCESSO!',
+                      //         style: TextStyle(
+                      //           color: ColorsApp.textoForegYellow,
+                      //           fontStyle: FontStyle.italic,
+                      //           fontWeight: FontWeight.bold,
+                      //           fontSize: Font.title_20,
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // );
                       _limpaControllers();
                       focusNomeFantasia.requestFocus();
-                    } catch (e) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          duration: Duration(seconds: 5),
+                      // } else if (isSave == null) {
+                      //   print('isSave == null');
+                    } else {
+                      Get.showSnackbar(
+                        const GetSnackBar(
                           backgroundColor: ColorsApp.errorBackground,
-                          content: Center(
-                            child: Text(
-                              'ERRO: Cliente NÃO foi salvo!',
-                              style: TextStyle(
-                                color: ColorsApp.textoForegWhite,
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.bold,
-                                fontSize: Font.title_20,
-                              ),
-                            ),
-                          ),
+                          // titleText: Text(
+                          //   'ERRO: Cliente NÃO foi salvo! ',
+                          //   style: TextStyle(
+                          //     color: ColorsApp.textoForegWhite,
+                          //     fontStyle: FontStyle.italic,
+                          //     fontWeight: FontWeight.bold,
+                          //     fontSize: Font.title_20,
+                          //   ),
+                          // ),
+                          title: 'ERRO: Cliente NÃO foi salvo! ',
+                          // message: 'Parabéns, sua compra foi um sucesso',
+                          duration: Duration(seconds: 7),
                         ),
                       );
                     }
+
+                    // ScaffoldMessenger.of(context).showSnackBar(
+                    //   SnackBar(
+                    //     duration: Duration(seconds: 5),
+                    //     backgroundColor: ColorsApp.errorBackground,
+                    //     content: Center(
+                    //       child: Text(
+                    //         'ERRO: Cliente NÃO foi salvo! ${e.toString()}',
+                    //         style: TextStyle(
+                    //           color: ColorsApp.textoForegWhite,
+                    //           fontStyle: FontStyle.italic,
+                    //           fontWeight: FontWeight.bold,
+                    //           fontSize: Font.title_20,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // );
                   },
                   titulo: Strings.salvar,
                   icone: Icons.check_box,

@@ -40,7 +40,7 @@ class ClientesCadastroController extends GetxController {
   //! na tela de cadastro usando o SNACKBAR
 
 //! ## INICIO DO save()
-  Future<bool> save(bool? isSave) async {
+  Future<bool> save({required bool? isSave}) async {
     if (cliente.cNPJCPF == null || cliente.cNPJCPF == "") {
       cnpjCpfError = 'O CNP/CPF NÃO PODE SER VAZIO!';
       update();
@@ -72,7 +72,7 @@ class ClientesCadastroController extends GetxController {
       pUFError = 'SELECIONE O ESTADO';
       print("mensagem de Erro do cliente,UF --> $pUFError");
       update();
-      return isSave!;
+      return isSave!; 
     }
 
     if (cliente.eCidade != "") {
