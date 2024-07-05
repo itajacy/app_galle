@@ -76,6 +76,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   late FocusNode focusNomeFantasia;
 
+  String mascaraCpfCnpj = '999.999.999-99';
+  String mascaraRgIe = '99.999.999-N';
+
 //!  VER RegExp
 
 //*  Abaixo um RegExp para validação de e-mail
@@ -295,17 +298,17 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       Get.showSnackbar(
                         const GetSnackBar(
                           backgroundColor: ColorsApp.errorBackground,
-                          // titleText: Text(
-                          //   'ERRO: Cliente NÃO foi salvo! ',
-                          //   style: TextStyle(
-                          //     color: ColorsApp.textoForegWhite,
-                          //     fontStyle: FontStyle.italic,
-                          //     fontWeight: FontWeight.bold,
-                          //     fontSize: Font.title_20,
-                          //   ),
-                          // ),
-                          title: 'ERRO: Cliente NÃO foi salvo! ',
-                          // message: 'Parabéns, sua compra foi um sucesso',
+                          titleText: Text(
+                            'ERRO: Cliente NÃO foi salvo! ',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: ColorsApp.textoForegYellow,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.bold,
+                              fontSize: Font.title_20,
+                            ),
+                          ),
+                          message: 'Tente novamente.',
                           duration: Duration(seconds: 7),
                         ),
                       );
@@ -386,6 +389,13 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                   PessoafjButton(
                     pessoa: (pessoaFouJ) {
                       pessoaFJController.text = pessoaFouJ;
+                      if (pessoaFouJ == "F") {
+                        mascaraCpfCnpj = '999.999.999-99';
+                        mascaraRgIe = '99.999.999-N';
+                      } else {
+                        mascaraCpfCnpj = '99.999.999/9999-99';
+                        mascaraRgIe = '999.999.999.999';
+                      }
                     },
                   ),
                   GetBuilder<ClientesCadastroController>(
@@ -395,10 +405,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         child: TextField(
                           inputFormatters: [
                             TextInputMask(
-                              mask: [
-                                '999.999.999-99',
-                                '99.999.999/9999-99',
-                              ],
+                              mask: [mascaraCpfCnpj],
                               reverse: false,
                             )
                           ],
@@ -414,25 +421,29 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       );
                     },
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
-                    child: TextField(
-                      inputFormatters: [
-                        TextInputMask(
-                          //! VER COMO ACEITAR A LETRA DO RG MAIUSCULA
-                          mask: ['99.999.999-N', '999.999.999.999'],
-                          reverse: false,
+                  GetBuilder<ClientesCadastroController>(
+                    builder: (_) {
+                      return Padding(
+                        padding: const EdgeInsets.all(Space.spacing_8),
+                        child: TextField(
+                          inputFormatters: [
+                            TextInputMask(
+                              //! VER COMO ACEITAR A LETRA DO RG MAIUSCULA
+                              mask: [mascaraRgIe],
+                              reverse: false,
+                            ),
+                          ],
+                          controller: ieRgController,
+                          onChanged: clientesCadastroController.setIeRg,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            labelText: Strings.ieRg,
+                            border: const OutlineInputBorder(),
+                            errorText: clientesCadastroController.iERGError,
+                          ),
                         ),
-                      ],
-                      controller: ieRgController,
-                      onChanged: clientesCadastroController.setIeRg,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        labelText: Strings.ieRg,
-                        border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.iERGError,
-                      ),
-                    ),
+                      );
+                    },
                   ),
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),

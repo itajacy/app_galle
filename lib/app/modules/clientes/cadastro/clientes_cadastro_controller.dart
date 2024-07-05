@@ -72,7 +72,7 @@ class ClientesCadastroController extends GetxController {
       pUFError = 'SELECIONE O ESTADO';
       print("mensagem de Erro do cliente,UF --> $pUFError");
       update();
-      return isSave!; 
+      return isSave!;
     }
 
     if (cliente.eCidade != "") {
