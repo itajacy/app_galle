@@ -31,8 +31,17 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    buscarAtualizarClientes();
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    buscarAtualizarClientes();
+    super.didChangeDependencies();
+  }
+
+  void buscarAtualizarClientes() {
     _listaDeClientes = listaDeClientesController.buscarTodos();
     _listaDeClientes?.then((value) {
       setState(() {

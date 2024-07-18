@@ -270,7 +270,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                           ),
                           // title: 'CLIENTE SALVO COM SUCESSO!',
                           message: 'Boas vendas',
-                          duration: Duration(seconds: 7),
+                          duration: Duration(seconds: 5),
                         ),
                       );
                       // ScaffoldMessenger.of(context).showSnackBar(
