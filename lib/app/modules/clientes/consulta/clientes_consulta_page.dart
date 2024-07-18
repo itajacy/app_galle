@@ -211,13 +211,13 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                           (cliente.clienteIdInt!.isNotEmpty)
                                               ? cliente.clienteIdInt!
                                               : "              ",
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontSize: Font.title_16),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: Space.spacing_8,
                                         ),
-                                        Container(
+                                        SizedBox(
                                           width: MediaQuery.of(context)
                                                       .size
                                                       .width >
@@ -226,7 +226,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                               : Sizes.sizeW_150,
                                           child: Text(
                                             cliente.nomeFantasia!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontSize: Font.title_16,
                                               overflow: TextOverflow.ellipsis,
                                             ),
@@ -236,7 +236,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                     ),
                                     Row(
                                       children: [
-                                        Container(
+                                        SizedBox(
                                           width: MediaQuery.of(context)
                                                       .size
                                                       .width >
@@ -245,7 +245,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                               : Sizes.sizeW_230,
                                           child: Text(
                                             cliente.razaoSocial!,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontSize: Font.title_16,
                                               overflow: TextOverflow.ellipsis,
                                             ),
