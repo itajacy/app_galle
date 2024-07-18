@@ -308,7 +308,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                               fontSize: Font.title_20,
                             ),
                           ),
-                          message: 'Tente novamente.',
+                          message:
+                              'Verifique e preencha os dados que estão faltando.',
                           duration: Duration(seconds: 7),
                         ),
                       );

@@ -44,13 +44,14 @@ class ClientesCadastroController extends GetxController {
     if (cliente.cNPJCPF == null || cliente.cNPJCPF == "") {
       cnpjCpfError = 'O CNP/CPF NÃO PODE SER VAZIO!';
       update();
-      return isSave!;
+      // return false;
+      return false;
     }
 
     if (cliente.email == null || cliente.email == "") {
       emailError = 'O EMAIL NÃO PODE SER VAZIO!';
       update();
-      return isSave!;
+      return false;
     }
 
     if (cliente.fone1!.isEmpty &&
@@ -65,70 +66,28 @@ class ClientesCadastroController extends GetxController {
       faxError = 'É exigido ao menos um telefone de contato!';
 
       update();
-      return isSave!;
+      return false;
     }
 
     if (cliente.pUF == "" || cliente.pUF == null) {
       pUFError = 'SELECIONE O ESTADO';
-      print("mensagem de Erro do cliente,UF --> $pUFError");
       update();
-      return isSave!;
+      return false;
     }
 
     if (cliente.eCidade != "") {
       if (cliente.eUF == "" || cliente.eUF == null) {
         eUFError = 'ESCOLHA O ESTADO';
-        print("mensagem de Erro do cliente,eUF --> $eUFError");
         update();
-        return isSave!;
+        return false;
       }
     }
-    // print("NAO ESTÁ SALVANDO, TESTE");
     int resposta = await clientesDao.salvar(cliente);
 
     print('reposta do clientesDao.salvar(cliente)..: ' + resposta.toString());
 
     update();
     return resposta > 0 ? true : false;
-    // if (cliente.nomeFantasia!.isEmpty) {
-    //   nomeFantasiaError = 'O NOME NÃO PODE SER VAZIO!';
-    //   return;
-    // }
-
-    // if (cliente.razaoSocial!.isEmpty) {
-    //   razaoSocialError = 'A RAZÃO SOCIAL NÃO PODE SER VAZIA!';
-    //   return;
-    // }
-
-    // if (cliente.contato!.isEmpty) {
-    //   contatoError = 'O CONTATO NÃO PODE SER VAZIO!';
-    //   return;
-    // }
-
-    // if (cliente.pUF!.isEmpty) {
-    //   pUFError = 'SELECIONE O ESTADO';
-    //   update();
-    //   return;
-    // }
-    // if (cliente.pCidade!.isEmpty) {
-    //   pCidadeError = 'A CIDADE NÃO PODE SER VAZIA!';
-    //   return;
-    // }
-
-    // if (cliente.pEndereco!.isEmpty) {
-    //   pEnderecoError = 'O ENDEREÇO NÃO PODE SER VAZIO!';
-    //   return;
-    // }
-
-    // if (cliente.pBairro!.isEmpty) {
-    //   pBairroError = 'O BAIRRO NÃO PODE SER VAZIO!';
-    //   return;
-    // }
-
-    // if (cliente.pCEP!.isEmpty) {
-    //   pCEPError = 'O CEP NÃO PODE SER VAZIO!';
-    //   return;
-    // }
   }
 //! ## FIM DO save()
 
@@ -182,62 +141,31 @@ class ClientesCadastroController extends GetxController {
 
   void setFone1(String value) {
     cliente.fone1 = value;
-    // fone1Error = null;
     foneError();
-    // fone1Error = null;
-    // fone2Error = null;
-    // foneCelError = null;
-    // foneResError = null;
-    // faxError = null;
     update();
   }
 
   void setFone2(String value) {
     cliente.fone2 = value;
-    // fone2Error = null;
     foneError();
-    // fone1Error = null;
-    // fone2Error = null;
-    // foneCelError = null;
-    // foneResError = null;
-    // faxError = null;
     update();
   }
 
   void setFoneCel(String value) {
     cliente.foneCel = value;
-    // foneCelError = null;
     foneError();
-
-    // fone1Error = null;
-    // fone2Error = null;
-    // foneCelError = null;
-    // foneResError = null;
-    // faxError = null;
     update();
   }
 
   void setFoneRes(String value) {
     cliente.foneRes = value;
-    // foneResError = null;
     foneError();
-    // fone1Error = null;
-    // fone2Error = null;
-    // foneCelError = null;
-    // foneResError = null;
-    // faxError = null;
     update();
   }
 
   void setFax(String value) {
     cliente.fax = value;
-    // faxError = null;
     foneError();
-    // fone1Error = null;
-    // fone2Error = null;
-    // foneCelError = null;
-    // foneResError = null;
-    // faxError = null;
     update();
   }
 

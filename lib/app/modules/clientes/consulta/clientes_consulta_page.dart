@@ -32,12 +32,14 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
   @override
   void initState() {
     buscarAtualizarClientes();
+    debugPrint('------------INITSTATE----------');
     super.initState();
   }
 
   @override
   void didChangeDependencies() {
     buscarAtualizarClientes();
+    debugPrint('------------DIDCHANGEDEPENDENCIES----------');
     super.didChangeDependencies();
   }
 
