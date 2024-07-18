@@ -14,6 +14,7 @@ class GeneralIconButton extends StatelessWidget {
   final double? buttonWidth;
   final double? buttonHeight;
   final String? titulo;
+  final bool activated;
 
   GeneralIconButton({
     required this.onPress,
@@ -23,6 +24,7 @@ class GeneralIconButton extends StatelessWidget {
     this.buttonWidth,
     this.buttonHeight,
     this.titulo,
+    this.activated = true,
   });
 
   @override
@@ -32,7 +34,7 @@ class GeneralIconButton extends StatelessWidget {
       backgroundColor: ColorsApp.buttonMenuBackground,
       minimumSize:
           Size(buttonWidth ?? Sizes.sizeW_40, buttonHeight ?? Sizes.sizeH_40),
-      padding: EdgeInsets.all(Space.spacing_2),
+      padding: const EdgeInsets.all(Space.spacing_2),
       shape: RoundedRectangleBorder(
         borderRadius: Borders.borderRadius_10,
       ),

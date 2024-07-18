@@ -68,7 +68,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: MediaQuery.of(context).size.width - 100,
+                  width: MediaQuery.of(context).size.width - 170,
                   child: TextField(
                     // focusNode: primaryFocus,
                     inputFormatters: [UpperCaseTextFormatter()],
@@ -81,6 +81,13 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                       isDense: true,
                     ),
                   ),
+                ),
+                GeneralIconButton(
+                  onPress: () {},
+                  icone: Icons.search_outlined,
+                  iconSize: Sizes.sizeH_35,
+                  buttonWidth: Sizes.sizeW_64,
+                  buttonHeight: Sizes.sizeH_55,
                 ),
                 GeneralIconButton(
                   onPress: () {
@@ -257,8 +264,13 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                       iconSize: Sizes.sizeH_30,
                                       buttonWidth: Sizes.sizeW_50,
                                       buttonHeight: Sizes.sizeW_50,
+                                      activated:
+                                          (cliente.clienteIdInt!.isNotEmpty),
                                       iconeForegroundColor:
-                                          ColorsApp.iconeForegroundThird,
+                                          (cliente.clienteIdInt!.isNotEmpty)
+                                              ? ColorsApp.iconeForegroundThird
+                                              : Colors.grey,
+
                                       // Colors.grey[350],
                                       // Colors.white70,
                                     ),
