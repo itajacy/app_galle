@@ -62,7 +62,7 @@ class GeneralIconButton extends StatelessWidget {
                 Text(
                   // titulo!.isNotEmpty ? " $titulo" : "",
                   titulo ?? "",
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: Font.title_16,
                     fontWeight: FontWeight.bold,

@@ -279,8 +279,8 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                           (cliente.clienteIdInt!.isNotEmpty),
                                       iconeForegroundColor:
                                           (cliente.clienteIdInt!.isNotEmpty)
-                                              ? ColorsApp.iconeForegroundThird
-                                              : Colors.grey,
+                                              ? Colors.grey
+                                              : ColorsApp.iconeForegroundThird,
 
                                       // Colors.grey[350],
                                       // Colors.white70,
