@@ -32,13 +32,10 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
   @override
   void initState() {
     listaDeClientesController.buscarTodos();
+
     debugPrint('------------INITSTATE----------');
     super.initState();
   }
-
- 
-
-
   
 
   @override
@@ -86,7 +83,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                   onPress: () {
                     //!   =========================pesquisa de clientes
                     late String cliente = clienteController.text;
-
                     clientesConsultaController.buscarCliente(cliente);
                   },
                   icone: Icons.search_outlined,
@@ -107,191 +103,188 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
               ],
             ),
           ),
-          FutureBuilder<List<Cliente>>(
-            // initialData: const [],
-            future: listaDeClientesController.listaDeClientes,
-            builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.none:
-                  print("CASO ##### 1");
-                  break;
-                case ConnectionState.waiting:
-                  print("CASO ESPERANDO/CARREGANDO ##### 2");
-                  return const Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircularProgressIndicator(),
-                        Text("Carregando..."),
-                      ],
-                    ),
-                  );
-                case ConnectionState.active:
-                  print("CASO ##### 3");
-                  return const Center(
-                    child: Text("Carregamento ativo..."),
-                  );
-                case ConnectionState.done:
-                  print("CASO FEITO ##### 4");
-                  // print("snapshot.data ... ${snapshot.data}");
-                  if (snapshot.data == null) {
-                    print("LISTA DE CLIENTES VAZIA");
-                    return const Center(
-                      child: Text(
-                        "Não há clientes cadastrados.",
-                        style: TextStyle(
-                          fontSize: Font.title_20,
-                          fontWeight: FontWeight.bold,
-                          fontStyle: FontStyle.italic,
-                          color: ColorsApp.appBarBackground,
-                        ),
-                      ),
-                    );
-                  }
-                  if (snapshot.hasError) {
-                    print("CASO ##### 5 - ESTÁ  PARANDO AQUIAQUI");
-                    return Center(
-                      child: Text("Erro: ${snapshot.error}"),
-                    );
-                  } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                    print("CASO ##### 6");
-                    return const Center(
-                      child: Text(
-                        "Nenhum cliente encontrado.",
-                        style: TextStyle(
-                          fontSize: Font.title_24,
-                          fontWeight: FontWeight.bold,
-                          fontStyle: FontStyle.italic,
-                          color: ColorsApp.appBarBackground,
-                        ),
-                      ),
-                    );
-                  } else {
-                    print("CASO ##### 7");
-                    final listaClientes = snapshot.data ?? <Cliente>[];
-                    print(
-                        "ENTRANDO NO LISTVIEW BUILDER ########################");
-                    print(
-                        "Qtde de clientes no ListView Builder--> ${listaClientes.length}");
-                    if (listaClientes.isEmpty) {
-                      return const Center(
-                        child: Text("Não há Clientes cadastrados"),
-                      );
-                    }
-                    print(
-                        "Tamanho de listaClientes.length.. ${listaClientes.length}");
-                    return Expanded(
-                      child: ListView.builder(
-                        itemCount: listaClientes.length,
-                        itemBuilder: (context, index) {
-                          // print(index);
-                          Cliente cliente = listaClientes[index];
 
-                          return ListTile(
-                            shape:
-                                Border.all(width: 1, style: BorderStyle.none),
-                            contentPadding: const EdgeInsets.only(
-                                left: Space.spacing_8, right: Space.spacing_8),
-                            title: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          (cliente.clienteIdInt!.isNotEmpty)
-                                              ? cliente.clienteIdInt!
-                                              : "              ",
-                                          style: const TextStyle(
-                                              fontSize: Font.title_16),
-                                        ),
-                                        const SizedBox(
-                                          width: Space.spacing_8,
-                                        ),
-                                        SizedBox(
-                                          width: MediaQuery.of(context)
-                                                      .size
-                                                      .width >
-                                                  450
-                                              ? Sizes.sizeW_400
-                                              : Sizes.sizeW_150,
-                                          child: Text(
-                                            cliente.nomeFantasia!,
-                                            style: const TextStyle(
-                                              fontSize: Font.title_16,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        SizedBox(
-                                          width: MediaQuery.of(context)
-                                                      .size
-                                                      .width >
-                                                  450
-                                              ? Sizes.sizeW_400
-                                              : Sizes.sizeW_230,
-                                          child: Text(
-                                            cliente.razaoSocial!,
-                                            style: const TextStyle(
-                                              fontSize: Font.title_16,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    // const SizedBox(width: Space.spacing_5),
-                                    GeneralIconButton(
-                                      onPress: () {},
-                                      icone: Icons.folder_shared_outlined,
-                                      iconSize: Sizes.sizeH_30,
-                                      buttonWidth: Sizes.sizeW_50,
-                                      buttonHeight: Sizes.sizeW_50,
-                                      iconeForegroundColor:
-                                          //  Colors.white70,
-                                          ColorsApp.iconeForegroundLSecond,
-                                    ),
-                                    const SizedBox(width: Space.spacing_8),
-                                    GeneralIconButton(
-                                      onPress: () {},
-                                      icone: Icons.delete_forever_rounded,
-                                      iconSize: Sizes.sizeH_30,
-                                      buttonWidth: Sizes.sizeW_50,
-                                      buttonHeight: Sizes.sizeW_50,
-                                      activated:
-                                          (cliente.clienteIdInt!.isNotEmpty),
-                                      iconeForegroundColor: (cliente
-                                              .clienteIdInt!.isNotEmpty)
-                                          ? Colors.grey
-                                          : ColorsApp.iconeForegroundLSecond,
+          // FutureBuilder<List<Cliente>>(
+          //   // initialData: const [],
+          //   future: listaDeClientesController.listaDeClientes,
+          //   builder: (context, snapshot) {
+          //     switch (snapshot.connectionState) {
+          //       case ConnectionState.none:
+          //         print("CASO ##### 1");
+          //         break;
+          //       case ConnectionState.waiting:
+          //         print("CASO ESPERANDO/CARREGANDO ##### 2");
+          //         return const Center(
+          //           child: Column(
+          //             mainAxisAlignment: MainAxisAlignment.center,
+          //             crossAxisAlignment: CrossAxisAlignment.center,
+          //             children: [
+          //               CircularProgressIndicator(),
+          //               Text("Carregando..."),
+          //             ],
+          //           ),
+          //         );
+          //       case ConnectionState.active:
+          //         print("CASO ##### 3");
+          //         return const Center(
+          //           child: Text("Carregamento ativo..."),
+          //         );
+          //       case ConnectionState.done:
+          //         print("CASO FEITO ##### 4");
+          //         // print("snapshot.data ... ${snapshot.data}");
+          //         if (snapshot.data == null) {
+          //           print("LISTA DE CLIENTES VAZIA");
+          //           return const Center(
+          //             child: Text(
+          //               "Não há clientes cadastrados.",
+          //               style: TextStyle(
+          //                 fontSize: Font.title_20,
+          //                 fontWeight: FontWeight.bold,
+          //                 fontStyle: FontStyle.italic,
+          //                 color: ColorsApp.appBarBackground,
+          //               ),
+          //             ),
+          //           );
+          //         }
+          //         if (snapshot.hasError) {
+          //           print("CASO ##### 5 - ESTÁ  PARANDO AQUIAQUI");
+          //           return Center(
+          //             child: Text("Erro: ${snapshot.error}"),
+          //           );
+          //         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          //           print("CASO ##### 6");
+          //           return const Center(
+          //             child: Text(
+          //               "Nenhum cliente encontrado.",
+          //               style: TextStyle(
+          //                 fontSize: Font.title_24,
+          //                 fontWeight: FontWeight.bold,
+          //                 fontStyle: FontStyle.italic,
+          //                 color: ColorsApp.appBarBackground,
+          //               ),
+          //             ),
+          //           );
+          //         } else {
+          //           print("CASO ##### 7");
+          //           final listaClientes = snapshot.data ?? <Cliente>[];
+          //           print(
+          //               "ENTRANDO NO LISTVIEW BUILDER ########################");
+          //           print(
+          //               "Qtde de clientes no ListView Builder--> ${listaClientes.length}");
+          //           if (listaClientes.isEmpty) {
+          //             return const Center(
+          //               child: Text("Não há Clientes cadastrados"),
+          //             );
+          //           }
+          //           print(
+          //               "Tamanho de listaClientes.length.. ${listaClientes.length}");
+          //           return
 
-                                      // Colors.grey[350],
-                                      // Colors.white70,
-                                    ),
-                                  ],
+          Expanded(
+            child: ListView.builder(
+              // itemCount: listaClientes.length,
+              itemCount: listaDeClientesController.listaDeClientes.length,
+              itemBuilder: (context, index) {
+                // print(index);
+                // Cliente cliente = listaClientes[index];
+                Cliente cliente =
+                    listaDeClientesController.listaDeClientes[index];
+
+                return ListTile(
+                  shape: Border.all(width: 1, style: BorderStyle.none),
+                  contentPadding: const EdgeInsets.only(
+                      left: Space.spacing_8, right: Space.spacing_8),
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                (cliente.clienteIdInt!.isNotEmpty)
+                                    ? cliente.clienteIdInt!
+                                    : "              ",
+                                style: const TextStyle(fontSize: Font.title_16),
+                              ),
+                              const SizedBox(
+                                width: Space.spacing_8,
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width > 450
+                                    ? Sizes.sizeW_400
+                                    : Sizes.sizeW_150,
+                                child: Text(
+                                  cliente.nomeFantasia!,
+                                  style: const TextStyle(
+                                    fontSize: Font.title_16,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
                                 ),
-                              ],
-                            ),
-                          );
-                        },
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width > 450
+                                    ? Sizes.sizeW_400
+                                    : Sizes.sizeW_230,
+                                child: Text(
+                                  cliente.razaoSocial!,
+                                  style: const TextStyle(
+                                    fontSize: Font.title_16,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                    );
-                  }
-              }
-              return const SizedBox.shrink();
-            },
-          ),
+                      Row(
+                        children: [
+                          // const SizedBox(width: Space.spacing_5),
+                          GeneralIconButton(
+                            onPress: () {},
+                            icone: Icons.folder_shared_outlined,
+                            iconSize: Sizes.sizeH_30,
+                            buttonWidth: Sizes.sizeW_50,
+                            buttonHeight: Sizes.sizeW_50,
+                            iconeForegroundColor:
+                                //  Colors.white70,
+                                ColorsApp.iconeForegroundLSecond,
+                          ),
+                          const SizedBox(width: Space.spacing_8),
+                          GeneralIconButton(
+                            onPress: () {},
+                            icone: Icons.delete_forever_rounded,
+                            iconSize: Sizes.sizeH_30,
+                            buttonWidth: Sizes.sizeW_50,
+                            buttonHeight: Sizes.sizeW_50,
+                            activated: (cliente.clienteIdInt!.isNotEmpty),
+                            iconeForegroundColor:
+                                (cliente.clienteIdInt!.isNotEmpty)
+                                    ? Colors.grey
+                                    : ColorsApp.iconeForegroundLSecond,
+
+                            // Colors.grey[350],
+                            // Colors.white70,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ), //EXPANDED
+          //         }
+          //     }
+          //     return const SizedBox.shrink();
+          //   },
+          // ),//FUTUREBUILDER
         ],
       ),
     );
