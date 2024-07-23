@@ -11,4 +11,10 @@ class ClientesConsultaController extends GetxController {
     listaDeClientes = await clientesDao.findAll();
     return listaDeClientes;
   }
+
+//! =============
+  Future<List<Cliente>> buscarCliente(String cliente) async {
+    listaDeClientes = await clientesDao.findClientes(cliente);
+    return listaDeClientes;
+  }
 }

@@ -84,8 +84,24 @@ class ClientesDao {
     // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
     return listaDeClientes;
   }
-}
 
+  Future<List<Cliente>> findClientes(String cliente) async {
+    final Database db = await getDatabase();
+    final List<Map<String, dynamic>> result = await db.query(
+      _tableName,
+      where: 'nomeFantasia = ?',
+      // where: 'razaoSocial = ?',
+      whereArgs: [cliente],
+    );
+    final List<Cliente> listaDeClientes = [];
+    for (var cliente in result) {
+      print(cliente.values.toString());
+      listaDeClientes.add(Cliente.fromMap(cliente));
+    }
+    print('tamanho da lista de clientes-----------> ${listaDeClientes.length}');
+    return listaDeClientes;
+  }
+}
 
 
 

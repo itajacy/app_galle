@@ -52,6 +52,15 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
     });
   }
 
+  void atualizarClientes() {
+    // _listaDeClientes = listaDeClientesController.buscarTodos();
+    _listaDeClientes?.then((value) {
+      setState(() {
+        _listaDeClientes = Future.value(value);
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,7 +103,12 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                   ),
                 ),
                 GeneralIconButton(
-                  onPress: () {},
+                  onPress: () {
+                    //!   =========================pesquisa de clientes
+                    late String cliente = clienteController.text;
+                    clientesConsultaController.buscarCliente(cliente);
+                    atualizarClientes();
+                  },
                   icone: Icons.search_outlined,
                   iconSize: Sizes.sizeH_35,
                   buttonWidth: Sizes.sizeW_64,
@@ -140,7 +154,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                   );
                 case ConnectionState.done:
                   print("CASO FEITO ##### 4");
-                  print("snapshot.data ... ${snapshot.data}");
+                  // print("snapshot.data ... ${snapshot.data}");
                   if (snapshot.data == null) {
                     print("LISTA DE CLIENTES VAZIA");
                     return const Center(
@@ -277,10 +291,10 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                       buttonHeight: Sizes.sizeW_50,
                                       activated:
                                           (cliente.clienteIdInt!.isNotEmpty),
-                                      iconeForegroundColor:
-                                          (cliente.clienteIdInt!.isNotEmpty)
-                                              ? Colors.grey
-                                              : ColorsApp.iconeForegroundThird,
+                                      iconeForegroundColor: (cliente
+                                              .clienteIdInt!.isNotEmpty)
+                                          ? Colors.grey
+                                          : ColorsApp.iconeForegroundLSecond,
 
                                       // Colors.grey[350],
                                       // Colors.white70,
