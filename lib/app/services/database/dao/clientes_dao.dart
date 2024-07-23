@@ -89,9 +89,9 @@ class ClientesDao {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> result = await db.query(
       _tableName,
-      where: 'nomeFantasia = ?',
+      where: 'nomeFantasia LIKE ? OR razaoSocial LIKE ? OR clienteIdInt LIKE ?',
       // where: 'razaoSocial = ?',
-      whereArgs: [cliente],
+      whereArgs: ['%$cliente%', '%$cliente%', '%$cliente%'],
     );
     final List<Cliente> listaDeClientes = [];
     for (var cliente in result) {

@@ -27,39 +27,19 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
   ClientesConsultaController listaDeClientesController =
       ClientesConsultaController();
 
-  Future<List<Cliente>>? _listaDeClientes;
+  // Future<List<Cliente>>? _listaDeClientes;
 
   @override
   void initState() {
-    buscarAtualizarClientes();
+    listaDeClientesController.buscarTodos();
     debugPrint('------------INITSTATE----------');
     super.initState();
   }
 
-  @override
-  void didChangeDependencies() {
-    buscarAtualizarClientes();
-    debugPrint('------------DIDCHANGEDEPENDENCIES----------');
-    super.didChangeDependencies();
-  }
+ 
 
-  void buscarAtualizarClientes() {
-    _listaDeClientes = listaDeClientesController.buscarTodos();
-    _listaDeClientes?.then((value) {
-      setState(() {
-        _listaDeClientes = Future.value(value);
-      });
-    });
-  }
 
-  void atualizarClientes() {
-    // _listaDeClientes = listaDeClientesController.buscarTodos();
-    _listaDeClientes?.then((value) {
-      setState(() {
-        _listaDeClientes = Future.value(value);
-      });
-    });
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -106,8 +86,8 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                   onPress: () {
                     //!   =========================pesquisa de clientes
                     late String cliente = clienteController.text;
+
                     clientesConsultaController.buscarCliente(cliente);
-                    atualizarClientes();
                   },
                   icone: Icons.search_outlined,
                   iconSize: Sizes.sizeH_35,
@@ -129,7 +109,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
           ),
           FutureBuilder<List<Cliente>>(
             // initialData: const [],
-            future: _listaDeClientes,
+            future: listaDeClientesController.listaDeClientes,
             builder: (context, snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
