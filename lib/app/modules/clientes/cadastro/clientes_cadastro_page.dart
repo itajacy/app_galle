@@ -170,7 +170,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
           const SizedBox(
             height: Space.spacing_12,
           ),
-          Container(
+          SizedBox(
             height: Sizes.sizeH_40,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
