@@ -261,10 +261,15 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                               GeneralIconButton(
                                 onPress: () {
                                   if (cliente.clienteIdInt!.isNotEmpty) {
+                                 
                                     Navigator.of(context).pushNamed(
                                         '/clientesConsultaDetalhesPage',
                                         arguments: cliente);
-                                  } else {}
+                                  } else {
+                                    //! no caso do codigo interno for vazio
+                                    //! nesse caso os dados ainda podem ser
+                                    //! alterados
+                                  }
                                 },
                                 icone: Icons.folder_shared_outlined,
                                 iconSize: Sizes.sizeH_30,
