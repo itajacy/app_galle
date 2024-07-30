@@ -5,6 +5,7 @@ import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
 import 'package:galle/app/models/cliente.dart';
 import 'package:galle/app/modules/clientes/consulta/clientes_consulta_controller.dart';
+import 'package:galle/app/modules/clientes/detalhes/clientes_consulta_detalhes_page.dart';
 import 'package:galle/app/modules/clientes/widgets/upper_case_text_formatter.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 import 'package:get/get.dart';
@@ -70,6 +71,9 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                 SizedBox(
                   width: MediaQuery.of(context).size.width - 170,
                   child: TextField(
+                    onChanged: (value) {
+                      clientesConsultaController.buscarCliente(value);
+                    },
                     // focusNode: primaryFocus,
                     inputFormatters: [UpperCaseTextFormatter()],
                     controller: clienteController,
@@ -255,7 +259,13 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                             children: [
                               // const SizedBox(width: Space.spacing_5),
                               GeneralIconButton(
-                                onPress: () {},
+                                onPress: () {
+                                  if (cliente.clienteIdInt!.isNotEmpty) {
+                                    Navigator.of(context).pushNamed(
+                                        '/clientesConsultaDetalhesPage',
+                                        arguments: cliente);
+                                  } else {}
+                                },
                                 icone: Icons.folder_shared_outlined,
                                 iconSize: Sizes.sizeH_30,
                                 buttonWidth: Sizes.sizeW_50,

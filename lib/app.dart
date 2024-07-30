@@ -3,6 +3,7 @@ import 'package:galle/app/modules/catalogo/catalogo_page.dart';
 import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_page.dart';
 import 'package:galle/app/modules/clientes/consulta/clientes_consulta_page.dart';
 import 'package:galle/app/modules/clientes/clientes_page.dart';
+import 'package:galle/app/modules/clientes/detalhes/clientes_consulta_detalhes_page.dart';
 import 'package:galle/app/modules/configuracao/configuracao_amazon_page.dart';
 import 'package:galle/app/modules/configuracao/configuracao_ftp_Page.dart';
 import 'package:galle/app/modules/configuracao/configuracao_page.dart';
@@ -47,6 +48,9 @@ class App extends StatelessWidget {
         Routes.configuracaoFtpPage: (context) => ConfiguracaoFtpPage(),
         Routes.configuracaoAmazonPage: (context) => ConfiguracaoAmazonPage(),
         Routes.configuracaoTelaPage: (context) => ConfiguracaoTelaPage(),
+        Routes.clientesConsultaDetalhesPage: (context) =>
+            ClientesConsultaDetalhesPage(),
+
       },
     );
   }
