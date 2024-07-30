@@ -20,10 +20,12 @@ class ClientesConsultaDetalhesPage extends StatefulWidget {
 
   @override
   State<ClientesConsultaDetalhesPage> createState() =>
-      _ClientesCadastroPageState();
+      _ClientesConsultaDetalhesPageState();
 }
 
-class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
+class _ClientesConsultaDetalhesPageState
+    extends State<ClientesConsultaDetalhesPage> {
+      
   final nomeFantasiaController = TextEditingController();
 
   final razaoSocialController = TextEditingController();
@@ -79,18 +81,15 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
   String mascaraCpfCnpj = '999.999.999-99';
   String mascaraRgIe = '99.999.999-N';
 
-//!  VER RegExp
-
-//*  Abaixo um RegExp para validação de e-mail
-
-// return RegExp(
-//                 r'^(([^<>()[\]\\.,&";:\s@\"]+(\.[^<>()[\]\\.,&";:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-
+//!===============================================
   @override
   void initState() {
     super.initState();
     focusNomeFantasia = FocusNode();
     nomeFantasiaController.text = widget.cliente!.nomeFantasia!;
+    print('====================================');
+    print(nomeFantasiaController.text);
+    print('====================================');
   }
 
   @override
@@ -212,7 +211,7 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                       decoration: InputDecoration(
                         labelText: Strings.nomeFantasia,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.nomeFantasiaError,
+                        // errorText: clientesCadastroController.nomeFantasiaError,
                       ),
                     ),
                   ),
@@ -223,12 +222,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         UpperCaseTextFormatter(),
                       ],
                       controller: razaoSocialController,
-                      onChanged: clientesCadastroController.setRazaoSocial,
+                      // onChanged: clientesCadastroController.setRazaoSocial,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.razaoSocial,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.razaoSocialError,
+                        // errorText: clientesCadastroController.razaoSocialError,
                       ),
                     ),
                   ),
@@ -263,12 +262,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                             )
                           ],
                           controller: cnpjCpfController,
-                          onChanged: clientesCadastroController.setCnpjCpf,
+                          // onChanged: clientesCadastroController.setCnpjCpf,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             labelText: Strings.cnpjCpf,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.cnpjCpfError,
+                            // errorText: clientesCadastroController.cnpjCpfError,
                           ),
                         ),
                       );
@@ -287,12 +286,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                             ),
                           ],
                           controller: ieRgController,
-                          onChanged: clientesCadastroController.setIeRg,
+                          // onChanged: clientesCadastroController.setIeRg,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             labelText: Strings.ieRg,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.iERGError,
+                            // errorText: clientesCadastroController.iERGError,
                           ),
                         ),
                       );
@@ -305,12 +304,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         UpperCaseTextFormatter(),
                       ],
                       controller: contatoController,
-                      onChanged: clientesCadastroController.setContato,
+                      // onChanged: clientesCadastroController.setContato,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.contato,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.contatoError,
+                        // errorText: clientesCadastroController.contatoError,
                       ),
                     ),
                   ),
@@ -324,12 +323,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                             LowerCaseTextFormatter(),
                           ],
                           controller: emailController,
-                          onChanged: clientesCadastroController.setEmail,
+                          // onChanged: clientesCadastroController.setEmail,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             labelText: Strings.email,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.emailError,
+                            // errorText: clientesCadastroController.emailError,
                           ),
                         ),
                       );
@@ -347,12 +346,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                                 reverse: false)
                           ],
                           controller: foneCom1Controller,
-                          onChanged: clientesCadastroController.setFone1,
+                          // onChanged: clientesCadastroController.setFone1,
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             labelText: Strings.foneCom1,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.fone1Error,
+                            // errorText: clientesCadastroController.fone1Error,
                           ),
                         ),
                       );
@@ -369,12 +368,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                                 reverse: false),
                           ],
                           controller: foneCom2Controller,
-                          onChanged: clientesCadastroController.setFone2,
+                          // onChanged: clientesCadastroController.setFone2,
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             labelText: Strings.foneCom2,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.fone2Error,
+                            // errorText: clientesCadastroController.fone2Error,
                           ),
                         ),
                       );
@@ -391,12 +390,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                                 reverse: false),
                           ],
                           controller: foneCelController,
-                          onChanged: clientesCadastroController.setFoneCel,
+                          // onChanged: clientesCadastroController.setFoneCel,
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             labelText: Strings.foneCel,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.fone2Error,
+                            // errorText: clientesCadastroController.fone2Error,
                           ),
                         ),
                       );
@@ -413,12 +412,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                                 reverse: false),
                           ],
                           controller: foneResController,
-                          onChanged: clientesCadastroController.setFoneRes,
+                          // onChanged: clientesCadastroController.setFoneRes,
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             labelText: Strings.foneRes,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.foneResError,
+                            // errorText: clientesCadastroController.foneResError,
                           ),
                         ),
                       );
@@ -435,12 +434,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                                 reverse: false),
                           ],
                           controller: faxController,
-                          onChanged: clientesCadastroController.setFax,
+                          // onChanged: clientesCadastroController.setFax,
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             labelText: Strings.fax,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.faxError,
+                            // errorText: clientesCadastroController.faxError,
                           ),
                         ),
                       );
@@ -461,18 +460,18 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        GetBuilder<ClientesCadastroController>(
-                          builder: (_) {
-                            return ClientesUfDropdown(
-                              ufRetorno: (uf) {
-                                principalUfController.text = uf;
-                                clientesCadastroController.setpUF(uf);
-                              },
-                              msgUFError: clientesCadastroController.pUFError,
-                              ufController: principalUfController,
-                            );
-                          },
-                        ),
+                        // GetBuilder<ClientesCadastroController>(
+                        //   builder: (_) {
+                        //     return ClientesUfDropdown(
+                        //       ufRetorno: (uf) {
+                        //         principalUfController.text = uf;
+                        //         // clientesCadastroController.setpUF(uf);
+                        //       },
+                        //       msgUFError: clientesCadastroController.pUFError,
+                        //       ufController: principalUfController,
+                        //     );
+                        //   },
+                        // ),
                       ],
                     ),
                   ),
@@ -483,12 +482,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         UpperCaseTextFormatter(),
                       ],
                       controller: principalCidadeController,
-                      onChanged: clientesCadastroController.setpCidade,
+                      // onChanged: clientesCadastroController.setpCidade,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.cidade,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.pCidadeError,
+                        // errorText: clientesCadastroController.pCidadeError,
                       ),
                     ),
                   ),
@@ -499,12 +498,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         UpperCaseTextFormatter(),
                       ],
                       controller: principalEnderecoController,
-                      onChanged: clientesCadastroController.setpEndereco,
+                      // onChanged: clientesCadastroController.setpEndereco,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.endereco,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.pEnderecoError,
+                        // errorText: clientesCadastroController.pEnderecoError,
                       ),
                     ),
                   ),
@@ -515,12 +514,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         UpperCaseTextFormatter(),
                       ],
                       controller: principalComplementoController,
-                      onChanged: clientesCadastroController.setpComplemento,
+                      // onChanged: clientesCadastroController.setpComplemento,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.complemento,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.pComplementoError,
+                        // errorText: clientesCadastroController.pComplementoError,
                       ),
                     ),
                   ),
@@ -531,12 +530,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         UpperCaseTextFormatter(),
                       ],
                       controller: principalBairroController,
-                      onChanged: clientesCadastroController.setpBairro,
+                      // onChanged: clientesCadastroController.setpBairro,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.bairro,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.pBairroError,
+                        // errorText: clientesCadastroController.pBairroError,
                       ),
                     ),
                   ),
@@ -550,12 +549,13 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         ),
                       ],
                       controller: principalCepController,
-                      onChanged: clientesCadastroController.setpCEP,
+                      // onChanged: clientesCadastroController.setpCEP,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
-                          labelText: Strings.cep,
-                          border: const OutlineInputBorder(),
-                          errorText: clientesCadastroController.pCEPError),
+                        labelText: Strings.cep,
+                        border: const OutlineInputBorder(),
+                        // errorText: clientesCadastroController.pCEPError,
+                      ),
                     ),
                   ),
                   const Padding(
@@ -574,29 +574,29 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                     //! botao copiarEnderecoPrincipal
                     child: ClientesButton(
                       onPress: () {
-                        clientesCadastroController.copiarEnderecoPrincipal();
-                        //! PARA NÃO COPIAR O UF PRINCIPAL PARA A ENTREGA P TESTE
-                        clientesCadastroController
-                            .seteUF(principalUfController.text);
-                        if (clientesCadastroController.cliente.pUF == null) {
-                          // pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
-                          return;
-                        }
+                        // // clientesCadastroController.copiarEnderecoPrincipal();
+                        // //! PARA NÃO COPIAR O UF PRINCIPAL PARA A ENTREGA P TESTE
+                        // clientesCadastroController
+                        //     .seteUF(principalUfController.text);
+                        // if (clientesCadastroController.cliente.pUF == null) {
+                        //   // pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
+                        //   return;
+                        // }
 
-                        entregaUfController.text =
-                            clientesCadastroController.cliente.pUF!;
+                        // entregaUfController.text =
+                        //     clientesCadastroController.cliente.pUF!;
 
-                        entregaCidadeController.text =
-                            clientesCadastroController.cliente.pCidade!;
-                        entregaEnderecoController.text =
-                            clientesCadastroController.cliente.pEndereco!;
-                        entregaComplementoController.text =
-                            clientesCadastroController.cliente.pComplemento ??
-                                "";
-                        entregaBairroController.text =
-                            clientesCadastroController.cliente.pBairro!;
-                        entregaCepController.text =
-                            clientesCadastroController.cliente.pCEP!;
+                        // entregaCidadeController.text =
+                        //     clientesCadastroController.cliente.pCidade!;
+                        // entregaEnderecoController.text =
+                        //     clientesCadastroController.cliente.pEndereco!;
+                        // entregaComplementoController.text =
+                        //     clientesCadastroController.cliente.pComplemento ??
+                        //         "";
+                        // entregaBairroController.text =
+                        //     clientesCadastroController.cliente.pBairro!;
+                        // entregaCepController.text =
+                        //     clientesCadastroController.cliente.pCEP!;
                       },
                       titulo: Strings.copiarPrincipal,
                       icone: Icons.copy,
@@ -608,18 +608,18 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                       children: [
                         //! Widget para selecionar o Estado(UF ENTREGA)
 
-                        GetBuilder<ClientesCadastroController>(
-                          builder: (_) {
-                            return ClientesUfDropdown(
-                              ufRetorno: (ufEntrega) {
-                                entregaUfController.text = ufEntrega;
-                                clientesCadastroController.seteUF(ufEntrega);
-                              },
-                              msgUFError: clientesCadastroController.eUFError,
-                              ufController: entregaUfController,
-                            );
-                          },
-                        ),
+                        // GetBuilder<ClientesCadastroController>(
+                        //   builder: (_) {
+                        //     return ClientesUfDropdown(
+                        //       ufRetorno: (ufEntrega) {
+                        //         entregaUfController.text = ufEntrega;
+                        //         // clientesCadastroController.seteUF(ufEntrega);
+                        //       },
+                        //       // msgUFError: clientesCadastroController.eUFError,
+                        //       ufController: entregaUfController,
+                        //     );
+                        //   },
+                        // ),
                       ],
                     ),
                   ),
@@ -630,12 +630,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         UpperCaseTextFormatter(),
                       ],
                       controller: entregaCidadeController,
-                      onChanged: clientesCadastroController.seteCidade,
+                      // onChanged: clientesCadastroController.seteCidade,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.cidade,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.eCidadeError,
+                        // errorText: clientesCadastroController.eCidadeError,
                       ),
                     ),
                   ),
@@ -646,12 +646,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         UpperCaseTextFormatter(),
                       ],
                       controller: entregaEnderecoController,
-                      onChanged: clientesCadastroController.seteEndereco,
+                      // onChanged: clientesCadastroController.seteEndereco,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.endereco,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.eEnderecoError,
+                        // errorText: clientesCadastroController.eEnderecoError,
                       ),
                     ),
                   ),
@@ -662,12 +662,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         UpperCaseTextFormatter(),
                       ],
                       controller: entregaComplementoController,
-                      onChanged: clientesCadastroController.seteComplemento,
+                      // onChanged: clientesCadastroController.seteComplemento,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.complemento,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.eEnderecoError,
+                        // errorText: clientesCadastroController.eEnderecoError,
                       ),
                     ),
                   ),
@@ -678,12 +678,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         UpperCaseTextFormatter(),
                       ],
                       controller: entregaBairroController,
-                      onChanged: clientesCadastroController.seteBairro,
+                      // onChanged: clientesCadastroController.seteBairro,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.bairro,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.eBairroError,
+                        // errorText: clientesCadastroController.eBairroError,
                       ),
                     ),
                   ),
@@ -697,12 +697,12 @@ class _ClientesCadastroPageState extends State<ClientesConsultaDetalhesPage> {
                         ),
                       ],
                       controller: entregaCepController,
-                      onChanged: clientesCadastroController.seteCEP,
+                      // onChanged: clientesCadastroController.seteCEP,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: Strings.cep,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.eCEPError,
+                        // errorText: clientesCadastroController.eCEPError,
                       ),
                     ),
                   ),
