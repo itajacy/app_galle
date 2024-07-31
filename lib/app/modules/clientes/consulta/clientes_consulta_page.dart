@@ -69,7 +69,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: MediaQuery.of(context).size.width - 170,
+                  width: MediaQuery.of(context).size.width - 90,
                   child: TextField(
                     onChanged: (value) {
                       clientesConsultaController.buscarCliente(value);
@@ -86,17 +86,18 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                     ),
                   ),
                 ),
-                GeneralIconButton(
-                  onPress: () {
-                    //!   =========================pesquisa de clientes
-                    // late String cliente = clienteController.text;
-                    // clientesConsultaController.buscarCliente(cliente);
-                  },
-                  icone: Icons.search_outlined,
-                  iconSize: Sizes.sizeH_35,
-                  buttonWidth: Sizes.sizeW_64,
-                  buttonHeight: Sizes.sizeH_55,
-                ),
+                //!  NAO PRECISA MAIS DO BOTAO DE CONSULTA DE CLIENTE
+                // GeneralIconButton(
+                //   onPress: () {
+                //     //!   =========================pesquisa de clientes
+                //     // late String cliente = clienteController.text;
+                //     // clientesConsultaController.buscarCliente(cliente);
+                //   },
+                //   icone: Icons.search_outlined,
+                //   iconSize: Sizes.sizeH_35,
+                //   buttonWidth: Sizes.sizeW_64,
+                //   buttonHeight: Sizes.sizeH_55,
+                // ),
                 GeneralIconButton(
                   onPress: () {
                     Navigator.of(context)
@@ -261,7 +262,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                               GeneralIconButton(
                                 onPress: () {
                                   if (cliente.clienteIdInt!.isNotEmpty) {
-                                 
                                     Navigator.of(context).pushNamed(
                                         '/clientesConsultaDetalhesPage',
                                         arguments: cliente);
@@ -269,6 +269,12 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                     //! no caso do codigo interno for vazio
                                     //! nesse caso os dados ainda podem ser
                                     //! alterados
+                                    // TODO corrigir aqui, chamando a tala de ALTERACAO DO CLIENTE!!
+                                    //* POR ENQTO ESTÁ SÓ CONSULTANDO
+
+                                    Navigator.of(context).pushNamed(
+                                        '/clientesConsultaDetalhesPage',
+                                        arguments: cliente);
                                   }
                                 },
                                 icone: Icons.folder_shared_outlined,

@@ -54,7 +54,7 @@ class _PessoafjButtonState extends State<PessoafjButton> {
         ),
         SizedBox(
           height: Sizes.sizeH_50,
-          width: Sizes.sizeW_180,
+          width: Sizes.sizeW_200,
           child: ListTile(
             title: const Text(Strings.juridica),
             leading: Radio<PessoaFJ>(

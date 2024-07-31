@@ -240,9 +240,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setNomeFantasia,
                       keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.nomeFantasiaConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.nomeFantasiaError,
                       ),
                     ),
@@ -257,34 +257,34 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setRazaoSocial,
                       keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.razaoSocialConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.razaoSocialError,
                       ),
                     ),
                   ),
-                  const Text(
-                    Strings.pessoaFJ,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: Font.title_18,
-                    ),
-                  ),
+                  // const Text(
+                  //   Strings.pessoaFJ,
+                  //   style: TextStyle(
+                  //     fontWeight: FontWeight.bold,
+                  //     fontSize: Font.title_18,
+                  //   ),
+                  // ),
 
-                  //! PESSOA FISICA / JURIDICA
-                  PessoafjButton(
-                    pessoa: (pessoaFouJ) {
-                      pessoaFJController.text = pessoaFouJ;
-                      if (pessoaFouJ == "F") {
-                        mascaraCpfCnpj = '999.999.999-99';
-                        mascaraRgIe = '99.999.999-N';
-                      } else {
-                        mascaraCpfCnpj = '99.999.999/9999-99';
-                        mascaraRgIe = '999.999.999.999';
-                      }
-                    },
-                  ),
+                  // //! PESSOA FISICA / JURIDICA
+                  // PessoafjButton(
+                  //   pessoa: (pessoaFouJ) {
+                  //     pessoaFJController.text = pessoaFouJ;
+                  //     if (pessoaFouJ == "F") {
+                  //       mascaraCpfCnpj = '999.999.999-99';
+                  //       mascaraRgIe = '99.999.999-N';
+                  //     } else {
+                  //       mascaraCpfCnpj = '99.999.999/9999-99';
+                  //       mascaraRgIe = '999.999.999.999';
+                  //     }
+                  //   },
+                  // ),
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
@@ -298,9 +298,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setCnpjCpf,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.cnpjCpfConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.cnpjCpfError,
                       ),
                     ),
@@ -319,9 +319,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setIeRg,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.ieRgConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.iERGError,
                       ),
                     ),
@@ -336,9 +336,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setContato,
                       keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.contatoConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.contatoError,
                       ),
                     ),
@@ -354,9 +354,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setEmail,
                       keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.emailConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.emailError,
                       ),
                     ),
@@ -374,9 +374,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setFone1,
                       keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.foneCom1Consulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.fone1Error,
                       ),
                     ),
@@ -393,9 +393,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setFone2,
                       keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.foneCom2Consulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.fone2Error,
                       ),
                     ),
@@ -412,9 +412,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setFoneCel,
                       keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.foneCelConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.fone2Error,
                       ),
                     ),
@@ -431,9 +431,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setFoneRes,
                       keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.foneResConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.foneResError,
                       ),
                     ),
@@ -450,9 +450,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setFax,
                       keyboardType: TextInputType.phone,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.faxConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.faxError,
                       ),
                     ),
@@ -465,8 +465,8 @@ class _ClientesConsultaDetalhesPageState
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
+                  const Padding(
+                    padding: EdgeInsets.all(Space.spacing_8),
                     child:
                         //! Widget para selecionar o Estado(UF principal)
                         Row(
@@ -498,9 +498,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setpCidade,
                       keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.estadoConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.pCidadeError,
                       ),
                     ),
@@ -515,9 +515,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setpCidade,
                       keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.cidadeConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.pCidadeError,
                       ),
                     ),
@@ -532,9 +532,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setpEndereco,
                       keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.enderecoConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.pEnderecoError,
                       ),
                     ),
@@ -549,9 +549,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setpComplemento,
                       keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.complementoConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.pComplementoError,
                       ),
                     ),
@@ -566,9 +566,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setpBairro,
                       keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.bairroConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.pBairroError,
                       ),
                     ),
@@ -586,9 +586,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setpCEP,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.cepConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.pCEPError,
                       ),
                     ),
@@ -646,9 +646,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.setpCidade,
                       keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.estadoConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.pCidadeError,
                       ),
                     ),
@@ -663,9 +663,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.seteCidade,
                       keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.cidadeConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.eCidadeError,
                       ),
                     ),
@@ -680,9 +680,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.seteEndereco,
                       keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.enderecoConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.eEnderecoError,
                       ),
                     ),
@@ -697,9 +697,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.seteComplemento,
                       keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.complementoConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.eEnderecoError,
                       ),
                     ),
@@ -714,9 +714,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.seteBairro,
                       keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.bairroConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.eBairroError,
                       ),
                     ),
@@ -734,9 +734,9 @@ class _ClientesConsultaDetalhesPageState
                       readOnly: true,
                       // onChanged: clientesCadastroController.seteCEP,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.cepConsulta,
-                        border: const OutlineInputBorder(),
+                        border: OutlineInputBorder(),
                         // errorText: clientesCadastroController.eCEPError,
                       ),
                     ),
