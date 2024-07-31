@@ -59,6 +59,32 @@ class Strings {
   static const enderecoPrincipal = "Endereço Principal";
   static const enderecoEntrega = "Endereço de Entrega";
 
+  // CLIENTES_CONSULTA_DETALHES
+
+  static const nomeFantasiaConsulta = "Nome Fantasia";
+  static const razaoSocialConsulta = "Razão Social";
+  static const pessoaFJConsulta = "Pessoa";
+  static const cnpjCpfConsulta = "CNPJ/CPF";
+  static const cnpjConsulta = "CNPJ";
+  static const cpfConsulta = "CPF";
+  static const ieRgConsulta = "IE/RG";
+  static const ieConsulta = "IE";
+  static const rgConsulta = "RG";
+
+  static const contatoConsulta = "Contato";
+  static const emailConsulta = "E-mail";
+  static const foneCom1Consulta = "Fone Coml. 1";
+  static const foneCom2Consulta = "Fone Coml. 2";
+  static const foneCelConsulta = "Fone Celular";
+  static const foneResConsulta = "Fone Residencial";
+  static const faxConsulta = "Fax";
+  static const estadoConsulta = "Estado";
+  static const cidadeConsulta = "Cidade";
+  static const enderecoConsulta = "Endereco";
+  static const complementoConsulta = "Complemento";
+  static const bairroConsulta = "Bairro";
+  static const cepConsulta = "CEP";
+
   // PEDIDOS
 
   static const pedidosCadastro = "PEDIDOS CADASTRO";
