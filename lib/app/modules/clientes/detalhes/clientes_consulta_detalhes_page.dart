@@ -152,7 +152,6 @@ class _ClientesConsultaDetalhesPageState
 
   @override
   Widget build(BuildContext context) {
-
     //! pegando o argumento da rota do Navigator
     final argument =
         (ModalRoute.of(context)?.settings.arguments ?? <Cliente>{}) as Cliente;
@@ -575,7 +574,9 @@ class _ClientesConsultaDetalhesPageState
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsets.all(Space.spacing_8),
+                    padding: EdgeInsets.only(
+                      top: Space.spacing_8,
+                    ),
                     child: Text(
                       Strings.enderecoEntrega,
                       style: TextStyle(
@@ -584,16 +585,16 @@ class _ClientesConsultaDetalhesPageState
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(Space.spacing_8),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(Space.spacing_8),
 
-                    //! botao copiarEnderecoPrincipal
-                    child: ClientesButton(
-                      onPress: () {},
-                      titulo: Strings.copiarPrincipal,
-                      icone: Icons.copy,
-                    ),
-                  ),
+                  //   //! botao copiarEnderecoPrincipal
+                  //   child: ClientesButton(
+                  //     onPress: () {},
+                  //     titulo: Strings.copiarPrincipal,
+                  //     icone: Icons.copy,
+                  //   ),
+                  // ),
                   const Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: Row(

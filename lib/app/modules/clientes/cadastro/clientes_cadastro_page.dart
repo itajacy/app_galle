@@ -80,6 +80,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   String mascaraRgIe = '99.999.999-N';
 
   String pessoa = 'F';
+  bool fj = false;
 
 //!  VER RegExp
 
@@ -393,9 +394,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     return PessoafjButton(
                       pessoa: (pessoaFouJ) {
                         pessoaFJController.text = pessoaFouJ;
-                        setState(() {
-                          pessoa = pessoaFouJ;
-                        });
+                        if (fj) {
+                          setState(() {
+                            pessoa = pessoaFouJ;
+                          });
+                        }
                         if (pessoaFouJ == "F") {
                           mascaraCpfCnpj = '999.999.999-99';
                           mascaraRgIe = '99.999.999-N';
@@ -403,6 +406,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                           mascaraCpfCnpj = '99.999.999/9999-99';
                           mascaraRgIe = '999.999.999.999';
                         }
+                        fj = true;
                       },
                     );
                   }),
