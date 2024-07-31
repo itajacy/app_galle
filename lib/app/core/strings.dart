@@ -29,7 +29,12 @@ class Strings {
   static const razaoSocial = "Digite a Razão Social";
   static const pessoaFJ = "Pessoa";
   static const cnpjCpf = "Digite o CNPJ/CPF";
+  static const cnpj = "Digite o CNPJ";
+  static const cpf = "Digite o CPF";
   static const ieRg = "Digite o IE/RG";
+  static const ie = "Digite a IE";
+  static const rg = "Digite o RG";
+
   static const contato = "Digite o Contato";
   static const email = "Digite o E-mail";
   static const foneCom1 = "Digite o Fone Coml. 1";

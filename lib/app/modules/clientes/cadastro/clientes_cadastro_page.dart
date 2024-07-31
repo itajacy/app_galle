@@ -79,6 +79,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   String mascaraCpfCnpj = '999.999.999-99';
   String mascaraRgIe = '99.999.999-N';
 
+  String pessoa = 'F';
+
 //!  VER RegExp
 
 //*  Abaixo um RegExp para validação de e-mail
@@ -387,18 +389,23 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       fontSize: Font.title_18,
                     ),
                   ),
-                  PessoafjButton(
-                    pessoa: (pessoaFouJ) {
-                      pessoaFJController.text = pessoaFouJ;
-                      if (pessoaFouJ == "F") {
-                        mascaraCpfCnpj = '999.999.999-99';
-                        mascaraRgIe = '99.999.999-N';
-                      } else {
-                        mascaraCpfCnpj = '99.999.999/9999-99';
-                        mascaraRgIe = '999.999.999.999';
-                      }
-                    },
-                  ),
+                  GetBuilder<ClientesCadastroController>(builder: (_) {
+                    return PessoafjButton(
+                      pessoa: (pessoaFouJ) {
+                        pessoaFJController.text = pessoaFouJ;
+                        setState(() {
+                          pessoa = pessoaFouJ;
+                        });
+                        if (pessoaFouJ == "F") {
+                          mascaraCpfCnpj = '999.999.999-99';
+                          mascaraRgIe = '99.999.999-N';
+                        } else {
+                          mascaraCpfCnpj = '99.999.999/9999-99';
+                          mascaraRgIe = '999.999.999.999';
+                        }
+                      },
+                    );
+                  }),
                   GetBuilder<ClientesCadastroController>(
                     builder: (_) {
                       return Padding(
@@ -414,7 +421,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                           onChanged: clientesCadastroController.setCnpjCpf,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
-                            labelText: Strings.cnpjCpf,
+                            // labelText: Strings.cnpjCpf,
+                            labelText:
+                                (pessoa == 'F') ? Strings.cpf : Strings.cnpj,
+
                             border: const OutlineInputBorder(),
                             errorText: clientesCadastroController.cnpjCpfError,
                           ),
@@ -438,7 +448,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                           onChanged: clientesCadastroController.setIeRg,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
-                            labelText: Strings.ieRg,
+                            // labelText: Strings.ieRg,
+                            labelText:
+                                (pessoa == 'F') ? Strings.rg : Strings.ie,
                             border: const OutlineInputBorder(),
                             errorText: clientesCadastroController.iERGError,
                           ),
