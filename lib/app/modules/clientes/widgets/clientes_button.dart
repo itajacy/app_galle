@@ -10,18 +10,22 @@ class ClientesButton extends StatelessWidget {
   final Function onPress;
   final String titulo;
   final IconData icone;
+  final bool ativo;
 
   ClientesButton({
     required this.onPress,
     required this.titulo,
     required this.icone,
+    this.ativo = true,
   });
 
   @override
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-      foregroundColor: Colors.yellow,
-      backgroundColor: ColorsApp.buttonMenuBackground,
+      foregroundColor:
+          ativo ? Colors.yellow : Color.fromARGB(255, 112, 116, 124),
+      backgroundColor:
+          ativo ? ColorsApp.buttonMenuBackground : ColorsApp.botaoDesativado,
       minimumSize: Size(Sizes.sizeW_150, Sizes.sizeH_40),
       padding: EdgeInsets.all(Space.spacing_2),
       shape: RoundedRectangleBorder(
@@ -45,7 +49,9 @@ class ClientesButton extends StatelessWidget {
               children: [
                 Icon(
                   icone,
-                  color: ColorsApp.iconeForegroundLSecond,
+                  color: ativo
+                      ? ColorsApp.iconeForegroundLSecond
+                      : ColorsApp.iconeDesativado,
                 ),
                 SizedBox(
                   width: Space.spacing_5,
@@ -53,7 +59,10 @@ class ClientesButton extends StatelessWidget {
                 Text(
                   titulo,
                   style: TextStyle(
-                    color: ColorsApp.textForeground,
+                    // color: ColorsApp.textForeground,
+                    color: ativo
+                        ? ColorsApp.textForeground
+                        : ColorsApp.textoDesativado,
                     fontSize: Font.title_16,
                     fontWeight: FontWeight.bold,
                   ),

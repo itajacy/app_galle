@@ -20,6 +20,7 @@ class ColorsApp {
   static const Color textForeground = Colors.white;
   static const Color catalogotextbackgroundColor =
       Color.fromARGB(255, 10, 109, 155);
+  static const Color textoDesativado = Colors.black54;
   // Color.fromARGB(255, 11, 9, 73);
 
   // ICONE
@@ -30,6 +31,11 @@ class ColorsApp {
   // static const Color iconeForegroundLSecond = Colors.white;
   // botão terciário
   static const Color iconeForegroundThird = Color.fromARGB(255, 0, 255, 255);
+  static const Color iconeDesativado = Colors.grey;
+
+  //BOTAO
+
+  static const Color botaoDesativado = Color.fromARGB(255, 112, 116, 124);
 
   // ERRO
   static const Color errorBackground = Color.fromARGB(255, 173, 18, 7);

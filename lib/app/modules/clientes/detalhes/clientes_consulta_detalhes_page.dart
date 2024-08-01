@@ -155,7 +155,7 @@ class _ClientesConsultaDetalhesPageState
     //! pegando o argumento da rota do Navigator
     final argument =
         (ModalRoute.of(context)?.settings.arguments ?? <Cliente>{}) as Cliente;
-    print(argument.toString());
+    // print(argument.toString());
     nomeFantasiaController.text = argument.nomeFantasia!;
     razaoSocialController.text = argument.razaoSocial!;
     pessoaFJController.text = argument.tipoPessoa!;
@@ -217,6 +217,7 @@ class _ClientesConsultaDetalhesPageState
                   onPress: () async {},
                   titulo: Strings.salvar,
                   icone: Icons.check_box,
+                  ativo: false,
                 ),
               ],
             ),
