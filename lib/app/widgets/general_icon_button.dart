@@ -14,7 +14,7 @@ class GeneralIconButton extends StatelessWidget {
   final double? buttonWidth;
   final double? buttonHeight;
   final String? titulo;
-  final bool activated;
+  final bool ativo;
 
   GeneralIconButton({
     required this.onPress,
@@ -24,14 +24,16 @@ class GeneralIconButton extends StatelessWidget {
     this.buttonWidth,
     this.buttonHeight,
     this.titulo,
-    this.activated = true,
+    this.ativo = true,
   });
 
   @override
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-      foregroundColor: Colors.yellow,
-      backgroundColor: ColorsApp.buttonMenuBackground,
+      foregroundColor:
+          ativo ? Colors.yellow : Color.fromARGB(255, 112, 116, 124),
+      backgroundColor:
+          ativo ? ColorsApp.buttonMenuBackground : ColorsApp.botaoDesativado,
       minimumSize:
           Size(buttonWidth ?? Sizes.sizeW_40, buttonHeight ?? Sizes.sizeH_40),
       padding: const EdgeInsets.all(Space.spacing_2),
@@ -55,8 +57,10 @@ class GeneralIconButton extends StatelessWidget {
               children: [
                 Icon(
                   icone,
-                  color:
-                      iconeForegroundColor ?? ColorsApp.iconeForegroundLSecond,
+                  color: ativo
+                      ? ColorsApp.iconeForegroundLSecond
+                      : ColorsApp.iconeDesativado,
+                  // iconeForegroundColor ?? ColorsApp.iconeForegroundLSecond,
                   size: iconSize,
                 ),
                 Text(

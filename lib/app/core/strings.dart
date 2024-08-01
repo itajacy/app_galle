@@ -23,6 +23,7 @@ class Strings {
   // CLIENTES
   static const clientesCadastro = "CLIENTES CADASTRO";
   static const clientesConsulta = "CLIENTES CONSULTA";
+  static const clientesAlteracao = "CLIENTES ALTERAÇÃO";
 
   // CLIENTES_CADASTRO
   static const nomeFantasia = "Digite o Nome Fantasia";

@@ -17,6 +17,7 @@ import 'package:galle/app/modules/sincronizacao/sincronizacao_page.dart';
 import 'package:get/get.dart';
 
 import 'app/core/navigation/routes.dart';
+import 'app/modules/clientes/detalhes/clientes_alteracao_detalhes_page.dart';
 import 'app/modules/login/login_page.dart';
 
 class App extends StatelessWidget {
@@ -50,7 +51,8 @@ class App extends StatelessWidget {
         Routes.configuracaoTelaPage: (context) => ConfiguracaoTelaPage(),
         Routes.clientesConsultaDetalhesPage: (context) =>
             ClientesConsultaDetalhesPage(),
-
+        Routes.clientesAlteracaoDetalhesPage: (context) =>
+            ClientesAlteracaoDetalhesPage(),
       },
     );
   }

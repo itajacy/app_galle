@@ -15,5 +15,5 @@ class Routes {
   static const configuracaoAmazonPage = '/configuracaoAmazonPage';
   static const configuracaoTelaPage = '/configuracaoTelaPage';
   static const clientesConsultaDetalhesPage = '/clientesConsultaDetalhesPage';
-
+  static const clientesAlteracaoDetalhesPage = '/clientesAlteracaoDetalhesPage';
 }

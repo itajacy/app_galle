@@ -1,16 +1,13 @@
 import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
-import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
 import 'package:galle/app/modules/clientes/widgets/lower_case_text_formatter.dart';
-import 'package:get/get.dart';
 import '../../../core/colors_app.dart';
 import '../../../core/font.dart';
 import '../../../core/sizes.dart';
 import '../../../core/space.dart';
 import '../../../core/strings.dart';
 import '../../../models/cliente.dart';
-import '../widgets/pessoafj_button.dart';
 import '../widgets/upper_case_text_formatter.dart';
 
 class ClientesConsultaDetalhesPage extends StatefulWidget {

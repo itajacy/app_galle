@@ -273,11 +273,13 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                     //* POR ENQTO ESTÁ SÓ CONSULTANDO
 
                                     Navigator.of(context).pushNamed(
-                                        '/clientesConsultaDetalhesPage',
+                                        '/clientesAlteracaoDetalhesPage',
                                         arguments: cliente);
                                   }
                                 },
-                                icone: Icons.folder_shared_outlined,
+                                icone: (cliente.clienteIdInt!.isNotEmpty)
+                                    ? Icons.folder_shared_outlined
+                                    : Icons.edit_outlined,
                                 iconSize: Sizes.sizeH_30,
                                 buttonWidth: Sizes.sizeW_50,
                                 buttonHeight: Sizes.sizeW_50,
@@ -292,7 +294,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                 iconSize: Sizes.sizeH_30,
                                 buttonWidth: Sizes.sizeW_50,
                                 buttonHeight: Sizes.sizeW_50,
-                                activated: (cliente.clienteIdInt!.isNotEmpty),
+                                ativo: (cliente.clienteIdInt!.isNotEmpty),
                                 iconeForegroundColor:
                                     (cliente.clienteIdInt!.isNotEmpty)
                                         ? Colors.grey
