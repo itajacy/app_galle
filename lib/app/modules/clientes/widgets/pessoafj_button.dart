@@ -21,7 +21,6 @@ class _PessoafjButtonState extends State<PessoafjButton> {
   @override
   void initState() {
     widget.pessoa("F");
-    print("INIT STATE do pessoafjButton-- ");
     super.initState();
   }
 

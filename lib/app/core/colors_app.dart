@@ -20,7 +20,7 @@ class ColorsApp {
   static const Color textForeground = Colors.white;
   static const Color catalogotextbackgroundColor =
       Color.fromARGB(255, 10, 109, 155);
-  static const Color textoDesativado = Colors.black54;
+  static const Color textoDesativado = Colors.white70;
   // Color.fromARGB(255, 11, 9, 73);
 
   // ICONE

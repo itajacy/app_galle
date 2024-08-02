@@ -5,7 +5,6 @@ import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
 import 'package:galle/app/models/cliente.dart';
 import 'package:galle/app/modules/clientes/consulta/clientes_consulta_controller.dart';
-import 'package:galle/app/modules/clientes/detalhes/clientes_consulta_detalhes_page.dart';
 import 'package:galle/app/modules/clientes/widgets/upper_case_text_formatter.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 import 'package:get/get.dart';
@@ -38,7 +37,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
   void initState() {
     listaDeClientesController.buscarTodos();
 
-    debugPrint('------------INITSTATE----------');
     super.initState();
   }
 
@@ -266,12 +264,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                         '/clientesConsultaDetalhesPage',
                                         arguments: cliente);
                                   } else {
-                                    //! no caso do codigo interno for vazio
-                                    //! nesse caso os dados ainda podem ser
-                                    //! alterados
-                                    // TODO corrigir aqui, chamando a tala de ALTERACAO DO CLIENTE!!
-                                    //* POR ENQTO ESTÁ SÓ CONSULTANDO
-
                                     Navigator.of(context).pushNamed(
                                         '/clientesAlteracaoDetalhesPage',
                                         arguments: cliente);
@@ -289,19 +281,16 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                               ),
                               const SizedBox(width: Space.spacing_8),
                               GeneralIconButton(
-                                onPress: () {},
+                                onPress: () {
+                                  // TODO FAZER A EXCLUSÃO
+                                },
                                 icone: Icons.delete_forever_rounded,
                                 iconSize: Sizes.sizeH_30,
                                 buttonWidth: Sizes.sizeW_50,
                                 buttonHeight: Sizes.sizeW_50,
-                                ativo: (cliente.clienteIdInt!.isNotEmpty),
-                                iconeForegroundColor:
-                                    (cliente.clienteIdInt!.isNotEmpty)
-                                        ? Colors.grey
-                                        : ColorsApp.iconeForegroundLSecond,
-
-                                // Colors.grey[350],
-                                // Colors.white70,
+                                ativo: (cliente.clienteIdInt!.isEmpty)
+                                    ? true
+                                    : false,
                               ),
                             ],
                           ),
