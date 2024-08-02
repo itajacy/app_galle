@@ -160,7 +160,12 @@ class _ClientesAlteracaoDetalhesPageState
 //! pegando o argumento da rota do Navigator
     final argument =
         (ModalRoute.of(context)?.settings.arguments ?? <Cliente>{}) as Cliente;
-    // print(argument.toString());
+    clientesCadastroController.cliente.clienteId = argument.clienteId;
+    clientesCadastroController.cliente.dispositivoId = argument.dispositivoId;
+    clientesCadastroController.cliente.clienteIdMob = argument.clienteIdMob;
+    clientesCadastroController.cliente.clienteIdInt = argument.clienteIdInt;
+    clientesCadastroController.cliente.ativo = argument.ativo;
+
     nomeFantasiaController.text = argument.nomeFantasia!;
     razaoSocialController.text = argument.razaoSocial!;
     pessoaFJController.text = argument.tipoPessoa!;
@@ -221,20 +226,6 @@ class _ClientesAlteracaoDetalhesPageState
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
                   onPress: () async {
-                    //! BOTAO SALVAR
-                    //! tem os campos clienteId, clienteIdMob, ClienteIdInt, Ativo
-                    //! pensar nisso
-
-                    clientesCadastroController.cliente.dispositivoId = "3";
-                    clientesCadastroController.cliente.clienteIdMob = "1";
-                    clientesCadastroController.cliente.clienteIdInt = "";
-                    clientesCadastroController.cliente.ativo = "1";
-
-                    // 'clienteId': clienteId,
-                    // 'dispositivoId': dispositivoId,
-                    // 'clienteIdMob': clienteIdMob,
-                    // 'clienteIdInt': clienteIdInt,
-
                     clientesCadastroController.cliente.contato =
                         contatoController.text;
                     clientesCadastroController.cliente.nomeFantasia =
@@ -291,50 +282,53 @@ class _ClientesAlteracaoDetalhesPageState
                         entregaCepController.text;
 
 //! ==============================
-                    // var isSave =
-                    //     await clientesCadastroController.save(isSave: salvo);
-                    // if (isSave) {
-                    //   Get.showSnackbar(
-                    //     const GetSnackBar(
-                    //       backgroundColor: ColorsApp.appBarBackground,
-                    //       titleText: Text(
-                    //         'Cliente salvo com SUCESSO!',
-                    //         textAlign: TextAlign.center,
-                    //         style: TextStyle(
-                    //           color: ColorsApp.textoForegYellow,
-                    //           fontStyle: FontStyle.italic,
-                    //           fontWeight: FontWeight.bold,
-                    //           fontSize: Font.title_20,
-                    //         ),
-                    //       ),
-                    //       // title: 'CLIENTE SALVO COM SUCESSO!',
-                    //       message: 'Boas vendas',
-                    //       duration: Duration(seconds: 5),
-                    //     ),
-                    //   );
+                    var isSave = await clientesCadastroController.updateCliente(
+                        isSave: salvo);
+                    if (isSave) {
+                      Get.showSnackbar(
+                        const GetSnackBar(
+                          backgroundColor: ColorsApp.appBarBackground,
+                          titleText: Text(
+                            'Cliente alterado com sucesso!',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: ColorsApp.textoForegYellow,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.bold,
+                              fontSize: Font.title_20,
+                            ),
+                          ),
+                          // title: 'CLIENTE SALVO COM SUCESSO!',
+                          message: 'Deus te abençoe, e que você venda muito',
+                          duration: Duration(seconds: 3),
+                        ),
+                      );
 
-                    //   _limpaControllers();
-                    //   focusNomeFantasia.requestFocus();
-                    // } else {
-                    //   Get.showSnackbar(
-                    //     const GetSnackBar(
-                    //       backgroundColor: ColorsApp.errorBackground,
-                    //       titleText: Text(
-                    //         'ERRO: Cliente NÃO foi salvo! ',
-                    //         textAlign: TextAlign.center,
-                    //         style: TextStyle(
-                    //           color: ColorsApp.textoForegYellow,
-                    //           fontStyle: FontStyle.italic,
-                    //           fontWeight: FontWeight.bold,
-                    //           fontSize: Font.title_20,
-                    //         ),
-                    //       ),
-                    //       message:
-                    //           'Verifique e preencha os dados que estão faltando.',
-                    //       duration: Duration(seconds: 7),
-                    //     ),
-                    //   );
-                    // }
+                      Future.delayed(Duration(seconds: 8));
+                      _limpaControllers();
+                      // focusNomeFantasia.requestFocus();
+                      Navigator.pushNamed(context, '/clientesConsultaPage');
+                      // Navigator.pop(context);
+                    } else {
+                      Get.showSnackbar(
+                        const GetSnackBar(
+                          backgroundColor: ColorsApp.errorBackground,
+                          titleText: Text(
+                            'ERRO: Cliente NÃO foi alterado ',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: ColorsApp.textoForegYellow,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.bold,
+                              fontSize: Font.title_20,
+                            ),
+                          ),
+                          message:
+                              'Verifique e preencha os dados que estão faltando.',
+                          duration: Duration(seconds: 7),
+                        ),
+                      );
+                    }
 //! ==============================
                   },
                   titulo: Strings.salvar,

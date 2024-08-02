@@ -95,13 +95,58 @@ class ClientesDao {
     );
     final List<Cliente> listaDeClientes = [];
     for (var cliente in result) {
-      print(cliente.values.toString());
+      // print(cliente.values.toString());
       listaDeClientes.add(Cliente.fromMap(cliente));
     }
-    print('tamanho da lista de clientes-----------> ${listaDeClientes.length}');
+    // print('tamanho da lista de clientes-----------> ${listaDeClientes.length}');
     return listaDeClientes;
   }
+
+  Future<int> alterar(Cliente cliente) async {
+    final Database db = await getDatabase();
+    print('alterar inicio');
+    print(cliente);
+    final Map<String, dynamic> clienteMap = cliente.toMap();
+    print(clienteMap['clienteId']);
+
+    print('alterar fim');
+    return db.update(
+      _tableName,
+      clienteMap,
+      where: 'clienteId = ?',
+      whereArgs: [cliente.clienteId],
+    );
+  }
 }
+
+
+//!
+  // Future<int> update(Colaborador colaborador) async {
+  //   final Database db = await getDatabase();
+  //   final Map<String, dynamic> colaboradorMap = _toMap(colaborador);
+  //   return db.update(
+  //     _tableName,
+  //     colaboradorMap,
+  //     where: 'idColaborador = ?',
+  //     whereArgs: [colaborador.idColaborador],
+  //   );
+  // }
+
+  // Future<int> delete(int id) async {
+  //   final Database db = await getDatabase();
+  //   return db.delete(
+  //     _tableName,
+  //     where: 'idColaborador = ?',
+  //     whereArgs: [id],
+  //   );
+  // }
+
+  // Map<String, dynamic> _toMap(Colaborador colaborador) {
+  //   final Map<String, dynamic> colaboradorMap = {};
+  //   colaboradorMap[_funcao] = colaborador.funcaoColaborador;
+  //   colaboradorMap[_name] = colaborador.nomeColaborador;
+  //   return colaboradorMap;
+  // }
 
 
 
