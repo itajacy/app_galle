@@ -303,6 +303,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                           // Action widget which will provide the user to acknowledge the choice
 
                                           actions: [
+                                            //botoes sim e nao
                                             ClientesButton(
                                               onPress: () {
                                                 clientesConsultaController
