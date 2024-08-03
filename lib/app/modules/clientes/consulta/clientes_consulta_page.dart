@@ -42,6 +42,18 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
   }
 
   @override
+  void dispose() {
+    clientesConsultaController.dispose();
+    listaDeClientesController.dispose();
+    super.dispose();
+  }
+
+  void _limpaControllers() {
+    clientesConsultaController.onClose();
+    listaDeClientesController.onClose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
@@ -342,9 +354,36 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                             //botoes sim e nao
                                             ClientesButton(
                                               onPress: () {
+                                                //TODO  EXCLUIR SIM
                                                 clientesConsultaController
                                                     .deleteCliente(
                                                         cliente.clienteId!);
+                                                _limpaControllers();
+                                                //!=================
+                                                Get.showSnackbar(
+                                                  const GetSnackBar(
+                                                    backgroundColor: ColorsApp
+                                                        .appBarBackground,
+                                                    titleText: Text(
+                                                      'Cliente excluído com SUCESSO!',
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: TextStyle(
+                                                        color: ColorsApp
+                                                            .textoForegYellow,
+                                                        fontStyle:
+                                                            FontStyle.italic,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: Font.title_20,
+                                                      ),
+                                                    ),
+                                                    message: 'Boas vendas',
+                                                    duration:
+                                                        Duration(seconds: 3),
+                                                  ),
+                                                );
+                                                //!=================
                                                 Navigator.of(context).pop();
                                               },
                                               titulo: "SIM",
