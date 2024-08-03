@@ -286,49 +286,52 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                               // TODO BOTÃO DE EXCLUIR CLIENTE
                               GeneralIconButton(
                                 onPress: () {
-                                  return showDialog(
-                                    context: context,
-                                    barrierDismissible: false,
-                                    builder: (_) {
-                                      return AlertDialog(
-                                        title: Text(cliente.nomeFantasia
-                                            .toString()), // To display the title it is optional
-                                        content: const Text(
-                                          'Confirma exclusão?',
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w600),
-                                        ), // Message which will be pop up on the screen
-                                        // Action widget which will provide the user to acknowledge the choice
+                                  if (cliente.clienteIdInt!.isEmpty) {
+                                    return showDialog(
+                                      context: context,
+                                      barrierDismissible: false,
+                                      builder: (_) {
+                                        return AlertDialog(
+                                          title: Text(cliente.nomeFantasia
+                                              .toString()), // To display the title it is optional
+                                          content: const Text(
+                                            'Confirma exclusão?',
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w600),
+                                          ), // Message which will be pop up on the screen
+                                          // Action widget which will provide the user to acknowledge the choice
 
-                                        actions: [
-                                          ClientesButton(
-                                            onPress: () {
-                                              clientesConsultaController
-                                                  .deleteCliente(
-                                                      cliente.clienteId!);
-                                              Navigator.of(context).pop();
-                                            },
-                                            titulo: "SIM",
-                                            icone: Icons.delete_forever,
-                                            minimoSize: const Size(
-                                                Sizes.sizeW_90, Sizes.sizeH_40),
-                                          ),
-                                          ClientesButton(
-                                            onPress: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            titulo: "NÃO",
-                                            icone:
-                                                Icons.not_interested_outlined,
-                                            minimoSize: const Size(
-                                                Sizes.sizeW_90, Sizes.sizeH_40),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                  // TODO FAZER A EXCLUSÃO
+                                          actions: [
+                                            ClientesButton(
+                                              onPress: () {
+                                                clientesConsultaController
+                                                    .deleteCliente(
+                                                        cliente.clienteId!);
+                                                Navigator.of(context).pop();
+                                              },
+                                              titulo: "SIM",
+                                              icone: Icons.delete_forever,
+                                              minimoSize: const Size(
+                                                  Sizes.sizeW_90,
+                                                  Sizes.sizeH_40),
+                                            ),
+                                            ClientesButton(
+                                              onPress: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              titulo: "NÃO",
+                                              icone:
+                                                  Icons.not_interested_outlined,
+                                              minimoSize: const Size(
+                                                  Sizes.sizeW_90,
+                                                  Sizes.sizeH_40),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  }
                                 },
                                 icone: Icons.delete_forever_rounded,
                                 iconSize: Sizes.sizeH_30,

@@ -297,7 +297,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       //     ),
                       //   ),
                       // );
-// clientesConsultaController.buscarTodos();
                       _limpaControllers();
                       focusNomeFantasia.requestFocus();
                       // } else if (isSave == null) {
