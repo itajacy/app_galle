@@ -283,7 +283,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                     ColorsApp.iconeForegroundLSecond,
                               ),
                               const SizedBox(width: Space.spacing_8),
-                              // TODO BOTÃO DE EXCLUIR CLIENTE
+
                               GeneralIconButton(
                                 onPress: () {
                                   if (cliente.clienteIdInt!.isEmpty) {
@@ -292,16 +292,52 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                       barrierDismissible: false,
                                       builder: (_) {
                                         return AlertDialog(
-                                          title: Text(cliente.nomeFantasia
-                                              .toString()), // To display the title it is optional
-                                          content: const Text(
-                                            'Confirma exclusão?',
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.w600),
-                                          ), // Message which will be pop up on the screen
-                                          // Action widget which will provide the user to acknowledge the choice
-
+                                          title: Row(
+                                            children: [
+                                              Text(
+                                                cliente.nomeFantasia
+                                                    .toString()
+                                                    .substring(
+                                                        0,
+                                                        cliente.nomeFantasia
+                                                                    .toString()
+                                                                    .length <
+                                                                30
+                                                            ? cliente
+                                                                .nomeFantasia
+                                                                .toString()
+                                                                .length
+                                                            : 30),
+                                                style: const TextStyle(
+                                                    fontSize: 14,
+                                                    fontStyle:
+                                                        FontStyle.italic),
+                                              ),
+                                            ],
+                                          ),
+                                          content: const Row(
+                                            children: [
+                                              Icon(
+                                                Icons.warning_amber,
+                                                size: 50.0,
+                                                color: Color.fromARGB(
+                                                    255, 173, 15, 4),
+                                              ),
+                                              SizedBox(
+                                                width: Space.spacing_5,
+                                              ),
+                                              Text(
+                                                'Confirma exclusão?',
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                            ],
+                                          ),
+                                          elevation: 24.0,
+                                          // shadowColor:
+                                          //     Color.fromARGB(255, 173, 15, 4),
                                           actions: [
                                             //botoes sim e nao
                                             ClientesButton(
