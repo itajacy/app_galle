@@ -10,6 +10,7 @@ import '../../../core/font.dart';
 import '../../../core/sizes.dart';
 import '../../../core/space.dart';
 import '../../../core/strings.dart';
+import '../consulta/clientes_consulta_controller.dart';
 import '../widgets/pessoafj_button.dart';
 import '../widgets/upper_case_text_formatter.dart';
 
@@ -23,6 +24,9 @@ class ClientesCadastroPage extends StatefulWidget {
 class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesCadastroController clientesCadastroController =
       Get.put(ClientesCadastroController());
+
+  ClientesConsultaController clientesConsultaController =
+      Get.put(ClientesConsultaController());
 
   final nomeFantasiaController = TextEditingController();
 
@@ -293,6 +297,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                       //     ),
                       //   ),
                       // );
+// clientesConsultaController.buscarTodos();
                       _limpaControllers();
                       focusNomeFantasia.requestFocus();
                       // } else if (isSave == null) {
@@ -317,6 +322,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         ),
                       );
                     }
+                    clientesConsultaController.buscarTodos();
 
                     // ScaffoldMessenger.of(context).showSnackBar(
                     //   SnackBar(

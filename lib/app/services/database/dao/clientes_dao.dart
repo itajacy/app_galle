@@ -82,6 +82,7 @@ class ClientesDao {
       listaDeClientes.add(Cliente.fromMap(cliente));
     }
     // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
+    
     return listaDeClientes;
   }
 
@@ -96,6 +97,7 @@ class ClientesDao {
     for (var cliente in result) {
       listaDeClientes.add(Cliente.fromMap(cliente));
     }
+
     return listaDeClientes;
   }
 
@@ -123,8 +125,6 @@ class ClientesDao {
       whereArgs: [id],
     );
   }
-
-  
 }
 
 

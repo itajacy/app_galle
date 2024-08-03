@@ -35,6 +35,8 @@ class ClientesCadastroController extends GetxController {
   String? eBairroError;
   String? eCEPError;
 
+  
+
   //! O método save(), precisa retornar algo indicando que salvou com sucesso, ou não
   //! para que o retorno possa ser tratado e ser exibida a mensagem de SUCESSO ou ERRO
   //! na tela de cadastro usando o SNACKBAR
