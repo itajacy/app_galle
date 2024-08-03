@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 
 import '../../../core/font.dart';
 import '../../../core/strings.dart';
+import '../widgets/clientes_button.dart';
 
 class ClientesConsultaPage extends StatefulWidget {
   ClientesConsultaPage({super.key});
@@ -257,13 +258,16 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                           Row(
                             children: [
                               // const SizedBox(width: Space.spacing_5),
+                              //TODO BOTÃO DE CONSULTAR OU ALTERAR CLIENTE
                               GeneralIconButton(
                                 onPress: () {
                                   if (cliente.clienteIdInt!.isNotEmpty) {
+                                    //Consulta de cliente
                                     Navigator.of(context).pushNamed(
                                         '/clientesConsultaDetalhesPage',
                                         arguments: cliente);
                                   } else {
+                                    //Alteração de cliente
                                     Navigator.of(context).pushNamed(
                                         '/clientesAlteracaoDetalhesPage',
                                         arguments: cliente);
@@ -276,12 +280,54 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                 buttonWidth: Sizes.sizeW_50,
                                 buttonHeight: Sizes.sizeW_50,
                                 iconeForegroundColor:
-                                    //  Colors.white70,
                                     ColorsApp.iconeForegroundLSecond,
                               ),
                               const SizedBox(width: Space.spacing_8),
+                              // TODO BOTÃO DE EXCLUIR CLIENTE
                               GeneralIconButton(
                                 onPress: () {
+                                  return showDialog(
+                                    context: context,
+                                    barrierDismissible: false,
+                                    builder: (_) {
+                                      return AlertDialog(
+                                        title: Text(cliente.nomeFantasia
+                                            .toString()), // To display the title it is optional
+                                        content: const Text(
+                                          'Confirma exclusão?',
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w600),
+                                        ), // Message which will be pop up on the screen
+                                        // Action widget which will provide the user to acknowledge the choice
+
+                                        actions: [
+                                          ClientesButton(
+                                            onPress: () {
+                                              clientesConsultaController
+                                                  .deleteCliente(
+                                                      cliente.clienteId!);
+                                              Navigator.of(context).pop();
+                                            },
+                                            titulo: "SIM",
+                                            icone: Icons.delete_forever,
+                                            minimoSize: const Size(
+                                                Sizes.sizeW_90, Sizes.sizeH_40),
+                                          ),
+                                          ClientesButton(
+                                            onPress: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            titulo: "NÃO",
+                                            icone:
+                                                Icons.not_interested_outlined,
+                                            minimoSize: const Size(
+                                                Sizes.sizeW_90, Sizes.sizeH_40),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
                                   // TODO FAZER A EXCLUSÃO
                                 },
                                 icone: Icons.delete_forever_rounded,

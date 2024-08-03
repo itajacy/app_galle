@@ -152,7 +152,7 @@ class _ClientesConsultaDetalhesPageState
     //! pegando o argumento da rota do Navigator
     final argument =
         (ModalRoute.of(context)?.settings.arguments ?? <Cliente>{}) as Cliente;
-    print(argument);
+    // print(argument);
     nomeFantasiaController.text = argument.nomeFantasia!;
     razaoSocialController.text = argument.razaoSocial!;
     pessoaFJController.text = argument.tipoPessoa!;

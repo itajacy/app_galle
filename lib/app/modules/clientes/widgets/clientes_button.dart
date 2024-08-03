@@ -11,12 +11,14 @@ class ClientesButton extends StatelessWidget {
   final String titulo;
   final IconData icone;
   final bool ativo;
+  final Size? minimoSize;
 
   ClientesButton({
     required this.onPress,
     required this.titulo,
     required this.icone,
     this.ativo = true,
+    this.minimoSize,
   });
 
   @override
@@ -26,7 +28,9 @@ class ClientesButton extends StatelessWidget {
           ativo ? Colors.yellow : Color.fromARGB(255, 112, 116, 124),
       backgroundColor:
           ativo ? ColorsApp.buttonMenuBackground : ColorsApp.botaoDesativado,
-      minimumSize: Size(Sizes.sizeW_150, Sizes.sizeH_40),
+      minimumSize: (minimoSize == null)
+          ? const Size(Sizes.sizeW_150, Sizes.sizeH_40)
+          : minimoSize,
       padding: EdgeInsets.all(Space.spacing_2),
       shape: RoundedRectangleBorder(
         borderRadius: Borders.borderRadius_10,

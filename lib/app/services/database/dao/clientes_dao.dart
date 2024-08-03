@@ -90,15 +90,12 @@ class ClientesDao {
     final List<Map<String, dynamic>> result = await db.query(
       _tableName,
       where: 'nomeFantasia LIKE ? OR razaoSocial LIKE ? OR clienteIdInt LIKE ?',
-      // where: 'razaoSocial = ?',
       whereArgs: ['%$cliente%', '%$cliente%', '%$cliente%'],
     );
     final List<Cliente> listaDeClientes = [];
     for (var cliente in result) {
-      // print(cliente.values.toString());
       listaDeClientes.add(Cliente.fromMap(cliente));
     }
-    // print('tamanho da lista de clientes-----------> ${listaDeClientes.length}');
     return listaDeClientes;
   }
 
@@ -126,6 +123,8 @@ class ClientesDao {
       whereArgs: [id],
     );
   }
+
+  
 }
 
 
