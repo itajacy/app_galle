@@ -41,12 +41,12 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
     super.initState();
   }
 
-  @override
-  void dispose() {
-    clientesConsultaController.dispose();
-    listaDeClientesController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   clientesConsultaController.dispose();
+  //   listaDeClientesController.dispose();
+  //   super.dispose();
+  // }
 
   void _limpaControllers() {
     clientesConsultaController.onClose();
