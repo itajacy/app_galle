@@ -197,7 +197,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
                     clientesCadastroController.cliente.dispositivoId = "3";
                     clientesCadastroController.cliente.clienteIdMob = "1";
-                    clientesCadastroController.cliente.clienteIdInt = "";
+                    clientesCadastroController.cliente.clienteIdInt = "7245-01";
                     clientesCadastroController.cliente.ativo = "1";
 
                     // 'clienteId': clienteId,
