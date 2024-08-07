@@ -93,7 +93,8 @@ class ClientesCadastroController extends GetxController {
   }
 //! ## FIM DO save()
 
-//! INICIO DO alterar()
+//! INICIO DO updateCliente()
+
   Future<bool> updateCliente({required bool? isSave}) async {
     if (cliente.cNPJCPF == null || cliente.cNPJCPF == "") {
       cnpjCpfError = 'O CNP/CPF NÃO PODE SER VAZIO!';
@@ -160,21 +161,18 @@ class ClientesCadastroController extends GetxController {
     update();
   }
 
-  //! ser visto depois.  deve ser "F" ou "J"
   void setTipoPessoa(String value) {
     cliente.tipoPessoa = value;
     tipoPessoaError = null;
     update();
   }
 
-  //! Como Validar?  Como definir a formatação?
   void setCnpjCpf(String value) {
     cliente.cNPJCPF = value;
     cnpjCpfError = null;
     update();
   }
 
-//! Como Validar?  Definir formatação
   void setIeRg(String value) {
     cliente.iERG = value;
     iERGError = null;
@@ -187,7 +185,6 @@ class ClientesCadastroController extends GetxController {
     update();
   }
 
-//! Como Validar?
   void setEmail(String value) {
     cliente.email = value;
     emailError = null;
@@ -234,7 +231,6 @@ class ClientesCadastroController extends GetxController {
 
 //---
 
-//!  Como receber e tratar UF principal
 
   void setpUF(String value) {
     cliente.pUF = value;

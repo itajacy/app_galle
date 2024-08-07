@@ -103,12 +103,7 @@ class ClientesDao {
 
   Future<int> alterar(Cliente cliente) async {
     final Database db = await getDatabase();
-    // print('alterar inicio');
-    // print(cliente);
     final Map<String, dynamic> clienteMap = cliente.toMap();
-    // print(clienteMap['clienteId']);
-
-    // print('alterar fim');
     return db.update(
       _tableName,
       clienteMap,
@@ -126,69 +121,3 @@ class ClientesDao {
     );
   }
 }
-
-
-//!
- 
-
-  // Future<int> delete(int id) async {
-  //   final Database db = await getDatabase();
-  //   return db.delete(
-  //     _tableName,
-  //     where: 'idColaborador = ?',
-  //     whereArgs: [id],
-  //   );
-  // }
-
-  
-
-
-
-    // print(testecliente.clienteId);
-    // print(testecliente.dispositivoId);
-    // print(testecliente.clienteIdMob);
-    // print(testecliente.clienteIdInt);
-    // print(testecliente.nomeFantasia);
-    // print(testecliente.razaoSocial);
-    // print(testecliente.tipoPessoa);
-    // print(testecliente.cNPJCPF);
-    // print(testecliente.iERG);
-    // print(testecliente.contato);
-    // print(testecliente.email);
-    // print(testecliente.fone1);
-    // print(testecliente.fone2);
-    // print(testecliente.foneCel);
-    // print(testecliente.foneRes);
-    // print(testecliente.fax);
-    // print(testecliente.pUF);
-    // print(testecliente.pCidade);
-    // print(testecliente.pEndereco);
-    // print(testecliente.pComplemento);
-    // print(testecliente.pBairro);
-    // print(testecliente.pCEP);
-    // print(testecliente.eUF);
-    // print(testecliente.eCidade);
-    // print(testecliente.eEndereco);
-    // print(testecliente.eComplemento);
-    // print(testecliente.eBairro);
-    // print(testecliente.eCEP);
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // final List<Map<String, dynamic>> result = await db.query(
-//       _tableName,
-//       where: 'funcaoColaborador = ?',
-//       whereArgs: [funcao],
-//     );
-
-// final List<Map<String, dynamic>> result = await db.query(_tableName);
