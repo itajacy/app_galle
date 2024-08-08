@@ -304,11 +304,11 @@ class _ClientesAlteracaoDetalhesPageState
                         ),
                       );
 
-                      Future.delayed(Duration(seconds: 8));
+                      Future.delayed(const Duration(seconds: 8));
                       _limpaControllers();
                       // focusNomeFantasia.requestFocus();
-                      Navigator.pushNamed(context, '/clientesConsultaPage');
-                      // Navigator.pop(context);
+                      // Navigator.pushNamed(context, '/clientesConsultaPage');
+                      Navigator.of(context).pop();
                     } else {
                       Get.showSnackbar(
                         const GetSnackBar(
