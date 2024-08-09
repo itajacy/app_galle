@@ -82,7 +82,7 @@ class ClientesDao {
       listaDeClientes.add(Cliente.fromMap(cliente));
     }
     // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
-    
+
     return listaDeClientes;
   }
 
@@ -102,6 +102,7 @@ class ClientesDao {
   }
 
   Future<int> alterar(Cliente cliente) async {
+    print('ClienteId do alterar--> ${cliente.clienteId}');
     final Database db = await getDatabase();
     final Map<String, dynamic> clienteMap = cliente.toMap();
     return db.update(

@@ -101,6 +101,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   @override
   void dispose() {
+    // //todo incluso para teste
+    // clientesCadastroController.dispose();
+    // clientesConsultaController.dispose();
+    // //todo
     nomeFantasiaController.dispose();
     razaoSocialController.dispose();
     pessoaFJController.dispose();
@@ -194,7 +198,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     //! BOTAO SALVAR
                     //! tem os campos clienteId, clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
-
+                    // clientesCadastroController.cliente.clienteId = 0;
                     clientesCadastroController.cliente.dispositivoId = "3";
                     clientesCadastroController.cliente.clienteIdMob = "1";
                     clientesCadastroController.cliente.clienteIdInt = "";

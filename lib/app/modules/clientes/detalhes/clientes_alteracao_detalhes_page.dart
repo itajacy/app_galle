@@ -100,6 +100,9 @@ class _ClientesAlteracaoDetalhesPageState
 
   @override
   void dispose() {
+    //todo incluso para teste
+    clientesCadastroController.dispose();
+//todo
     nomeFantasiaController.dispose();
     razaoSocialController.dispose();
     pessoaFJController.dispose();
@@ -129,6 +132,7 @@ class _ClientesAlteracaoDetalhesPageState
   }
 
   void _limpaControllers() {
+    // clientesCadastroController.cliente.clienteId == null;
     nomeFantasiaController.clear();
     razaoSocialController.clear();
     pessoaFJController.clear();
@@ -304,11 +308,11 @@ class _ClientesAlteracaoDetalhesPageState
                         ),
                       );
 
-                      Future.delayed(const Duration(seconds: 8));
+                      // Future.delayed(const Duration(seconds: 4));
                       _limpaControllers();
                       // focusNomeFantasia.requestFocus();
-                      // Navigator.pushNamed(context, '/clientesConsultaPage');
-                      Navigator.of(context).pop();
+                      Navigator.pushNamed(context, '/clientesConsultaPage');
+                      // Navigator.of(context).pop();
                     } else {
                       Get.showSnackbar(
                         const GetSnackBar(
