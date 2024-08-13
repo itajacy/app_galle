@@ -1,42 +1,11 @@
+import 'package:galle/app/modules/clientes/clientes_controller.dart';
 import 'package:galle/app/services/database/dao/clientes_dao.dart';
 import 'package:get/get.dart';
 
 import '../../../models/cliente.dart';
 
-class ClientesCadastroController extends GetxController {
-  ClientesDao clientesDao = ClientesDao();
-
-  Cliente cliente = Cliente();
-
-  String? nomeFantasiaError;
-  String? razaoSocialError;
-  String? tipoPessoaError;
-  String? cnpjCpfError;
-  String? iERGError;
-  String? contatoError;
-  String? emailError;
-  String? fone1Error;
-  String? fone2Error;
-  String? foneCelError;
-  String? foneResError;
-  String? faxError;
-
-  String? pUFError;
-  String? pCidadeError;
-  String? pEnderecoError;
-  String? pComplementoError;
-  String? pBairroError;
-  String? pCEPError;
-
-  String? eUFError;
-  String? eCidadeError;
-  String? eEnderecoError;
-  String? eComplementoError;
-  String? eBairroError;
-  String? eCEPError;
-
-  
-
+class ClientesCadastroController extends ClientesController {
+ 
   //! O método save(), precisa retornar algo indicando que salvou com sucesso, ou não
   //! para que o retorno possa ser tratado e ser exibida a mensagem de SUCESSO ou ERRO
   //! na tela de cadastro usando o SNACKBAR
@@ -92,6 +61,8 @@ class ClientesCadastroController extends GetxController {
     return resposta > 0 ? true : false;
   }
 //! ## FIM DO save()
+
+
 
 //! INICIO DO updateCliente()
 

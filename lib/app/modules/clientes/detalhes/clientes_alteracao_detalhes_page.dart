@@ -13,6 +13,7 @@ import '../../../core/strings.dart';
 import '../../../models/cliente.dart';
 import '../widgets/pessoafj_button.dart';
 import '../widgets/upper_case_text_formatter.dart';
+import 'clientes_alteracao_controller.dart';
 
 class ClientesAlteracaoDetalhesPage extends StatefulWidget {
   const ClientesAlteracaoDetalhesPage({super.key});
@@ -24,8 +25,8 @@ class ClientesAlteracaoDetalhesPage extends StatefulWidget {
 
 class _ClientesAlteracaoDetalhesPageState
     extends State<ClientesAlteracaoDetalhesPage> {
-  ClientesCadastroController clientesCadastroController =
-      Get.put(ClientesCadastroController());
+  ClientesAlteracaoController clientesAlteracaoController =
+      Get.put(ClientesAlteracaoController());
 
   final nomeFantasiaController = TextEditingController();
 
@@ -100,8 +101,6 @@ class _ClientesAlteracaoDetalhesPageState
 
   @override
   void dispose() {
-    //todo incluso para teste
-    clientesCadastroController.dispose();
 //todo
     nomeFantasiaController.dispose();
     razaoSocialController.dispose();
@@ -164,11 +163,11 @@ class _ClientesAlteracaoDetalhesPageState
 //! pegando o argumento da rota do Navigator
     final argument =
         (ModalRoute.of(context)?.settings.arguments ?? <Cliente>{}) as Cliente;
-    clientesCadastroController.cliente.clienteId = argument.clienteId;
-    clientesCadastroController.cliente.dispositivoId = argument.dispositivoId;
-    clientesCadastroController.cliente.clienteIdMob = argument.clienteIdMob;
-    clientesCadastroController.cliente.clienteIdInt = argument.clienteIdInt;
-    clientesCadastroController.cliente.ativo = argument.ativo;
+    clientesAlteracaoController.cliente.clienteId = argument.clienteId;
+    clientesAlteracaoController.cliente.dispositivoId = argument.dispositivoId;
+    clientesAlteracaoController.cliente.clienteIdMob = argument.clienteIdMob;
+    clientesAlteracaoController.cliente.clienteIdInt = argument.clienteIdInt;
+    clientesAlteracaoController.cliente.ativo = argument.ativo;
 
     nomeFantasiaController.text = argument.nomeFantasia!;
     razaoSocialController.text = argument.razaoSocial!;
@@ -230,63 +229,65 @@ class _ClientesAlteracaoDetalhesPageState
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
                   onPress: () async {
-                    clientesCadastroController.cliente.contato =
+                    clientesAlteracaoController.cliente.contato =
                         contatoController.text;
-                    clientesCadastroController.cliente.nomeFantasia =
+                    clientesAlteracaoController.cliente.nomeFantasia =
                         nomeFantasiaController.text;
 
-                    clientesCadastroController.cliente.razaoSocial =
+                    clientesAlteracaoController.cliente.razaoSocial =
                         razaoSocialController.text;
-                    clientesCadastroController.cliente.tipoPessoa =
+                    clientesAlteracaoController.cliente.tipoPessoa =
                         pessoaFJController.text;
-                    clientesCadastroController.cliente.cNPJCPF =
+                    clientesAlteracaoController.cliente.cNPJCPF =
                         cnpjCpfController.text;
-                    clientesCadastroController.cliente.iERG =
+                    clientesAlteracaoController.cliente.iERG =
                         ieRgController.text;
-                    clientesCadastroController.cliente.contato =
+                    clientesAlteracaoController.cliente.contato =
                         contatoController.text;
-                    clientesCadastroController.cliente.email =
+                    clientesAlteracaoController.cliente.email =
                         emailController.text;
 
-                    clientesCadastroController.cliente.fone1 =
+                    clientesAlteracaoController.cliente.fone1 =
                         foneCom1Controller.text;
-                    clientesCadastroController.cliente.fone2 =
+                    clientesAlteracaoController.cliente.fone2 =
                         foneCom2Controller.text;
-                    clientesCadastroController.cliente.foneCel =
+                    clientesAlteracaoController.cliente.foneCel =
                         foneCelController.text;
-                    clientesCadastroController.cliente.foneRes =
+                    clientesAlteracaoController.cliente.foneRes =
                         foneResController.text;
-                    clientesCadastroController.cliente.fax = faxController.text;
+                    clientesAlteracaoController.cliente.fax =
+                        faxController.text;
 
-                    clientesCadastroController.cliente.pUF =
+                    clientesAlteracaoController.cliente.pUF =
                         principalUfController.text;
-                    clientesCadastroController.cliente.pCidade =
+                    clientesAlteracaoController.cliente.pCidade =
                         principalCidadeController.text;
-                    clientesCadastroController.cliente.pEndereco =
+                    clientesAlteracaoController.cliente.pEndereco =
                         principalEnderecoController.text;
-                    clientesCadastroController.cliente.pComplemento =
+                    clientesAlteracaoController.cliente.pComplemento =
                         principalComplementoController.text;
-                    clientesCadastroController.cliente.pBairro =
+                    clientesAlteracaoController.cliente.pBairro =
                         principalBairroController.text;
-                    clientesCadastroController.cliente.pCEP =
+                    clientesAlteracaoController.cliente.pCEP =
                         principalCepController.text;
 
-                    clientesCadastroController.cliente.eUF =
+                    clientesAlteracaoController.cliente.eUF =
                         entregaUfController.text;
 
-                    clientesCadastroController.cliente.eCidade =
+                    clientesAlteracaoController.cliente.eCidade =
                         entregaCidadeController.text;
-                    clientesCadastroController.cliente.eEndereco =
+                    clientesAlteracaoController.cliente.eEndereco =
                         entregaEnderecoController.text;
-                    clientesCadastroController.cliente.eComplemento =
+                    clientesAlteracaoController.cliente.eComplemento =
                         entregaComplementoController.text;
-                    clientesCadastroController.cliente.eBairro =
+                    clientesAlteracaoController.cliente.eBairro =
                         entregaBairroController.text;
-                    clientesCadastroController.cliente.eCEP =
+                    clientesAlteracaoController.cliente.eCEP =
                         entregaCepController.text;
 
 //! ==============================
-                    var isSave = await clientesCadastroController.updateCliente(
+                    var isSave = await clientesAlteracaoController
+                        .updateCliente(
                         isSave: salvo);
                     if (isSave) {
                       Get.showSnackbar(
@@ -311,8 +312,9 @@ class _ClientesAlteracaoDetalhesPageState
                       // Future.delayed(const Duration(seconds: 4));
                       _limpaControllers();
                       // focusNomeFantasia.requestFocus();
-                      Navigator.pushNamed(context, '/clientesConsultaPage');
-                      // Navigator.of(context).pop();
+                      // Navigator.pushNamed(context, '/clientesConsultaPage');
+                      // Navigator.pushNamed(context, '/clientesPage');
+                      Navigator.of(context).pop(true);
                     } else {
                       Get.showSnackbar(
                         const GetSnackBar(
@@ -357,12 +359,13 @@ class _ClientesAlteracaoDetalhesPageState
                         UpperCaseTextFormatter(),
                       ],
                       controller: nomeFantasiaController,
-                      onChanged: clientesCadastroController.setNomeFantasia,
+                      onChanged: clientesAlteracaoController.setNomeFantasia,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.nomeFantasia,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.nomeFantasiaError,
+                        errorText:
+                            clientesAlteracaoController.nomeFantasiaError,
                       ),
                     ),
                   ),
@@ -373,12 +376,12 @@ class _ClientesAlteracaoDetalhesPageState
                         UpperCaseTextFormatter(),
                       ],
                       controller: razaoSocialController,
-                      onChanged: clientesCadastroController.setRazaoSocial,
+                      onChanged: clientesAlteracaoController.setRazaoSocial,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.razaoSocial,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.razaoSocialError,
+                        errorText: clientesAlteracaoController.razaoSocialError,
                       ),
                     ),
                   ),
@@ -389,7 +392,7 @@ class _ClientesAlteracaoDetalhesPageState
                       fontSize: Font.title_18,
                     ),
                   ),
-                  GetBuilder<ClientesCadastroController>(builder: (_) {
+                  GetBuilder<ClientesAlteracaoController>(builder: (_) {
                     return PessoafjButton(
                       pessoa: (pessoaFouJ) {
                         pessoaFJController.text = pessoaFouJ;
@@ -409,7 +412,7 @@ class _ClientesAlteracaoDetalhesPageState
                       },
                     );
                   }),
-                  GetBuilder<ClientesCadastroController>(
+                  GetBuilder<ClientesAlteracaoController>(
                     builder: (_) {
                       return Padding(
                         padding: const EdgeInsets.all(Space.spacing_8),
@@ -421,7 +424,7 @@ class _ClientesAlteracaoDetalhesPageState
                             )
                           ],
                           controller: cnpjCpfController,
-                          onChanged: clientesCadastroController.setCnpjCpf,
+                          onChanged: clientesAlteracaoController.setCnpjCpf,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             // labelText: Strings.cnpjCpf,
@@ -429,13 +432,13 @@ class _ClientesAlteracaoDetalhesPageState
                                 (pessoa == 'F') ? Strings.cpf : Strings.cnpj,
 
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.cnpjCpfError,
+                            errorText: clientesAlteracaoController.cnpjCpfError,
                           ),
                         ),
                       );
                     },
                   ),
-                  GetBuilder<ClientesCadastroController>(
+                  GetBuilder<ClientesAlteracaoController>(
                     builder: (_) {
                       return Padding(
                         padding: const EdgeInsets.all(Space.spacing_8),
@@ -448,14 +451,14 @@ class _ClientesAlteracaoDetalhesPageState
                             ),
                           ],
                           controller: ieRgController,
-                          onChanged: clientesCadastroController.setIeRg,
+                          onChanged: clientesAlteracaoController.setIeRg,
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             // labelText: Strings.ieRg,
                             labelText:
                                 (pessoa == 'F') ? Strings.rg : Strings.ie,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.iERGError,
+                            errorText: clientesAlteracaoController.iERGError,
                           ),
                         ),
                       );
@@ -468,16 +471,16 @@ class _ClientesAlteracaoDetalhesPageState
                         UpperCaseTextFormatter(),
                       ],
                       controller: contatoController,
-                      onChanged: clientesCadastroController.setContato,
+                      onChanged: clientesAlteracaoController.setContato,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.contato,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.contatoError,
+                        errorText: clientesAlteracaoController.contatoError,
                       ),
                     ),
                   ),
-                  GetBuilder<ClientesCadastroController>(
+                  GetBuilder<ClientesAlteracaoController>(
                     builder: (_) {
                       return Padding(
                         padding: const EdgeInsets.all(Space.spacing_8),
@@ -487,18 +490,18 @@ class _ClientesAlteracaoDetalhesPageState
                             LowerCaseTextFormatter(),
                           ],
                           controller: emailController,
-                          onChanged: clientesCadastroController.setEmail,
+                          onChanged: clientesAlteracaoController.setEmail,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
                             labelText: Strings.email,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.emailError,
+                            errorText: clientesAlteracaoController.emailError,
                           ),
                         ),
                       );
                     },
                   ),
-                  GetBuilder<ClientesCadastroController>(
+                  GetBuilder<ClientesAlteracaoController>(
                     builder: (_) {
                       return Padding(
                         padding: const EdgeInsets.all(Space.spacing_8),
@@ -510,18 +513,18 @@ class _ClientesAlteracaoDetalhesPageState
                                 reverse: false)
                           ],
                           controller: foneCom1Controller,
-                          onChanged: clientesCadastroController.setFone1,
+                          onChanged: clientesAlteracaoController.setFone1,
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             labelText: Strings.foneCom1,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.fone1Error,
+                            errorText: clientesAlteracaoController.fone1Error,
                           ),
                         ),
                       );
                     },
                   ),
-                  GetBuilder<ClientesCadastroController>(
+                  GetBuilder<ClientesAlteracaoController>(
                     builder: (_) {
                       return Padding(
                         padding: const EdgeInsets.all(Space.spacing_8),
@@ -532,18 +535,18 @@ class _ClientesAlteracaoDetalhesPageState
                                 reverse: false),
                           ],
                           controller: foneCom2Controller,
-                          onChanged: clientesCadastroController.setFone2,
+                          onChanged: clientesAlteracaoController.setFone2,
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             labelText: Strings.foneCom2,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.fone2Error,
+                            errorText: clientesAlteracaoController.fone2Error,
                           ),
                         ),
                       );
                     },
                   ),
-                  GetBuilder<ClientesCadastroController>(
+                  GetBuilder<ClientesAlteracaoController>(
                     builder: (_) {
                       return Padding(
                         padding: const EdgeInsets.all(Space.spacing_8),
@@ -554,18 +557,18 @@ class _ClientesAlteracaoDetalhesPageState
                                 reverse: false),
                           ],
                           controller: foneCelController,
-                          onChanged: clientesCadastroController.setFoneCel,
+                          onChanged: clientesAlteracaoController.setFoneCel,
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             labelText: Strings.foneCel,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.fone2Error,
+                            errorText: clientesAlteracaoController.fone2Error,
                           ),
                         ),
                       );
                     },
                   ),
-                  GetBuilder<ClientesCadastroController>(
+                  GetBuilder<ClientesAlteracaoController>(
                     builder: (_) {
                       return Padding(
                         padding: const EdgeInsets.all(Space.spacing_8),
@@ -576,18 +579,18 @@ class _ClientesAlteracaoDetalhesPageState
                                 reverse: false),
                           ],
                           controller: foneResController,
-                          onChanged: clientesCadastroController.setFoneRes,
+                          onChanged: clientesAlteracaoController.setFoneRes,
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             labelText: Strings.foneRes,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.foneResError,
+                            errorText: clientesAlteracaoController.foneResError,
                           ),
                         ),
                       );
                     },
                   ),
-                  GetBuilder<ClientesCadastroController>(
+                  GetBuilder<ClientesAlteracaoController>(
                     builder: (_) {
                       return Padding(
                         padding: const EdgeInsets.all(Space.spacing_8),
@@ -598,12 +601,12 @@ class _ClientesAlteracaoDetalhesPageState
                                 reverse: false),
                           ],
                           controller: faxController,
-                          onChanged: clientesCadastroController.setFax,
+                          onChanged: clientesAlteracaoController.setFax,
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             labelText: Strings.fax,
                             border: const OutlineInputBorder(),
-                            errorText: clientesCadastroController.faxError,
+                            errorText: clientesAlteracaoController.faxError,
                           ),
                         ),
                       );
@@ -624,14 +627,14 @@ class _ClientesAlteracaoDetalhesPageState
                         Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        GetBuilder<ClientesCadastroController>(
+                        GetBuilder<ClientesAlteracaoController>(
                           builder: (_) {
                             return ClientesUfDropdown(
                               ufRetorno: (uf) {
                                 principalUfController.text = uf;
-                                clientesCadastroController.setpUF(uf);
+                                clientesAlteracaoController.setpUF(uf);
                               },
-                              msgUFError: clientesCadastroController.pUFError,
+                              msgUFError: clientesAlteracaoController.pUFError,
                               ufController: principalUfController,
                             );
                           },
@@ -646,12 +649,12 @@ class _ClientesAlteracaoDetalhesPageState
                         UpperCaseTextFormatter(),
                       ],
                       controller: principalCidadeController,
-                      onChanged: clientesCadastroController.setpCidade,
+                      onChanged: clientesAlteracaoController.setpCidade,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.cidade,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.pCidadeError,
+                        errorText: clientesAlteracaoController.pCidadeError,
                       ),
                     ),
                   ),
@@ -662,12 +665,12 @@ class _ClientesAlteracaoDetalhesPageState
                         UpperCaseTextFormatter(),
                       ],
                       controller: principalEnderecoController,
-                      onChanged: clientesCadastroController.setpEndereco,
+                      onChanged: clientesAlteracaoController.setpEndereco,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.endereco,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.pEnderecoError,
+                        errorText: clientesAlteracaoController.pEnderecoError,
                       ),
                     ),
                   ),
@@ -678,12 +681,13 @@ class _ClientesAlteracaoDetalhesPageState
                         UpperCaseTextFormatter(),
                       ],
                       controller: principalComplementoController,
-                      onChanged: clientesCadastroController.setpComplemento,
+                      onChanged: clientesAlteracaoController.setpComplemento,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.complemento,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.pComplementoError,
+                        errorText:
+                            clientesAlteracaoController.pComplementoError,
                       ),
                     ),
                   ),
@@ -694,12 +698,12 @@ class _ClientesAlteracaoDetalhesPageState
                         UpperCaseTextFormatter(),
                       ],
                       controller: principalBairroController,
-                      onChanged: clientesCadastroController.setpBairro,
+                      onChanged: clientesAlteracaoController.setpBairro,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.bairro,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.pBairroError,
+                        errorText: clientesAlteracaoController.pBairroError,
                       ),
                     ),
                   ),
@@ -713,12 +717,12 @@ class _ClientesAlteracaoDetalhesPageState
                         ),
                       ],
                       controller: principalCepController,
-                      onChanged: clientesCadastroController.setpCEP,
+                      onChanged: clientesAlteracaoController.setpCEP,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           labelText: Strings.cep,
                           border: const OutlineInputBorder(),
-                          errorText: clientesCadastroController.pCEPError),
+                          errorText: clientesAlteracaoController.pCEPError),
                     ),
                   ),
                   const Padding(
@@ -737,29 +741,29 @@ class _ClientesAlteracaoDetalhesPageState
                     //! botao copiarEnderecoPrincipal
                     child: ClientesButton(
                       onPress: () {
-                        clientesCadastroController.copiarEnderecoPrincipal();
+                        clientesAlteracaoController.copiarEnderecoPrincipal();
                         //! PARA NÃO COPIAR O UF PRINCIPAL PARA A ENTREGA P TESTE
-                        clientesCadastroController
+                        clientesAlteracaoController
                             .seteUF(principalUfController.text);
-                        if (clientesCadastroController.cliente.pUF == null) {
+                        if (clientesAlteracaoController.cliente.pUF == null) {
                           // pUFError = 'O ESTADO NÃO PODE SER VAZIO!';
                           return;
                         }
 
                         entregaUfController.text =
-                            clientesCadastroController.cliente.pUF!;
+                            clientesAlteracaoController.cliente.pUF!;
 
                         entregaCidadeController.text =
-                            clientesCadastroController.cliente.pCidade!;
+                            clientesAlteracaoController.cliente.pCidade!;
                         entregaEnderecoController.text =
-                            clientesCadastroController.cliente.pEndereco!;
+                            clientesAlteracaoController.cliente.pEndereco!;
                         entregaComplementoController.text =
-                            clientesCadastroController.cliente.pComplemento ??
+                            clientesAlteracaoController.cliente.pComplemento ??
                                 "";
                         entregaBairroController.text =
-                            clientesCadastroController.cliente.pBairro!;
+                            clientesAlteracaoController.cliente.pBairro!;
                         entregaCepController.text =
-                            clientesCadastroController.cliente.pCEP!;
+                            clientesAlteracaoController.cliente.pCEP!;
                       },
                       titulo: Strings.copiarPrincipal,
                       icone: Icons.copy,
@@ -771,14 +775,14 @@ class _ClientesAlteracaoDetalhesPageState
                       children: [
                         //! Widget para selecionar o Estado(UF ENTREGA)
 
-                        GetBuilder<ClientesCadastroController>(
+                        GetBuilder<ClientesAlteracaoController>(
                           builder: (_) {
                             return ClientesUfDropdown(
                               ufRetorno: (ufEntrega) {
                                 entregaUfController.text = ufEntrega;
-                                clientesCadastroController.seteUF(ufEntrega);
+                                clientesAlteracaoController.seteUF(ufEntrega);
                               },
-                              msgUFError: clientesCadastroController.eUFError,
+                              msgUFError: clientesAlteracaoController.eUFError,
                               ufController: entregaUfController,
                             );
                           },
@@ -793,12 +797,12 @@ class _ClientesAlteracaoDetalhesPageState
                         UpperCaseTextFormatter(),
                       ],
                       controller: entregaCidadeController,
-                      onChanged: clientesCadastroController.seteCidade,
+                      onChanged: clientesAlteracaoController.seteCidade,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.cidade,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.eCidadeError,
+                        errorText: clientesAlteracaoController.eCidadeError,
                       ),
                     ),
                   ),
@@ -809,12 +813,12 @@ class _ClientesAlteracaoDetalhesPageState
                         UpperCaseTextFormatter(),
                       ],
                       controller: entregaEnderecoController,
-                      onChanged: clientesCadastroController.seteEndereco,
+                      onChanged: clientesAlteracaoController.seteEndereco,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         labelText: Strings.endereco,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.eEnderecoError,
+                        errorText: clientesAlteracaoController.eEnderecoError,
                       ),
                     ),
                   ),
@@ -825,12 +829,12 @@ class _ClientesAlteracaoDetalhesPageState
                         UpperCaseTextFormatter(),
                       ],
                       controller: entregaComplementoController,
-                      onChanged: clientesCadastroController.seteComplemento,
+                      onChanged: clientesAlteracaoController.seteComplemento,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.complemento,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.eEnderecoError,
+                        errorText: clientesAlteracaoController.eEnderecoError,
                       ),
                     ),
                   ),
@@ -841,12 +845,12 @@ class _ClientesAlteracaoDetalhesPageState
                         UpperCaseTextFormatter(),
                       ],
                       controller: entregaBairroController,
-                      onChanged: clientesCadastroController.seteBairro,
+                      onChanged: clientesAlteracaoController.seteBairro,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         labelText: Strings.bairro,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.eBairroError,
+                        errorText: clientesAlteracaoController.eBairroError,
                       ),
                     ),
                   ),
@@ -860,12 +864,12 @@ class _ClientesAlteracaoDetalhesPageState
                         ),
                       ],
                       controller: entregaCepController,
-                      onChanged: clientesCadastroController.seteCEP,
+                      onChanged: clientesAlteracaoController.seteCEP,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         labelText: Strings.cep,
                         border: const OutlineInputBorder(),
-                        errorText: clientesCadastroController.eCEPError,
+                        errorText: clientesAlteracaoController.eCEPError,
                       ),
                     ),
                   ),

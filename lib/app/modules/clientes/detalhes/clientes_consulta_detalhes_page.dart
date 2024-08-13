@@ -198,27 +198,27 @@ class _ClientesConsultaDetalhesPageState
           const SizedBox(
             height: Space.spacing_12,
           ),
-          SizedBox(
-            height: Sizes.sizeH_40,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ClientesButton(
-                    onPress: () {
-                      _limpaControllers();
-                      Navigator.of(context).pop();
-                    },
-                    titulo: Strings.cancelar,
-                    icone: Icons.cancel_presentation_outlined),
-                ClientesButton(
-                  onPress: () async {},
-                  titulo: Strings.salvar,
-                  icone: Icons.check_box,
-                  ativo: false,
-                ),
-              ],
-            ),
-          ),
+          // SizedBox(
+          //   height: Sizes.sizeH_40,
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //     children: [
+          // ClientesButton(
+          //     onPress: () {
+          //       _limpaControllers();
+          //       Navigator.of(context).pop();
+          //     },
+          //     titulo: Strings.cancelar,
+          //     icone: Icons.cancel_presentation_outlined),
+          // ClientesButton(
+          //   onPress: () async {},
+          //   titulo: Strings.salvar,
+          //   icone: Icons.check_box,
+          //   ativo: false,
+          // ),
+          //     ],
+          //   ),
+          // ),
           const SizedBox(
             height: Space.spacing_8,
           ),

@@ -273,7 +273,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                               // const SizedBox(width: Space.spacing_5),
                               //TODO BOTÃO DE CONSULTAR OU ALTERAR CLIENTE
                               GeneralIconButton(
-                                onPress: () {
+                                onPress: () async {
                                   if (cliente.clienteIdInt!.isNotEmpty) {
                                     //Consulta de cliente
                                     Navigator.of(context).pushNamed(
@@ -281,9 +281,13 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                         arguments: cliente);
                                   } else {
                                     //Alteração de cliente
-                                    Navigator.of(context).pushNamed(
-                                        '/clientesAlteracaoDetalhesPage',
-                                        arguments: cliente);
+                                    var clienteAlterado =
+                                        await Navigator.of(context).pushNamed(
+                                            '/clientesAlteracaoDetalhesPage',
+                                            arguments: cliente);
+                                    if (clienteAlterado == true) {
+                                      listaDeClientesController.buscarTodos();
+                                    }
                                   }
                                 },
                                 icone: (cliente.clienteIdInt!.isNotEmpty)
