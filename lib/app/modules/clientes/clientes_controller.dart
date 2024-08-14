@@ -156,7 +156,6 @@ class ClientesController extends GetxController {
   }
 
 //---
-//!  Como receber e tratar UF de entrega
 
   void seteUF(String value) {
     cliente.eUF = value;

@@ -88,32 +88,32 @@ class _ClientesConsultaDetalhesPageState
     super.dispose();
   }
 
-  void _limpaControllers() {
-    nomeFantasiaController.clear();
-    razaoSocialController.clear();
-    pessoaFJController.clear();
-    cnpjCpfController.clear();
-    ieRgController.clear();
-    contatoController.clear();
-    emailController.clear();
-    foneCom1Controller.clear();
-    foneCom2Controller.clear();
-    foneCelController.clear();
-    foneResController.clear();
-    faxController.clear();
-    principalUfController.clear();
-    principalCidadeController.clear();
-    principalEnderecoController.clear();
-    principalComplementoController.clear();
-    principalBairroController.clear();
-    principalCepController.clear();
-    entregaUfController.clear();
-    entregaCidadeController.clear();
-    entregaEnderecoController.clear();
-    entregaComplementoController.clear();
-    entregaBairroController.clear();
-    entregaCepController.clear();
-  }
+  // void _limpaControllers() {
+  //   nomeFantasiaController.clear();
+  //   razaoSocialController.clear();
+  //   pessoaFJController.clear();
+  //   cnpjCpfController.clear();
+  //   ieRgController.clear();
+  //   contatoController.clear();
+  //   emailController.clear();
+  //   foneCom1Controller.clear();
+  //   foneCom2Controller.clear();
+  //   foneCelController.clear();
+  //   foneResController.clear();
+  //   faxController.clear();
+  //   principalUfController.clear();
+  //   principalCidadeController.clear();
+  //   principalEnderecoController.clear();
+  //   principalComplementoController.clear();
+  //   principalBairroController.clear();
+  //   principalCepController.clear();
+  //   entregaUfController.clear();
+  //   entregaCidadeController.clear();
+  //   entregaEnderecoController.clear();
+  //   entregaComplementoController.clear();
+  //   entregaBairroController.clear();
+  //   entregaCepController.clear();
+  // }
 
   @override
   Widget build(BuildContext context) {

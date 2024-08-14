@@ -1,7 +1,6 @@
 import 'package:galle/app/modules/clientes/clientes_controller.dart';
 
 class ClientesAlteracaoController extends ClientesController {
-  //! INICIO DO updateCliente()
 
   Future<bool> updateCliente({required bool? isSave}) async {
     if (cliente.cNPJCPF == null || cliente.cNPJCPF == "") {
