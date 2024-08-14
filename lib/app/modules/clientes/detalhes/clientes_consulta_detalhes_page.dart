@@ -123,6 +123,7 @@ class _ClientesConsultaDetalhesPageState
     nomeFantasiaController.text = argument.nomeFantasia!;
     razaoSocialController.text = argument.razaoSocial!;
     pessoaFJController.text = argument.tipoPessoa!;
+    // String tipoPessoa = argument.tipoPessoa!;
     cnpjCpfController.text = argument.cNPJCPF!;
     ieRgController.text = argument.iERG!;
     contatoController.text = argument.contato!;
@@ -214,8 +215,10 @@ class _ClientesConsultaDetalhesPageState
                       controller: cnpjCpfController,
                       readOnly: true,
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(
-                        labelText: Strings.cnpjCpfConsulta,
+                      decoration: InputDecoration(
+                        labelText: (pessoaFJController.text == "F")
+                            ? Strings.cpf
+                            : Strings.cnpj,
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -232,8 +235,10 @@ class _ClientesConsultaDetalhesPageState
                       controller: ieRgController,
                       readOnly: true,
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(
-                        labelText: Strings.ieRgConsulta,
+                      decoration: InputDecoration(
+                        labelText: (pessoaFJController.text == "F")
+                            ? Strings.rg
+                            : Strings.ie,
                         border: OutlineInputBorder(),
                       ),
                     ),
