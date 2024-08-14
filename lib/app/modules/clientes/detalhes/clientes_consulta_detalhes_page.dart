@@ -1,10 +1,8 @@
 import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
-import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/lower_case_text_formatter.dart';
 import '../../../core/colors_app.dart';
 import '../../../core/font.dart';
-import '../../../core/sizes.dart';
 import '../../../core/space.dart';
 import '../../../core/strings.dart';
 import '../../../models/cliente.dart';
@@ -58,36 +56,6 @@ class _ClientesConsultaDetalhesPageState
   void initState() {
     super.initState();
     focusNomeFantasia = FocusNode();
-    // print('====================================');
-    // print(nomeFantasiaController.text);
-    // print('é == null --> ${(widget.cliente == null)}');
-    // print(widget.cliente.toString());
-    // print('====================================');
-
-    // nomeFantasiaController.text = widget.cliente!.nomeFantasia!;
-    // razaoSocialController.text = widget.cliente!.razaoSocial!;
-    // pessoaFJController.text = widget.cliente!.tipoPessoa!;
-    // cnpjCpfController.text = widget.cliente!.cNPJCPF!;
-    // ieRgController.text = widget.cliente!.iERG!;
-    // contatoController.text = widget.cliente!.contato!;
-    // emailController.text = widget.cliente!.email!;
-    // foneCom1Controller.text = widget.cliente!.fone1!;
-    // foneCom2Controller.text = widget.cliente!.fone2!;
-    // foneCelController.text = widget.cliente!.foneCel!;
-    // foneResController.text = widget.cliente!.foneRes!;
-    // faxController.text = widget.cliente!.fax!;
-    // principalUfController.text = widget.cliente!.pUF!;
-    // principalCidadeController.text = widget.cliente!.pCidade!;
-    // principalEnderecoController.text = widget.cliente!.pEndereco!;
-    // principalComplementoController.text = widget.cliente!.pComplemento!;
-    // principalBairroController.text = widget.cliente!.pBairro!;
-    // principalCepController.text = widget.cliente!.pCEP!;
-    // entregaUfController.text = widget.cliente!.eUF!;
-    // entregaCidadeController.text = widget.cliente!.eCidade!;
-    // entregaEnderecoController.text = widget.cliente!.eEndereco!;
-    // entregaComplementoController.text = widget.cliente!.eComplemento!;
-    // entregaBairroController.text = widget.cliente!.eBairro!;
-    // entregaCepController.text = widget.cliente!.eCEP!;
   }
 
   @override
@@ -152,7 +120,6 @@ class _ClientesConsultaDetalhesPageState
     //! pegando o argumento da rota do Navigator
     final argument =
         (ModalRoute.of(context)?.settings.arguments ?? <Cliente>{}) as Cliente;
-    // print(argument);
     nomeFantasiaController.text = argument.nomeFantasia!;
     razaoSocialController.text = argument.razaoSocial!;
     pessoaFJController.text = argument.tipoPessoa!;
@@ -198,30 +165,6 @@ class _ClientesConsultaDetalhesPageState
           const SizedBox(
             height: Space.spacing_12,
           ),
-          // SizedBox(
-          //   height: Sizes.sizeH_40,
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //     children: [
-          // ClientesButton(
-          //     onPress: () {
-          //       _limpaControllers();
-          //       Navigator.of(context).pop();
-          //     },
-          //     titulo: Strings.cancelar,
-          //     icone: Icons.cancel_presentation_outlined),
-          // ClientesButton(
-          //   onPress: () async {},
-          //   titulo: Strings.salvar,
-          //   icone: Icons.check_box,
-          //   ativo: false,
-          // ),
-          //     ],
-          //   ),
-          // ),
-          const SizedBox(
-            height: Space.spacing_8,
-          ),
           Expanded(
             flex: 1,
             child: SingleChildScrollView(
@@ -236,12 +179,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: nomeFantasiaController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setNomeFantasia,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                         labelText: Strings.nomeFantasiaConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.nomeFantasiaError,
                       ),
                     ),
                   ),
@@ -253,36 +194,14 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: razaoSocialController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setRazaoSocial,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                         labelText: Strings.razaoSocialConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.razaoSocialError,
                       ),
                     ),
                   ),
-                  // const Text(
-                  //   Strings.pessoaFJ,
-                  //   style: TextStyle(
-                  //     fontWeight: FontWeight.bold,
-                  //     fontSize: Font.title_18,
-                  //   ),
-                  // ),
 
-                  // //! PESSOA FISICA / JURIDICA
-                  // PessoafjButton(
-                  //   pessoa: (pessoaFouJ) {
-                  //     pessoaFJController.text = pessoaFouJ;
-                  //     if (pessoaFouJ == "F") {
-                  //       mascaraCpfCnpj = '999.999.999-99';
-                  //       mascaraRgIe = '99.999.999-N';
-                  //     } else {
-                  //       mascaraCpfCnpj = '99.999.999/9999-99';
-                  //       mascaraRgIe = '999.999.999.999';
-                  //     }
-                  //   },
-                  // ),
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
@@ -294,12 +213,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: cnpjCpfController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setCnpjCpf,
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText: Strings.cnpjCpfConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.cnpjCpfError,
                       ),
                     ),
                   ),
@@ -308,19 +225,16 @@ class _ClientesConsultaDetalhesPageState
                     child: TextField(
                       inputFormatters: [
                         TextInputMask(
-                          //! VER COMO ACEITAR A LETRA DO RG MAIUSCULA
                           mask: [mascaraRgIe],
                           reverse: false,
                         ),
                       ],
                       controller: ieRgController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setIeRg,
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText: Strings.ieRgConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.iERGError,
                       ),
                     ),
                   ),
@@ -332,12 +246,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: contatoController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setContato,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                         labelText: Strings.contatoConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.contatoError,
                       ),
                     ),
                   ),
@@ -350,12 +262,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: emailController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setEmail,
                       keyboardType: TextInputType.emailAddress,
                       decoration: const InputDecoration(
                         labelText: Strings.emailConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.emailError,
                       ),
                     ),
                   ),
@@ -370,12 +280,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: foneCom1Controller,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setFone1,
                       keyboardType: TextInputType.phone,
                       decoration: const InputDecoration(
                         labelText: Strings.foneCom1Consulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.fone1Error,
                       ),
                     ),
                   ),
@@ -389,12 +297,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: foneCom2Controller,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setFone2,
                       keyboardType: TextInputType.phone,
                       decoration: const InputDecoration(
                         labelText: Strings.foneCom2Consulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.fone2Error,
                       ),
                     ),
                   ),
@@ -408,12 +314,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: foneCelController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setFoneCel,
                       keyboardType: TextInputType.phone,
                       decoration: const InputDecoration(
                         labelText: Strings.foneCelConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.fone2Error,
                       ),
                     ),
                   ),
@@ -427,12 +331,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: foneResController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setFoneRes,
                       keyboardType: TextInputType.phone,
                       decoration: const InputDecoration(
                         labelText: Strings.foneResConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.foneResError,
                       ),
                     ),
                   ),
@@ -446,12 +348,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: faxController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setFax,
                       keyboardType: TextInputType.phone,
                       decoration: const InputDecoration(
                         labelText: Strings.faxConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.faxError,
                       ),
                     ),
                   ),
@@ -463,28 +363,13 @@ class _ClientesConsultaDetalhesPageState
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(Space.spacing_8),
-                    child:
-                        //! Widget para selecionar o Estado(UF principal)
-                        Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        // GetBuilder<ClientesCadastroController>(
-                        //   builder: (_) {
-                        //     return ClientesUfDropdown(
-                        //       ufRetorno: (uf) {
-                        //         principalUfController.text = uf;
-                        //         // clientesCadastroController.setpUF(uf);
-                        //       },
-                        //       msgUFError: clientesCadastroController.pUFError,
-                        //       ufController: principalUfController,
-                        //     );
-                        //   },
-                        // ),
-                      ],
-                    ),
-                  ),
+                  // const Padding(
+                  //   padding: EdgeInsets.all(Space.spacing_8),
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.start,
+                  //     children: [],
+                  //   ),
+                  // ),
                   //! UF Principal
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
@@ -494,12 +379,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: principalUfController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setpCidade,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                         labelText: Strings.estadoConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.pCidadeError,
                       ),
                     ),
                   ),
@@ -511,12 +394,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: principalCidadeController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setpCidade,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                         labelText: Strings.cidadeConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.pCidadeError,
                       ),
                     ),
                   ),
@@ -528,12 +409,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: principalEnderecoController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setpEndereco,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                         labelText: Strings.enderecoConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.pEnderecoError,
                       ),
                     ),
                   ),
@@ -545,12 +424,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: principalComplementoController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setpComplemento,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
                         labelText: Strings.complementoConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.pComplementoError,
                       ),
                     ),
                   ),
@@ -562,12 +439,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: principalBairroController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setpBairro,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
                         labelText: Strings.bairroConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.pBairroError,
                       ),
                     ),
                   ),
@@ -582,12 +457,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: principalCepController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setpCEP,
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText: Strings.cepConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.pCEPError,
                       ),
                     ),
                   ),
@@ -603,37 +476,13 @@ class _ClientesConsultaDetalhesPageState
                       ),
                     ),
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.all(Space.spacing_8),
 
-                  //   //! botao copiarEnderecoPrincipal
-                  //   child: ClientesButton(
-                  //     onPress: () {},
-                  //     titulo: Strings.copiarPrincipal,
-                  //     icone: Icons.copy,
+                  // const Padding(
+                  //   padding: EdgeInsets.all(Space.spacing_8),
+                  //   child: Row(
+                  //     children: [],
                   //   ),
                   // ),
-                  const Padding(
-                    padding: EdgeInsets.all(Space.spacing_8),
-                    child: Row(
-                      children: [
-                        //! Widget para selecionar o Estado(UF ENTREGA)
-
-                        // GetBuilder<ClientesCadastroController>(
-                        //   builder: (_) {
-                        //     return ClientesUfDropdown(
-                        //       ufRetorno: (ufEntrega) {
-                        //         entregaUfController.text = ufEntrega;
-                        //         // clientesCadastroController.seteUF(ufEntrega);
-                        //       },
-                        //       // msgUFError: clientesCadastroController.eUFError,
-                        //       ufController: entregaUfController,
-                        //     );
-                        //   },
-                        // ),
-                      ],
-                    ),
-                  ),
                   Padding(
                     padding: const EdgeInsets.all(Space.spacing_8),
                     child: TextField(
@@ -642,12 +491,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: entregaUfController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.setpCidade,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                         labelText: Strings.estadoConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.pCidadeError,
                       ),
                     ),
                   ),
@@ -659,12 +506,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: entregaCidadeController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.seteCidade,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                         labelText: Strings.cidadeConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.eCidadeError,
                       ),
                     ),
                   ),
@@ -676,12 +521,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: entregaEnderecoController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.seteEndereco,
                       keyboardType: TextInputType.name,
                       decoration: const InputDecoration(
                         labelText: Strings.enderecoConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.eEnderecoError,
                       ),
                     ),
                   ),
@@ -693,12 +536,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: entregaComplementoController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.seteComplemento,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
                         labelText: Strings.complementoConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.eEnderecoError,
                       ),
                     ),
                   ),
@@ -710,12 +551,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: entregaBairroController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.seteBairro,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
                         labelText: Strings.bairroConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.eBairroError,
                       ),
                     ),
                   ),
@@ -730,12 +569,10 @@ class _ClientesConsultaDetalhesPageState
                       ],
                       controller: entregaCepController,
                       readOnly: true,
-                      // onChanged: clientesCadastroController.seteCEP,
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         labelText: Strings.cepConsulta,
                         border: OutlineInputBorder(),
-                        // errorText: clientesCadastroController.eCEPError,
                       ),
                     ),
                   ),

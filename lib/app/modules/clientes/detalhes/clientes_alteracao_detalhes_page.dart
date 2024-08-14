@@ -287,8 +287,7 @@ class _ClientesAlteracaoDetalhesPageState
 
 //! ==============================
                     var isSave = await clientesAlteracaoController
-                        .updateCliente(
-                        isSave: salvo);
+                        .updateCliente(isSave: salvo);
                     if (isSave) {
                       Get.showSnackbar(
                         const GetSnackBar(
