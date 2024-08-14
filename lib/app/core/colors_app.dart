@@ -32,6 +32,8 @@ class ColorsApp {
   // botão terciário
   static const Color iconeForegroundThird = Color.fromARGB(255, 0, 255, 255);
   static const Color iconeDesativado = Colors.grey;
+  static const Color iconeAlerta = Color.fromARGB(255, 173, 15, 4);
+
 
   //BOTAO
 

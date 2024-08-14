@@ -204,14 +204,10 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
             child: GetBuilder<ClientesConsultaController>(
               builder: (_) {
                 return ListView.builder(
-                  // itemCount: listaClientes.length,
                   itemCount: listaDeClientesController.listaDeClientes.length,
                   itemBuilder: (context, index) {
-                    // print(index);
-                    // Cliente cliente = listaClientes[index];
                     Cliente cliente =
                         listaDeClientesController.listaDeClientes[index];
-
                     return ListTile(
                       shape: Border.all(width: 1, style: BorderStyle.none),
                       contentPadding: const EdgeInsets.only(
@@ -270,7 +266,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                           ),
                           Row(
                             children: [
-                              // const SizedBox(width: Space.spacing_5),
                               //TODO BOTÃO DE CONSULTAR OU ALTERAR CLIENTE
                               GeneralIconButton(
                                 onPress: () async {
@@ -326,7 +321,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                                                 .length
                                                             : 30),
                                                 style: const TextStyle(
-                                                    fontSize: 14,
+                                                    fontSize: Font.title_14,
                                                     fontStyle:
                                                         FontStyle.italic),
                                               ),
@@ -336,9 +331,8 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                             children: [
                                               Icon(
                                                 Icons.warning_amber,
-                                                size: 50.0,
-                                                color: Color.fromARGB(
-                                                    255, 173, 15, 4),
+                                                size: Sizes.sizeH_50,
+                                                color: ColorsApp.iconeAlerta,
                                               ),
                                               SizedBox(
                                                 width: Space.spacing_5,
@@ -346,13 +340,13 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                               Text(
                                                 'Confirma exclusão?',
                                                 style: TextStyle(
-                                                    fontSize: 16,
+                                                    fontSize: Font.title_16,
                                                     fontWeight:
                                                         FontWeight.w600),
                                               ),
                                             ],
                                           ),
-                                          elevation: 24.0,
+                                          elevation: Sizes.sizeH_25,
                                           // shadowColor:
                                           //     Color.fromARGB(255, 173, 15, 4),
                                           actions: [
