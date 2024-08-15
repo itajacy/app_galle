@@ -25,13 +25,13 @@ class ClientesButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor:
-          ativo ? Colors.yellow : Color.fromARGB(255, 112, 116, 124),
+          ativo ? Colors.yellow : Colors.white54,
       backgroundColor:
           ativo ? ColorsApp.buttonMenuBackground : ColorsApp.botaoDesativado,
       minimumSize: (minimoSize == null)
           ? const Size(Sizes.sizeW_150, Sizes.sizeH_40)
           : minimoSize,
-      padding: EdgeInsets.all(Space.spacing_2),
+      padding: const EdgeInsets.all(Space.spacing_2),
       shape: RoundedRectangleBorder(
         borderRadius: Borders.borderRadius_10,
       ),
@@ -57,7 +57,7 @@ class ClientesButton extends StatelessWidget {
                       ? ColorsApp.iconeForegroundLSecond
                       : ColorsApp.iconeDesativado,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: Space.spacing_5,
                 ),
                 Text(

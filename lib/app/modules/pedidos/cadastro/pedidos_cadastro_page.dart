@@ -37,7 +37,7 @@ class PedidosCadastroPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: Space.spacing_8),
+            const SizedBox(height: Space.spacing_8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -69,7 +69,7 @@ class PedidosCadastroPage extends StatelessWidget {
               ],
             ),
             Container(
-              margin: EdgeInsets.all(Space.spacing_8),
+              margin: const EdgeInsets.all(Space.spacing_8),
               decoration:
                   BoxDecoration(border: Border.all(width: Sizes.sizeW_1)),
               child: Row(
@@ -109,7 +109,7 @@ class PedidosCadastroPage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: Space.spacing_2,
                   ),
                   SizedBox(
@@ -133,7 +133,7 @@ class PedidosCadastroPage extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: Space.spacing_2,
                   ),
                   SizedBox(
@@ -171,7 +171,7 @@ class PedidosCadastroPage extends StatelessWidget {
                     child: TextField(
                       controller: pedidoClienteController,
                       keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: Strings.cliente,
                         labelStyle: TextStyle(fontSize: Font.title_24),
                         border: OutlineInputBorder(),
@@ -199,7 +199,7 @@ class PedidosCadastroPage extends StatelessWidget {
                     child: TextField(
                       controller: pedidoTabelasController,
                       keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         isDense: true,
                         labelText: Strings.tabelas,
                         labelStyle: TextStyle(fontSize: Font.title_24),
@@ -223,7 +223,7 @@ class PedidosCadastroPage extends StatelessWidget {
                 maxLines: 7,
                 controller: pedidoObsController,
                 keyboardType: TextInputType.multiline,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   isDense: true,
                   labelText: Strings.observacoes,
                   labelStyle: TextStyle(fontSize: Font.title_24),
