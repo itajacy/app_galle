@@ -41,19 +41,34 @@ class PedidosCadastroPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                // botoes
+                GeneralIconButton(
+                  onPress: () {},
+                  icone: Icons.check_box,
+                  iconSize: Sizes.sizeH_30,
+                  buttonWidth: Sizes.sizeW_110,
+                  buttonHeight: Sizes.sizeH_40,
+                  titulo: Strings.salvar,
+                ),
                 GeneralIconButton(
                   onPress: () {},
                   icone: Icons.local_post_office_outlined,
-                  iconSize: Sizes.sizeH_35,
-                  buttonWidth: Sizes.sizeW_110,
+                  iconSize: Sizes.sizeH_30,
+                  buttonWidth: Sizes.sizeW_55,
                   buttonHeight: Sizes.sizeH_40,
+                  // iconSize: Sizes.sizeH_35,
+                  // buttonWidth: Sizes.sizeW_110,
+                  // buttonHeight: Sizes.sizeH_40,
                 ),
                 GeneralIconButton(
                   onPress: () {},
                   icone: Icons.print_outlined,
-                  iconSize: Sizes.sizeH_35,
-                  buttonWidth: Sizes.sizeW_110,
+                  iconSize: Sizes.sizeH_30,
+                  buttonWidth: Sizes.sizeW_55,
                   buttonHeight: Sizes.sizeH_40,
+                  // iconSize: Sizes.sizeH_35,
+                  // buttonWidth: Sizes.sizeW_110,
+                  // buttonHeight: Sizes.sizeH_40,
                 ),
                 GeneralIconButton(
                   onPress: () {
@@ -61,7 +76,7 @@ class PedidosCadastroPage extends StatelessWidget {
                         .pushNamed(Routes.pedidosCadastroItensPage);
                   },
                   icone: Icons.article_outlined,
-                  iconSize: Sizes.sizeH_35,
+                  iconSize: Sizes.sizeH_30,
                   buttonWidth: Sizes.sizeW_110,
                   buttonHeight: Sizes.sizeH_40,
                   titulo: Strings.itensMaiusculo,
