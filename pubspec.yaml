@@ -78,6 +78,8 @@ flutter:
   assets:
     - assets/galle_preto_800.png
     - assets/galle_branco_800.png
+    - assets/android12splash.png
+    - assets/android_logo_960.png
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
