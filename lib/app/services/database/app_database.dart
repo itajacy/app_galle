@@ -1,3 +1,4 @@
+import 'package:galle/app/services/database/dao/pedido_tabela_dao.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -17,6 +18,7 @@ Future<Database> getDatabase() async {
       db.execute(PedidosDao.tabelaPedidos);
       db.execute(DispositivoDao.tabelaDispositivo);
       db.execute(TabelaDao.tabelaTabela);
+      db.execute(PedidoTabelaDao.tabelaPedidoTabela);
     },
     version: 1,
   );
