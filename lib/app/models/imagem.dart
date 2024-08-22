@@ -21,10 +21,14 @@ class Imagem {
     };
   }
 
-  factory Imagem.fromMap(Map<String, dynamic> map) {
+  factory Imagem.fromMap(Map<String, dynamic> mapaImagem) {
     return Imagem(
-      imagemId: map['imagemId'] != null ? map['imagemId'] as String : null,
-      timeStamp: map['timeStamp'] != null ? map['timeStamp'] as int : null,
+      imagemId: mapaImagem['imagemId'] != null
+          ? mapaImagem['imagemId'] as String
+          : null,
+      timeStamp: mapaImagem['timeStamp'] != null
+          ? mapaImagem['timeStamp'] as int
+          : null,
     );
   }
 

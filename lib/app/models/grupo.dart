@@ -24,13 +24,18 @@ class Grupo {
     };
   }
 
-  factory Grupo.fromMap(Map<String, dynamic> map) {
+  factory Grupo.fromMap(Map<String, dynamic> mapaGrupo) {
     return Grupo(
-      grupoId: map['grupoId'] != null ? map['grupoId'] as int : null,
+      grupoId:
+          mapaGrupo['grupoId'] != null ? mapaGrupo['grupoId'] as int : null,
       grupoIdInt:
-          map['grupoIdInt'] != null ? map['grupoIdInt'] as String : null,
-      decricao: map['decricao'] != null ? map['decricao'] as String : null,
-      ativo: map['ativo'] != null ? map['ativo'] as int : null,
+          mapaGrupo['grupoIdInt'] != null
+          ? mapaGrupo['grupoIdInt'] as String
+          : null,
+      decricao: mapaGrupo['decricao'] != null
+          ? mapaGrupo['decricao'] as String
+          : null,
+      ativo: mapaGrupo['ativo'] != null ? mapaGrupo['ativo'] as int : null,
     );
   }
 

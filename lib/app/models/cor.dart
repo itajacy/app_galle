@@ -24,12 +24,14 @@ class Cor {
     };
   }
 
-  factory Cor.fromMap(Map<String, dynamic> map) {
+  factory Cor.fromMap(Map<String, dynamic> mapaCor) {
     return Cor(
-      corId: map['corId'] != null ? map['corId'] as int : null,
-      corIdInt: map['corIdInt'] != null ? map['corIdInt'] as String : null,
-      decricao: map['decricao'] != null ? map['decricao'] as String : null,
-      ativo: map['ativo'] != null ? map['ativo'] as int : null,
+      corId: mapaCor['corId'] != null ? mapaCor['corId'] as int : null,
+      corIdInt:
+          mapaCor['corIdInt'] != null ? mapaCor['corIdInt'] as String : null,
+      decricao:
+          mapaCor['decricao'] != null ? mapaCor['decricao'] as String : null,
+      ativo: mapaCor['ativo'] != null ? mapaCor['ativo'] as int : null,
     );
   }
 
