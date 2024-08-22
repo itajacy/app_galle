@@ -6,6 +6,7 @@ import 'package:path/path.dart';
 import 'dao/clientes_dao.dart';
 import 'dao/cor_dao.dart';
 import 'dao/dispositivo_dao.dart';
+import 'dao/grupo_dao.dart';
 import 'dao/pedidos_dao.dart';
 import 'dao/tabela_dao.dart';
 
@@ -23,6 +24,7 @@ Future<Database> getDatabase() async {
       db.execute(PedidoTabelaDao.tabelaPedidoTabela);
       db.execute(PedidoItemDao.tabelaPedidoItem);
       db.execute(CorDao.tabelaCor);
+      db.execute(GrupoDao.tabelaGrupo);
 
     },
     version: 1,
