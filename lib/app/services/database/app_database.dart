@@ -7,6 +7,7 @@ import 'dao/clientes_dao.dart';
 import 'dao/cor_dao.dart';
 import 'dao/dispositivo_dao.dart';
 import 'dao/grupo_dao.dart';
+import 'dao/imagem_dao.dart';
 import 'dao/pedidos_dao.dart';
 import 'dao/tabela_dao.dart';
 
@@ -25,6 +26,7 @@ Future<Database> getDatabase() async {
       db.execute(PedidoItemDao.tabelaPedidoItem);
       db.execute(CorDao.tabelaCor);
       db.execute(GrupoDao.tabelaGrupo);
+      db.execute(ImagemDao.tabelaImagem);
 
     },
     version: 1,
