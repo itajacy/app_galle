@@ -15,6 +15,7 @@ import 'dao/preco_dao.dart';
 import 'dao/produto_dao.dart';
 import 'dao/seq_dao.dart';
 import 'dao/tabela_dao.dart';
+import 'dao/tamanho_dao.dart';
 
 Future<Database> getDatabase() async {
   final String path = await getDatabasesPath();
@@ -37,6 +38,7 @@ Future<Database> getDatabase() async {
       db.execute(PrecoDao.tabelaPreco);
       db.execute(ProdutoDao.tabelaProduto);
       db.execute(SeqDao.tabelaSeq);
+      db.execute(TamanhoDao.tabelaTamanho);
     },
     version: 1,
   );
