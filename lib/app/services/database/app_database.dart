@@ -12,6 +12,7 @@ import 'dao/linha_dao.dart';
 import 'dao/material_dao.dart';
 import 'dao/pedidos_dao.dart';
 import 'dao/preco_dao.dart';
+import 'dao/produto_dao.dart';
 import 'dao/tabela_dao.dart';
 
 Future<Database> getDatabase() async {
@@ -33,7 +34,7 @@ Future<Database> getDatabase() async {
       db.execute(LinhaDao.tabelaLinha);
       db.execute(MaterialDao.tabelaMaterial);
       db.execute(PrecoDao.tabelaPreco);
-
+      db.execute(ProdutoDao.tabelaProduto);
     },
     version: 1,
   );
