@@ -1,4 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+/*
+21/08/2024
+*/
+
 class Cliente {
   int? clienteId;
   String? dispositivoId;
@@ -129,6 +132,12 @@ class Cliente {
       ativo: mapaCliente['ativo'],
     );
   }
+
+  // String toJson() => json.encode(toMap());
+
+  // factory Cliente.fromJson(String source) =>
+  //     Cliente.fromMap(json.decode(source) as Map<String, dynamic>);
+
 
   @override
   String toString() {
