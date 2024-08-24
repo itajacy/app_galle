@@ -3,6 +3,7 @@ import 'package:galle/app/services/database/dao/pedido_tabela_dao.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
+import 'dao/catalogo_tabela_dao.dart';
 import 'dao/clientes_dao.dart';
 import 'dao/cor_dao.dart';
 import 'dao/dispositivo_dao.dart';
@@ -41,6 +42,7 @@ Future<Database> getDatabase() async {
       db.execute(SeqDao.tabelaSeq);
       db.execute(TamanhoDao.tabelaTamanho);
       db.execute(TipoDao.tabelaTipo);
+      db.execute(CatalogoTabelaDao.tabelaCatalogoTabela);
     },
     version: 1,
   );

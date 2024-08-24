@@ -1,5 +1,5 @@
 /*
-22/02/2024
+22/08/2024
 */
 class PedidoItemDao {
   static const String tabelaPedidoItem = 'CREATE TABLE $_tableName ('
