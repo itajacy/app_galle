@@ -30,7 +30,8 @@ class HomePage extends StatelessWidget {
               children: [
                 Text(
                   Strings.versao,
-                  style: TextStyle(fontSize: Font.subtitle_10),
+                  style: TextStyle(
+                      fontSize: Font.subtitle_10, color: Colors.yellow),
                 ),
               ],
             ),
