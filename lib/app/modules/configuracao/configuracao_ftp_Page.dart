@@ -1,3 +1,8 @@
+//! Para acessar o ftp --> ftpconnect
+//! Para conseguir baixar o arquivo e gravá-lo no dispositivo --> veja permission_handler
+//! Param conseguir descompactar o arquivo no dispositivo --> veja open_file_plus
+//! Encontra locais comumente usados no sistema de arquivos --> path_provider
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -132,6 +137,11 @@ class ConfiguracaoFtpPage extends StatelessWidget {
       var listaDiretorio = await ftpConnect.listDirectoryContent();
       print('Listando diretório');
       print(listaDiretorio);
+      var x = await ftpConnect.downloadFile(
+        fileName,
+        File('arq3.zip'),
+      );
+      print('download do arq3.zip--> $x');
       conectou = await ftpConnect.disconnect();
       print('Desconectou--> $conectou');
     } catch (e) {
