@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:ftpconnect/ftpconnect.dart';
 
 import '../../core/colors_app.dart';
 import '../../core/sizes.dart';
@@ -33,10 +36,10 @@ class ConfiguracaoFtpPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: Space.spacing_12,
             ),
-            Container(
+            SizedBox(
               height: Sizes.sizeH_40,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -53,7 +56,7 @@ class ConfiguracaoFtpPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: Space.spacing_12,
             ),
             Padding(
@@ -61,7 +64,7 @@ class ConfiguracaoFtpPage extends StatelessWidget {
               child: TextField(
                 controller: enderecoSincronizacaoController,
                 keyboardType: TextInputType.text,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: Strings.enderecoSincronizacao,
                   border: OutlineInputBorder(),
                 ),
@@ -72,7 +75,7 @@ class ConfiguracaoFtpPage extends StatelessWidget {
               child: TextField(
                 controller: enderecoImagensController,
                 keyboardType: TextInputType.text,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: Strings.enderecoImagens,
                   border: OutlineInputBorder(),
                 ),
@@ -83,7 +86,7 @@ class ConfiguracaoFtpPage extends StatelessWidget {
               child: TextField(
                 controller: usuarioFTPController,
                 keyboardType: TextInputType.text,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: Strings.usuarioDeFTP,
                   border: OutlineInputBorder(),
                 ),
@@ -95,15 +98,44 @@ class ConfiguracaoFtpPage extends StatelessWidget {
                 controller: senhaFTPController,
                 obscureText: true,
                 keyboardType: TextInputType.text,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: Strings.senhaDeFTP,
                   border: OutlineInputBorder(),
                 ),
               ),
             ),
+            SizedBox(
+              height: 36,
+            ),
+            ClientesButton(
+                onPress: conexaoFTP,
+                titulo: "TESTAR",
+                icone: Icons.assist_walker_outlined),
           ],
         ),
       ),
     );
+  }
+
+  conexaoFTP() async {
+    FTPConnect ftpConnect = FTPConnect(enderecoSincronizacaoController.text,
+        user: usuarioFTPController.text, pass: senhaFTPController.text);
+    // FTPConnect ftpConnect = FTPConnect('191.252.83.183',
+    //     user: 'palm03@galle', pass: 'Jequitiba1602!');
+    try {
+      String fileName = 'arq.zip';
+      print('Procurando arquivo=> $fileName');
+      var conectou = await ftpConnect.connect();
+      print('Conectou--> $conectou');
+      var arqexiste = await ftpConnect.existFile(fileName);
+      print('Arquivo existe?--> $arqexiste');
+      var listaDiretorio = await ftpConnect.listDirectoryContent();
+      print('Listando diretório');
+      print(listaDiretorio);
+      conectou = await ftpConnect.disconnect();
+      print('Desconectou--> $conectou');
+    } catch (e) {
+      print(e);
+    }
   }
 }

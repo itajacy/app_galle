@@ -42,6 +42,7 @@ dependencies:
   get: ^4.6.6
   mask_text_input_formatter: ^2.9.0
   easy_mask: ^2.0.1
+  ftpconnect: ^2.0.7
 
 
 
