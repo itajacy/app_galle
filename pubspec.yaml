@@ -38,11 +38,14 @@ dependencies:
   flutter_native_splash: ^2.3.11
   flutter_launcher_icons: 0.13.1
   sqflite: ^2.3.2
-  path: 
+  path: ^1.9.0
   get: ^4.6.6
   mask_text_input_formatter: ^2.9.0
   easy_mask: ^2.0.1
   ftpconnect: ^2.0.7
+  path_provider: ^2.0.15
+  open_file_plus: ^3.4.1+1
+  
 
 
 

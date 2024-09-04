@@ -13,6 +13,7 @@ import '../../core/sizes.dart';
 import '../../core/space.dart';
 import '../../core/strings.dart';
 import '../clientes/widgets/clientes_button.dart';
+import 'widgets/directory_path.dart';
 
 class ConfiguracaoFtpPage extends StatelessWidget {
   ConfiguracaoFtpPage({super.key});
@@ -109,7 +110,7 @@ class ConfiguracaoFtpPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 36,
             ),
             ClientesButton(
@@ -123,12 +124,16 @@ class ConfiguracaoFtpPage extends StatelessWidget {
   }
 
   conexaoFTP() async {
-    FTPConnect ftpConnect = FTPConnect(enderecoSincronizacaoController.text,
-        user: usuarioFTPController.text, pass: senhaFTPController.text);
-    // FTPConnect ftpConnect = FTPConnect('191.252.83.183',
-    //     user: 'palm03@galle', pass: 'Jequitiba1602!');
+    // FTPConnect ftpConnect = FTPConnect(enderecoSincronizacaoController.text,
+    //     user: usuarioFTPController.text, pass: senhaFTPController.text);
+    FTPConnect ftpConnect = FTPConnect('191.252.83.183',
+        user: 'palm03@galle', pass: 'Jequitiba1602!');
     try {
       String fileName = 'arq.zip';
+      var getPathFile = DirectoryPath();
+      var storePath = await getPathFile.getPath();
+      late String filePath;
+      filePath = '$storePath/$fileName';
       print('Procurando arquivo=> $fileName');
       var conectou = await ftpConnect.connect();
       print('Conectou--> $conectou');
@@ -139,13 +144,40 @@ class ConfiguracaoFtpPage extends StatelessWidget {
       print(listaDiretorio);
       var x = await ftpConnect.downloadFile(
         fileName,
-        File('arq3.zip'),
+        File(filePath),
       );
-      print('download do arq3.zip--> $x');
+      print('download do arq.zip--> $x');
       conectou = await ftpConnect.disconnect();
       print('Desconectou--> $conectou');
     } catch (e) {
       print(e);
     }
   }
+
+  // conexaoFTP() async {
+  //   // FTPConnect ftpConnect = FTPConnect(enderecoSincronizacaoController.text,
+  //   //     user: usuarioFTPController.text, pass: senhaFTPController.text);
+  //   FTPConnect ftpConnect = FTPConnect('191.252.83.183',
+  //       user: 'palm03@galle', pass: 'Jequitiba1602!');
+  //   try {
+  //     String fileName = 'arq.zip';
+  //     print('Procurando arquivo=> $fileName');
+  //     var conectou = await ftpConnect.connect();
+  //     print('Conectou--> $conectou');
+  //     var arqexiste = await ftpConnect.existFile(fileName);
+  //     print('Arquivo existe?--> $arqexiste');
+  //     var listaDiretorio = await ftpConnect.listDirectoryContent();
+  //     print('Listando diretório');
+  //     print(listaDiretorio);
+  //     var x = await ftpConnect.downloadFile(
+  //       fileName,
+  //       File('arq.zip'),
+  //     );
+  //     print('download do arq.zip--> $x');
+  //     conectou = await ftpConnect.disconnect();
+  //     print('Desconectou--> $conectou');
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 }
