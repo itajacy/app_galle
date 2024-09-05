@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter_archive/flutter_archive.dart';
 import 'package:path_provider/path_provider.dart';
 
 class DirectoryPath {
@@ -14,6 +15,34 @@ class DirectoryPath {
     } else {
       await filePath.create(recursive: true);
       return filePath.path;
+    }
+  }
+
+  extractZip() async {
+    final path = await getPath();
+    final zipFile = File("$path/arq.zip");
+    print('zipFile--> ${zipFile.path}');
+    final destinationDir = await getDownloadsDirectory();
+    try {
+      // ZipFile.extractToDirectory(
+      //     zipFile: zipFile, destinationDir: destinationDir!);
+      await ZipFile.extractToDirectory(
+          zipFile: zipFile,
+          destinationDir: destinationDir!,
+          onExtracting: (zipEntry, progress) {
+            print('progress: ${progress.toStringAsFixed(1)}%');
+            print('name: ${zipEntry.name}');
+            print('isDirectory: ${zipEntry.isDirectory}');
+            // print(
+            //     'modificationDate: ${zipEntry.modificationDate.toLocal().toIso8601String()}');
+            print('uncompressedSize: ${zipEntry.uncompressedSize}');
+            print('compressedSize: ${zipEntry.compressedSize}');
+            print('compressionMethod: ${zipEntry.compressionMethod}');
+            print('crc: ${zipEntry.crc}');
+            return ZipFileOperation.includeItem;
+          });
+    } catch (e) {
+      print(e);
     }
   }
 }
