@@ -24,25 +24,26 @@ class DirectoryPath {
     print('zipFile--> ${zipFile.path}');
     final destinationDir = await getDownloadsDirectory();
     try {
-      // ZipFile.extractToDirectory(
-      //     zipFile: zipFile, destinationDir: destinationDir!);
       await ZipFile.extractToDirectory(
-          zipFile: zipFile,
-          destinationDir: destinationDir!,
-          onExtracting: (zipEntry, progress) {
-            print('progress: ${progress.toStringAsFixed(1)}%');
-            print('name: ${zipEntry.name}');
-            print('isDirectory: ${zipEntry.isDirectory}');
-            // print(
-            //     'modificationDate: ${zipEntry.modificationDate.toLocal().toIso8601String()}');
-            print('uncompressedSize: ${zipEntry.uncompressedSize}');
-            print('compressedSize: ${zipEntry.compressedSize}');
-            print('compressionMethod: ${zipEntry.compressionMethod}');
-            print('crc: ${zipEntry.crc}');
-            return ZipFileOperation.includeItem;
-          });
-    } catch (e) {
-      print(e);
+          zipFile: zipFile, destinationDir: destinationDir!);
+      // await ZipFile.extractToDirectory(
+      //     zipFile: zipFile,
+      //     destinationDir: destinationDir!,
+      //     onExtracting: (zipEntry, progress) {
+      //       print('progress: ${progress.toStringAsFixed(1)}%');
+      //       print('name: ${zipEntry.name}');
+      //       print('isDirectory: ${zipEntry.isDirectory}');
+      //       // print(
+      //       //     'modificationDate: ${zipEntry.modificationDate.toLocal().toIso8601String()}');
+      //       print('uncompressedSize: ${zipEntry.uncompressedSize}');
+      //       print('compressedSize: ${zipEntry.compressedSize}');
+      //       print('compressionMethod: ${zipEntry.compressionMethod}');
+      //       print('crc: ${zipEntry.crc}');
+      //       return ZipFileOperation.includeItem;
+      //     });
+    } catch (e, s) {
+      print('error--> $e');
+      print('stacktrace --> $s');
     }
   }
 }
