@@ -142,14 +142,14 @@ class ConfiguracaoFtpPage extends StatelessWidget {
       var listaDiretorio = await ftpConnect.listDirectoryContent();
       print('Listando diretório');
       print(listaDiretorio);
-      var x = await ftpConnect.downloadFile(
-        fileName,
-        File(filePath), 
-      );
+      // var x = await ftpConnect.downloadFile(
+      //   fileName,
+      //   File(filePath),
+      // );
+      // print('download do arq.zip--> $x');
       var unzipOk = await getPathFile.extractZip();
       print('unzip --> $unzipOk');
 
-      print('download do arq.zip--> $x');
       conectou = await ftpConnect.disconnect();
       print('Desconectou--> $conectou');
     } catch (e) {
