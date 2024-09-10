@@ -129,6 +129,7 @@ class ConfiguracaoFtpPage extends StatelessWidget {
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
     try {
+      // String fileName = 'arq.zip';
       String fileName = 'arq.zip';
       var getPathFile = DirectoryPath();
       var storePath = await getPathFile.getPath();
@@ -147,28 +148,38 @@ class ConfiguracaoFtpPage extends StatelessWidget {
 
       print(listaDiretorio);
       print("INICIO DO DOWNLOAD");
+
+
+//-
+
+//-
+      var arquivo = File(filePath);
       var x = await ftpConnect.downloadFileWithRetry(
         fileName,
-        File(filePath),
+        arquivo,
         pRetryCount: 2,
-        onProgress: (progressInPercent, totalReceived, fileSize) {},
+        onProgress: (progressInPercent, totalReceived, arqtamanho) {},
       );
+      print('download--> $x');
       print("FIM DO DOWNLOAD");
 
       // var x = await ftpConnect.downloadFile(
       //   fileName,
       //   File(filePath),
       // );
-      print('download do arq.zip--> $x');
-      // var unzipOk = await getPathFile.extractZip();
+      // print('download do arq.zip--> $x');
+      //! extrai o conteúdo do arq.zip
+      //! var unzipOk = await getPathFile.extractZip();
       // print('unzip --> $unzipOk');
 
       // conectou = await ftpConnect.disconnect();
-      print('Desconectou--> $conectou');
+      // print('Desconectou--> $conectou');
     } catch (e) {
       print(e);
     }
   }
+
+ 
 
   progressoDownload(
       double progressInPercent, int totalReceived, int fileSize) {}
