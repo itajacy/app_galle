@@ -139,23 +139,39 @@ class ConfiguracaoFtpPage extends StatelessWidget {
       print('Conectou--> $conectou');
       var arqexiste = await ftpConnect.existFile(fileName);
       print('Arquivo existe?--> $arqexiste');
+      var arqTamanho = await ftpConnect.sizeFile(fileName);
+      print('Arquivo Tamanho?--> $arqTamanho');
+
       var listaDiretorio = await ftpConnect.listDirectoryContent();
       print('Listando diretório');
+
       print(listaDiretorio);
+      print("INICIO DO DOWNLOAD");
+      var x = await ftpConnect.downloadFileWithRetry(
+        fileName,
+        File(filePath),
+        pRetryCount: 2,
+        onProgress: (progressInPercent, totalReceived, fileSize) {},
+      );
+      print("FIM DO DOWNLOAD");
+
       // var x = await ftpConnect.downloadFile(
       //   fileName,
       //   File(filePath),
       // );
-      // print('download do arq.zip--> $x');
-      var unzipOk = await getPathFile.extractZip();
-      print('unzip --> $unzipOk');
+      print('download do arq.zip--> $x');
+      // var unzipOk = await getPathFile.extractZip();
+      // print('unzip --> $unzipOk');
 
-      conectou = await ftpConnect.disconnect();
+      // conectou = await ftpConnect.disconnect();
       print('Desconectou--> $conectou');
     } catch (e) {
       print(e);
     }
   }
+
+  progressoDownload(
+      double progressInPercent, int totalReceived, int fileSize) {}
 
   // conexaoFTP() async {
   //   // FTPConnect ftpConnect = FTPConnect(enderecoSincronizacaoController.text,
