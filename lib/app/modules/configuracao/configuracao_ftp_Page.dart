@@ -126,7 +126,7 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
               titulo: "TESTAR",
               icone: Icons.assist_walker_outlined,
             ),
-            SizedBox(height: Space.spacing_12),
+            const SizedBox(height: Space.spacing_12),
             Padding(
               padding: const EdgeInsets.all(Space.spacing_24),
               child: LinearProgressIndicator(
@@ -194,6 +194,12 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
 
       // Desconectando do servidor
       await ftpConnect.disconnect();
+
+      //! extrai o conteúdo do arq.zip  commitado POR ENQTO
+      //!  até resolver o caso do arq.zip corrompido
+
+      // var unzipOk = await getPathFile.extractZip();
+      // print('extractZip --> $unzipOk');
     } catch (e) {
       print('Erro durante o download: $e');
     }
