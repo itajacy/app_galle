@@ -34,7 +34,6 @@ class ColorsApp {
   static const Color iconeDesativado = Colors.grey;
   static const Color iconeAlerta = Color.fromARGB(255, 173, 15, 4);
 
-
   //BOTAO
 
   static const Color botaoDesativado = Color.fromARGB(255, 112, 116, 124);
@@ -59,5 +58,9 @@ class ColorsApp {
 224,225,221   = Cinza Creme
 
 Color.fromARGB(255, 10, 109, 155), = Azul Navy
+Color.fromARGB(255, 13,27,42), = Azul Marinho
+Color.fromARGB(255, 65,90,119), = cinza azulado
+
+
 
  */
