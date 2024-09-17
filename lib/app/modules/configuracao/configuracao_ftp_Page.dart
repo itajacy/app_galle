@@ -150,7 +150,7 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
   conexaoFTP() async {
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
-    String fileName = 'arq.zip';
+    String fileName = 'Produto.xml';
     var getPathFile = DirectoryPath();
     var storePath = await getPathFile.getPath();
     String filePath = '$storePath/$fileName';

@@ -32,13 +32,14 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () {},
+                ativo: false,
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
-                titulo: 'Atualizar Clientes',
+                titulo: 'Atualizar TODOS',
               ),
-              Column(
+              const Column(
                 children: [
                   Text("Última Atualização"),
                   Text("15/03/2024 17:15"),
@@ -55,9 +56,29 @@ class SincronizacaoPage extends StatelessWidget {
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar Clientes',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("15/03/2024 17:15"),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () {},
+                ativo: false,
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Produtos',
               ),
-              Column(
+              const Column(
                 children: [
                   Text("Última Atualização"),
                   Text("10/03/2024 08:07"),
@@ -70,13 +91,14 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () {},
+                ativo: false,
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Fotos',
               ),
-              Column(
+              const Column(
                 children: [
                   Text("Última Atualização"),
                   Text("13/03/2024 10:25"),
@@ -89,13 +111,14 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () {},
+                ativo: false,
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Enviar Pedidos',
               ),
-              Column(
+              const Column(
                 children: [
                   Text("Último Envio"),
                   Text("15/09/2023 17:15"),
@@ -108,13 +131,14 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () {},
+                ativo: false,
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Envio por e-mail',
               ),
-              Column(
+              const Column(
                 children: [
                   Text("Último Envio"),
                   Text("01/01/2000 00:00"),

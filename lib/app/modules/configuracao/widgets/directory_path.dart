@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:archive/archive_io.dart';
-import 'package:flutter_archive/flutter_archive.dart';
+// import 'package:flutter_archive/flutter_archive.dart';
 import 'package:path_provider/path_provider.dart';
 
 class DirectoryPath {
@@ -28,7 +28,7 @@ class DirectoryPath {
     print('path--> $path');
     // final zipFile = File("$path/arq.zip");
     // print('zipFile--> ${zipFile.path}');
-    final destinationDir = await getDownloadsDirectory();
+    // final destinationDir = await getDownloadsDirectory();
     try {
       // await ZipFile.extractToDirectory(
       //     zipFile: zipFile, destinationDir: destinationDir!);
