@@ -110,6 +110,20 @@ class SincronizacaoPage extends StatelessWidget {
                   // Mostra o JSON resultante
                   // print(json); // BADGER
 
+//!===-=-=-=-=-
+                  print('segunda parte');
+                  final xmlString =
+                      "<person><name>John</name><age>30</age></person>";
+                  final xml2json2 = Xml2Json();
+                  xml2json.parse(xmlString);
+                  final jsonString2 = xml2json.toParker();
+
+                  print('jsonString2 --> $jsonString2');
+
+                  final jsonObject2 = json.decode(jsonString2);
+
+                  print('jsonObject--> $jsonObject2');
+
                   //! =========== FIM TESTE DO XML2JSON
                 },
                 icone: Icons.sync_outlined,
