@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
@@ -8,6 +10,7 @@ import 'package:xml2json/xml2json.dart';
 import '../../core/colors_app.dart';
 import '../../core/strings.dart';
 import '../../models/cliente.dart';
+import '../configuracao/widgets/directory_path.dart';
 
 class SincronizacaoPage extends StatelessWidget {
   const SincronizacaoPage({super.key});
@@ -55,76 +58,45 @@ class SincronizacaoPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GeneralIconButton(
-                onPress: () {
+                onPress: () async {
                   //! =========== INICIO TESTE DO XML2JSON
 
-// Seu XML como uma string
-                  String xml = '''
-<DataSet>
-  <Row>
-    <ClienteID_Int>0094-00</ClienteID_Int>
-    <DispositivoID>0</DispositivoID>
-    <ClienteID_Mob>8819</ClienteID_Mob>
-    <TipoPessoa>J</TipoPessoa>
-    <CGCCPF>07.237.672/0001-64</CGCCPF>
-    <IERG>282121420113</IERG>
-    <RazaoSocial>CRISTIANE MARIA BABBONI - ME.</RazaoSocial>
-    <NomeFantasia>CRISTIANE MARIA BABBONI - ME.</NomeFantasia>
-    <Contato>CRISTIANE</Contato>
-    <FoneCom1>012-3144 4266</FoneCom1>
-    <FoneCom2/>
-    <FoneCel/>
-    <FoneRes/>
-    <FoneFax/>
-    <Email>babboni@itelefonica.com.br</Email>
-    <S_Endereco>R.CAPITAO NECO, 178</S_Endereco>
-    <S_Complemento/>
-    <S_Bairro>CENTRO</S_Bairro>
-    <S_Cidade>CRUZEIRO</S_Cidade>
-    <S_UF>SP</S_UF>
-    <S_CEP>12.701-350</S_CEP>
-    <E_Endereco>R.CAPITAO NECO, 178</E_Endereco>
-    <E_Complemento/>
-    <E_Bairro>CENTRO</E_Bairro>
-    <E_Cidade>CRUZEIRO</E_Cidade>
-    <E_UF>SP</E_UF>
-    <E_CEP>12.701-350</E_CEP>
-  </Row>
-</DataSet>
-''';
+                  String fileName = 'Cliente.xml';
+                  var getPathFile = DirectoryPath();
+                  var storePath = await getPathFile.getPath();
+                  String filePath = '$storePath/$fileName';
+
+                  var arquivo = File(filePath);
+
+                  // Lendo arquivo e convertendo em bytes
+                  Uint8List xml = await arquivo.readAsBytes();
+                  // convertendo bytes para String
+                  String s = String.fromCharCodes(xml);
+
+                  print('xml--> $xml');
 
                   // Criação de uma instância do converter XML para JSON
                   Xml2Json xml2json = Xml2Json();
                   print('-------------');
                   print('xml2json--1> ${xml2json.toString()} ');
-                  xml2json.parse(xml);
+                  xml2json.parse(s);
                   print('-------------');
 
                   // Converte para JSON
                   final jsonString = xml2json.toParkerWithAttrs();
-                  print('jsonString --> $jsonString');
+                  // print('jsonString --> $jsonString');
                   // final jsonObject = json.decode(jsonString);
 
-                  // String json = xml2json.toBadgerfish();   // BADGER
-
-                  // Mostra o JSON resultante
-                  // print(json); // BADGER
-
-//!===-=-=-=-=-
-                  print('segunda parte');
-                  final xmlString =
-                      "<person><name>John</name><age>30</age></person>";
-                  final xml2json2 = Xml2Json();
-                  xml2json.parse(xmlString);
-                  final jsonString2 = xml2json.toParker();
-
-                  print('jsonString2 --> $jsonString2');
-
-                  final jsonObject2 = json.decode(jsonString2);
-
-                  print('jsonObject--> $jsonObject2');
-
                   //! =========== FIM TESTE DO XML2JSON
+
+                  Map mapCLientes = jsonDecode(jsonString);
+
+                  print(mapCLientes['DataSet']['Row']);
+
+                  // List clientesLIst = mapClientes['DataSet']['Row'];
+
+                  
+
                 },
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
