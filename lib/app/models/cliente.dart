@@ -2,6 +2,8 @@
 21/08/2024
 */
 
+import 'dart:convert';
+
 class Cliente {
   int? clienteId;
   String? dispositivoId;
@@ -133,10 +135,10 @@ class Cliente {
     );
   }
 
-  // String toJson() => json.encode(toMap());
+  String toJson() => json.encode(toMap());
 
-  // factory Cliente.fromJson(String source) =>
-  //     Cliente.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Cliente.fromJson(String source) =>
+      Cliente.fromMap(json.decode(source) as Map<String, dynamic>);
 
 
   @override

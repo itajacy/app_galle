@@ -1,0 +1,33 @@
+{
+    "DataSet": {
+        "Row": {
+            "ClienteID_Int": "0094-00",
+            "DispositivoID": "0",
+            "ClienteID_Mob": "8819",
+            "TipoPessoa": "J",
+            "CGCCPF": "07.237.672/0001-64",
+            "IERG": "282121420113",
+            "RazaoSocial": "CRISTIANE MARIA BABBONI - ME.",
+            "NomeFantasia": "CRISTIANE MARIA BABBONI - ME.",
+            "Contato": "CRISTIANE",
+            "FoneCom1": "012-3144 4266",
+            "FoneCom2": "",
+            "FoneCel": "",
+            "FoneRes": "",
+            "FoneFax": "",
+            "Email": "babboni@itelefonica.com.br",
+            "S_Endereco": "R.CAPITAO NECO, 178",
+            "S_Complemento": "",
+            "S_Bairro": "CENTRO",
+            "S_Cidade": "CRUZEIRO",
+            "S_UF": "SP",
+            "S_CEP": "12.701-350",
+            "E_Endereco": "R.CAPITAO NECO, 178",
+            "E_Complemento": "",
+            "E_Bairro": "CENTRO",
+            "E_Cidade": "CRUZEIRO",
+            "E_UF": "SP",
+            "E_CEP": "12.701-350"
+        }
+    }
+}
