@@ -27,13 +27,15 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
   final senhaFTPController = TextEditingController();
 
   double _downloadProgress = 0.0; // Variável para armazenar o progresso
+  bool? conectado;
+  String mensagem = '';
 
   @override
   Widget build(BuildContext context) {
     enderecoSincronizacaoController.text = '191.252.83.183';
     enderecoImagensController.text = 'app.galle.com.br/images/grandes';
-    usuarioFTPController.text = 'palm03@galle';
-    senhaFTPController.text = 'Jequitiba1602!';
+    usuarioFTPController.text = 'palm02@galle';
+    senhaFTPController.text = 'Jequitiba0202!';
 
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
@@ -121,36 +123,134 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
             // Barra de progresso linear
 
             ClientesButton(
-              onPress: () =>
-                  conexaoFTP(), // Chama a função para conectar ao FTP e iniciar o download
-              titulo: "TESTAR",
-              icone: Icons.assist_walker_outlined,
+              onPress: () => testeConexaoFTP(
+                  enderecoSincronizacaoController.text,
+                  usuarioFTPController.text,
+                  senhaFTPController
+                      .text), // Chama a função para conectar ao FTP e iniciar o download
+              titulo: "Testar Conexão",
+              icone: Icons.wifi,
             ),
-            const SizedBox(height: Space.spacing_12),
-            Padding(
-              padding: const EdgeInsets.all(Space.spacing_24),
-              child: LinearProgressIndicator(
-                backgroundColor: const Color.fromARGB(255, 114, 153, 165),
-                color: const Color.fromARGB(255, 22, 66, 114),
-                value: _downloadProgress, // Mostra o progresso do download
-                minHeight: 20,
-              ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              '${(_downloadProgress * 100).toStringAsFixed(2)}%',
-              style: const TextStyle(fontSize: 24),
-            ), // Progresso em texto
+            const SizedBox(height: Space.spacing_24),
+            conectado == null
+                ? Icon(
+                    Icons.check,
+                    color: Color.fromRGBO(224, 225, 221, 1),
+                    size: 100.0,
+                  )
+                : Icon(
+                    conectado! ? Icons.check : Icons.do_disturb,
+                    color: conectado! ? Colors.green : Colors.red,
+                    size: 100.0,
+                  ),
+            const SizedBox(height: Space.spacing_24),
+            Text(mensagem),
+
+            // Padding(
+            //   padding: const EdgeInsets.all(Space.spacing_24),
+            //   child: LinearProgressIndicator(
+            //     backgroundColor: const Color.fromARGB(255, 114, 153, 165),
+            //     color: const Color.fromARGB(255, 22, 66, 114),
+            //     value: _downloadProgress, // Mostra o progresso do download
+            //     minHeight: 20,
+            //   ),
+            // ),
+            // const SizedBox(height: 20),
+            // // Progresso em texto
+            // Text(
+            //   '${(_downloadProgress * 100).toStringAsFixed(0)}%',
+            //   style: const TextStyle(fontSize: 24),
+            // ),
           ],
         ),
       ),
     );
   }
 
+  // testeConexaoFTP(String endereco, String usuario, String senha) async {
+  //   FTPConnect ftpConnect = FTPConnect(endereco, user: usuario, pass: senha);
+  //   bool conectou = await ftpConnect.connect();
+  //   print('Conectou ==> $conectou');
+  //   ftpConnect.disconnect();
+  //   print('Desconectado');
+  // }
+
+  testeConexaoFTP(String endereco, String usuario, String senha) async {
+    FTPConnect ftpConnect = FTPConnect(endereco, user: usuario, pass: senha);
+    String fileName = 'arq.zip';
+    var getPathFile = DirectoryPath();
+    var storePath = await getPathFile.getPath();
+    String filePath = '$storePath/$fileName';
+
+    var arquivo = File(filePath);
+    print('arquivo--> $arquivo');
+    try {
+      // Conectando ao servidor
+      conectado = await ftpConnect.connect();
+
+      // Obtendo o tamanho do arquivo remoto
+      // int fileSize = await ftpConnect.sizeFile(fileName);
+      // print('Tamanho do arquivo no FTP: $fileSize bytes');
+
+      // Garantindo que o arquivo esteja vazio antes do download
+      // if (arquivo.existsSync()) {
+      //   print('apagando arquivo--> $arquivo');
+      //   print("arq.zip existe..> ${arquivo.existsSync()}");
+      //   arquivo.deleteSync();
+      //   print("arq.zip existe..> ${arquivo.existsSync()}");
+      //   print('arquivo apagado!!!');
+      // }
+      // arquivo.createSync();
+
+      // Baixando o arquivo diretamente para o armazenamento
+      // await ftpConnect.downloadFileWithRetry(
+      //   fileName,
+      //   arquivo,
+      //   pRetryCount: 2,
+      //   onProgress: (progressInPercent, totalReceived, fileSize) {
+      //     // Atualizando o progresso do download
+      //     setState(() {
+      //       _downloadProgress = progressInPercent / 100;
+      //       conectado;
+      //     });
+      //     print('Progresso: ${progressInPercent.toStringAsFixed(2)}%');
+      //     print('Total recebido: $totalReceived de $fileSize bytes');
+      //   },
+      // );
+
+      // print('Download concluído com sucesso!');
+
+      // Verificando o tamanho do arquivo baixado
+      // int localFileSize = arquivo.lengthSync();
+      // print('Tamanho do arquivo baixado: $localFileSize bytes');
+
+      // if (localFileSize != fileSize) {
+      //   print('Erro: O arquivo baixado tem um tamanho diferente do original.');
+      // }
+
+      setState(() {
+        conectado;
+        mensagem = 'CONEXÃO OK';
+      });
+
+      // Desconectando do servidor
+      await ftpConnect.disconnect();
+    } catch (e) {
+      //! FTPConnectException: Wrong Username/password (Response: 530 User or password not found)
+      conectado = false;
+      mensagem = 'FALHA NA CONEXÃO:  ${e.toString()}';
+      setState(() {
+        conectado;
+        mensagem;
+      });
+      print('Erro durante o download: $e');
+    }
+  }
+
   conexaoFTP() async {
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
-    String fileName = 'Produto.xml';
+    String fileName = 'arq.zip';
     var getPathFile = DirectoryPath();
     var storePath = await getPathFile.getPath();
     String filePath = '$storePath/$fileName';
