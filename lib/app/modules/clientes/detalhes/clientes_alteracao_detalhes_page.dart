@@ -1,6 +1,6 @@
+//* alterado em 24/09/24
 import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
-import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_controller.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
 import 'package:galle/app/modules/clientes/widgets/lower_case_text_formatter.dart';
@@ -101,7 +101,6 @@ class _ClientesAlteracaoDetalhesPageState
 
   @override
   void dispose() {
-//todo
     nomeFantasiaController.dispose();
     razaoSocialController.dispose();
     pessoaFJController.dispose();
@@ -194,7 +193,6 @@ class _ClientesAlteracaoDetalhesPageState
     entregaBairroController.text = argument.eBairro!;
     entregaCepController.text = argument.eCEP!;
 
-//!===========================================================
 
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
@@ -285,7 +283,6 @@ class _ClientesAlteracaoDetalhesPageState
                     clientesAlteracaoController.cliente.eCEP =
                         entregaCepController.text;
 
-//! ==============================
                     var isSave = await clientesAlteracaoController
                         .updateCliente(isSave: salvo);
                     if (isSave) {
@@ -302,13 +299,11 @@ class _ClientesAlteracaoDetalhesPageState
                               fontSize: Font.title_20,
                             ),
                           ),
-                          // title: 'CLIENTE SALVO COM SUCESSO!',
                           message: 'Deus te abençoe, e que você venda muito',
                           duration: Duration(seconds: 3),
                         ),
                       );
 
-                      // Future.delayed(const Duration(seconds: 4));
                       _limpaControllers();
                       // focusNomeFantasia.requestFocus();
                       // Navigator.pushNamed(context, '/clientesConsultaPage');
@@ -334,7 +329,6 @@ class _ClientesAlteracaoDetalhesPageState
                         ),
                       );
                     }
-//! ==============================
                   },
                   titulo: Strings.salvar,
                   icone: Icons.check_box,

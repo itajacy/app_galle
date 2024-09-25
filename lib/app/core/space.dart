@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 class Space {
   static const double spacing_0 = 0;
   static const double spacing_2 = 2;

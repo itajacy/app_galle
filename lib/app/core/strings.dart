@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 class Strings {
   // HOME PAGE
   static const clientes = 'CLIENTES';
@@ -7,7 +8,7 @@ class Strings {
   static const sincronizacao = 'SINCRONIZAÇÃO';
   static const configuracao = 'CONFIGURAÇÃO';
   static const empresa = "Galle";
-  static const versao = "versão. 0.16.0";
+  static const versao = "versão. 0.17.0";
 
   // DIVERSOS
   static const novo = 'NOVO';

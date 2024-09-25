@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
@@ -9,7 +10,6 @@ import 'package:xml2json/xml2json.dart';
 
 import '../../core/colors_app.dart';
 import '../../core/strings.dart';
-import '../../models/cliente.dart';
 import '../configuracao/widgets/directory_path.dart';
 
 class SincronizacaoPage extends StatelessWidget {

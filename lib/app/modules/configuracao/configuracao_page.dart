@@ -51,7 +51,7 @@ class ConfiguracaoPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: Space.spacing_30,
           ),
           Row(

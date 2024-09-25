@@ -1,3 +1,5 @@
+//* alterado em 24/09/24
+
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
@@ -39,7 +41,7 @@ class CatalogoPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: Space.spacing_8,
           ),
           Row(
@@ -54,7 +56,7 @@ class CatalogoPage extends StatelessWidget {
                   child: TextField(
                     controller: codigoDoProdutoController,
                     keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: Strings.produto,
                       labelStyle: TextStyle(fontSize: Font.title_20),
                       border: OutlineInputBorder(),
@@ -89,7 +91,7 @@ class CatalogoPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: Space.spacing_8,
           ),
           Expanded(
@@ -114,7 +116,7 @@ class CatalogoPage extends StatelessWidget {
                           padding: const EdgeInsets.only(left: Space.spacing_2),
                           child: Text(
                             codigoDoProduto,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: ColorsApp.textForeground,
                             ),
                           ),
@@ -128,13 +130,13 @@ class CatalogoPage extends StatelessWidget {
                             children: [
                               Text(
                                 precoUnitario,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: Font.title_12,
                                 ),
                               ),
                               Text(
                                 precoPorGrama,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: Font.title_12,
                                 ),
                               ),
@@ -155,7 +157,7 @@ class CatalogoPage extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: NetworkImage(
                                   'http://app.galle.com.br/images/grandes/01-002.jpg'),
@@ -171,7 +173,7 @@ class CatalogoPage extends StatelessWidget {
                           padding: const EdgeInsets.all(Space.spacing_2),
                           child: Text(
                             descricaoDoProduto,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: Font.title_8,
                               color: ColorsApp.textForeground,
                             ),

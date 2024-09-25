@@ -1,8 +1,11 @@
+//* alterado em 24/09/24
+
 class PedidoTabela {
   int? pedidoTabelaId;
   int? pedidoId;
   int? tabelaId;
   double? fator;
+
   PedidoTabela({
     this.pedidoTabelaId,
     this.pedidoId,
@@ -21,17 +24,19 @@ class PedidoTabela {
 
   factory PedidoTabela.fromMap(Map<String, dynamic> mapapedidoTabela) {
     return PedidoTabela(
-      pedidoTabelaId: mapapedidoTabela['pedidoTabelaId'] as int,
-      pedidoId: mapapedidoTabela['pedidoId'] as int,
-      tabelaId: mapapedidoTabela['tabelaId'] as int,
-      fator: mapapedidoTabela['fator'] as double,
 
-      // tableName: mapapedidoTabela['tableName'] != null ? mapapedidoTabela['tableName'] as int : null,
-      // pedidoTabelaId:
-      //     mapapedidoTabela['pedidoTabelaId'] != null ? mapapedidoTabela['pedidoTabelaId'] as int : null,
-      // pedidoId: mapapedidoTabela['pedidoId'] != null ? mapapedidoTabela['pedidoId'] as int : null,
-      // tabelaId: mapapedidoTabela['tabelaId'] != null ? mapapedidoTabela['tabelaId'] as int : null,
-      // fator: mapapedidoTabela['fator'] != null ? mapapedidoTabela['fator'] as double : null,
+      pedidoTabelaId: mapapedidoTabela['pedidoTabelaId'] != null
+          ? mapapedidoTabela['pedidoTabelaId'] as int
+          : null,
+      pedidoId: mapapedidoTabela['pedidoId'] != null
+          ? mapapedidoTabela['pedidoId'] as int
+          : null,
+      tabelaId: mapapedidoTabela['tabelaId'] != null
+          ? mapapedidoTabela['tabelaId'] as int
+          : null,
+      fator: mapapedidoTabela['fator'] != null
+          ? mapapedidoTabela['fator'] as double
+          : null,
     );
   }
 

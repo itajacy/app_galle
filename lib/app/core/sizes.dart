@@ -1,4 +1,7 @@
+//* alterado em 24/09/24
 class Sizes {
+
+  // width
   static const double sizeW_1 = 1;
   static const double sizeW_30 = 30;
   static const double sizeW_40 = 40;
@@ -22,6 +25,7 @@ class Sizes {
   static const double sizeW_400 = 400;
   static const double sizeW_600 = 600;
 
+  // height
   static const double sizeH_15 = 15;
   static const double sizeH_25 = 25;
   static const double sizeH_30 = 30;

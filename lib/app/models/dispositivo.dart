@@ -1,6 +1,4 @@
-/* 
-Data: 20/08/2024
-*/
+//* criado em Data: 20/08/2024
 class Dispositivo {
   int? dispositivoId;
   String? address;
@@ -28,17 +26,21 @@ class Dispositivo {
 
   factory Dispositivo.fromMap(Map<String, dynamic> mapaDispositivo) {
     return Dispositivo(
-      dispositivoId: mapaDispositivo['dispositivoId'] as int,
-      address: mapaDispositivo['address'],
-      urlImagens: mapaDispositivo['urlImagens'],
-      representanteIdInt: mapaDispositivo['representanteIdInt'],
-      email: mapaDispositivo['email'],
-
-      // dispositivoId: mapaDispositivo['dispositivoId'] != null ? mapaDispositivo['dispositivoId'] as int : null,
-      // address: mapaDispositivo['address'] != null ? mapaDispositivo['address'] as String : null,
-      // urlImagens: mapaDispositivo['urlImagens'] != null ? mapaDispositivo['urlImagens'] as String : null,
-      // representanteIdInt: mapaDispositivo['representanteIdInt'] != null ? mapaDispositivo['representanteIdInt'] as String : null,
-      // email: mapaDispositivo['email'] != null ? mapaDispositivo['email'] as String : null,
+      dispositivoId: mapaDispositivo['dispositivoId'] != null
+          ? mapaDispositivo['dispositivoId'] as int
+          : null,
+      address: mapaDispositivo['address'] != null
+          ? mapaDispositivo['address'] as String
+          : null,
+      urlImagens: mapaDispositivo['urlImagens'] != null
+          ? mapaDispositivo['urlImagens'] as String
+          : null,
+      representanteIdInt: mapaDispositivo['representanteIdInt'] != null
+          ? mapaDispositivo['representanteIdInt'] as String
+          : null,
+      email: mapaDispositivo['email'] != null
+          ? mapaDispositivo['email'] as String
+          : null,
     );
   }
 

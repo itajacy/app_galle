@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/colors_app.dart';
 import 'package:galle/app/core/navigation/routes.dart';
@@ -98,18 +99,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                     ),
                   ),
                 ),
-                //!  NAO PRECISA MAIS DO BOTAO DE CONSULTA DE CLIENTE
-                // GeneralIconButton(
-                //   onPress: () {
-                //     //!   =========================pesquisa de clientes
-                //     // late String cliente = clienteController.text;
-                //     // clientesConsultaController.buscarCliente(cliente);
-                //   },
-                //   icone: Icons.search_outlined,
-                //   iconSize: Sizes.sizeH_35,
-                //   buttonWidth: Sizes.sizeW_64,
-                //   buttonHeight: Sizes.sizeH_55,
-                // ),
+                
                 GeneralIconButton(
                   onPress: () {
                     Navigator.of(context)
@@ -124,81 +114,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
             ),
           ),
 
-          // FutureBuilder<List<Cliente>>(
-          //   // initialData: const [],
-          //   future: listaDeClientesController.listaDeClientes,
-          //   builder: (context, snapshot) {
-          //     switch (snapshot.connectionState) {
-          //       case ConnectionState.none:
-          //         print("CASO ##### 1");
-          //         break;
-          //       case ConnectionState.waiting:
-          //         print("CASO ESPERANDO/CARREGANDO ##### 2");
-          //         return const Center(
-          //           child: Column(
-          //             mainAxisAlignment: MainAxisAlignment.center,
-          //             crossAxisAlignment: CrossAxisAlignment.center,
-          //             children: [
-          //               CircularProgressIndicator(),
-          //               Text("Carregando..."),
-          //             ],
-          //           ),
-          //         );
-          //       case ConnectionState.active:
-          //         print("CASO ##### 3");
-          //         return const Center(
-          //           child: Text("Carregamento ativo..."),
-          //         );
-          //       case ConnectionState.done:
-          //         print("CASO FEITO ##### 4");
-          //         // print("snapshot.data ... ${snapshot.data}");
-          //         if (snapshot.data == null) {
-          //           print("LISTA DE CLIENTES VAZIA");
-          //           return const Center(
-          //             child: Text(
-          //               "Não há clientes cadastrados.",
-          //               style: TextStyle(
-          //                 fontSize: Font.title_20,
-          //                 fontWeight: FontWeight.bold,
-          //                 fontStyle: FontStyle.italic,
-          //                 color: ColorsApp.appBarBackground,
-          //               ),
-          //             ),
-          //           );
-          //         }
-          //         if (snapshot.hasError) {
-          //           print("CASO ##### 5 - ESTÁ  PARANDO AQUIAQUI");
-          //           return Center(
-          //             child: Text("Erro: ${snapshot.error}"),
-          //           );
-          //         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          //           print("CASO ##### 6");
-          //           return const Center(
-          //             child: Text(
-          //               "Nenhum cliente encontrado.",
-          //               style: TextStyle(
-          //                 fontSize: Font.title_24,
-          //                 fontWeight: FontWeight.bold,
-          //                 fontStyle: FontStyle.italic,
-          //                 color: ColorsApp.appBarBackground,
-          //               ),
-          //             ),
-          //           );
-          //         } else {
-          //           print("CASO ##### 7");
-          //           final listaClientes = snapshot.data ?? <Cliente>[];
-          //           print(
-          //               "ENTRANDO NO LISTVIEW BUILDER ########################");
-          //           print(
-          //               "Qtde de clientes no ListView Builder--> ${listaClientes.length}");
-          //           if (listaClientes.isEmpty) {
-          //             return const Center(
-          //               child: Text("Não há Clientes cadastrados"),
-          //             );
-          //           }
-          //           print(
-          //               "Tamanho de listaClientes.length.. ${listaClientes.length}");
-          //           return
 
           Expanded(
             child: GetBuilder<ClientesConsultaController>(
@@ -266,7 +181,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                           ),
                           Row(
                             children: [
-                              //TODO BOTÃO DE CONSULTAR OU ALTERAR CLIENTE
                               GeneralIconButton(
                                 onPress: () async {
                                   if (cliente.clienteIdInt!.isNotEmpty) {
@@ -353,12 +267,10 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                             //botoes sim e nao
                                             ClientesButton(
                                               onPress: () {
-                                                //TODO  EXCLUIR SIM
                                                 clientesConsultaController
                                                     .deleteCliente(
                                                         cliente.clienteId!);
                                                 _limpaControllers();
-                                                //!=================
                                                 Get.showSnackbar(
                                                   const GetSnackBar(
                                                     backgroundColor: ColorsApp
@@ -382,7 +294,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                                         Duration(seconds: 3),
                                                   ),
                                                 );
-                                                //!=================
                                                 Navigator.of(context).pop();
                                               },
                                               titulo: "SIM",
@@ -425,12 +336,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                 );
               },
             ),
-          ), //EXPANDED
-          //         }
-          //     }
-          //     return const SizedBox.shrink();
-          //   },
-          // ),//FUTUREBUILDER
+          ), 
         ],
       ),
     );

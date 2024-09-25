@@ -1,3 +1,5 @@
+//* alterado em 24/09/24
+
 import 'package:galle/app/services/database/dao/clientes_dao.dart';
 import 'package:get/get.dart';
 
@@ -155,7 +157,6 @@ class ClientesController extends GetxController {
     update();
   }
 
-//---
 
   void seteUF(String value) {
     cliente.eUF = value;

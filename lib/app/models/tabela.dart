@@ -1,5 +1,5 @@
 
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+//* alterado em 24/09/24
 class Tabela {
   int? tabelaId;
   String? tabelaIdInt;
@@ -23,16 +23,15 @@ class Tabela {
 
   factory Tabela.fromMap(Map<String, dynamic> mapaTabela) {
     return Tabela(
-      tabelaId: mapaTabela['tabelaId'] as int,
-      tabelaIdInt: mapaTabela['tabelaIdInt'],
-      descricao: mapaTabela['descricao'],
-      ativo: mapaTabela['ativo'],
-
-      // tabelaId: mapaTabela['tabelaId'] != null ? mapaTabela['tabelaId'] as int : null,
-      // tabelaIdInt:
-      //     mapaTabela['tabelaIdInt'] != null ? mapaTabela['tabelaIdInt'] as String : null,
-      // descricao: mapaTabela['descricao'] != null ? mapaTabela['descricao'] as String : null,
-      // ativo: mapaTabela['ativo'] != null ? mapaTabela['ativo'] as String : null,
+      tabelaId:
+          mapaTabela['tabelaId'] != null ? mapaTabela['tabelaId'] as int : null,
+      tabelaIdInt: mapaTabela['tabelaIdInt'] != null
+          ? mapaTabela['tabelaIdInt'] as String
+          : null,
+      descricao: mapaTabela['descricao'] != null
+          ? mapaTabela['descricao'] as String
+          : null,
+      ativo: mapaTabela['ativo'] != null ? mapaTabela['ativo'] as String : null,
     );
   }
 

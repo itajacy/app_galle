@@ -1,3 +1,5 @@
+//* alterado em 24/09/24
+
 import 'package:flutter/material.dart';
 
 import '../core/borders.dart';
@@ -23,8 +25,8 @@ class GalleButton extends StatelessWidget {
       foregroundColor: Colors.yellow,
       // Colors.grey.shade700
       backgroundColor: ColorsApp.buttonMenuBackground,
-      minimumSize: Size(Sizes.sizeW_150, Sizes.sizeH_70),
-      padding: EdgeInsets.all(Space.spacing_2),
+      minimumSize: const Size(Sizes.sizeW_150, Sizes.sizeH_70),
+      padding: const EdgeInsets.all(Space.spacing_2),
       shape: RoundedRectangleBorder(
         borderRadius: Borders.borderRadius_10,
       ),
@@ -41,10 +43,10 @@ class GalleButton extends StatelessWidget {
             icone,
             color: ColorsApp.iconeForegroundMain,
           ),
-          SizedBox(height: Space.spacing_5),
+          const SizedBox(height: Space.spacing_5),
           Text(
             titulo,
-            style: TextStyle(
+            style: const TextStyle(
               color: ColorsApp.textForeground,
               fontSize: Font.title_16,
               fontWeight: FontWeight.bold,

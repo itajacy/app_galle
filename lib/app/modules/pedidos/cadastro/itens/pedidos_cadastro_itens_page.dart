@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/core/space.dart';
@@ -59,12 +60,12 @@ class PedidosCadastroItensPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
+                const Text(
                   Strings.total,
                   style: TextStyle(
                       fontSize: Font.title_24, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(width: Space.spacing_15),
+                const SizedBox(width: Space.spacing_15),
                 SizedBox(
                   width: Sizes.sizeW_170,
                   child: TextField(
@@ -72,7 +73,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                     keyboardType: TextInputType.number,
                   ),
                 ),
-                SizedBox(width: Space.spacing_15),
+                const SizedBox(width: Space.spacing_15),
                 GeneralIconButton(
                   onPress: () {},
                   icone: Icons.article_outlined,
@@ -82,7 +83,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: Space.spacing_10,
             ),
             Row(
@@ -95,7 +96,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                       child: TextField(
                         controller: codigoDoProdutoController,
                         keyboardType: TextInputType.text,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: Strings.produto,
                           labelStyle: TextStyle(fontSize: Font.title_20),
                           border: OutlineInputBorder(),
@@ -103,7 +104,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: Space.spacing_12,
                     ),
                     GeneralIconButton(
@@ -120,7 +121,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                   child: TextField(
                     controller: quantidadeDoProdutoController,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: Strings.qtde,
                       labelStyle: TextStyle(fontSize: Font.title_20),
                       border: OutlineInputBorder(),
@@ -130,17 +131,17 @@ class PedidosCadastroItensPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: Space.spacing_10),
+            const SizedBox(height: Space.spacing_10),
             Row(
               children: [
-                ItensUmDropdown(),
-                SizedBox(width: Space.spacing_10),
+                const ItensUmDropdown(),
+                const SizedBox(width: Space.spacing_10),
                 Expanded(
                   flex: 1,
                   child: TextField(
                     controller: observacaoDoProdutoController,
                     keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: Strings.observacaoProduto,
                       labelStyle: TextStyle(fontSize: Font.title_20),
                       border: OutlineInputBorder(),
@@ -150,12 +151,12 @@ class PedidosCadastroItensPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: Space.spacing_8),
+            const SizedBox(height: Space.spacing_8),
             Row(
               children: [
-                Expanded(
+                const Expanded(
                   flex: 4,
-                  child: const Column(
+                  child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -199,7 +200,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: Space.spacing_8),
+            const SizedBox(height: Space.spacing_8),
             //!! abaixo o espaço para a lista de itens cadastrados
             Expanded(
               flex: 1,
@@ -224,14 +225,15 @@ class PedidosCadastroItensPage extends StatelessWidget {
                                 children: [
                                   Text(
                                     lista[index],
-                                    style: TextStyle(fontSize: Font.title_16),
+                                    style: const TextStyle(
+                                        fontSize: Font.title_16),
                                   ),
                                   Container(
                                     width:
                                         MediaQuery.of(context).size.width > 450
                                             ? Sizes.sizeW_400
                                             : Sizes.sizeW_200,
-                                    child: Text(
+                                    child: const Text(
                                       "Pingente Cruz chapado com furo vazado com bordas arredondadas e chapa de 2mm",
                                       style: TextStyle(fontSize: Font.title_16),
                                       overflow: TextOverflow.ellipsis,
@@ -239,7 +241,7 @@ class PedidosCadastroItensPage extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              Row(
+                              const Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [

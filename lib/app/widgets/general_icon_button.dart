@@ -1,3 +1,4 @@
+// alterado em 24/09/24
 import 'package:flutter/material.dart';
 
 import '../core/borders.dart';
@@ -31,7 +32,7 @@ class GeneralIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       foregroundColor:
-          ativo ? Colors.yellow : Color.fromARGB(255, 112, 116, 124),
+          ativo ? Colors.yellow : const Color.fromARGB(255, 112, 116, 124),
       backgroundColor:
           ativo ? ColorsApp.buttonMenuBackground : ColorsApp.botaoDesativado,
       minimumSize:
@@ -60,11 +61,9 @@ class GeneralIconButton extends StatelessWidget {
                   color: ativo
                       ? ColorsApp.iconeForegroundLSecond
                       : ColorsApp.iconeDesativado,
-                  // iconeForegroundColor ?? ColorsApp.iconeForegroundLSecond,
                   size: iconSize,
                 ),
                 Text(
-                  // titulo!.isNotEmpty ? " $titulo" : "",
                   titulo ?? "",
                   style: const TextStyle(
                     color: Colors.white,
@@ -81,14 +80,3 @@ class GeneralIconButton extends StatelessWidget {
   }
 }
 
-
-
-/*  icones dos botoes
-Icons.people_alt,
-Icons.feed_rounded,
-Icons.monetization_on_rounded,
-Icons.photo_camera_outlined,
-Icons.cached,
-Icons.tune_rounded,
-
-*/

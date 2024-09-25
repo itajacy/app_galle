@@ -1,6 +1,5 @@
-/*
-24/08/2024
-*/
+//* criado em 24/08/2024
+
 
 class CatalogoItem {
   int? catalogoItemId;

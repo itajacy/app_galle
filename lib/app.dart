@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/catalogo/catalogo_page.dart';
 import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_page.dart';
@@ -5,9 +6,9 @@ import 'package:galle/app/modules/clientes/consulta/clientes_consulta_page.dart'
 import 'package:galle/app/modules/clientes/clientes_page.dart';
 import 'package:galle/app/modules/clientes/detalhes/clientes_consulta_detalhes_page.dart';
 import 'package:galle/app/modules/configuracao/configuracao_amazon_page.dart';
-import 'package:galle/app/modules/configuracao/configuracao_ftp_Page.dart';
+import 'package:galle/app/modules/configuracao/configuracao_ftp_page.dart';
 import 'package:galle/app/modules/configuracao/configuracao_page.dart';
-import 'package:galle/app/modules/configuracao/configuracao_tela_Page.dart';
+import 'package:galle/app/modules/configuracao/configuracao_tela_page.dart';
 import 'package:galle/app/modules/homepage/home_page.dart';
 import 'package:galle/app/modules/pedidos/cadastro/pedidos_cadastro_page.dart';
 import 'package:galle/app/modules/pedidos/cadastro/itens/pedidos_cadastro_itens_page.dart';
@@ -34,25 +35,26 @@ class App extends StatelessWidget {
       home: LoginPage(),
       routes: {
         Routes.loginPage: (context) => LoginPage(),
-        Routes.homePage: (context) => HomePage(),
-        Routes.clientesPage: (context) => ClientesPage(),
-        Routes.pedidosPage: (context) => PedidosPage(),
+        Routes.homePage: (context) => const HomePage(),
+        Routes.clientesPage: (context) => const ClientesPage(),
+        Routes.pedidosPage: (context) => const PedidosPage(),
         Routes.catalogoPage: (context) => CatalogoPage(),
-        Routes.sincronizacaoPage: (context) => SincronizacaoPage(),
-        Routes.configuracaoPage: (context) => ConfiguracaoPage(),
-        Routes.clientesCadastroPage: (context) => ClientesCadastroPage(),
+        Routes.sincronizacaoPage: (context) => const SincronizacaoPage(),
+        Routes.configuracaoPage: (context) => const ConfiguracaoPage(),
+        Routes.clientesCadastroPage: (context) => const ClientesCadastroPage(),
         Routes.clientesConsultaPage: (context) => ClientesConsultaPage(),
         Routes.pedidosCadastroPage: (context) => PedidosCadastroPage(),
-        Routes.pedidosConsultaPage: (context) => PedidosConsultaPage(),
+        Routes.pedidosConsultaPage: (context) => const PedidosConsultaPage(),
         Routes.pedidosCadastroItensPage: (context) =>
             PedidosCadastroItensPage(),
         Routes.configuracaoFtpPage: (context) => ConfiguracaoFtpPage(),
-        Routes.configuracaoAmazonPage: (context) => ConfiguracaoAmazonPage(),
-        Routes.configuracaoTelaPage: (context) => ConfiguracaoTelaPage(),
+        Routes.configuracaoAmazonPage: (context) =>
+            const ConfiguracaoAmazonPage(),
+        Routes.configuracaoTelaPage: (context) => const ConfiguracaoTelaPage(),
         Routes.clientesConsultaDetalhesPage: (context) =>
             ClientesConsultaDetalhesPage(),
         Routes.clientesAlteracaoDetalhesPage: (context) =>
-            ClientesAlteracaoDetalhesPage(),
+            const ClientesAlteracaoDetalhesPage(),
       },
     );
   }

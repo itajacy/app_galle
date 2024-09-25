@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/font.dart';
 import 'package:galle/app/core/space.dart';
@@ -15,7 +16,7 @@ class PedidosStatusButton extends StatefulWidget {
 }
 
 class _PedidosStatusButtonState extends State<PedidosStatusButton> {
-  PedidoStatus? _PedidoStatus = PedidoStatus.aberto;
+  PedidoStatus? _pedidoStatus = PedidoStatus.aberto;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class _PedidosStatusButtonState extends State<PedidosStatusButton> {
             width: Sizes.sizeW_200,
             child: ListTile(
               dense: true,
-              contentPadding: EdgeInsets.all(Space.spacing_0),
+              contentPadding: const EdgeInsets.all(Space.spacing_0),
               title: Text(
                 Strings.aberto,
                 style: TextStyle(
@@ -42,10 +43,10 @@ class _PedidosStatusButtonState extends State<PedidosStatusButton> {
               ),
               leading: Radio<PedidoStatus>(
                 value: PedidoStatus.aberto,
-                groupValue: _PedidoStatus,
+                groupValue: _pedidoStatus,
                 onChanged: (PedidoStatus? value) {
                   setState(() {
-                    _PedidoStatus = value;
+                    _pedidoStatus = value;
                   });
                 },
               ),
@@ -71,10 +72,10 @@ class _PedidosStatusButtonState extends State<PedidosStatusButton> {
               ),
               leading: Radio<PedidoStatus>(
                 value: PedidoStatus.fechado,
-                groupValue: _PedidoStatus,
+                groupValue: _pedidoStatus,
                 onChanged: (PedidoStatus? value) {
                   setState(() {
-                    _PedidoStatus = value;
+                    _pedidoStatus = value;
                   });
                 },
               ),
@@ -100,10 +101,10 @@ class _PedidosStatusButtonState extends State<PedidosStatusButton> {
               ),
               leading: Radio<PedidoStatus>(
                 value: PedidoStatus.transmitido,
-                groupValue: _PedidoStatus,
+                groupValue: _pedidoStatus,
                 onChanged: (PedidoStatus? value) {
                   setState(() {
-                    _PedidoStatus = value;
+                    _pedidoStatus = value;
                   });
                 },
               ),

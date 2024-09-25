@@ -1,6 +1,4 @@
-/*
-24/08/2024
-*/
+//* criado em 24/08/2024
 
 class CatalogoItemDao {
   static const String tabelaCatalogoItem = 'CREATE TABLE $_tableName ('

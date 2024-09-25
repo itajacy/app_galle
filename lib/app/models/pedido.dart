@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 class Pedido {
   int? pedidoId;
   int? clienteId;
@@ -31,21 +32,27 @@ class Pedido {
 
   factory Pedido.fromMap(Map<String, dynamic> mapaPedido) {
     return Pedido(
-      pedidoId: mapaPedido['pedidoId'] as int,
-      clienteId: mapaPedido['clienteId'] as int,
-      status: mapaPedido['status'],
-      dataInclusao: mapaPedido['dataInclusao'],
-      dataAlteracao: mapaPedido['dataAlteracao'],
-      dataTransmissao: mapaPedido['dataTransmissao'],
-      observacao: mapaPedido['observacao'],
+      
 
-      // pedidoId: mapaPedido['pedidoId'] != null ? mapaPedido['pedidoId'] as int : null,
-      // clienteId: mapaPedido['clienteId'] != null ? mapaPedido['clienteId'] as int : null,
-      // status: mapaPedido['status'] != null ? mapaPedido['status'] as String : null,
-      // dataInclusao: mapaPedido['dataInclusao'] != null ? mapaPedido['dataInclusao'] as String : null,
-      // dataAlteracao: mapaPedido['dataAlteracao'] != null ? mapaPedido['dataAlteracao'] as String : null,
-      // dataTransmissao: mapaPedido['dataTransmissao'] != null ? mapaPedido['dataTransmissao'] as String : null,
-      // observacao: mapaPedido['observacao'] != null ? mapaPedido['observacao'] as String : null,
+      pedidoId:
+          mapaPedido['pedidoId'] != null ? mapaPedido['pedidoId'] as int : null,
+      clienteId: mapaPedido['clienteId'] != null
+          ? mapaPedido['clienteId'] as int
+          : null,
+      status:
+          mapaPedido['status'] != null ? mapaPedido['status'] as String : null,
+      dataInclusao: mapaPedido['dataInclusao'] != null
+          ? mapaPedido['dataInclusao'] as String
+          : null,
+      dataAlteracao: mapaPedido['dataAlteracao'] != null
+          ? mapaPedido['dataAlteracao'] as String
+          : null,
+      dataTransmissao: mapaPedido['dataTransmissao'] != null
+          ? mapaPedido['dataTransmissao'] as String
+          : null,
+      observacao: mapaPedido['observacao'] != null
+          ? mapaPedido['observacao'] as String
+          : null,
     );
   }
 

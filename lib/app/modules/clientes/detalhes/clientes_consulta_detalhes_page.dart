@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
 import 'package:galle/app/modules/clientes/widgets/lower_case_text_formatter.dart';
@@ -51,7 +52,6 @@ class _ClientesConsultaDetalhesPageState
   String mascaraCpfCnpj = '999.999.999-99';
   String mascaraRgIe = '99.999.999-N';
 
-//!===============================================
   @override
   void initState() {
     super.initState();
@@ -219,7 +219,7 @@ class _ClientesConsultaDetalhesPageState
                         labelText: (pessoaFJController.text == "F")
                             ? Strings.cpf
                             : Strings.cnpj,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                       ),
                     ),
                   ),
@@ -239,7 +239,7 @@ class _ClientesConsultaDetalhesPageState
                         labelText: (pessoaFJController.text == "F")
                             ? Strings.rg
                             : Strings.ie,
-                        border: OutlineInputBorder(),
+                        border: const OutlineInputBorder(),
                       ),
                     ),
                   ),

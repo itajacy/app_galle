@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 import 'dart:io';
 
 import 'package:archive/archive_io.dart';
@@ -62,6 +63,9 @@ class DirectoryPath {
       print('stacktrace --> $s');
     }
   }
+
+
+
   // extractZip() async {
   //   final path = await getPath();
   //   final zipFile = File("$path/arq.zip");

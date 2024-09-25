@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 import 'package:galle/app/services/database/dao/clientes_dao.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +14,6 @@ class ClientesConsultaController extends GetxController {
     return listaDeClientes;
   }
 
-//! =============
   Future<List<Cliente>> buscarCliente(String cliente) async {
     listaDeClientes = await clientesDao.findClientes(cliente);
     update();

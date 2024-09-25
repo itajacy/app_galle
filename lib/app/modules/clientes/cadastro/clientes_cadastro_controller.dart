@@ -1,13 +1,10 @@
+//* Alterado em 24/09/2024
+
 import 'package:galle/app/modules/clientes/clientes_controller.dart';
 
 
 class ClientesCadastroController extends ClientesController {
  
-  //! O método save(), precisa retornar algo indicando que salvou com sucesso, ou não
-  //! para que o retorno possa ser tratado e ser exibida a mensagem de SUCESSO ou ERRO
-  //! na tela de cadastro usando o SNACKBAR
-
-//! ## INICIO DO save()
   Future<bool> save({required bool? isSave}) async {
     if (cliente.cNPJCPF == null || cliente.cNPJCPF == "") {
       cnpjCpfError = 'O CNP/CPF NÃO PODE SER VAZIO!';
@@ -50,15 +47,7 @@ class ClientesCadastroController extends ClientesController {
       }
     }
     int resposta = await clientesDao.salvar(cliente);
-
-    print('reposta do clientesDao.salvar(cliente)..: ' + resposta.toString());
-
     update();
     return resposta > 0 ? true : false;
   }
-//! ## FIM DO save()
-
-
-
-
 }

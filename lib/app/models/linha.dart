@@ -1,6 +1,4 @@
-/*
-22/08/2024
-*/
+//* criado em 22/08/2024
 
 class Linha {
   int? linhaId;

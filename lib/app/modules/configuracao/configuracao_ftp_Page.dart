@@ -1,3 +1,5 @@
+//* alterado em 24/09/24
+
 // //! Para acessar o ftp --> ftpconnect
 // //! Para conseguir baixar o arquivo e gravá-lo no dispositivo --> veja permission_handler
 // //! Param conseguir gravar o arquivo no dispositivo --> veja open_file_plus
@@ -7,6 +9,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:ftpconnect/ftpconnect.dart';
 import '../../core/colors_app.dart';
+import '../../core/font.dart';
 import '../../core/sizes.dart';
 import '../../core/space.dart';
 import '../../core/strings.dart';
@@ -133,7 +136,7 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
             ),
             const SizedBox(height: Space.spacing_24),
             conectado == null
-                ? Icon(
+                ? const Icon(
                     Icons.check,
                     color: Color.fromRGBO(224, 225, 221, 1),
                     size: 100.0,
@@ -144,7 +147,14 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
                     size: 100.0,
                   ),
             const SizedBox(height: Space.spacing_24),
-            Text(mensagem),
+            Text(
+              mensagem,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: Font.title_18,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
 
             // Padding(
             //   padding: const EdgeInsets.all(Space.spacing_24),
@@ -167,13 +177,7 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
     );
   }
 
-  // testeConexaoFTP(String endereco, String usuario, String senha) async {
-  //   FTPConnect ftpConnect = FTPConnect(endereco, user: usuario, pass: senha);
-  //   bool conectou = await ftpConnect.connect();
-  //   print('Conectou ==> $conectou');
-  //   ftpConnect.disconnect();
-  //   print('Desconectado');
-  // }
+  
 
   testeConexaoFTP(String endereco, String usuario, String senha) async {
     FTPConnect ftpConnect = FTPConnect(endereco, user: usuario, pass: senha);
@@ -230,7 +234,7 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
 
       setState(() {
         conectado;
-        mensagem = 'CONEXÃO OK';
+        mensagem = 'CONECTADO COM SUCESSO';
       });
 
       // Desconectando do servidor
@@ -238,12 +242,16 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
     } catch (e) {
       //! FTPConnectException: Wrong Username/password (Response: 530 User or password not found)
       conectado = false;
-      mensagem = 'FALHA NA CONEXÃO:  ${e.toString()}';
+      if (e.toString().contains('530')) {
+        mensagem = 'Usuário e/ou Senha inválido(s)';
+      } else {
+        mensagem = 'Falha ao conectar:  ${e.toString()}';
+      }
       setState(() {
         conectado;
         mensagem;
       });
-      print('Erro durante o download: $e');
+      // print('Erro: $e');
     }
   }
 

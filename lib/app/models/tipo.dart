@@ -1,6 +1,4 @@
-/*
-23/08/2024
-*/
+//* criado em 23/08/2024
 
 class Tipo {
   int? tipoId;

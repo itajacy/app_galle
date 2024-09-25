@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/navigation/routes.dart';
 import 'package:galle/app/core/sizes.dart';
@@ -56,9 +57,6 @@ class PedidosCadastroPage extends StatelessWidget {
                   iconSize: Sizes.sizeH_30,
                   buttonWidth: Sizes.sizeW_55,
                   buttonHeight: Sizes.sizeH_40,
-                  // iconSize: Sizes.sizeH_35,
-                  // buttonWidth: Sizes.sizeW_110,
-                  // buttonHeight: Sizes.sizeH_40,
                 ),
                 GeneralIconButton(
                   onPress: () {},
@@ -66,9 +64,6 @@ class PedidosCadastroPage extends StatelessWidget {
                   iconSize: Sizes.sizeH_30,
                   buttonWidth: Sizes.sizeW_55,
                   buttonHeight: Sizes.sizeH_40,
-                  // iconSize: Sizes.sizeH_35,
-                  // buttonWidth: Sizes.sizeW_110,
-                  // buttonHeight: Sizes.sizeH_40,
                 ),
                 GeneralIconButton(
                   onPress: () {
@@ -95,10 +90,11 @@ class PedidosCadastroPage extends StatelessWidget {
                       Text(
                         Strings.status,
                         style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width > 450
-                                ? Font.title_24
-                                : Font.title_16,
-                            fontWeight: FontWeight.bold),
+                          fontSize: MediaQuery.of(context).size.width > 450
+                              ? Font.title_24
+                              : Font.title_16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
@@ -153,9 +149,6 @@ class PedidosCadastroPage extends StatelessWidget {
                   ),
                   SizedBox(
                     height: Sizes.sizeH_60,
-                    // width: MediaQuery.of(context).size.width > 450
-                    //     ? Sizes.sizeW_180
-                    //     : Sizes.sizeW_100,
                     width: (MediaQuery.of(context).size.width - 238) / 8 * 5,
                     child: TextField(
                       controller: pedidoValorTotalController,

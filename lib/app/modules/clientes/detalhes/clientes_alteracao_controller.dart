@@ -1,3 +1,4 @@
+//* alterado em 24/09/24
 import 'package:galle/app/modules/clientes/clientes_controller.dart';
 
 class ClientesAlteracaoController extends ClientesController {
@@ -45,9 +46,6 @@ class ClientesAlteracaoController extends ClientesController {
       }
     }
     int resposta = await clientesDao.alterar(cliente);
-
-    print('reposta do clientesDao.alterar(cliente)..: ' + resposta.toString());
-
     update();
     return resposta > 0 ? true : false;
   }
