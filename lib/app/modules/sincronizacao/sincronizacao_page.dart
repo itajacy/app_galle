@@ -69,18 +69,21 @@ class SincronizacaoPage extends StatelessWidget {
                   var arquivo = File(filePath);
 
                   // Lendo arquivo e convertendo em bytes
-                  Uint8List xml = await arquivo.readAsBytes();
+                  Uint8List xmlBytes = await arquivo.readAsBytes();
                   // convertendo bytes para String
-                  String s = String.fromCharCodes(xml);
+                  String xmlString = String.fromCharCodes(xmlBytes);
 
-                  print('xml--> $xml');
+                  print('xmlBytes--> $xmlBytes');
+                  print('-------------');
+                  print('xmlString--> $xmlString');
 
                   // Criação de uma instância do converter XML para JSON
                   Xml2Json xml2json = Xml2Json();
                   print('-------------');
                   print('xml2json--1> ${xml2json.toString()} ');
-                  xml2json.parse(s);
+                  xml2json.parse(xmlString);
                   print('-------------');
+                  print('xml2json--2> ${xml2json.toString()} ');
 
                   // Converte para JSON
                   final jsonString = xml2json.toParkerWithAttrs();
@@ -90,13 +93,33 @@ class SincronizacaoPage extends StatelessWidget {
                   //! =========== FIM TESTE DO XML2JSON
 
                   Map mapCLientes = jsonDecode(jsonString);
+//! veja linha abaixo
+                  List clientesLIst = mapClientes['DataSet']['Row'];
 
-                  print(mapCLientes['DataSet']['Row']);
+                  // for (var element in mapCLientes) {
+
+                  // }
+                  // var total = mapCLientes.length;
+
+                  f(mapCLientes);
+
+                  // for (dynamic element in mapCLiente) {
+                  //   print(element);
+                  //   print(
+                  //       '----------------------------------------------------- CLIENTE-> ');
+                  // }
+
+                  // print('Total de clientes --> $total');
+
+                  // for (var i = 0; i < 10; i++) {
+                  //   print(mapCLientes['DataSet']['Row'][i]);
+                  //   print(
+                  //       '----------------------------------------------------- CLIENTE-> $i');
+                  // }
+                  print(
+                      '--------------------fim---------------------------------');
 
                   // List clientesLIst = mapClientes['DataSet']['Row'];
-
-                  
-
                 },
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
@@ -195,5 +218,11 @@ class SincronizacaoPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void f(Map<dynamic, dynamic> m) {
+    for (dynamic s in m.values) {
+      print(s);
+    }
   }
 }
