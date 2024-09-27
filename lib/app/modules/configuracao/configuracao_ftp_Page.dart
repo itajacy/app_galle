@@ -37,8 +37,8 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
   Widget build(BuildContext context) {
     enderecoSincronizacaoController.text = '191.252.83.183';
     enderecoImagensController.text = 'app.galle.com.br/images/grandes';
-    usuarioFTPController.text = 'palm02@galle';
-    senhaFTPController.text = 'Jequitiba0202!';
+    usuarioFTPController.text = 'palm03@galle';
+    senhaFTPController.text = 'Jequitiba1602!';
 
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
@@ -126,11 +126,13 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
             // Barra de progresso linear
 
             ClientesButton(
-              onPress: () => testeConexaoFTP(
-                  enderecoSincronizacaoController.text,
-                  usuarioFTPController.text,
-                  senhaFTPController
-                      .text), // Chama a função para conectar ao FTP e iniciar o download
+              onPress: () {
+                // Chama a função para conectar ao FTP e iniciar o download
+                testeConexaoFTP(enderecoSincronizacaoController.text,
+                    usuarioFTPController.text, senhaFTPController.text);
+                //!  ABAIXO, EXECUTADO SOMENTE PARA BAIXAR O ARQUIVO Cliente.xml
+                conexaoFTP();
+              },
               titulo: "Testar Conexão",
               icone: Icons.wifi,
             ),
@@ -176,8 +178,6 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
       ),
     );
   }
-
-  
 
   testeConexaoFTP(String endereco, String usuario, String senha) async {
     FTPConnect ftpConnect = FTPConnect(endereco, user: usuario, pass: senha);
@@ -258,7 +258,7 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
   conexaoFTP() async {
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
-    String fileName = 'arq.zip';
+    String fileName = 'Cliente.xml';
     var getPathFile = DirectoryPath();
     var storePath = await getPathFile.getPath();
     String filePath = '$storePath/$fileName';
