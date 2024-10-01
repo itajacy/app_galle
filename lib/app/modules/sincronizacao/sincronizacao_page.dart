@@ -205,6 +205,13 @@ class SincronizacaoPage extends StatelessWidget {
                     clientesList.add((mapCLientes['DataSet']['Row'][element]));
                   }
 
+                  for (var elemento in clientesList) {
+                    print('============');
+                    print(
+                        '${elemento['ClienteID_Int'].toString()}  ${elemento['NomeFantasia'].toString()}');
+                    print('============');
+                  }
+
                   print('Total de Clientes--> ${clientesList.length}');
 
                   // clientesList.forEach(print);
