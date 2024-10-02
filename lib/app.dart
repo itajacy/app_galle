@@ -39,7 +39,7 @@ class App extends StatelessWidget {
         Routes.clientesPage: (context) => const ClientesPage(),
         Routes.pedidosPage: (context) => const PedidosPage(),
         Routes.catalogoPage: (context) => CatalogoPage(),
-        Routes.sincronizacaoPage: (context) => const SincronizacaoPage(),
+        Routes.sincronizacaoPage: (context) => SincronizacaoPage(),
         Routes.configuracaoPage: (context) => const ConfiguracaoPage(),
         Routes.clientesCadastroPage: (context) => const ClientesCadastroPage(),
         Routes.clientesConsultaPage: (context) => ClientesConsultaPage(),

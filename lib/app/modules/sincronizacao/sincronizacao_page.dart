@@ -8,16 +8,20 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
+import 'package:galle/app/models/cliente.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 import 'package:xml2json/xml2json.dart';
 
 import '../../core/colors_app.dart';
 import '../../core/strings.dart';
+import '../../services/database/dao/clientes_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
 
 class SincronizacaoPage extends StatelessWidget {
-  const SincronizacaoPage({super.key});
+  SincronizacaoPage({super.key});
 
+  ClientesDao clientesDao = ClientesDao();
+  Cliente novoCliente = Cliente();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -194,9 +198,74 @@ class SincronizacaoPage extends StatelessWidget {
                   //! =========== FIM TESTE DO XML2JSON
 
                   //* Converte para Map
-                  Map mapCLientes = jsonDecode(jsonString);
+                  Map<String, dynamic> mapCLientes = jsonDecode(jsonString);
 
                   int totalClientes = mapCLientes['DataSet']['Row'].length;
+
+                  //! tentativa de salvar os clientes
+                  for (var i = 0; i < totalClientes; i++) {
+                    //!------------------------------------
+                    novoCliente.clienteId = 0;
+                    novoCliente.clienteIdInt = mapCLientes['DataSet']['Row']
+                        ['ClienteID_Int'][i] as int; //Exception has occurred.
+// _TypeError (type 'String' is not a subtype of type 'int' of 'index')
+                    novoCliente.dispositivoId = mapCLientes['DataSet']['Row']
+                        ['DispositivoID'][i] as String;
+                    novoCliente.clienteIdMob = mapCLientes['DataSet']['Row']
+                        ['ClienteID_Mob'][i] as String;
+                    novoCliente.tipoPessoa = mapCLientes['DataSet']['Row']
+                        ['TipoPessoa'][i] as String;
+                    novoCliente.cNPJCPF =
+                        mapCLientes['DataSet']['Row']['CGCCPF'][i] as String;
+                    novoCliente.iERG =
+                        mapCLientes['DataSet']['Row']['IERG'][i] as String;
+                    novoCliente.razaoSocial = mapCLientes['DataSet']['Row']
+                        ['RazaoSocial'][i] as String;
+                    novoCliente.nomeFantasia = mapCLientes['DataSet']['Row']
+                        ['NomeFantasia'][i] as String;
+                    novoCliente.contato =
+                        mapCLientes['DataSet']['Row']['Contato'][i] as String;
+                    novoCliente.fone1 =
+                        mapCLientes['DataSet']['Row']['FoneCom1'][i] as String;
+                    novoCliente.fone2 =
+                        mapCLientes['DataSet']['Row']['FoneCom2'][i] as String;
+                    novoCliente.foneCel =
+                        mapCLientes['DataSet']['Row']['FoneCel2'][i] as String;
+                    novoCliente.foneRes =
+                        mapCLientes['DataSet']['Row']['FoneRes'][i] as String;
+                    novoCliente.fax =
+                        mapCLientes['DataSet']['Row']['FoneFax'][i] as String;
+                    novoCliente.email =
+                        mapCLientes['DataSet']['Row']['Email'][i] as String;
+                    novoCliente.pEndereco = mapCLientes['DataSet']['Row']
+                        ['S_Endereco'][i] as String;
+                    novoCliente.pComplemento = mapCLientes['DataSet']['Row']
+                        ['S_Complemento'][i] as String;
+                    novoCliente.pBairro =
+                        mapCLientes['DataSet']['Row']['S_Bairro'][i] as String;
+                    novoCliente.pCidade =
+                        mapCLientes['DataSet']['Row']['S_Cidade'][i] as String;
+                    novoCliente.pUF =
+                        mapCLientes['DataSet']['Row']['S_UF'][i] as String;
+                    novoCliente.pCEP =
+                        mapCLientes['DataSet']['Row']['S_CEP'][i] as String;
+                    novoCliente.eEndereco = mapCLientes['DataSet']['Row']
+                        ['E_Endereco'][i] as String;
+                    novoCliente.eComplemento = mapCLientes['DataSet']['Row']
+                        ['E_Complemento'][i] as String;
+                    novoCliente.eBairro =
+                        mapCLientes['DataSet']['Row']['E_Bairro'][i] as String;
+                    novoCliente.eCidade =
+                        mapCLientes['DataSet']['Row']['E_Cidade'][i] as String;
+                    novoCliente.eUF =
+                        mapCLientes['DataSet']['Row']['E_UF'][i] as String;
+                    novoCliente.eCEP =
+                        mapCLientes['DataSet']['Row']['E_CEP'][i] as String;
+
+                    //!------------------------------------
+                    int resposta = await clientesDao.salvar(novoCliente);
+                    print('resposta --> $resposta');
+                  }
 
                   //* Cria um List dos Maps
                   List clientesList = [];
@@ -207,6 +276,7 @@ class SincronizacaoPage extends StatelessWidget {
 
                   for (var elemento in clientesList) {
                     print('============');
+                    print(elemento['NomeFantasia']);
                     print(
                         '${elemento['ClienteID_Int'].toString()}  ${elemento['NomeFantasia'].toString()}');
                     print('============');

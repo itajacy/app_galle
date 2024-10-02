@@ -73,6 +73,11 @@ class ClientesDao {
     return db.insert(_tableName, clienteMap);
   }
 
+  // Future<int> salvarMap(Map<String, dynamic> mapaCliente) async {
+  //   final Database db = await getDatabase();
+  //   return db.insert(_tableName, mapaCliente);
+  // }
+
   Future<List<Cliente>> findAll() async {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> result = await db.query(_tableName);
