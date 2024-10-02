@@ -21,7 +21,7 @@ class SincronizacaoPage extends StatelessWidget {
   SincronizacaoPage({super.key});
 
   ClientesDao clientesDao = ClientesDao();
-  Cliente novoCliente = Cliente();
+  // Cliente novoCliente = Cliente();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -203,69 +203,70 @@ class SincronizacaoPage extends StatelessWidget {
                   int totalClientes = mapCLientes['DataSet']['Row'].length;
 
                   //! tentativa de salvar os clientes
-                  for (var i = 0; i < totalClientes; i++) {
-                    //!------------------------------------
-                    novoCliente.clienteId = 0;
-                    novoCliente.clienteIdInt = mapCLientes['DataSet']['Row']
-                        ['ClienteID_Int'][i] as int; //Exception has occurred.
-// _TypeError (type 'String' is not a subtype of type 'int' of 'index')
-                    novoCliente.dispositivoId = mapCLientes['DataSet']['Row']
-                        ['DispositivoID'][i] as String;
-                    novoCliente.clienteIdMob = mapCLientes['DataSet']['Row']
-                        ['ClienteID_Mob'][i] as String;
-                    novoCliente.tipoPessoa = mapCLientes['DataSet']['Row']
-                        ['TipoPessoa'][i] as String;
-                    novoCliente.cNPJCPF =
-                        mapCLientes['DataSet']['Row']['CGCCPF'][i] as String;
-                    novoCliente.iERG =
-                        mapCLientes['DataSet']['Row']['IERG'][i] as String;
-                    novoCliente.razaoSocial = mapCLientes['DataSet']['Row']
-                        ['RazaoSocial'][i] as String;
-                    novoCliente.nomeFantasia = mapCLientes['DataSet']['Row']
-                        ['NomeFantasia'][i] as String;
-                    novoCliente.contato =
-                        mapCLientes['DataSet']['Row']['Contato'][i] as String;
-                    novoCliente.fone1 =
-                        mapCLientes['DataSet']['Row']['FoneCom1'][i] as String;
-                    novoCliente.fone2 =
-                        mapCLientes['DataSet']['Row']['FoneCom2'][i] as String;
-                    novoCliente.foneCel =
-                        mapCLientes['DataSet']['Row']['FoneCel2'][i] as String;
-                    novoCliente.foneRes =
-                        mapCLientes['DataSet']['Row']['FoneRes'][i] as String;
-                    novoCliente.fax =
-                        mapCLientes['DataSet']['Row']['FoneFax'][i] as String;
-                    novoCliente.email =
-                        mapCLientes['DataSet']['Row']['Email'][i] as String;
-                    novoCliente.pEndereco = mapCLientes['DataSet']['Row']
-                        ['S_Endereco'][i] as String;
-                    novoCliente.pComplemento = mapCLientes['DataSet']['Row']
-                        ['S_Complemento'][i] as String;
-                    novoCliente.pBairro =
-                        mapCLientes['DataSet']['Row']['S_Bairro'][i] as String;
-                    novoCliente.pCidade =
-                        mapCLientes['DataSet']['Row']['S_Cidade'][i] as String;
-                    novoCliente.pUF =
-                        mapCLientes['DataSet']['Row']['S_UF'][i] as String;
-                    novoCliente.pCEP =
-                        mapCLientes['DataSet']['Row']['S_CEP'][i] as String;
-                    novoCliente.eEndereco = mapCLientes['DataSet']['Row']
-                        ['E_Endereco'][i] as String;
-                    novoCliente.eComplemento = mapCLientes['DataSet']['Row']
-                        ['E_Complemento'][i] as String;
-                    novoCliente.eBairro =
-                        mapCLientes['DataSet']['Row']['E_Bairro'][i] as String;
-                    novoCliente.eCidade =
-                        mapCLientes['DataSet']['Row']['E_Cidade'][i] as String;
-                    novoCliente.eUF =
-                        mapCLientes['DataSet']['Row']['E_UF'][i] as String;
-                    novoCliente.eCEP =
-                        mapCLientes['DataSet']['Row']['E_CEP'][i] as String;
+                  // for (var i = 0; i < totalClientes; i++) {
 
-                    //!------------------------------------
-                    int resposta = await clientesDao.salvar(novoCliente);
-                    print('resposta --> $resposta');
-                  }
+                  //!---------------tentando com Map---------------------
+                  // novoCliente.clienteId = 0;
+                  // novoCliente.clienteIdInt =
+                  //     mapCLientes['DataSet']['Row']['ClienteID_Int'][i];
+
+                  // novoCliente.dispositivoId = mapCLientes['DataSet']['Row']
+                  //     ['DispositivoID'][i] as String;
+                  // novoCliente.clienteIdMob = mapCLientes['DataSet']['Row']
+                  //     ['ClienteID_Mob'][i] as String;
+                  // novoCliente.tipoPessoa = mapCLientes['DataSet']['Row']
+                  //     ['TipoPessoa'][i] as String;
+                  // novoCliente.cNPJCPF =
+                  //     mapCLientes['DataSet']['Row']['CGCCPF'][i] as String;
+                  // novoCliente.iERG =
+                  //     mapCLientes['DataSet']['Row']['IERG'][i] as String;
+                  // novoCliente.razaoSocial = mapCLientes['DataSet']['Row']
+                  //     ['RazaoSocial'][i] as String;
+                  // novoCliente.nomeFantasia = mapCLientes['DataSet']['Row']
+                  //     ['NomeFantasia'][i] as String;
+                  // novoCliente.contato =
+                  //     mapCLientes['DataSet']['Row']['Contato'][i] as String;
+                  // novoCliente.fone1 =
+                  //     mapCLientes['DataSet']['Row']['FoneCom1'][i] as String;
+                  // novoCliente.fone2 =
+                  //     mapCLientes['DataSet']['Row']['FoneCom2'][i] as String;
+                  // novoCliente.foneCel =
+                  //     mapCLientes['DataSet']['Row']['FoneCel2'][i] as String;
+                  // novoCliente.foneRes =
+                  //     mapCLientes['DataSet']['Row']['FoneRes'][i] as String;
+                  // novoCliente.fax =
+                  //     mapCLientes['DataSet']['Row']['FoneFax'][i] as String;
+                  // novoCliente.email =
+                  //     mapCLientes['DataSet']['Row']['Email'][i] as String;
+                  // novoCliente.pEndereco = mapCLientes['DataSet']['Row']
+                  //     ['S_Endereco'][i] as String;
+                  // novoCliente.pComplemento = mapCLientes['DataSet']['Row']
+                  //     ['S_Complemento'][i] as String;
+                  // novoCliente.pBairro =
+                  //     mapCLientes['DataSet']['Row']['S_Bairro'][i] as String;
+                  // novoCliente.pCidade =
+                  //     mapCLientes['DataSet']['Row']['S_Cidade'][i] as String;
+                  // novoCliente.pUF =
+                  //     mapCLientes['DataSet']['Row']['S_UF'][i] as String;
+                  // novoCliente.pCEP =
+                  //     mapCLientes['DataSet']['Row']['S_CEP'][i] as String;
+                  // novoCliente.eEndereco = mapCLientes['DataSet']['Row']
+                  //     ['E_Endereco'][i] as String;
+                  // novoCliente.eComplemento = mapCLientes['DataSet']['Row']
+                  //     ['E_Complemento'][i] as String;
+                  // novoCliente.eBairro =
+                  //     mapCLientes['DataSet']['Row']['E_Bairro'][i] as String;
+                  // novoCliente.eCidade =
+                  //     mapCLientes['DataSet']['Row']['E_Cidade'][i] as String;
+                  // novoCliente.eUF =
+                  //     mapCLientes['DataSet']['Row']['E_UF'][i] as String;
+                  // novoCliente.eCEP =
+                  //     mapCLientes['DataSet']['Row']['E_CEP'][i] as String;
+
+                  //!------------------------------------
+                  //! int resposta = await clientesDao.salvar(novoCliente);
+                  // print('resposta --> $resposta');
+                  // }
 
                   //* Cria um List dos Maps
                   List clientesList = [];
@@ -275,10 +276,48 @@ class SincronizacaoPage extends StatelessWidget {
                   }
 
                   for (var elemento in clientesList) {
-                    print('============');
-                    print(elemento['NomeFantasia']);
-                    print(
-                        '${elemento['ClienteID_Int'].toString()}  ${elemento['NomeFantasia'].toString()}');
+                    Cliente novoCliente = Cliente();
+
+                    //* ============com List==============================
+
+                    novoCliente.clienteId = 0;
+                    novoCliente.clienteIdInt = elemento['ClienteID_Int'];
+
+                    novoCliente.dispositivoId = elemento['DispositivoID'];
+                    novoCliente.clienteIdMob = elemento['ClienteID_Mob'];
+                    novoCliente.tipoPessoa = elemento['TipoPessoa'];
+                    novoCliente.cNPJCPF = elemento['CGCCPF'];
+                    novoCliente.iERG = elemento['IERG'];
+                    novoCliente.razaoSocial = elemento['RazaoSocial'];
+                    novoCliente.nomeFantasia = elemento['NomeFantasia'];
+                    novoCliente.contato = elemento['Contato'];
+                    novoCliente.fone1 = elemento['FoneCom1'];
+                    novoCliente.fone2 = elemento['FoneCom2'];
+                    novoCliente.foneCel = elemento['FoneCel2'];
+                    novoCliente.foneRes = elemento['FoneRes'];
+                    novoCliente.fax = elemento['FoneFax'];
+                    novoCliente.email = elemento['Email'];
+                    novoCliente.pEndereco = elemento['S_Endereco'];
+                    novoCliente.pComplemento = elemento['S_Complemento'];
+                    novoCliente.pBairro = elemento['S_Bairro'];
+                    novoCliente.pCidade = elemento['S_Cidade'];
+                    novoCliente.pUF = elemento['S_UF'];
+                    novoCliente.pCEP = elemento['S_CEP'];
+                    novoCliente.eEndereco = elemento['E_Endereco'];
+                    novoCliente.eComplemento = elemento['E_Complemento'];
+                    novoCliente.eBairro = elemento['E_Bairro'];
+                    novoCliente.eCidade = elemento['E_Cidade'];
+                    novoCliente.eUF = elemento['E_UF'];
+                    novoCliente.eCEP = elemento['E_CEP'];
+
+                    print(novoCliente);
+
+                    //* ==========================================
+
+                    // print('============');
+                    // print(elemento['NomeFantasia']);
+                    // print(
+                    //     '${elemento['ClienteID_Int'].toString()}  ${elemento['NomeFantasia'].toString()}');
                     print('============');
                   }
 
