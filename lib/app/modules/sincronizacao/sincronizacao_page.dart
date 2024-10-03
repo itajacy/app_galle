@@ -9,6 +9,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/models/cliente.dart';
+import 'package:galle/app/modules/sincronizacao/sincronizacao_controller.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 import 'package:xml2json/xml2json.dart';
 
@@ -20,8 +21,11 @@ import '../configuracao/widgets/directory_path.dart';
 class SincronizacaoPage extends StatelessWidget {
   SincronizacaoPage({super.key});
 
-  ClientesDao clientesDao = ClientesDao();
+  //!ClientesDao clientesDao = ClientesDao();
   // Cliente novoCliente = Cliente();
+  SincronizacaoController sincronizacaoClientesController =
+      SincronizacaoController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +70,11 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () async {
+                  //!  APAGANDO TODOS OS CLIENTES
+                  print('=========APAGANDO TODOS OS CLIENTES');
+                  sincronizacaoClientesController.apagaTodosOsClientes();
+                  print('=========TODOS OS CLIENTES APAGADOS');
+
                   //! =========== INICIO TESTE DO XML2JSON
 
                   String fileName = 'Cliente.xml';
@@ -311,8 +320,11 @@ class SincronizacaoPage extends StatelessWidget {
                     novoCliente.eCEP = elemento['E_CEP'];
 
                     // print(novoCliente);
-                    print('-=-=-=-=-=-=-=-=');
-                    int resposta = await clientesDao.salvar(novoCliente);
+                    print('-=-=-=-=adicionando novo cliente-=-=-=-=');
+
+                    int resposta = await sincronizacaoClientesController
+                        .lerArquivoESalvarClientes(novoCliente);
+                    //! int resposta = await clientesDao.salvar(novoCliente);
                     print('resposta --> $resposta');
 
                     //* ==========================================

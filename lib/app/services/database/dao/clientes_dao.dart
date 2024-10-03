@@ -126,4 +126,14 @@ class ClientesDao {
       whereArgs: [id],
     );
   }
+
+  Future<int> deleteAll() async {
+    try {
+      final Database db = await getDatabase();
+      return db.delete(_tableName);
+    } catch (e) {
+      print('Erro ao excluir todos os registros: $e');
+      return -1; // Retorna -1 em caso de erro
+    }
+  }
 }
