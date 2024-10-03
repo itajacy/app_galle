@@ -130,7 +130,7 @@ class _ClientesConsultaDetalhesPageState
     emailController.text = argument.email!;
     foneCom1Controller.text = argument.fone1!;
     foneCom2Controller.text = argument.fone2!;
-    foneCelController.text = argument.foneCel!;
+    foneCelController.text = argument.foneCel ?? '';
     foneResController.text = argument.foneRes!;
     faxController.text = argument.fax!;
     principalUfController.text = argument.pUF!;

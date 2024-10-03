@@ -280,7 +280,7 @@ class SincronizacaoPage extends StatelessWidget {
 
                     //* ============com List==============================
 
-                    novoCliente.clienteId = 0;
+                    // novoCliente.clienteId = 0;
                     novoCliente.clienteIdInt = elemento['ClienteID_Int'];
 
                     novoCliente.dispositivoId = elemento['DispositivoID'];
@@ -310,7 +310,10 @@ class SincronizacaoPage extends StatelessWidget {
                     novoCliente.eUF = elemento['E_UF'];
                     novoCliente.eCEP = elemento['E_CEP'];
 
-                    print(novoCliente);
+                    // print(novoCliente);
+                    print('-=-=-=-=-=-=-=-=');
+                    int resposta = await clientesDao.salvar(novoCliente);
+                    print('resposta --> $resposta');
 
                     //* ==========================================
 
