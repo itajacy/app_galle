@@ -7,7 +7,7 @@ class SincronizacaoController {
   Future<int> lerArquivoESalvarClientes(Cliente cliente) async {
     List resp = await clientesDao.findClientes(cliente.razaoSocial!);
 
-    if (resp.length > 0) {
+    if (resp.isNotEmpty) {
       resposta = await clientesDao.alterar(cliente);
     } else {
       resposta = await clientesDao.salvar(cliente);

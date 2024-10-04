@@ -67,7 +67,6 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () async {
-
                   //! =========== INICIO TESTE DO XML2JSON
 
                   String fileName = 'Cliente.xml';
@@ -120,17 +119,27 @@ class SincronizacaoPage extends StatelessWidget {
                   final List<Cliente> clienteListaObjeto = List<Cliente>.from(
                       clientesListMap.map((model) => Cliente.fromMap(model)));
 
+                  int inclusos = 0;
+                  int alterados = 0;
                   for (var elemento in clienteListaObjeto) {
                     print('-=-=-=-=adicionando novo cliente-=-=-=-=');
 
                     int resposta = await sincronizacaoClientesController
                         .lerArquivoESalvarClientes(elemento);
+                    if (resposta == 0) {
+                      inclusos++;
+                    } else {
+                      alterados++;
+                    }
                     //! int resposta = await clientesDao.salvar(novoCliente);
                     print('resposta --> $resposta');
                     print('============');
                   }
 
-                  print('Total de Clientes--> ${clienteListaObjeto.length}');
+                  print(
+                      'Total de Clientes Lidos--> ${clienteListaObjeto.length}');
+                  print('Total de Clientes Alterados--> $alterados');
+                  print('Total de Clientes Inclusos--> $inclusos');
 
                   print('--------------------fim----------------------------');
                 },
