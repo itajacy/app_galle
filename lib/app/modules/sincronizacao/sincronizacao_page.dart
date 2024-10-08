@@ -67,6 +67,9 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () async {
+                  //!  Conectando e baixando o arquivo Cliente.xml
+                  await sincronizacaoClientesController.conexaoFTP();
+
                   //! =========== INICIO TESTE DO XML2JSON
 
                   String fileName = 'Cliente.xml';
@@ -108,6 +111,8 @@ class SincronizacaoPage extends StatelessWidget {
 
                   int totalClientes = mapCLientes['DataSet']['Row'].length;
 
+                  print('total de clientes --> $totalClientes');
+
                   //* Cria um List dos Maps
                   List clientesListMap = [];
 
@@ -116,19 +121,24 @@ class SincronizacaoPage extends StatelessWidget {
                         .add((mapCLientes['DataSet']['Row'][element]));
                   }
 
+                  print('Clienteslistmap--> $clientesListMap');
+
                   final List<Cliente> clienteListaObjeto = List<Cliente>.from(
                     clientesListMap.map((model) => Cliente.fromMap(model)),
                   );
 
-                  //! apagando TODOS OS CLIENTES DA TABELA
+//! apagando TODOS OS CLIENTES DA TABELA
                   // sincronizacaoClientesController.apagaTodosOsClientes();
 
+//!
                   int inclusos = 0;
                   int alterados = 0;
+
                   for (var elemento in clienteListaObjeto) {
+                    print('elemento==> ${elemento.nomeFantasia}');
                     int resposta = await sincronizacaoClientesController
-                        .lerArquivoESalvarClientes(elemento);
-                    print('RESPOSTA--> $resposta');
+                        .salvarOuAlterarClientes(elemento);
+                    print('RESPOSTA_PAGE--> $resposta');
                     if (resposta == 0) {
                       inclusos++;
                     } else {
