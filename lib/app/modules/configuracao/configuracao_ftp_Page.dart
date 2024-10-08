@@ -275,11 +275,11 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
 
       // Garantindo que o arquivo esteja vazio antes do download
       if (arquivo.existsSync()) {
+        print("$fileName existe..> ${arquivo.existsSync()}");
         print('apagando arquivo--> $arquivo');
-        print("arq.zip existe..> ${arquivo.existsSync()}");
         arquivo.deleteSync();
-        print("arq.zip existe..> ${arquivo.existsSync()}");
-        print('arquivo apagado!!!');
+        print("$fileName existe..> ${arquivo.existsSync()}");
+        print('arquivo $fileName apagado!!!');
       }
       arquivo.createSync();
 

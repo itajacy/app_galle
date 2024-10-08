@@ -117,22 +117,25 @@ class SincronizacaoPage extends StatelessWidget {
                   }
 
                   final List<Cliente> clienteListaObjeto = List<Cliente>.from(
-                      clientesListMap.map((model) => Cliente.fromMap(model)));
+                    clientesListMap.map((model) => Cliente.fromMap(model)),
+                  );
+
+                  //! apagando TODOS OS CLIENTES DA TABELA
+                  // sincronizacaoClientesController.apagaTodosOsClientes();
 
                   int inclusos = 0;
                   int alterados = 0;
                   for (var elemento in clienteListaObjeto) {
-                    print('-=-=-=-=adicionando novo cliente-=-=-=-=');
-
                     int resposta = await sincronizacaoClientesController
                         .lerArquivoESalvarClientes(elemento);
+                    print('RESPOSTA--> $resposta');
                     if (resposta == 0) {
                       inclusos++;
                     } else {
                       alterados++;
                     }
-                    //! int resposta = await clientesDao.salvar(novoCliente);
-                    print('resposta --> $resposta');
+                    // //! int resposta = await clientesDao.salvar(novoCliente);
+                    // print('resposta --> $resposta');
                     print('============');
                   }
 

@@ -73,11 +73,6 @@ class ClientesDao {
     return db.insert(_tableName, clienteMap);
   }
 
-  // Future<int> salvarMap(Map<String, dynamic> mapaCliente) async {
-  //   final Database db = await getDatabase();
-  //   return db.insert(_tableName, mapaCliente);
-  // }
-
   Future<List<Cliente>> findAll() async {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> result = await db.query(_tableName);
@@ -95,8 +90,9 @@ class ClientesDao {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> result = await db.query(
       _tableName,
-      where: 'nomeFantasia LIKE ? OR razaoSocial LIKE ? OR clienteIdInt LIKE ?',
-      whereArgs: ['%$cliente%', '%$cliente%', '%$cliente%'],
+      where:
+          'nomeFantasia LIKE ? OR razaoSocial LIKE ? OR clienteIdInt LIKE ? OR cNPJCPF LIKE ?',
+      whereArgs: ['%$cliente%', '%$cliente%', '%$cliente%', '%$cliente%'],
     );
     final List<Cliente> listaDeClientes = [];
     for (var cliente in result) {
@@ -107,7 +103,6 @@ class ClientesDao {
   }
 
   Future<int> alterar(Cliente cliente) async {
-    print('ClienteId do alterar--> ${cliente.clienteId}');
     final Database db = await getDatabase();
     final Map<String, dynamic> clienteMap = cliente.toMap();
     return db.update(
