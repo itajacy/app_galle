@@ -6,6 +6,7 @@ import '../../models/cliente.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
 
+
 class SincronizacaoController {
   ClientesDao clientesDao = ClientesDao();
   int resposta = 0;

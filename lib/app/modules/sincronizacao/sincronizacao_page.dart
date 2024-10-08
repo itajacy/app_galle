@@ -153,7 +153,7 @@ class SincronizacaoPage extends StatelessWidget {
                       'Total de Clientes Lidos--> ${clienteListaObjeto.length}');
                   print('Total de Clientes Alterados--> $alterados');
                   print('Total de Clientes Inclusos--> $inclusos');
-
+//!
                   print('--------------------fim----------------------------');
                 },
                 icone: Icons.sync_outlined,
