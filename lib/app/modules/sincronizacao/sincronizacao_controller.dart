@@ -6,14 +6,16 @@ import '../../models/cliente.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
 
-
 class SincronizacaoController {
   ClientesDao clientesDao = ClientesDao();
   int resposta = 0;
 
   Future<int> salvarOuAlterarClientes(Cliente cliente) async {
     List resp = await clientesDao.findClientes(cliente.razaoSocial!);
-    print('resp--> ${resp.length}');
+    print('lista de clientes do salvarOuAlterarClientes--> $resp');
+    print('razao social--> ${cliente.razaoSocial}');
+    print(
+        'valor de resp (se ==0 -> altera, se != -> inclui)--> ${resp.length}');
     if (resp.length != 0) {
       //se a lista  NAO for vazia, ALTERA o cliente, pq ele não  JA existe na tabela
       resposta = await clientesDao.alterar(cliente);

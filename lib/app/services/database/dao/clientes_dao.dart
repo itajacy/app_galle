@@ -86,18 +86,27 @@ class ClientesDao {
     return listaDeClientes;
   }
 
-  Future<List<Cliente>> findClientes(String cliente) async {
+  Future<List<Cliente>> findClientes(String razaoCliente) async {
+    print('findClientes- RazaoSocial--> $razaoCliente');
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> result = await db.query(
       _tableName,
       where:
           'nomeFantasia LIKE ? OR razaoSocial LIKE ? OR clienteIdInt LIKE ? OR cNPJCPF LIKE ?',
-      whereArgs: ['%$cliente%', '%$cliente%', '%$cliente%', '%$cliente%'],
+      whereArgs: [
+        '%$razaoCliente%',
+        '%$razaoCliente%',
+        '%$razaoCliente%',
+        '%$razaoCliente%'
+      ],
     );
     final List<Cliente> listaDeClientes = [];
-    for (var cliente in result) {
-      listaDeClientes.add(Cliente.fromMap(cliente));
+    for (var item in result) {
+      listaDeClientes.add(Cliente.fromMap(item));
     }
+    print('---inicio da lista de clientes findClientes---');
+    print(listaDeClientes.toString());
+    print('---fim da lista de clientes findClientes---');
 
     return listaDeClientes;
   }

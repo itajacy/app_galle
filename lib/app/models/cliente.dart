@@ -102,9 +102,9 @@ class Cliente {
   factory Cliente.fromMap(Map<String, dynamic> mapaCliente) {
     return Cliente(
       // clienteId: mapaCliente['clienteId'] as int,
+      clienteIdInt: mapaCliente['clienteIdInt'] ?? '',
       dispositivoId: mapaCliente['dispositivoId'] ?? '',
       clienteIdMob: mapaCliente['clienteIdMob'] ?? '',
-      clienteIdInt: mapaCliente['clienteIdInt'] ?? '',
       razaoSocial: mapaCliente['razaoSocial'] ?? '',
       nomeFantasia: mapaCliente['nomeFantasia'] ?? '',
       tipoPessoa: mapaCliente['tipoPessoa'] ?? '',
@@ -129,6 +129,39 @@ class Cliente {
       eComplemento: mapaCliente['eComplemento'] ?? '',
       eBairro: mapaCliente['eBairro'] ?? '',
       eCEP: mapaCliente['eCEP'] ?? '',
+      ativo: mapaCliente['ativo'] ?? '',
+    );
+  }
+  factory Cliente.fromMapFtp(Map<String, dynamic> mapaCliente) {
+    return Cliente(
+      // clienteId: mapaCliente['ClienteID_Int'] as int,
+      clienteIdInt: mapaCliente['ClienteID_Int'] ?? '',
+      dispositivoId: mapaCliente['DispositivoID'] ?? '',
+      clienteIdMob: mapaCliente['ClienteID_Mob'] ?? '',
+      razaoSocial: mapaCliente['RazaoSocial'] ?? '',
+      nomeFantasia: mapaCliente['NomeFantasia'] ?? '',
+      tipoPessoa: mapaCliente['TipoPessoa'] ?? '',
+      cNPJCPF: mapaCliente['CGCCPF'] ?? '',
+      iERG: mapaCliente['IERG'] ?? '',
+      contato: mapaCliente['Contato'] ?? '',
+      fone1: mapaCliente['FoneCom1'] ?? '',
+      fone2: mapaCliente['FoneCom2'] ?? '',
+      foneCel: mapaCliente['FoneCel'] ?? '',
+      foneRes: mapaCliente['FoneRes'] ?? '',
+      fax: mapaCliente['FoneFax'] ?? '',
+      email: mapaCliente['Email'] ?? '',
+      pCidade: mapaCliente['S_Cidade'] ?? '',
+      pUF: mapaCliente['S_UF'] ?? '',
+      pEndereco: mapaCliente['S_Endereco'] ?? '',
+      pComplemento: mapaCliente['S_Complemento'] ?? '',
+      pBairro: mapaCliente['S_Bairro'] ?? '',
+      pCEP: mapaCliente['S_CEP'] ?? '',
+      eCidade: mapaCliente['E_Cidade'] ?? '',
+      eUF: mapaCliente['E_UF'] ?? '',
+      eEndereco: mapaCliente['E_Endereco'] ?? '',
+      eComplemento: mapaCliente['E_Complemento'] ?? '',
+      eBairro: mapaCliente['E_Bairro'] ?? '',
+      eCEP: mapaCliente['E_CEP'] ?? '',
       ativo: mapaCliente['ativo'] ?? '',
     );
   }

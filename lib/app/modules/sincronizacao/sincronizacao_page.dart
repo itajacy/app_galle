@@ -122,13 +122,19 @@ class SincronizacaoPage extends StatelessWidget {
                   }
 
                   print('Clienteslistmap--> $clientesListMap');
-
+//! o problema está aqui abaixo, não está convertendo a lista de clientesListMap para lista de objetos Cliente,  pelo jeito
+//! o Cliente.fromMap, não está funcionando por algum motivo
                   final List<Cliente> clienteListaObjeto = List<Cliente>.from(
-                    clientesListMap.map((model) => Cliente.fromMap(model)),
+                    clientesListMap.map((model) => Cliente.fromMapFtp(model)),
                   );
+                  print('======clienteListaObjeto======inicio====');
+                  print(clienteListaObjeto.length);
+                  print(clienteListaObjeto.toString());
 
+                  print('======clienteListaObjeto======fim====');
 //! apagando TODOS OS CLIENTES DA TABELA
                   // sincronizacaoClientesController.apagaTodosOsClientes();
+                  // print('TODOS OS CLIENTES FORAM APAGADOS!');
 
 //!
                   int inclusos = 0;
@@ -166,6 +172,32 @@ class SincronizacaoPage extends StatelessWidget {
                 children: [
                   Text("Última Atualização"),
                   Text("15/03/2024 17:15"),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () {
+                  //! apagando TODOS OS CLIENTES DA TABELA
+                  sincronizacaoClientesController.apagaTodosOsClientes();
+                  print('TODOS OS CLIENTES FORAM APAGADOS!');
+
+//!
+                },
+                ativo: true,
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'APAGA TODOS OS CLIENTES',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("10/03/2024 08:07"),
                 ],
               ),
             ],
@@ -255,9 +287,9 @@ class SincronizacaoPage extends StatelessWidget {
     );
   }
 
-  void f(Map<dynamic, dynamic> m) {
-    for (dynamic s in m.values) {
-      print(s);
-    }
-  }
+  // void f(Map<dynamic, dynamic> m) {
+  //   for (dynamic s in m.values) {
+  //     print(s);
+  //   }
+  // }
 }
