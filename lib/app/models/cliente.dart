@@ -132,6 +132,9 @@ class Cliente {
       ativo: mapaCliente['ativo'] ?? '',
     );
   }
+
+  //! O metodo abaixo foi criado pq os nomes das chaves do Map importado do
+  //! arquivo Cliente.xml são diferentes do padrão
   factory Cliente.fromMapFtp(Map<String, dynamic> mapaCliente) {
     return Cliente(
       // clienteId: mapaCliente['ClienteID_Int'] as int,

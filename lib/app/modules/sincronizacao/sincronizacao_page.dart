@@ -146,9 +146,9 @@ class SincronizacaoPage extends StatelessWidget {
                         .salvarOuAlterarClientes(elemento);
                     print('RESPOSTA_PAGE--> $resposta');
                     if (resposta == 0) {
-                      inclusos++;
-                    } else {
                       alterados++;
+                    } else {
+                      inclusos++;
                     }
                     // //! int resposta = await clientesDao.salvar(novoCliente);
                     // print('resposta --> $resposta');
