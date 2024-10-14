@@ -99,6 +99,40 @@ class Cliente {
     };
   }
 
+  // Map<String, dynamic> toMapFtp() {
+  //   return {
+  //     'clienteId': clienteId,
+  //     'DispositivoID': dispositivoId,
+  //     'ClienteID_Mob': clienteIdMob,
+  //     'ClienteID_Int': clienteIdInt,
+  //     'RazaoSocial': razaoSocial,
+  //     'NomeFantasia': nomeFantasia,
+  //     'TipoPessoa': tipoPessoa,
+  //     'CGCCPF': cNPJCPF,
+  //     'IERG': iERG,
+  //     'Contato': contato,
+  //     'FoneCom1': fone1,
+  //     'FoneCom2': fone2,
+  //     'FoneCel': foneCel,
+  //     'FoneRes': foneRes,
+  //     'FoneFax': fax,
+  //     'Email': email,
+  //     'S_Cidade': pCidade,
+  //     'S_UF': pUF,
+  //     'S_Endereco': pEndereco,
+  //     'S_Complemento': pComplemento,
+  //     'S_Bairro': pBairro,
+  //     'S_CEP': pCEP,
+  //     'E_Cidade': eCidade,
+  //     'E_UF': eUF,
+  //     'E_Endereco': eEndereco,
+  //     'E_Complemento': eComplemento,
+  //     'E_Bairro': eBairro,
+  //     'E_CEP': eCEP,
+  //     'ativo': ativo,
+  //   };
+  // }
+
   factory Cliente.fromMap(Map<String, dynamic> mapaCliente) {
     return Cliente(
       // clienteId: mapaCliente['clienteId'] as int,
@@ -173,7 +207,6 @@ class Cliente {
 
   factory Cliente.fromJson(String source) =>
       Cliente.fromMap(json.decode(source) as Map<String, dynamic>);
-
 
   @override
   String toString() {

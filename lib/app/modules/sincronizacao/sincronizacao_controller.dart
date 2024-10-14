@@ -11,14 +11,17 @@ class SincronizacaoController {
   int resposta = 0;
 
   Future<int> salvarOuAlterarClientes(Cliente cliente) async {
-    List resp = await clientesDao.findClientes(cliente.razaoSocial!);
+    List resp = await clientesDao.findClientes(cliente.cNPJCPF!);
     print('lista de clientes do salvarOuAlterarClientes--> $resp');
-    print('razao social--> ${cliente.razaoSocial}');
+    print('cliente.cNPJCPF--> ${cliente.cNPJCPF}');
     print(
-        'valor de resp (se ==0 -> altera, se != -> inclui)--> ${resp.length}');
+        'valor de resp (se ==0 -> altera, se != 0-> inclui)--> ${resp.length}');
     if (resp.length != 0) {
       //se a lista  NAO for vazia, ALTERA o cliente, pq ele não  JA existe na tabela
-      resposta = await clientesDao.alterar(cliente);
+      resposta = 0;
+      if (cliente.cNPJCPF != "NAO TEM") {
+        resposta = await clientesDao.alterar(cliente);
+      }
       print('resposta--> $resposta');
       print('ClienteId  alterado--> ${cliente.clienteId}');
     } else {

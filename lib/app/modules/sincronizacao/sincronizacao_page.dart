@@ -74,20 +74,19 @@ class SincronizacaoPage extends StatelessWidget {
 
                   String fileName = 'Cliente.xml';
                   var getPathFile = DirectoryPath();
-                  print('getPathFile--> $getPathFile ');
+                  // print('getPathFile--> $getPathFile ');
                   var storePath = await getPathFile.getPath();
-                  print('storePath--> $storePath');
+                  // print('storePath--> $storePath');
                   String filePath = '$storePath/$fileName';
-                  print('filePath--> $filePath');
+                  // print('filePath--> $filePath');
 
                   var arquivo = File(filePath);
                   print('arquivo--> $arquivo');
 
                   //* Lendo arquivo e convertendo em bytes
                   Uint8List xmlBytes = await arquivo.readAsBytes();
-                  print('xmlBytes--> $xmlBytes');
-                  print(
-                      '---------------------------------------------------------------------');
+                  // print('xmlBytes--> $xmlBytes');
+                  // print('------------------------------------------------');
                   //* convertendo bytes para String
                   String xmlString = String.fromCharCodes(xmlBytes);
 
@@ -111,7 +110,7 @@ class SincronizacaoPage extends StatelessWidget {
 
                   int totalClientes = mapCLientes['DataSet']['Row'].length;
 
-                  print('total de clientes --> $totalClientes');
+                  print('total de clientes no arquivo .xml--> $totalClientes');
 
                   //* Cria um List dos Maps
                   List clientesListMap = [];
@@ -127,11 +126,11 @@ class SincronizacaoPage extends StatelessWidget {
                   final List<Cliente> clienteListaObjeto = List<Cliente>.from(
                     clientesListMap.map((model) => Cliente.fromMapFtp(model)),
                   );
-                  print('======clienteListaObjeto======inicio====');
-                  print(clienteListaObjeto.length);
-                  print(clienteListaObjeto.toString());
+                  // print('======clienteListaObjeto======inicio====');
+                  // print(clienteListaObjeto.length);
+                  // print(clienteListaObjeto.toString());
 
-                  print('======clienteListaObjeto======fim====');
+                  // print('======clienteListaObjeto======fim====');
 //! apagando TODOS OS CLIENTES DA TABELA
                   // sincronizacaoClientesController.apagaTodosOsClientes();
                   // print('TODOS OS CLIENTES FORAM APAGADOS!');
@@ -141,10 +140,10 @@ class SincronizacaoPage extends StatelessWidget {
                   int alterados = 0;
 
                   for (var elemento in clienteListaObjeto) {
-                    print('elemento==> ${elemento.nomeFantasia}');
+                    // print('elemento==> ${elemento.nomeFantasia}');
                     int resposta = await sincronizacaoClientesController
                         .salvarOuAlterarClientes(elemento);
-                    print('RESPOSTA_PAGE--> $resposta');
+                    // print('RESPOSTA_PAGE--> $resposta');
                     if (resposta == 0) {
                       alterados++;
                     } else {
@@ -156,7 +155,7 @@ class SincronizacaoPage extends StatelessWidget {
                   }
 
                   print(
-                      'Total de Clientes Lidos--> ${clienteListaObjeto.length}');
+                      'Total de Clientes Lidos do arquivo .xml--> ${clienteListaObjeto.length}');
                   print('Total de Clientes Alterados--> $alterados');
                   print('Total de Clientes Inclusos--> $inclusos');
 //!
