@@ -18,7 +18,7 @@ class SincronizacaoController {
         'valor de resp (se ==0 -> altera, se != 0-> inclui)--> ${resp.length}');
     if (resp.length != 0) {
       //se a lista  NAO for vazia, ALTERA o cliente, pq ele não  JA existe na tabela
-      resposta = 0;
+      // resposta = 0;
       if (cliente.cNPJCPF != "NAO TEM") {
         resposta = await clientesDao.alterar(cliente);
       }
