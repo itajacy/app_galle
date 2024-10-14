@@ -99,7 +99,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                     ),
                   ),
                 ),
-                
                 GeneralIconButton(
                   onPress: () {
                     Navigator.of(context)
@@ -113,8 +112,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
               ],
             ),
           ),
-
-
           Expanded(
             child: GetBuilder<ClientesConsultaController>(
               builder: (_) {
@@ -190,6 +187,8 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                         arguments: cliente);
                                   } else {
                                     //Alteração de cliente
+                                    print(
+                                        'CONSULTA PAGE - CLIENTE ID--> ${cliente.clienteId}');
                                     var clienteAlterado =
                                         await Navigator.of(context).pushNamed(
                                             '/clientesAlteracaoDetalhesPage',
@@ -209,7 +208,6 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                                     ColorsApp.iconeForegroundLSecond,
                               ),
                               const SizedBox(width: Space.spacing_8),
-
                               GeneralIconButton(
                                 onPress: () {
                                   if (cliente.clienteIdInt!.isEmpty) {
@@ -336,7 +334,7 @@ class _ClientesConsultaPageState extends State<ClientesConsultaPage> {
                 );
               },
             ),
-          ), 
+          ),
         ],
       ),
     );

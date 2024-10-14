@@ -168,6 +168,13 @@ class _ClientesAlteracaoDetalhesPageState
     clientesAlteracaoController.cliente.clienteIdInt = argument.clienteIdInt;
     clientesAlteracaoController.cliente.ativo = argument.ativo;
 
+    print(argument.clienteId);
+    print(argument.dispositivoId);
+    print(argument.clienteIdMob);
+    print(argument.clienteIdInt);
+    print(argument.nomeFantasia);
+    print(argument.ativo);
+
     nomeFantasiaController.text = argument.nomeFantasia!;
     razaoSocialController.text = argument.razaoSocial!;
     pessoaFJController.text = argument.tipoPessoa!;
@@ -192,7 +199,6 @@ class _ClientesAlteracaoDetalhesPageState
     entregaComplementoController.text = argument.eComplemento!;
     entregaBairroController.text = argument.eBairro!;
     entregaCepController.text = argument.eCEP!;
-
 
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
@@ -227,8 +233,11 @@ class _ClientesAlteracaoDetalhesPageState
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
                   onPress: () async {
-                    clientesAlteracaoController.cliente.contato =
-                        contatoController.text;
+                    // clientesAlteracaoController.cliente.contato =
+                    //     contatoController.text;
+
+                    print(clientesAlteracaoController
+                        .cliente.clienteId); //!retornando null aqui
                     clientesAlteracaoController.cliente.nomeFantasia =
                         nomeFantasiaController.text;
 
