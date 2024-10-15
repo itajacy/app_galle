@@ -20,7 +20,8 @@ class SincronizacaoController {
       //se a lista  NAO for vazia, ALTERA o cliente, pq ele não  JA existe na tabela
       // resposta = 0;
       if (cliente.cNPJCPF != "NAO TEM") {
-        resposta = await clientesDao.alterar(cliente);
+        resposta = await clientesDao.alterarFtp(cliente); //! teste veja arquivo
+        //! resposta = await clientesDao.alterar(cliente);
       }
       print('resposta--> $resposta');
       print('ClienteId  alterado--> ${cliente.clienteId}');

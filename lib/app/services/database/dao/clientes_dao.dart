@@ -121,6 +121,16 @@ class ClientesDao {
       whereArgs: [cliente.clienteId],
     );
   }
+  Future<int> alterarFtp(Cliente cliente) async {
+    final Database db = await getDatabase();
+    final Map<String, dynamic> clienteMap = cliente.toMapFtp();
+    return db.update(
+      _tableName,
+      clienteMap,
+      where: 'clienteId = ?',
+      whereArgs: [cliente.clienteId],
+    );
+  }
 
   Future<int> excluir(int id) async {
     final Database db = await getDatabase();
