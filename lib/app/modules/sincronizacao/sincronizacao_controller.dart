@@ -25,7 +25,7 @@ class SincronizacaoController {
         print('Razao--> ${cliente.razaoSocial}');
         print('N.Fantasia--> ${cliente.nomeFantasia}');
 
-        resposta = await clientesDao.alterarFtp(cliente); //! teste veja arquivo
+        resposta = await clientesDao.alterar(cliente); //! teste veja arquivo
         print('---- FIM ALTERANDO CLIENTE-----');
         //! resposta = await clientesDao.alterar(cliente);
       }

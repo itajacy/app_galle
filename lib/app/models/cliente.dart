@@ -65,41 +65,41 @@ class Cliente {
     this.ativo,
   });
 
-  Map<String, dynamic> toMap() {
-    return {
-      'clienteId': clienteId,
-      'dispositivoId': dispositivoId,
-      'clienteIdMob': clienteIdMob,
-      'clienteIdInt': clienteIdInt,
-      'razaoSocial': razaoSocial,
-      'nomeFantasia': nomeFantasia,
-      'tipoPessoa': tipoPessoa,
-      'cNPJCPF': cNPJCPF,
-      'iERG': iERG,
-      'contato': contato,
-      'fone1': fone1,
-      'fone2': fone2,
-      'foneCel': foneCel,
-      'foneRes': foneRes,
-      'fax': fax,
-      'email': email,
-      'pCidade': pCidade,
-      'pUF': pUF,
-      'pEndereco': pEndereco,
-      'pComplemento': pComplemento,
-      'pBairro': pBairro,
-      'pCEP': pCEP,
-      'eCidade': eCidade,
-      'eUF': eUF,
-      'eEndereco': eEndereco,
-      'eComplemento': eComplemento,
-      'eBairro': eBairro,
-      'eCEP': eCEP,
-      'ativo': ativo,
-    };
-  }
+  // Map<String, dynamic> toMap() {  // ANTIGO
+  //   return {
+  //     'clienteId': clienteId,
+  //     'dispositivoId': dispositivoId,
+  //     'clienteIdMob': clienteIdMob,
+  //     'clienteIdInt': clienteIdInt,
+  //     'razaoSocial': razaoSocial,
+  //     'nomeFantasia': nomeFantasia,
+  //     'tipoPessoa': tipoPessoa,
+  //     'cNPJCPF': cNPJCPF,
+  //     'iERG': iERG,
+  //     'contato': contato,
+  //     'fone1': fone1,
+  //     'fone2': fone2,
+  //     'foneCel': foneCel,
+  //     'foneRes': foneRes,
+  //     'fax': fax,
+  //     'email': email,
+  //     'pCidade': pCidade,
+  //     'pUF': pUF,
+  //     'pEndereco': pEndereco,
+  //     'pComplemento': pComplemento,
+  //     'pBairro': pBairro,
+  //     'pCEP': pCEP,
+  //     'eCidade': eCidade,
+  //     'eUF': eUF,
+  //     'eEndereco': eEndereco,
+  //     'eComplemento': eComplemento,
+  //     'eBairro': eBairro,
+  //     'eCEP': eCEP,
+  //     'ativo': ativo,
+  //   };
+  // }
 
-  Map<String, dynamic> toMapFtp() {
+  Map<String, dynamic> toMap() {
     return {
       'clienteId': clienteId,
       'ClienteID_Int': clienteIdInt,
@@ -133,43 +133,43 @@ class Cliente {
     };
   }
 
-  factory Cliente.fromMap(Map<String, dynamic> mapaCliente) {
-    return Cliente(
-      clienteId: mapaCliente['clienteId'] as int,
-      clienteIdInt: mapaCliente['clienteIdInt'] ?? '',
-      dispositivoId: mapaCliente['dispositivoId'] ?? '',
-      clienteIdMob: mapaCliente['clienteIdMob'] ?? '',
-      razaoSocial: mapaCliente['razaoSocial'] ?? '',
-      nomeFantasia: mapaCliente['nomeFantasia'] ?? '',
-      tipoPessoa: mapaCliente['tipoPessoa'] ?? '',
-      cNPJCPF: mapaCliente['cNPJCPF'] ?? '',
-      iERG: mapaCliente['iERG'] ?? '',
-      contato: mapaCliente['contato'] ?? '',
-      fone1: mapaCliente['fone1'] ?? '',
-      fone2: mapaCliente['fone2'] ?? '',
-      foneCel: mapaCliente['foneCel'] ?? '',
-      foneRes: mapaCliente['foneRes'] ?? '',
-      fax: mapaCliente['fax'] ?? '',
-      email: mapaCliente['email'] ?? '',
-      pCidade: mapaCliente['pCidade'] ?? '',
-      pUF: mapaCliente['pUF'] ?? '',
-      pEndereco: mapaCliente['pEndereco'] ?? '',
-      pComplemento: mapaCliente['pComplemento'] ?? '',
-      pBairro: mapaCliente['pBairro'] ?? '',
-      pCEP: mapaCliente['pCEP'] ?? '',
-      eCidade: mapaCliente['eCidade'] ?? '',
-      eUF: mapaCliente['eUF'] ?? '',
-      eEndereco: mapaCliente['eEndereco'] ?? '',
-      eComplemento: mapaCliente['eComplemento'] ?? '',
-      eBairro: mapaCliente['eBairro'] ?? '',
-      eCEP: mapaCliente['eCEP'] ?? '',
-      ativo: mapaCliente['ativo'] ?? '',
-    );
-  }
+  // factory Cliente.fromMap(Map<String, dynamic> mapaCliente) {  //ANTIGO
+  //   return Cliente(
+  //     clienteId: mapaCliente['clienteId'] as int,
+  //     clienteIdInt: mapaCliente['clienteIdInt'] ?? '',
+  //     dispositivoId: mapaCliente['dispositivoId'] ?? '',
+  //     clienteIdMob: mapaCliente['clienteIdMob'] ?? '',
+  //     razaoSocial: mapaCliente['razaoSocial'] ?? '',
+  //     nomeFantasia: mapaCliente['nomeFantasia'] ?? '',
+  //     tipoPessoa: mapaCliente['tipoPessoa'] ?? '',
+  //     cNPJCPF: mapaCliente['cNPJCPF'] ?? '',
+  //     iERG: mapaCliente['iERG'] ?? '',
+  //     contato: mapaCliente['contato'] ?? '',
+  //     fone1: mapaCliente['fone1'] ?? '',
+  //     fone2: mapaCliente['fone2'] ?? '',
+  //     foneCel: mapaCliente['foneCel'] ?? '',
+  //     foneRes: mapaCliente['foneRes'] ?? '',
+  //     fax: mapaCliente['fax'] ?? '',
+  //     email: mapaCliente['email'] ?? '',
+  //     pCidade: mapaCliente['pCidade'] ?? '',
+  //     pUF: mapaCliente['pUF'] ?? '',
+  //     pEndereco: mapaCliente['pEndereco'] ?? '',
+  //     pComplemento: mapaCliente['pComplemento'] ?? '',
+  //     pBairro: mapaCliente['pBairro'] ?? '',
+  //     pCEP: mapaCliente['pCEP'] ?? '',
+  //     eCidade: mapaCliente['eCidade'] ?? '',
+  //     eUF: mapaCliente['eUF'] ?? '',
+  //     eEndereco: mapaCliente['eEndereco'] ?? '',
+  //     eComplemento: mapaCliente['eComplemento'] ?? '',
+  //     eBairro: mapaCliente['eBairro'] ?? '',
+  //     eCEP: mapaCliente['eCEP'] ?? '',
+  //     ativo: mapaCliente['ativo'] ?? '',
+  //   );
+  // }
 
   //! O metodo abaixo foi criado pq os nomes das chaves do Map importado do
   //! arquivo Cliente.xml são diferentes do padrão
-  factory Cliente.fromMapFtp(Map<String, dynamic> mapaCliente) {
+  factory Cliente.fromMap(Map<String, dynamic> mapaCliente) {
     return Cliente(
       clienteId: mapaCliente['clienteId'] as int,
       clienteIdInt: mapaCliente['ClienteID_Int'] ?? '',
