@@ -102,9 +102,9 @@ class Cliente {
   Map<String, dynamic> toMapFtp() {
     return {
       'clienteId': clienteId,
+      'ClienteID_Int': clienteIdInt,
       'DispositivoID': dispositivoId,
       'ClienteID_Mob': clienteIdMob,
-      'ClienteID_Int': clienteIdInt,
       'RazaoSocial': razaoSocial,
       'NomeFantasia': nomeFantasia,
       'TipoPessoa': tipoPessoa,
@@ -171,7 +171,7 @@ class Cliente {
   //! arquivo Cliente.xml são diferentes do padrão
   factory Cliente.fromMapFtp(Map<String, dynamic> mapaCliente) {
     return Cliente(
-      // clienteId: mapaCliente['ClienteID_Int'] as int,
+      clienteId: mapaCliente['clienteId'] as int,
       clienteIdInt: mapaCliente['ClienteID_Int'] ?? '',
       dispositivoId: mapaCliente['DispositivoID'] ?? '',
       clienteIdMob: mapaCliente['ClienteID_Mob'] ?? '',
