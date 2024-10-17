@@ -169,48 +169,88 @@ class Cliente {
 
   //! O metodo abaixo foi criado pq os nomes das chaves do Map importado do
   //! arquivo Cliente.xml são diferentes do padrão
-  factory Cliente.fromMap(Map<String, dynamic> mapaCliente) {
-    return Cliente(
-      //! está dando erro na linha abaixo
-      // Exception has occurred.
-      / _TypeError (type 'Null' is not a subtype of type 'int' in type cast)
-      clienteId: mapaCliente['clienteId'] as int,
+  factory Cliente.fromMap(Map<String, dynamic> mapaCliente, bool alteracao) {
+    if (alteracao) {
+      return Cliente(
+        //* alteracao == true
+        ///* Nesse caso o clienteId é necessário como na alteração do Cliente
 
-      clienteIdInt: mapaCliente['ClienteID_Int'] ?? '',
-      dispositivoId: mapaCliente['DispositivoID'] ?? '',
-      clienteIdMob: mapaCliente['ClienteID_Mob'] ?? '',
-      razaoSocial: mapaCliente['RazaoSocial'] ?? '',
-      nomeFantasia: mapaCliente['NomeFantasia'] ?? '',
-      tipoPessoa: mapaCliente['TipoPessoa'] ?? '',
-      cNPJCPF: mapaCliente['CGCCPF'] ?? '',
-      iERG: mapaCliente['IERG'] ?? '',
-      contato: mapaCliente['Contato'] ?? '',
-      fone1: mapaCliente['FoneCom1'] ?? '',
-      fone2: mapaCliente['FoneCom2'] ?? '',
-      foneCel: mapaCliente['FoneCel'] ?? '',
-      foneRes: mapaCliente['FoneRes'] ?? '',
-      fax: mapaCliente['FoneFax'] ?? '',
-      email: mapaCliente['Email'] ?? '',
-      pCidade: mapaCliente['S_Cidade'] ?? '',
-      pUF: mapaCliente['S_UF'] ?? '',
-      pEndereco: mapaCliente['S_Endereco'] ?? '',
-      pComplemento: mapaCliente['S_Complemento'] ?? '',
-      pBairro: mapaCliente['S_Bairro'] ?? '',
-      pCEP: mapaCliente['S_CEP'] ?? '',
-      eCidade: mapaCliente['E_Cidade'] ?? '',
-      eUF: mapaCliente['E_UF'] ?? '',
-      eEndereco: mapaCliente['E_Endereco'] ?? '',
-      eComplemento: mapaCliente['E_Complemento'] ?? '',
-      eBairro: mapaCliente['E_Bairro'] ?? '',
-      eCEP: mapaCliente['E_CEP'] ?? '',
-      ativo: mapaCliente['ativo'] ?? '',
-    );
+        clienteId: mapaCliente['clienteId'] as int,
+
+        clienteIdInt: mapaCliente['ClienteID_Int'] ?? '',
+        dispositivoId: mapaCliente['DispositivoID'] ?? '',
+        clienteIdMob: mapaCliente['ClienteID_Mob'] ?? '',
+        razaoSocial: mapaCliente['RazaoSocial'] ?? '',
+        nomeFantasia: mapaCliente['NomeFantasia'] ?? '',
+        tipoPessoa: mapaCliente['TipoPessoa'] ?? '',
+        cNPJCPF: mapaCliente['CGCCPF'] ?? '',
+        iERG: mapaCliente['IERG'] ?? '',
+        contato: mapaCliente['Contato'] ?? '',
+        fone1: mapaCliente['FoneCom1'] ?? '',
+        fone2: mapaCliente['FoneCom2'] ?? '',
+        foneCel: mapaCliente['FoneCel'] ?? '',
+        foneRes: mapaCliente['FoneRes'] ?? '',
+        fax: mapaCliente['FoneFax'] ?? '',
+        email: mapaCliente['Email'] ?? '',
+        pCidade: mapaCliente['S_Cidade'] ?? '',
+        pUF: mapaCliente['S_UF'] ?? '',
+        pEndereco: mapaCliente['S_Endereco'] ?? '',
+        pComplemento: mapaCliente['S_Complemento'] ?? '',
+        pBairro: mapaCliente['S_Bairro'] ?? '',
+        pCEP: mapaCliente['S_CEP'] ?? '',
+        eCidade: mapaCliente['E_Cidade'] ?? '',
+        eUF: mapaCliente['E_UF'] ?? '',
+        eEndereco: mapaCliente['E_Endereco'] ?? '',
+        eComplemento: mapaCliente['E_Complemento'] ?? '',
+        eBairro: mapaCliente['E_Bairro'] ?? '',
+        eCEP: mapaCliente['E_CEP'] ?? '',
+        ativo: mapaCliente['ativo'] ?? '',
+      );
+    } else {
+      return Cliente(
+        //* alteracao = false
+        ///* Nesse caso o clienteId  NÃO é necessário e isso é utilizado
+        ///* na sincronização do Cliente.xml, que não possui o campo clienteId
+        ///* e ocasionava erro durante a chamada do método .fromMap()
+
+        // clienteId: mapaCliente['clienteId'] as int,
+
+        clienteIdInt: mapaCliente['ClienteID_Int'] ?? '',
+        dispositivoId: mapaCliente['DispositivoID'] ?? '',
+        clienteIdMob: mapaCliente['ClienteID_Mob'] ?? '',
+        razaoSocial: mapaCliente['RazaoSocial'] ?? '',
+        nomeFantasia: mapaCliente['NomeFantasia'] ?? '',
+        tipoPessoa: mapaCliente['TipoPessoa'] ?? '',
+        cNPJCPF: mapaCliente['CGCCPF'] ?? '',
+        iERG: mapaCliente['IERG'] ?? '',
+        contato: mapaCliente['Contato'] ?? '',
+        fone1: mapaCliente['FoneCom1'] ?? '',
+        fone2: mapaCliente['FoneCom2'] ?? '',
+        foneCel: mapaCliente['FoneCel'] ?? '',
+        foneRes: mapaCliente['FoneRes'] ?? '',
+        fax: mapaCliente['FoneFax'] ?? '',
+        email: mapaCliente['Email'] ?? '',
+        pCidade: mapaCliente['S_Cidade'] ?? '',
+        pUF: mapaCliente['S_UF'] ?? '',
+        pEndereco: mapaCliente['S_Endereco'] ?? '',
+        pComplemento: mapaCliente['S_Complemento'] ?? '',
+        pBairro: mapaCliente['S_Bairro'] ?? '',
+        pCEP: mapaCliente['S_CEP'] ?? '',
+        eCidade: mapaCliente['E_Cidade'] ?? '',
+        eUF: mapaCliente['E_UF'] ?? '',
+        eEndereco: mapaCliente['E_Endereco'] ?? '',
+        eComplemento: mapaCliente['E_Complemento'] ?? '',
+        eBairro: mapaCliente['E_Bairro'] ?? '',
+        eCEP: mapaCliente['E_CEP'] ?? '',
+        ativo: mapaCliente['ativo'] ?? '',
+      );
+    }
   }
 
   String toJson() => json.encode(toMap());
 
   factory Cliente.fromJson(String source) =>
-      Cliente.fromMap(json.decode(source) as Map<String, dynamic>);
+      Cliente.fromMap(json.decode(source) as Map<String, dynamic>, true);
 
   @override
   String toString() {

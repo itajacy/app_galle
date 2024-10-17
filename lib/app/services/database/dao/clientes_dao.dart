@@ -115,7 +115,7 @@ class ClientesDao {
     // final List<Map> result = await db.rawQuery("SELECT * FROM $_tableName");
     final List<Cliente> listaDeClientes = [];
     for (var cliente in result) {
-      listaDeClientes.add(Cliente.fromMap(cliente));
+      listaDeClientes.add(Cliente.fromMap(cliente, true));
     }
     // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
 
@@ -138,7 +138,7 @@ class ClientesDao {
     );
     final List<Cliente> listaDeClientes = [];
     for (var item in result) {
-      listaDeClientes.add(Cliente.fromMap(item));
+      listaDeClientes.add(Cliente.fromMap(item, true));
     }
     print('---inicio da lista de clientes findClientes---');
     print(listaDeClientes.toString());
@@ -157,18 +157,6 @@ class ClientesDao {
       whereArgs: [cliente.clienteId],
     );
   }
-
-  //! ANTIGO TESTE PARA ALTERAR QUANDO IMPORTAR CLIENTE.XML
-  // Future<int> alterarFtp(Cliente cliente) async {
-  //   final Database db = await getDatabase();
-  //   final Map<String, dynamic> clienteMap = cliente.toMapFtp();
-  //   return db.update(
-  //     _tableName,
-  //     clienteMap,
-  //     where: 'clienteId = ?',
-  //     whereArgs: [cliente.clienteId],
-  //   );
-  // }
 
   Future<int> excluir(int id) async {
     final Database db = await getDatabase();

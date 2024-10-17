@@ -124,7 +124,8 @@ class SincronizacaoPage extends StatelessWidget {
 //! o problema está aqui abaixo, não está convertendo a lista de clientesListMap para lista de objetos Cliente,  pelo jeito
 //! o Cliente.fromMap, não está funcionando por algum motivo
                   final List<Cliente> clienteListaObjeto = List<Cliente>.from(
-                    clientesListMap.map((model) => Cliente.fromMap(model)),
+                    clientesListMap
+                        .map((model) => Cliente.fromMap(model, false)),
                   );
                   // print('======clienteListaObjeto======inicio====');
                   // print(clienteListaObjeto.length);
