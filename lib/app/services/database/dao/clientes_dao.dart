@@ -128,7 +128,7 @@ class ClientesDao {
     final List<Map<String, dynamic>> result = await db.query(
       _tableName,
       where:
-          'nomeFantasia LIKE ? OR razaoSocial LIKE ? OR clienteIdInt LIKE ? OR cNPJCPF LIKE ?',
+          'NomeFantasia LIKE ? OR RazaoSocial LIKE ? OR ClienteID_Int LIKE ? OR CGCCPF LIKE ?',
       whereArgs: [
         '%$dadoDoCliente%',
         '%$dadoDoCliente%',
