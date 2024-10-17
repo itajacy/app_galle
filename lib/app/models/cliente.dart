@@ -171,7 +171,11 @@ class Cliente {
   //! arquivo Cliente.xml são diferentes do padrão
   factory Cliente.fromMap(Map<String, dynamic> mapaCliente) {
     return Cliente(
+      //! está dando erro na linha abaixo
+      // Exception has occurred.
+      / _TypeError (type 'Null' is not a subtype of type 'int' in type cast)
       clienteId: mapaCliente['clienteId'] as int,
+
       clienteIdInt: mapaCliente['ClienteID_Int'] ?? '',
       dispositivoId: mapaCliente['DispositivoID'] ?? '',
       clienteIdMob: mapaCliente['ClienteID_Mob'] ?? '',
