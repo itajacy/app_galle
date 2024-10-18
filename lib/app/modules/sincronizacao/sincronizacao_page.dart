@@ -120,9 +120,8 @@ class SincronizacaoPage extends StatelessWidget {
                         .add((mapCLientes['DataSet']['Row'][element]));
                   }
 
-                  print('Clienteslistmap--> $clientesListMap');
-//! o problema está aqui abaixo, não está convertendo a lista de clientesListMap para lista de objetos Cliente,  pelo jeito
-//! o Cliente.fromMap, não está funcionando por algum motivo
+                  print(
+                      'Clienteslistmap  sincronizacao_page--> $clientesListMap');
                   final List<Cliente> clienteListaObjeto = List<Cliente>.from(
                     clientesListMap
                         .map((model) => Cliente.fromMap(model, false)),
@@ -141,7 +140,8 @@ class SincronizacaoPage extends StatelessWidget {
                   int alterados = 0;
 
                   for (var elemento in clienteListaObjeto) {
-                    // print('elemento==> ${elemento.nomeFantasia}');
+                    print('elemento N.Fantasia ==> ${elemento.nomeFantasia}');
+                    print('elemento ClienteIdInt==> ${elemento.clienteIdInt}');
                     int resposta = await sincronizacaoClientesController
                         .salvarOuAlterarClientes(elemento);
                     // print('RESPOSTA_PAGE--> $resposta');
@@ -152,7 +152,7 @@ class SincronizacaoPage extends StatelessWidget {
                     }
                     // //! int resposta = await clientesDao.salvar(novoCliente);
                     // print('resposta --> $resposta');
-                    print('============');
+                    print('====-----====');
                   }
 
                   print(
