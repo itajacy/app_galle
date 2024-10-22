@@ -17,7 +17,7 @@ class SincronizacaoController {
         'lista de clientes do salvarOuAlterarClientes--> $respostaFindClientes');
     print('cliente.cNPJCPF--> ${clienteDoXml.cNPJCPF}');
     print(
-        'valor de respostaFindClientes (se ==0 -> altera, se != 0-> inclui)--> ${respostaFindClientes.length}');
+        'valor de respostaFindClientes (se ==0 -> INCLUI, se != 0-> ALTERA)--> ${respostaFindClientes.length}');
     if (respostaFindClientes.length != 0) {
       //se a lista  NAO for vazia, ALTERA o cliente, pq ele não  JA existe na tabela
       // resposta = 0;
