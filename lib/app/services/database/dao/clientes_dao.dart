@@ -1,5 +1,4 @@
 import 'package:galle/app/services/database/app_database.dart';
-import 'package:get/get.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../../../models/cliente.dart';
