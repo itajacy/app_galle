@@ -38,11 +38,12 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
   bool? conectado;
   String mensagem = '';
 
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   configuracaoFtpController.dispose();
-  // }
+  @override
+  void dispose() {
+    super.dispose();
+    configuracaoFtpController.conectado = null;
+    configuracaoFtpController.mensagem = '';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -140,6 +141,8 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
 
             ClientesButton(
               onPress: () async {
+                // configuracaoFtpController.conectado = null;
+                // configuracaoFtpController.mensagem = '';
                 await configuracaoFtpController.testeConexaoFTP(
                     enderecoSincronizacaoController.text,
                     usuarioFTPController.text,
