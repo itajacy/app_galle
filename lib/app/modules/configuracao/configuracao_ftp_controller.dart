@@ -1,6 +1,7 @@
 import 'package:ftpconnect/ftpconnect.dart';
+import 'package:get/get.dart';
 
-class ConfiguracaoFtpController {
+class ConfiguracaoFtpController extends GetxController {
   bool? conectado;
   String mensagem = '';
 
@@ -16,6 +17,7 @@ class ConfiguracaoFtpController {
     try {
       // Conectando ao servidor
       conectado = await ftpConnect.connect();
+      update();
 
       // Obtendo o tamanho do arquivo remoto
       // int fileSize = await ftpConnect.sizeFile(fileName);
@@ -58,6 +60,7 @@ class ConfiguracaoFtpController {
       // }
 
       mensagem = 'CONECTADO COM SUCESSO';
+      update();
       print(mensagem);
 
       // Desconectando do servidor
@@ -70,8 +73,9 @@ class ConfiguracaoFtpController {
       } else {
         mensagem = 'Falha ao conectar:  ${e.toString()}';
       }
+      update();
       print(mensagem);
-      mensagem;
+
       // print('Erro: $e');
     }
   }

@@ -9,6 +9,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:ftpconnect/ftpconnect.dart';
 import 'package:galle/app/modules/configuracao/configuracao_ftp_controller.dart';
+import 'package:get/get.dart';
 import '../../core/colors_app.dart';
 import '../../core/font.dart';
 import '../../core/sizes.dart';
@@ -26,7 +27,7 @@ class ConfiguracaoFtpPage extends StatefulWidget {
 
 class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
   ConfiguracaoFtpController configuracaoFtpController =
-      ConfiguracaoFtpController();
+      Get.put(ConfiguracaoFtpController());
 
   final enderecoSincronizacaoController = TextEditingController();
   final enderecoImagensController = TextEditingController();
@@ -36,6 +37,12 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
   double _downloadProgress = 0.0; // Variável para armazenar o progresso
   bool? conectado;
   String mensagem = '';
+
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   configuracaoFtpController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -133,22 +140,10 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
 
             ClientesButton(
               onPress: () async {
-                //! Chama a função para conectar ao FTP e iniciar o download
-                // testeConexaoFTP(enderecoSincronizacaoController.text,
-                //     usuarioFTPController.text, senhaFTPController.text);
-                setState(() {
-                  conectado = null;
-                  mensagem = '';
-                });
-
                 await configuracaoFtpController.testeConexaoFTP(
                     enderecoSincronizacaoController.text,
                     usuarioFTPController.text,
                     senhaFTPController.text);
-                setState(() {
-                  conectado = configuracaoFtpController.conectado;
-                  mensagem = configuracaoFtpController.mensagem;
-                });
 
                 //!  ABAIXO, EXECUTADO SOMENTE PARA BAIXAR O ARQUIVO Cliente.xml
                 // conexaoFTP();
@@ -157,26 +152,34 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
               icone: Icons.wifi,
             ),
             const SizedBox(height: Space.spacing_24),
-            conectado == null
-                ? const Icon(
-                    Icons.check,
-                    color: Color.fromRGBO(224, 225, 221, 1),
-                    size: 100.0,
-                  )
-                : Icon(
-                    conectado! ? Icons.check : Icons.do_disturb,
-                    color: conectado! ? Colors.green : Colors.red,
-                    size: 100.0,
-                  ),
+            GetBuilder<ConfiguracaoFtpController>(builder: (context) {
+              return configuracaoFtpController.conectado == null
+                  ? const Icon(
+                      Icons.check,
+                      color: Color.fromRGBO(224, 225, 221, 1),
+                      size: 100.0,
+                    )
+                  : Icon(
+                      configuracaoFtpController.conectado!
+                          ? Icons.check
+                          : Icons.do_disturb,
+                      color: configuracaoFtpController.conectado!
+                          ? Colors.green
+                          : Colors.red,
+                      size: 100.0,
+                    );
+            }),
             const SizedBox(height: Space.spacing_24),
-            Text(
-              mensagem,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: Font.title_18,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
+            GetBuilder<ConfiguracaoFtpController>(builder: (context) {
+              return Text(
+                configuracaoFtpController.mensagem,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: Font.title_18,
+                  fontWeight: FontWeight.w700,
+                ),
+              );
+            }),
 
             // Padding(
             //   padding: const EdgeInsets.all(Space.spacing_24),
