@@ -5,6 +5,8 @@ class Dispositivo {
   String? urlImagens;
   String? representanteIdInt;
   String? email;
+  //! usuarioFtp
+  //! senhaFtp
 
   Dispositivo({
     this.dispositivoId,
@@ -16,18 +18,18 @@ class Dispositivo {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'dispositivoId': dispositivoId,
+      'DispositivoID': dispositivoId,
       'address': address,
       'urlImagens': urlImagens,
-      'representanteIdInt': representanteIdInt,
+      'RepresentanteID_Int': representanteIdInt,
       'email': email,
     };
   }
 
   factory Dispositivo.fromMap(Map<String, dynamic> mapaDispositivo) {
     return Dispositivo(
-      dispositivoId: mapaDispositivo['dispositivoId'] != null
-          ? mapaDispositivo['dispositivoId'] as int
+      dispositivoId: mapaDispositivo['DispositivoID'] != null
+          ? mapaDispositivo['DispositivoID'] as int
           : null,
       address: mapaDispositivo['address'] != null
           ? mapaDispositivo['address'] as String
@@ -35,8 +37,8 @@ class Dispositivo {
       urlImagens: mapaDispositivo['urlImagens'] != null
           ? mapaDispositivo['urlImagens'] as String
           : null,
-      representanteIdInt: mapaDispositivo['representanteIdInt'] != null
-          ? mapaDispositivo['representanteIdInt'] as String
+      representanteIdInt: mapaDispositivo['RepresentanteID_Int'] != null
+          ? mapaDispositivo['RepresentanteID_Int'] as String
           : null,
       email: mapaDispositivo['email'] != null
           ? mapaDispositivo['email'] as String
