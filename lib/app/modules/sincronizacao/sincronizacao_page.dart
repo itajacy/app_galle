@@ -1,8 +1,5 @@
 //* alterado em 26/09/24
 
-//!  CONSEGUI LER O ARQUIVO, CRIAR O MAP E VARRER O MAP CRIANDO UM LIST
-//!  AGORA PRECISO LER ESSA LISTA E GRAVAR CLIENTE POR CLIENTE NA TABELA DE CLIENTES
-
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_controller.dart';
@@ -187,10 +184,4 @@ class SincronizacaoPage extends StatelessWidget {
       ),
     );
   }
-
-  // void f(Map<dynamic, dynamic> m) {
-  //   for (dynamic s in m.values) {
-  //     print(s);
-  //   }
-  // }
 }

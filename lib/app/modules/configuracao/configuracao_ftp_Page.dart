@@ -8,6 +8,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:ftpconnect/ftpconnect.dart';
+import 'package:galle/app/modules/configuracao/configuracao_ftp_controller.dart';
 import '../../core/colors_app.dart';
 import '../../core/font.dart';
 import '../../core/sizes.dart';
@@ -24,6 +25,9 @@ class ConfiguracaoFtpPage extends StatefulWidget {
 }
 
 class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
+  ConfiguracaoFtpController configuracaoFtpController =
+      ConfiguracaoFtpController();
+
   final enderecoSincronizacaoController = TextEditingController();
   final enderecoImagensController = TextEditingController();
   final usuarioFTPController = TextEditingController();
@@ -64,7 +68,9 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ClientesButton(
-                      onPress: () {}, // Função cancelar
+                      onPress: () {
+                        Navigator.of(context).pop();
+                      }, // Função cancelar
                       titulo: Strings.cancelar,
                       icone: Icons.cancel_presentation_outlined),
                   ClientesButton(
@@ -126,12 +132,26 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
             // Barra de progresso linear
 
             ClientesButton(
-              onPress: () {
-                // Chama a função para conectar ao FTP e iniciar o download
-                testeConexaoFTP(enderecoSincronizacaoController.text,
-                    usuarioFTPController.text, senhaFTPController.text);
+              onPress: () async {
+                //! Chama a função para conectar ao FTP e iniciar o download
+                // testeConexaoFTP(enderecoSincronizacaoController.text,
+                //     usuarioFTPController.text, senhaFTPController.text);
+                setState(() {
+                  conectado = null;
+                  mensagem = '';
+                });
+
+                await configuracaoFtpController.testeConexaoFTP(
+                    enderecoSincronizacaoController.text,
+                    usuarioFTPController.text,
+                    senhaFTPController.text);
+                setState(() {
+                  conectado = configuracaoFtpController.conectado;
+                  mensagem = configuracaoFtpController.mensagem;
+                });
+
                 //!  ABAIXO, EXECUTADO SOMENTE PARA BAIXAR O ARQUIVO Cliente.xml
-                conexaoFTP();
+                // conexaoFTP();
               },
               titulo: "Testar Conexão",
               icone: Icons.wifi,
@@ -181,13 +201,13 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
 
   testeConexaoFTP(String endereco, String usuario, String senha) async {
     FTPConnect ftpConnect = FTPConnect(endereco, user: usuario, pass: senha);
-    String fileName = 'arq.zip';
-    var getPathFile = DirectoryPath();
-    var storePath = await getPathFile.getPath();
-    String filePath = '$storePath/$fileName';
+    // String fileName = 'arq.zip';
+    // var getPathFile = DirectoryPath();
+    // var storePath = await getPathFile.getPath();
+    // String filePath = '$storePath/$fileName';
 
-    var arquivo = File(filePath);
-    print('arquivo--> $arquivo');
+    // var arquivo = File(filePath);
+    // print('arquivo--> $arquivo');
     try {
       // Conectando ao servidor
       conectado = await ftpConnect.connect();

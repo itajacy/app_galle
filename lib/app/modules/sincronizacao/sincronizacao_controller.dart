@@ -25,7 +25,7 @@ class SincronizacaoController {
       //se a lista  NAO for vazia, ALTERA o cliente, pq ele não  JA existe na tabela
       // resposta = 0;
       print(
-          '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>--respostaFindClientes clienteIdInt-- ${respostaFindClientes.elementAt(0).clienteIdInt}');
+          '>>>>>>>>>>>>>>>>>>>--respostaFindClientes clienteIdInt-- ${respostaFindClientes.elementAt(0).clienteIdInt}');
       if (clienteDoXml.cNPJCPF != "NAO TEM") {
         print('---- INICIO ALTERANDO CLIENTE-----');
         print('id--> ${clienteDoXml.clienteId}');
@@ -91,7 +91,7 @@ class SincronizacaoController {
     return resultado;
   }
 
-  conexaoFTP() async {
+  conexaoClienteFTP() async {
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
     String fileName = 'Cliente.xml';
@@ -155,18 +155,17 @@ class SincronizacaoController {
 
   sincronizacaoClientes() async {
     //!  Conectando e baixando o arquivo Cliente.xml
-    conexaoFTP();
+    conexaoClienteFTP();
 
     String jsonString = await convertXmlToJson(); //convertendo XML em Json
 
     List<Cliente> clienteListaObjeto = convertJsonToCliente(
         jsonString); //convertendo Json em uma lista de Objetos(Cliente)
 
-    mapeandoClientesParaSalvarOuAlterar(clienteListaObjeto); 
+    mapeandoClientesParaSalvarOuAlterar(clienteListaObjeto);
   }
 
   Future<String> convertXmlToJson() async {
-
     String fileName = 'Cliente.xml';
     var getPathFile = DirectoryPath();
     // print('getPathFile--> $getPathFile ');
