@@ -6,6 +6,7 @@ import 'package:ftpconnect/ftpconnect.dart';
 import 'package:xml2json/xml2json.dart';
 
 import '../../models/cliente.dart';
+import '../../models/dispositivo.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
 
@@ -96,21 +97,33 @@ class SincronizacaoController {
 
   sincronizacaoClientes() async {
     //!  Conectando e baixando o arquivo Cliente.xml
-    await conexaoClienteFTP();
-    await conexaoDispositivoFTP();
+    await conexaoFTP('Cliente');
 
-    String jsonString = await convertXmlToJson(); //convertendo XML em Json
+    String jsonStringCliente =
+        await convertXmlToJson('Cliente'); //convertendo XML em Json
 
     List<Cliente> clienteListaObjeto = convertJsonToCliente(
-        jsonString); //convertendo Json em uma lista de Objetos(Cliente)
+        jsonStringCliente); //convertendo Json em uma lista de Objetos(Cliente)
 
-    mapeandoClientesParaSalvarOuAlterar(clienteListaObjeto);
+    mapeandoClientesParaSalvarOuAlterar(
+        clienteListaObjeto); // importando novos ou alterando clientes
+
+    // TODO Conectando e baixado arquivo Dispositivo.xml
+
+    await conexaoFTP('Dispositivo');
+    String jsonStringDispositivo =
+        await convertXmlToJson('Cliente'); //convertendo XML em Json
+
+    Dispositivo dispositivoObjeto =
+        convertJsonToDispositivo(jsonStringDispositivo);
+
+    // TODO falta a parte de Salvar os dados do Dispositivo
   }
 
-  conexaoClienteFTP() async {
+  conexaoFTP(String nomeDoArquivoXml) async {
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
-    String fileName = 'Cliente.xml';
+    String fileName = '$nomeDoArquivoXml.xml';
     var getPathFile = DirectoryPath();
     var storePath = await getPathFile.getPath();
     String filePath = '$storePath/$fileName';
@@ -167,8 +180,8 @@ class SincronizacaoController {
     }
   }
 
-  Future<String> convertXmlToJson() async {
-    String fileName = 'Cliente.xml';
+  Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
+    String fileName = '$nomeDoArquivoXml.xml';
     var getPathFile = DirectoryPath();
     print('getPathFile--> $getPathFile ');
     var storePath = await getPathFile.getPath();
@@ -257,65 +270,54 @@ class SincronizacaoController {
 
   //! >>>>>>>>  INICIO DO DISPOSITIVO  <<<<<<<<<
 
-  conexaoDispositivoFTP() async {
-    FTPConnect ftpConnect = FTPConnect('191.252.83.183',
-        user: 'palm03@galle', pass: 'Jequitiba1602!');
-    String fileName = 'Dispositivo.xml';
-    var getPathFile = DirectoryPath();
-    var storePath = await getPathFile.getPath();
-    String filePath = '$storePath/$fileName';
+  Dispositivo convertJsonToDispositivo(String jsonString) {
+    // CORRIGIR, NÃO DEVE SER UMA LISTA E SIM SOH 1 DISPOSITIVO
+    //* Converte para Map
+    Map<String, dynamic> mapDispositivo = jsonDecode(jsonString);
 
-    var arquivo = File(filePath);
-    print('arquivo--> $arquivo');
-    try {
-      // Conectando ao servidor
-      await ftpConnect.connect();
+    int totalDispositivos = mapDispositivo['DataSet']['Row'].length;
 
-      // Obtendo o tamanho do arquivo remoto
-      int fileSize = await ftpConnect.sizeFile(fileName);
-      print('Tamanho do arquivo no FTP: $fileSize bytes');
+    print('total de dispositivos no arquivo .xml--> $totalDispositivos');
 
-      // Garantindo que o arquivo esteja vazio antes do download
-      if (arquivo.existsSync()) {
-        print("$fileName existe..> ${arquivo.existsSync()}");
-        print('apagando arquivo--> $arquivo');
-        arquivo.deleteSync();
-        print("$fileName existe..> ${arquivo.existsSync()}");
-        print('arquivo $fileName apagado!!!');
-      }
-      arquivo.createSync();
+    //* Cria um List dos Maps
+    // List dispositivoListMap = [];
 
-      // Baixando o arquivo diretamente para o armazenamento
-      await ftpConnect.downloadFileWithRetry(
-        fileName,
-        arquivo,
-        pRetryCount: 2,
-        onProgress: (progressInPercent, totalReceived, fileSize) {
-          // Atualizando o progresso do download
-          // setState(() {
-          //   _downloadProgress = progressInPercent / 100;
-          // });
-          // print('Progresso: ${progressInPercent.toStringAsFixed(2)}%');
-          // print('Total recebido: $totalReceived de $fileSize bytes');
-        },
-      );
+    // dispositivoListMap.add((mapDispositivo['DataSet']['Row'][0]));
 
-      print('Download concluído com sucesso!');
+    // print('Dispositivolistmap  sincronizacao_page--> $dispositivoListMap');
 
-      // Verificando o tamanho do arquivo baixado
-      int localFileSize = arquivo.lengthSync();
-      print('Tamanho do arquivo baixado: $localFileSize bytes');
+    Dispositivo dispositivoObjeto =
+        Dispositivo.fromMap(mapDispositivo['DataSet']['Row'][0]);
 
-      if (localFileSize != fileSize) {
-        print('Erro: O arquivo baixado tem um tamanho diferente do original.');
-      }
+    // Dispositivo dispositivoListaObjeto = List<Dispositivo>.from(
+    //   dispositivoListMap.map((model) => Dispositivo.fromMap(model)),
+    // );
 
-      // Desconectando do servidor
-      await ftpConnect.disconnect();
-    } catch (e) {
-      print('Erro durante o download: $e');
-    }
+    return dispositivoObjeto;
   }
+
+  // List<Dispositivo> convertJsonToDispositivo(String jsonString) { // CORRIGIR, NÃO DEVE SER UMA LISTA E SIM SOH 1 DISPOSITIVO
+  //   //* Converte para Map
+  //   Map<String, dynamic> mapDispositivo = jsonDecode(jsonString);
+
+  //   int totalDispositivos = mapDispositivo['DataSet']['Row'].length;
+
+  //   print('total de dispositivos no arquivo .xml--> $totalDispositivos');
+
+  //   //* Cria um List dos Maps
+  //   List dispositivoListMap = [];
+
+  //   for (var element = 0; element < totalDispositivos; element++) {
+  //     dispositivoListMap.add((mapDispositivo['DataSet']['Row'][element]));
+  //   }
+
+  //   print('Dispositivolistmap  sincronizacao_page--> $dispositivoListMap');
+  //   final List<Dispositivo> dispositivoListaObjeto = List<Dispositivo>.from(
+  //     dispositivoListMap.map((model) => Dispositivo.fromMap(model)),
+  //   );
+
+  //   return dispositivoListaObjeto;
+  // }
 
   //! >>>>>>>>  FIM DO DISPOSITIVO  <<<<<<<<<
 }
