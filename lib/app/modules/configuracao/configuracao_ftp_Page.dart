@@ -141,8 +141,8 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
 
             ClientesButton(
               onPress: () async {
-                // configuracaoFtpController.conectado = null;
-                // configuracaoFtpController.mensagem = '';
+                configuracaoFtpController.conectado = null;
+                configuracaoFtpController.mensagem = '';
                 await configuracaoFtpController.testeConexaoFTP(
                     enderecoSincronizacaoController.text,
                     usuarioFTPController.text,
