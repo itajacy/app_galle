@@ -1,18 +1,21 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 //* criado em Data: 20/08/2024
 class Dispositivo {
   int? dispositivoId;
   String? address;
   String? urlImagens;
   String? representanteIdInt;
+  String? usuarioFtp;
+  String? senhaFtp;
   String? email;
-  //! usuarioFtp
-  //! senhaFtp
 
   Dispositivo({
     this.dispositivoId,
     this.address,
     this.urlImagens,
     this.representanteIdInt,
+    this.usuarioFtp,
+    this.senhaFtp,
     this.email,
   });
 
@@ -22,6 +25,8 @@ class Dispositivo {
       'address': address,
       'urlImagens': urlImagens,
       'RepresentanteID_Int': representanteIdInt,
+      'usuarioFtp': usuarioFtp,
+      'senhaFtp': senhaFtp,
       'email': email,
     };
   }
@@ -40,6 +45,12 @@ class Dispositivo {
       representanteIdInt: mapaDispositivo['RepresentanteID_Int'] != null
           ? mapaDispositivo['RepresentanteID_Int'] as String
           : null,
+      usuarioFtp: mapaDispositivo['usuarioFtp'] != null
+          ? mapaDispositivo['usuarioFtp'] as String
+          : null,
+      senhaFtp: mapaDispositivo['senhaFtp'] != null
+          ? mapaDispositivo['senhaFtp'] as String
+          : null,
       email: mapaDispositivo['email'] != null
           ? mapaDispositivo['email'] as String
           : null,
@@ -52,6 +63,6 @@ class Dispositivo {
 
   @override
   String toString() {
-    return 'Dispositivo(dispositivoId: $dispositivoId, address: $address, urlImagens: $urlImagens, representanteIdInt: $representanteIdInt, email: $email)';
+    return 'Dispositivo(dispositivoId: $dispositivoId, address: $address, urlImagens: $urlImagens, representanteIdInt: $representanteIdInt, usuarioFtp: $usuarioFtp, senhaFtp: $senhaFtp, email: $email)';
   }
 }

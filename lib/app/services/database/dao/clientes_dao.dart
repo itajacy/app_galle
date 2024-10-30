@@ -67,37 +67,6 @@ class ClientesDao {
   static const String _eCEP = 'E_CEP';
   static const String _ativo = 'ativo';
 
-  // static const String _tableName = 'clientes';
-  // static const String _clienteId = 'clienteId';
-  // static const String _dispositivoId = 'dispositivoId';
-  // static const String _clienteIdMob = 'clienteIdMob';
-  // static const String _clienteIdInt = 'clienteIdInt';
-  // static const String _razaoSocial = 'razaoSocial';
-  // static const String _nomeFantasia = 'nomeFantasia';
-  // static const String _tipoPessoa = 'tipoPessoa';
-  // static const String _cNPJCPF = 'cNPJCPF';
-  // static const String _iERG = 'iERG';
-  // static const String _contato = 'contato';
-  // static const String _fone1 = 'fone1';
-  // static const String _fone2 = 'fone2';
-  // static const String _foneCel = 'foneCel';
-  // static const String _foneRes = 'foneRes';
-  // static const String _fax = 'fax';
-  // static const String _email = 'email';
-  // static const String _pCidade = 'pCidade';
-  // static const String _pUF = 'pUF';
-  // static const String _pEndereco = 'pEndereco';
-  // static const String _pComplemento = 'pComplemento';
-  // static const String _pBairro = 'pBairro';
-  // static const String _pCEP = 'pCEP';
-  // static const String _eCidade = 'eCidade';
-  // static const String _eUF = 'eUF';
-  // static const String _eEndereco = 'eEndereco';
-  // static const String _eComplemento = 'eComplemento';
-  // static const String _eBairro = 'eBairro';
-  // static const String _eCEP = 'eCEP';
-  // static const String _ativo = 'ativo';
-
   Future<int> salvar(Cliente cliente) async {
     final Database db = await getDatabase();
     Map<String, dynamic> clienteMap = cliente.toMap();
