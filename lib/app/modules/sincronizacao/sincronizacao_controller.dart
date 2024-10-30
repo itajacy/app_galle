@@ -10,6 +10,7 @@ import '../../services/database/dao/clientes_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
 
 class SincronizacaoController {
+  //! >>>>>>>>  INICIO DO CLIENTE  <<<<<<<<<
   ClientesDao clientesDao = ClientesDao();
   int resposta = 0;
 
@@ -91,11 +92,12 @@ class SincronizacaoController {
     return resultado;
   }
 
-  //* INICIO ATUALIZACAO DE CLIENTE
+  //* INICIO ATUALIZACAO DE CLIENTES
 
   sincronizacaoClientes() async {
     //!  Conectando e baixando o arquivo Cliente.xml
     await conexaoClienteFTP();
+    await conexaoDispositivoFTP();
 
     String jsonString = await convertXmlToJson(); //convertendo XML em Json
 
@@ -250,14 +252,15 @@ class SincronizacaoController {
     print('Total de Clientes Inclusos--> $inclusos');
 //!
     print('--------------------fim----------------------------');
-
-    //!
   }
+  //! >>>>>>>>  FIM DO CLIENTE  <<<<<<<<<
 
-  baixaOarquivoClienteXmlDoFTP() async {
+  //! >>>>>>>>  INICIO DO DISPOSITIVO  <<<<<<<<<
+
+  conexaoDispositivoFTP() async {
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
-    String fileName = 'Cliente.xml';
+    String fileName = 'Dispositivo.xml';
     var getPathFile = DirectoryPath();
     var storePath = await getPathFile.getPath();
     String filePath = '$storePath/$fileName';
@@ -292,8 +295,8 @@ class SincronizacaoController {
           // setState(() {
           //   _downloadProgress = progressInPercent / 100;
           // });
-          print('Progresso: ${progressInPercent.toStringAsFixed(2)}%');
-          print('Total recebido: $totalReceived de $fileSize bytes');
+          // print('Progresso: ${progressInPercent.toStringAsFixed(2)}%');
+          // print('Total recebido: $totalReceived de $fileSize bytes');
         },
       );
 
@@ -313,4 +316,6 @@ class SincronizacaoController {
       print('Erro durante o download: $e');
     }
   }
+
+  //! >>>>>>>>  FIM DO DISPOSITIVO  <<<<<<<<<
 }
