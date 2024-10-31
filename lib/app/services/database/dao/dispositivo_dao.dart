@@ -3,6 +3,7 @@ Data: 20/08/2024
 */
 class DispositivoDao {
   static const String tabelaDispositivo = 'CREATE TABLE $_tableName('
+      '$_id INTEGER, '
       '$_dispositivoId INTEGER, '
       '$_address TEXT, '
       '$_urlImagens TEXT, '
@@ -12,6 +13,7 @@ class DispositivoDao {
       '$_email TEXT)';
 
   static const String _tableName = 'dispositivo';
+  static const String _id = 'id';
   static const String _dispositivoId = 'DispositivoID';
   static const String _address = 'address';
   static const String _urlImagens = 'urlIimagens';

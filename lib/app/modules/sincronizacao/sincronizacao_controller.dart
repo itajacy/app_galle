@@ -105,11 +105,13 @@ class SincronizacaoController {
     List<Cliente> clienteListaObjeto = convertJsonToCliente(
         jsonStringCliente); //convertendo Json em uma lista de Objetos(Cliente)
 
-    mapeandoClientesParaSalvarOuAlterar(
+    await mapeandoClientesParaSalvarOuAlterar(
         clienteListaObjeto); // importando novos ou alterando clientes
 
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM CLIENTES');
     // TODO Conectando e baixado arquivo Dispositivo.xml
 
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO DISPOSITIVO');
     await conexaoFTP('Dispositivo');
 
     String jsonStringDispositivo =
@@ -117,7 +119,8 @@ class SincronizacaoController {
 
     Dispositivo dispositivoObjeto =
         convertJsonToDispositivo(jsonStringDispositivo);
-
+    print('dispositivoObjeto--> $dispositivoObjeto');
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM DISPOSITIVO');
     // TODO falta a parte de Salvar os dados do Dispositivo
   }
 
@@ -182,15 +185,17 @@ class SincronizacaoController {
   }
 
   Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
+    String filePath = '';
+    var arquivo = File(filePath);
     String fileName = '$nomeDoArquivoXml.xml';
     var getPathFile = DirectoryPath();
     print('getPathFile--> $getPathFile ');
     var storePath = await getPathFile.getPath();
     print('storePath--> $storePath');
-    String filePath = '$storePath/$fileName';
+    filePath = '$storePath/$fileName';
     print('filePath--> $filePath');
 
-    var arquivo = File(filePath);
+    arquivo = File(filePath);
     print('arquivo--> $arquivo');
 
     //* Lendo arquivo e convertendo em bytes
