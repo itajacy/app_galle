@@ -34,7 +34,7 @@ class Dispositivo {
   factory Dispositivo.fromMap(Map<String, dynamic> mapaDispositivo) {
     return Dispositivo(
       dispositivoId: mapaDispositivo['DispositivoID'] != null
-          ? mapaDispositivo['DispositivoID'] as int
+          ? mapaDispositivo['DispositivoID']
           : null,
       address: mapaDispositivo['address'] != null
           ? mapaDispositivo['address'] as String

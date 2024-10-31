@@ -111,6 +111,7 @@ class SincronizacaoController {
     // TODO Conectando e baixado arquivo Dispositivo.xml
 
     await conexaoFTP('Dispositivo');
+
     String jsonStringDispositivo =
         await convertXmlToJson('Cliente'); //convertendo XML em Json
 

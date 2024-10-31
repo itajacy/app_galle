@@ -149,7 +149,7 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
                     senhaFTPController.text);
 
                 //!  ABAIXO, EXECUTADO SOMENTE PARA BAIXAR O ARQUIVO Cliente.xml
-                conexaoFTP();
+                //  conexaoFTP();
               },
               titulo: "Testar Conexão",
               icone: Icons.wifi,
