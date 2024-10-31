@@ -115,7 +115,7 @@ class SincronizacaoController {
     await conexaoFTP('Dispositivo');
 
     String jsonStringDispositivo =
-        await convertXmlToJson('Cliente'); //convertendo XML em Json
+        await convertXmlToJson('Dispositivo'); //convertendo XML em Json
 
     Dispositivo dispositivoObjeto =
         convertJsonToDispositivo(jsonStringDispositivo);
@@ -209,14 +209,14 @@ class SincronizacaoController {
     Xml2Json xml2json = Xml2Json();
     // print(
     //     '--------------------------------------------------------');
-    // print('xml2json--1> ${xml2json.toString()} ');
+    print('xml2json--1> ${xml2json.toString()} ');
     xml2json.parse(xmlString);
-    // print('-------------');
-    // print('xml2json--2> ${xml2json.toString()} ');
+    print('-------------');
+    print('xml2json--2> ${xml2json.toString()} ');
 
     //* Converte para JSON
     final jsonString = xml2json.toParkerWithAttrs();
-    // print('jsonString --> $jsonString');
+    print('jsonString --> $jsonString');
 
     return jsonString;
   }
@@ -276,6 +276,41 @@ class SincronizacaoController {
 
   //! >>>>>>>>  INICIO DO DISPOSITIVO  <<<<<<<<<
 
+  Future<String> dispositivoConvertXmlToJson(String nomeDoArquivoXml) async {
+    String fileName = '$nomeDoArquivoXml.xml';
+    var getPathFile = DirectoryPath();
+    print('getPathFile--> $getPathFile ');
+    var storePath = await getPathFile.getPath();
+    print('storePath--> $storePath');
+    String filePath = '$storePath/$fileName';
+    print('filePath--> $filePath');
+
+    var arquivo = File(filePath);
+    print('arquivo--> $arquivo');
+
+    //* Lendo arquivo e convertendo em bytes
+    Uint8List xmlBytes = await arquivo.readAsBytes();
+    // print('xmlBytes--> $xmlBytes');
+    // print('------------------------------------------------');
+    //* convertendo bytes para String
+    String xmlString = String.fromCharCodes(xmlBytes);
+
+    //* Criação de uma instância do converter XML para JSON
+    Xml2Json xml2json = Xml2Json();
+    // print(
+    //     '--------------------------------------------------------');
+    print('xml2json--1> ${xml2json.toString()} ');
+    xml2json.parse(xmlString);
+    print('-------------');
+    print('xml2json--2> ${xml2json.toString()} ');
+
+    //* Converte para JSON
+    final jsonString = xml2json.toParkerWithAttrs();
+    print('jsonString --> $jsonString');
+
+    return jsonString;
+  }
+
   Dispositivo convertJsonToDispositivo(String jsonString) {
     // CORRIGIR, NÃO DEVE SER UMA LISTA E SIM SOH 1 DISPOSITIVO
     //* Converte para Map
@@ -291,6 +326,7 @@ class SincronizacaoController {
     // dispositivoListMap.add((mapDispositivo['DataSet']['Row'][0]));
 
     // print('Dispositivolistmap  sincronizacao_page--> $dispositivoListMap');
+    print(mapDispositivo['DataSet']['Row'][0]);
 
     Dispositivo dispositivoObjeto =
         Dispositivo.fromMap(mapDispositivo['DataSet']['Row'][0]);
