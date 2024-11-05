@@ -1,6 +1,10 @@
 /* 
 Data: 20/08/2024
 */
+import '../../../models/dispositivo.dart';
+import 'package:galle/app/services/database/app_database.dart';
+import 'package:sqflite/sqflite.dart';
+
 class DispositivoDao {
   static const String tabelaDispositivo = 'CREATE TABLE $_tableName('
       '$_id INTEGER, '
@@ -21,4 +25,14 @@ class DispositivoDao {
   static const String _usuarioFtp = 'usuarioFtp';
   static const String _senhaFtp = 'senhaFtp';
   static const String _email = 'email';
+
+  Future<int> salvar(Dispositivo dispositivo) async {
+    final Database db = await getDatabase();
+    Map<String, dynamic> dispositivoMap = dispositivo.toMap();
+    print('-----');
+    print(dispositivoMap.toString());
+    print('-----');
+
+    return db.insert(_tableName, dispositivoMap);
+  }
 }
