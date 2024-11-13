@@ -126,7 +126,6 @@ class SincronizacaoController {
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM DISPOSITIVO');
     // TODO falta a parte de Salvar os dados do Dispositivo
     dispositivoDao.salvar(dispositivoObjeto);
-
   }
 
   conexaoFTP(String nomeDoArquivoXml) async {
@@ -367,17 +366,17 @@ class SincronizacaoController {
   // }
 // TODO FAZER A BUSCA DO  DISPOSITIVO
   // ISSO É DO CONTROLLER
-  Future<List<Cliente>> buscarTodos() async {
-    listaDeClientes = await clientesDao.findAll();
-    update();
-    return listaDeClientes;
-  }
+  // Future<List<Dispositivo>> buscarTodos() async {
+  //   listaDeDispositivos = await dispositivosDao.findAll();
+  //   update();
+  //   return listaDeDispositivos;
+  // }
 
-  Future<List<Cliente>> buscarCliente(String cliente) async {
-    listaDeClientes = await clientesDao.findClientes(cliente);
-    update();
-    return listaDeClientes;
-  }
+  // Future<List<Dispositivo>> buscarDispositivo(String dispositivo) async {
+  //   listaDeDispositivos = await dispositivosDao.findDispositivos(Dispositivo);
+  //   update();
+  //   return listaDeDispositivos;
+  // }
 
   //! >>>>>>>>  FIM DO DISPOSITIVO  <<<<<<<<<
 }
