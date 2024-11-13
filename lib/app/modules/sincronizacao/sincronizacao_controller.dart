@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:ftpconnect/ftpconnect.dart';
+import 'package:galle/app/services/database/dao/dispositivo_dao.dart';
 import 'package:xml2json/xml2json.dart';
 
 import '../../models/cliente.dart';
@@ -13,6 +14,7 @@ import '../configuracao/widgets/directory_path.dart';
 class SincronizacaoController {
   //! >>>>>>>>  INICIO DO CLIENTE  <<<<<<<<<
   ClientesDao clientesDao = ClientesDao();
+  DispositivoDao dispositivoDao = DispositivoDao();
   int resposta = 0;
 
   Future<int> salvarOuAlterarClientes(Cliente clienteDoXml) async {
@@ -120,8 +122,11 @@ class SincronizacaoController {
     Dispositivo dispositivoObjeto =
         convertJsonToDispositivo(jsonStringDispositivo);
     print('dispositivoObjeto--> $dispositivoObjeto');
+
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM DISPOSITIVO');
     // TODO falta a parte de Salvar os dados do Dispositivo
+    dispositivoDao.salvar(dispositivoObjeto);
+
   }
 
   conexaoFTP(String nomeDoArquivoXml) async {
@@ -326,10 +331,10 @@ class SincronizacaoController {
     // dispositivoListMap.add((mapDispositivo['DataSet']['Row'][0]));
 
     // print('Dispositivolistmap  sincronizacao_page--> $dispositivoListMap');
-    print(mapDispositivo['DataSet']['Row'][0]);
+    print(mapDispositivo['DataSet']['Row']);
 
     Dispositivo dispositivoObjeto =
-        Dispositivo.fromMap(mapDispositivo['DataSet']['Row'][0]);
+        Dispositivo.fromMap(mapDispositivo['DataSet']['Row']);
 
     // Dispositivo dispositivoListaObjeto = List<Dispositivo>.from(
     //   dispositivoListMap.map((model) => Dispositivo.fromMap(model)),
@@ -360,6 +365,19 @@ class SincronizacaoController {
 
   //   return dispositivoListaObjeto;
   // }
+// TODO FAZER A BUSCA DO  DISPOSITIVO
+  // ISSO É DO CONTROLLER
+  Future<List<Cliente>> buscarTodos() async {
+    listaDeClientes = await clientesDao.findAll();
+    update();
+    return listaDeClientes;
+  }
+
+  Future<List<Cliente>> buscarCliente(String cliente) async {
+    listaDeClientes = await clientesDao.findClientes(cliente);
+    update();
+    return listaDeClientes;
+  }
 
   //! >>>>>>>>  FIM DO DISPOSITIVO  <<<<<<<<<
 }

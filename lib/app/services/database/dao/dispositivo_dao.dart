@@ -20,7 +20,7 @@ class DispositivoDao {
   static const String _id = 'id';
   static const String _dispositivoId = 'DispositivoID';
   static const String _address = 'address';
-  static const String _urlImagens = 'urlIimagens';
+  static const String _urlImagens = 'urlImagens';
   static const String _representanteIdInt = 'RepresentanteID_Int';
   static const String _usuarioFtp = 'usuarioFtp';
   static const String _senhaFtp = 'senhaFtp';
@@ -35,4 +35,23 @@ class DispositivoDao {
 
     return db.insert(_tableName, dispositivoMap);
   }
+
+
+// TODO FAZER A BUSCA DO DISPOSITIVO
+
+  Future<List<Dispositivo>> findAll() async {
+    final Database db = await getDatabase();
+    final List<Map<String, dynamic>> result = await db.query(_tableName);
+    // final List<Map> result = await db.rawQuery("SELECT * FROM $_tableName");
+    final List<Dispositivo> listaDeDispositivos = [];
+    for (var dispositivo in result) {
+      listaDeDispositivos.add(Dispositivo.fromMap(dispositivo));
+    }
+    // result.forEach((v) => listaDeClientes.add(Cliente.fromMap(v)));
+
+    return listaDeDispositivos;
+  }
+
+
+  
 }
