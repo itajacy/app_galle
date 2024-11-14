@@ -102,6 +102,20 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
     super.initState();
     focusNomeFantasia = FocusNode();
     sincronizacaoController.buscarDispositivo();
+// todo metodo do cadastrocontroller com os dados abaixo// testar
+//     clientesCadastroController.cliente.dispositivoId =
+//                         sincronizacaoController.dispositivo.dispositivoId;
+// // TODO caso este novo cliente seja salvo, é necessário somar +1 ao campo seqCliente na tabela de Dispositivo
+//                     clientesCadastroController.cliente.clienteIdMob =
+//                         (int.parse(sincronizacaoController
+//                                     .dispositivo.seqCliente!) +
+//                                 1)
+//                             .toString();
+//                     //todo=======================
+//                     clientesCadastroController.cliente.clienteIdInt =
+//                         sincronizacaoController.dispositivo.representanteIdInt;
+//                     clientesCadastroController.cliente.ativo = "1";
+
   }
 
   @override
@@ -208,66 +222,14 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         sincronizacaoController.dispositivo.dispositivoId;
 // TODO caso este novo cliente seja salvo, é necessário somar +1 ao campo seqCliente na tabela de Dispositivo
                     clientesCadastroController.cliente.clienteIdMob =
-                        sincronizacaoController.dispositivo.seqCliente;
+                        (int.parse(sincronizacaoController
+                                    .dispositivo.seqCliente!) +
+                                1)
+                            .toString();
                     //todo=======================
                     clientesCadastroController.cliente.clienteIdInt =
                         sincronizacaoController.dispositivo.representanteIdInt;
                     clientesCadastroController.cliente.ativo = "1";
-
-                    clientesCadastroController.cliente.contato =
-                        contatoController.text;
-                    clientesCadastroController.cliente.nomeFantasia =
-                        nomeFantasiaController.text;
-
-                    clientesCadastroController.cliente.razaoSocial =
-                        razaoSocialController.text;
-                    clientesCadastroController.cliente.tipoPessoa =
-                        pessoaFJController.text;
-                    clientesCadastroController.cliente.cNPJCPF =
-                        cnpjCpfController.text;
-                    clientesCadastroController.cliente.iERG =
-                        ieRgController.text;
-                    clientesCadastroController.cliente.contato =
-                        contatoController.text;
-                    clientesCadastroController.cliente.email =
-                        emailController.text;
-
-                    clientesCadastroController.cliente.fone1 =
-                        foneCom1Controller.text;
-                    clientesCadastroController.cliente.fone2 =
-                        foneCom2Controller.text;
-                    clientesCadastroController.cliente.foneCel =
-                        foneCelController.text;
-                    clientesCadastroController.cliente.foneRes =
-                        foneResController.text;
-                    clientesCadastroController.cliente.fax = faxController.text;
-
-                    clientesCadastroController.cliente.pUF =
-                        principalUfController.text;
-                    clientesCadastroController.cliente.pCidade =
-                        principalCidadeController.text;
-                    clientesCadastroController.cliente.pEndereco =
-                        principalEnderecoController.text;
-                    clientesCadastroController.cliente.pComplemento =
-                        principalComplementoController.text;
-                    clientesCadastroController.cliente.pBairro =
-                        principalBairroController.text;
-                    clientesCadastroController.cliente.pCEP =
-                        principalCepController.text;
-
-                    clientesCadastroController.cliente.eUF =
-                        entregaUfController.text;
-
-                    clientesCadastroController.cliente.eCidade =
-                        entregaCidadeController.text;
-                    clientesCadastroController.cliente.eEndereco =
-                        entregaEnderecoController.text;
-                    clientesCadastroController.cliente.eComplemento =
-                        entregaComplementoController.text;
-                    clientesCadastroController.cliente.eBairro =
-                        entregaBairroController.text;
-                    clientesCadastroController.cliente.eCEP =
-                        entregaCepController.text;
                     var isSave =
                         await clientesCadastroController.save(isSave: salvo);
                     // print('Cadastro de Cliente ==> $isSave');
@@ -411,7 +373,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         pessoaFJController.text = pessoaFouJ;
                         if (fj) {
                           setState(() {
-                            pessoa = pessoaFouJ;
+                            clientesCadastroController.cliente.tipoPessoa =
+                                pessoaFouJ;
                           });
                         }
                         if (pessoaFouJ == "F") {

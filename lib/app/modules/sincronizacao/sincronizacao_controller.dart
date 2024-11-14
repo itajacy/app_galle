@@ -96,10 +96,7 @@ class SincronizacaoController {
     return resultado;
   }
 
-  Future<int> apagaTodosOsDispositivos() async {
-    int resultado = await dispositivoDao.deleteAll();
-    return resultado;
-  }
+
 
   //* INICIO ATUALIZACAO DE CLIENTES
 
@@ -376,6 +373,11 @@ class SincronizacaoController {
   Future<Dispositivo> buscarDispositivo() async {
     dispositivo = await dispositivoDao.find();
     return dispositivo;
+  }
+
+  Future<int> apagaTodosOsDispositivos() async {
+    int resultado = await dispositivoDao.deleteAll();
+    return resultado;
   }
 
   //! >>>>>>>>  FIM DO DISPOSITIVO  <<<<<<<<<
