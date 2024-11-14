@@ -9,17 +9,22 @@ class Dispositivo {
   String? usuarioFtp;
   String? senhaFtp;
   String? email;
+  String? seqCliente;
+  String? precoEsp;
+  String? mercado;
 
-  Dispositivo({
-    this.id,
-    this.dispositivoId,
-    this.address,
-    this.urlImagens,
-    this.representanteIdInt,
-    this.usuarioFtp,
-    this.senhaFtp,
-    this.email,
-  });
+  Dispositivo(
+      {this.id,
+      this.dispositivoId,
+      this.address,
+      this.urlImagens,
+      this.representanteIdInt,
+      this.usuarioFtp,
+      this.senhaFtp,
+      this.email,
+      this.seqCliente,
+      this.precoEsp,
+      this.mercado});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -31,6 +36,9 @@ class Dispositivo {
       'usuarioFtp': usuarioFtp,
       'senhaFtp': senhaFtp,
       'email': email,
+      'SeqCliente': seqCliente,
+      'PrecoEsp': precoEsp,
+      'Mercado': mercado,
     };
   }
 
@@ -58,6 +66,19 @@ class Dispositivo {
       email: mapaDispositivo['email'] != null
           ? mapaDispositivo['email'] as String
           : null,
+
+      seqCliente: mapaDispositivo['SeqCliente'],
+      precoEsp: mapaDispositivo['PrecoEsp'],
+      mercado: mapaDispositivo['Mercado'],
+      // seqCliente: mapaDispositivo['SeqCliente'] != null
+      //     ? mapaDispositivo['SeqCliente'] as String
+      //     : null,
+      // precoEsp: mapaDispositivo['PrecoEsp'] != null
+      //     ? mapaDispositivo['PrecoEsp'] as String
+      //     : null,
+      // mercado: mapaDispositivo['Mercado'] != null
+      //     ? mapaDispositivo['Mercado'] as String
+      //     : null,
     );
   }
 
@@ -67,6 +88,6 @@ class Dispositivo {
 
   @override
   String toString() {
-    return 'Dispositivo(id: $id, dispositivoId: $dispositivoId, address: $address, urlImagens: $urlImagens, representanteIdInt: $representanteIdInt, usuarioFtp: $usuarioFtp, senhaFtp: $senhaFtp, email: $email)';
+    return 'Dispositivo(id: $id, dispositivoId: $dispositivoId, address: $address, urlImagens: $urlImagens, representanteIdInt: $representanteIdInt, usuarioFtp: $usuarioFtp, senhaFtp: $senhaFtp, email: $email, seqCliente: $seqCliente, precoEsp: $precoEsp, mercado: $mercado)';
   }
 }

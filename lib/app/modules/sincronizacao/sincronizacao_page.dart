@@ -81,7 +81,10 @@ class SincronizacaoPage extends StatelessWidget {
                 onPress: () {
                   //! apagando TODOS OS CLIENTES DA TABELA
                   sincronizacaoClientesController.apagaTodosOsClientes();
+
                   print('TODOS OS CLIENTES FORAM APAGADOS!');
+                  sincronizacaoClientesController.apagaTodosOsDispositivos();
+                  print('OS DADOS DO DISPOSITIVO FORAM APAGADOS!');
 
 //!
                 },

@@ -4,12 +4,14 @@ import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_controller
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
 import 'package:galle/app/modules/clientes/widgets/lower_case_text_formatter.dart';
+import 'package:galle/app/modules/sincronizacao/sincronizacao_controller.dart';
 import 'package:get/get.dart';
 import '../../../core/colors_app.dart';
 import '../../../core/font.dart';
 import '../../../core/sizes.dart';
 import '../../../core/space.dart';
 import '../../../core/strings.dart';
+import '../../../models/dispositivo.dart';
 import '../consulta/clientes_consulta_controller.dart';
 import '../widgets/pessoafj_button.dart';
 import '../widgets/upper_case_text_formatter.dart';
@@ -27,6 +29,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   ClientesConsultaController clientesConsultaController =
       Get.put(ClientesConsultaController());
+
+  SincronizacaoController sincronizacaoController = SincronizacaoController();
 
   final nomeFantasiaController = TextEditingController();
 
@@ -94,9 +98,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 //                 r'^(([^<>()[\]\\.,&";:\s@\"]+(\.[^<>()[\]\\.,&";:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
 
   @override
-  void initState() {
+  initState() {
     super.initState();
     focusNomeFantasia = FocusNode();
+    sincronizacaoController.buscarDispositivo();
   }
 
   @override
@@ -199,15 +204,15 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     //! tem os campos clienteId, clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
                     // clientesCadastroController.cliente.clienteId = 0;
-                    clientesCadastroController.cliente.dispositivoId = "3";
-                    clientesCadastroController.cliente.clienteIdMob = "190";
-                    clientesCadastroController.cliente.clienteIdInt = "";
+                    clientesCadastroController.cliente.dispositivoId =
+                        sincronizacaoController.dispositivo.dispositivoId;
+// TODO caso este novo cliente seja salvo, é necessário somar +1 ao campo seqCliente na tabela de Dispositivo
+                    clientesCadastroController.cliente.clienteIdMob =
+                        sincronizacaoController.dispositivo.seqCliente;
+                    //todo=======================
+                    clientesCadastroController.cliente.clienteIdInt =
+                        sincronizacaoController.dispositivo.representanteIdInt;
                     clientesCadastroController.cliente.ativo = "1";
-
-                    // 'clienteId': clienteId,
-                    // 'dispositivoId': dispositivoId,
-                    // 'clienteIdMob': clienteIdMob,
-                    // 'clienteIdInt': clienteIdInt,
 
                     clientesCadastroController.cliente.contato =
                         contatoController.text;

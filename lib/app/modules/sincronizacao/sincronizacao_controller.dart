@@ -15,6 +15,7 @@ class SincronizacaoController {
   //! >>>>>>>>  INICIO DO CLIENTE  <<<<<<<<<
   ClientesDao clientesDao = ClientesDao();
   DispositivoDao dispositivoDao = DispositivoDao();
+  Dispositivo dispositivo = Dispositivo();
   int resposta = 0;
 
   Future<int> salvarOuAlterarClientes(Cliente clienteDoXml) async {
@@ -92,6 +93,11 @@ class SincronizacaoController {
 
   Future<int> apagaTodosOsClientes() async {
     int resultado = await clientesDao.deleteAll();
+    return resultado;
+  }
+
+  Future<int> apagaTodosOsDispositivos() async {
+    int resultado = await dispositivoDao.deleteAll();
     return resultado;
   }
 
@@ -366,17 +372,11 @@ class SincronizacaoController {
   // }
 // TODO FAZER A BUSCA DO  DISPOSITIVO
   // ISSO É DO CONTROLLER
-  // Future<List<Dispositivo>> buscarTodos() async {
-  //   listaDeDispositivos = await dispositivosDao.findAll();
-  //   update();
-  //   return listaDeDispositivos;
-  // }
 
-  // Future<List<Dispositivo>> buscarDispositivo(String dispositivo) async {
-  //   listaDeDispositivos = await dispositivosDao.findDispositivos(Dispositivo);
-  //   update();
-  //   return listaDeDispositivos;
-  // }
+  Future<Dispositivo> buscarDispositivo() async {
+    dispositivo = await dispositivoDao.find();
+    return dispositivo;
+  }
 
   //! >>>>>>>>  FIM DO DISPOSITIVO  <<<<<<<<<
 }
