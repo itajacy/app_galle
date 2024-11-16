@@ -112,6 +112,7 @@ class SincronizacaoClienteController {
   }
 
   conexaoFTP(String nomeDoArquivoXml) async {
+    // TODO LER OS DADOS DE URLADDRESS, USUARIO E SENHA DO arquivo de Dispositivo e colocar aqui
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
     String fileName = '$nomeDoArquivoXml.xml';

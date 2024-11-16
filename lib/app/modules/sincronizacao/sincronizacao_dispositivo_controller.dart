@@ -10,16 +10,14 @@ import '../../services/database/dao/dispositivo_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
 
 class SincronizacaoDispositivoController {
-  //! >>>>>>>>  INICIO DO CLIENTE  <<<<<<<<<
   DispositivoDao dispositivoDao = DispositivoDao();
   Dispositivo dispositivo = Dispositivo();
   int resposta = 0;
 
-  //* INICIO ATUALIZACAO DE CLIENTES
 
   sincronizacaoDispositivo() async {
-    //!  Conectando e baixando o arquivo Cliente.xml
 
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO DISPOSITIVO');
     await conexaoFTP('Dispositivo');
 
     String jsonStringDispositivo =
@@ -29,12 +27,12 @@ class SincronizacaoDispositivoController {
         convertJsonToDispositivo(jsonStringDispositivo);
     print('dispositivoObjeto--> $dispositivoObjeto');
 
-    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM DISPOSITIVO');
-    // TODO falta a parte de Salvar os dados do Dispositivo
     dispositivoDao.salvar(dispositivoObjeto);
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM DISPOSITIVO');
   }
 
   conexaoFTP(String nomeDoArquivoXml) async {
+    // TODO LER OS DADOS DE URLADDRESS, USUARIO E SENHA DO arquivo de Dispositivo e colocar aqui
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
     String fileName = '$nomeDoArquivoXml.xml';

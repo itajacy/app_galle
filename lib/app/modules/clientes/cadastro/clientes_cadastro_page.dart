@@ -4,14 +4,13 @@ import 'package:galle/app/modules/clientes/cadastro/clientes_cadastro_controller
 import 'package:galle/app/modules/clientes/widgets/clientes_button.dart';
 import 'package:galle/app/modules/clientes/widgets/clientes_uf_dropdown.dart';
 import 'package:galle/app/modules/clientes/widgets/lower_case_text_formatter.dart';
-import 'package:galle/app/modules/sincronizacao/sincronizacao_controller.dart';
+import 'package:galle/app/modules/sincronizacao/sincronizacao_dispositivo_controller.dart';
 import 'package:get/get.dart';
 import '../../../core/colors_app.dart';
 import '../../../core/font.dart';
 import '../../../core/sizes.dart';
 import '../../../core/space.dart';
 import '../../../core/strings.dart';
-import '../../../models/dispositivo.dart';
 import '../consulta/clientes_consulta_controller.dart';
 import '../widgets/pessoafj_button.dart';
 import '../widgets/upper_case_text_formatter.dart';
@@ -30,7 +29,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesConsultaController clientesConsultaController =
       Get.put(ClientesConsultaController());
 
-  SincronizacaoController sincronizacaoController = SincronizacaoController();
+  // SincronizacaoController sincronizacaoController = SincronizacaoController();
+
+  SincronizacaoDispositivoController sincronizacaoDispositivoController =
+      SincronizacaoDispositivoController();
 
   final nomeFantasiaController = TextEditingController();
 
@@ -101,7 +103,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   initState() {
     super.initState();
     focusNomeFantasia = FocusNode();
-    sincronizacaoController.buscarDispositivo();
+    sincronizacaoDispositivoController.buscarDispositivo();
 // todo metodo do cadastrocontroller com os dados abaixo// testar
 //     clientesCadastroController.cliente.dispositivoId =
 //                         sincronizacaoController.dispositivo.dispositivoId;
@@ -115,7 +117,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 //                     clientesCadastroController.cliente.clienteIdInt =
 //                         sincronizacaoController.dispositivo.representanteIdInt;
 //                     clientesCadastroController.cliente.ativo = "1";
-
   }
 
   @override
@@ -219,16 +220,18 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     //! pensar nisso
                     // clientesCadastroController.cliente.clienteId = 0;
                     clientesCadastroController.cliente.dispositivoId =
-                        sincronizacaoController.dispositivo.dispositivoId;
+                        sincronizacaoDispositivoController
+                            .dispositivo.dispositivoId;
 // TODO caso este novo cliente seja salvo, é necessário somar +1 ao campo seqCliente na tabela de Dispositivo
                     clientesCadastroController.cliente.clienteIdMob =
-                        (int.parse(sincronizacaoController
+                        (int.parse(sincronizacaoDispositivoController
                                     .dispositivo.seqCliente!) +
                                 1)
                             .toString();
                     //todo=======================
                     clientesCadastroController.cliente.clienteIdInt =
-                        sincronizacaoController.dispositivo.representanteIdInt;
+                        sincronizacaoDispositivoController
+                            .dispositivo.representanteIdInt;
                     clientesCadastroController.cliente.ativo = "1";
                     var isSave =
                         await clientesCadastroController.save(isSave: salvo);

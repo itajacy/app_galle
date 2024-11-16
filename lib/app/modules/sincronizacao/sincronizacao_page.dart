@@ -63,8 +63,9 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () async {
-                  sincronizacaoClienteController.sincronizacaoClientes();
-                  sincronizacaoDispositivoController.sincronizacaoDispositivo();
+                  await sincronizacaoClienteController.sincronizacaoClientes();
+                  await sincronizacaoDispositivoController
+                      .sincronizacaoDispositivo();
                 },
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
