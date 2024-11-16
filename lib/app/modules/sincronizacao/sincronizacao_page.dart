@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
-import 'package:galle/app/modules/sincronizacao/sincronizacao_controller.dart';
+import 'package:galle/app/modules/sincronizacao/sincronizacao_cliente_controller.dart';
+import 'package:galle/app/modules/sincronizacao/sincronizacao_dispositivo_controller.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 
 import '../../core/colors_app.dart';
@@ -11,8 +12,12 @@ import '../../core/strings.dart';
 class SincronizacaoPage extends StatelessWidget {
   SincronizacaoPage({super.key});
 
-  SincronizacaoController sincronizacaoClientesController =
-      SincronizacaoController();
+
+  SincronizacaoClienteController sincronizacaoClienteController =
+      SincronizacaoClienteController();
+
+  SincronizacaoDispositivoController sincronizacaoDispositivoController =
+      SincronizacaoDispositivoController();
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +63,8 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () async {
-                  sincronizacaoClientesController.sincronizacaoClientes();
+                  sincronizacaoClienteController.sincronizacaoClientes();
+                  sincronizacaoDispositivoController.sincronizacaoDispositivo();
                 },
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
@@ -80,19 +86,17 @@ class SincronizacaoPage extends StatelessWidget {
               GeneralIconButton(
                 onPress: () {
                   //! apagando TODOS OS CLIENTES DA TABELA
-                  sincronizacaoClientesController.apagaTodosOsClientes();
+                  sincronizacaoClienteController.apagaTodosOsClientes();
                   print('TODOS OS CLIENTES FORAM APAGADOS!');
-                  sincronizacaoClientesController.apagaTodosOsDispositivos();
+                  sincronizacaoDispositivoController.apagaTodosOsDispositivos();
                   print('OS DADOS DO DISPOSITIVO FORAM APAGADOS!');
-
-//!
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
-                titulo: 'APAGA TODOS OS CLIENTES',
+                titulo: 'APAGA TODOS Clientes/Dispositivo',
               ),
               const Column(
                 children: [
