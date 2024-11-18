@@ -14,9 +14,7 @@ class SincronizacaoDispositivoController {
   Dispositivo dispositivo = Dispositivo();
   int resposta = 0;
 
-
   sincronizacaoDispositivo() async {
-
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO DISPOSITIVO');
     await conexaoFTP('Dispositivo');
 
@@ -146,6 +144,11 @@ class SincronizacaoDispositivoController {
   Future<Dispositivo> buscarDispositivo() async {
     dispositivo = await dispositivoDao.find();
     return dispositivo;
+  }
+
+  Future<int> alterarDispositivo() async {
+    int resultadoDispositivo = await dispositivoDao.update();
+    return resultadoDispositivo;
   }
 
   Future<int> apagaTodosOsDispositivos() async {

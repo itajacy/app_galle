@@ -103,7 +103,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   initState() {
     super.initState();
     focusNomeFantasia = FocusNode();
-    sincronizacaoDispositivoController.buscarDispositivo();
+    //! sincronizacaoDispositivoController.buscarDispositivo();
 // todo metodo do cadastrocontroller com os dados abaixo// testar
 //     clientesCadastroController.cliente.dispositivoId =
 //                         sincronizacaoController.dispositivo.dispositivoId;
@@ -182,6 +182,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
       appBar: AppBar(
@@ -215,6 +216,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     icone: Icons.cancel_presentation_outlined),
                 ClientesButton(
                   onPress: () async {
+                    // pegar a seqCliente correta
+                    await sincronizacaoDispositivoController
+                        .buscarDispositivo();
                     //! BOTAO SALVAR
                     //! tem os campos clienteId, clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
@@ -233,10 +237,14 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         sincronizacaoDispositivoController
                             .dispositivo.representanteIdInt;
                     clientesCadastroController.cliente.ativo = "1";
+
+                    
                     var isSave =
                         await clientesCadastroController.save(isSave: salvo);
                     // print('Cadastro de Cliente ==> $isSave');
                     if (isSave) {
+                      //TODO Após Salvar o cliente novo, adicionar +1 ao campo SeqCliente na tabela de Dispostivo
+                      sincronizacaoDispositivoController.alterarDispositivo();
                       Get.showSnackbar(
                         const GetSnackBar(
                           backgroundColor: ColorsApp.appBarBackground,

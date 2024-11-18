@@ -97,7 +97,7 @@ class SincronizacaoPage extends StatelessWidget {
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
-                titulo: 'APAGA TODOS Clientes/Dispositivo',
+                titulo: 'APAGA Clientes/Dispositivos.',
               ),
               const Column(
                 children: [

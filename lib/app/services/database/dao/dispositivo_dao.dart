@@ -73,6 +73,26 @@ class DispositivoDao {
     return dispositivoEncontrado;
   }
 
+  Future<int> update() async {
+    final Database db = await getDatabase();
+    final List<Map<String, dynamic>> resultado = await db.query(_tableName);
+    Dispositivo dispositivoEncontrado = Dispositivo.fromMap(resultado.first);
+
+    final Map<String, dynamic> dispositivoMap = dispositivoEncontrado.toMap();
+    print('VALOR DA SEQCLIENTE ANTES');
+    print(dispositivoMap['SeqCliente']);
+    var seqCliente = int.parse(dispositivoMap['SeqCliente']) + 1;
+    dispositivoMap['SeqCliente'] = seqCliente.toString();
+    print('VALOR DA SEQCLIENTE DEPOIS');
+    print(dispositivoMap['SeqCliente']);
+    return db.update(
+      _tableName,
+      dispositivoMap,
+      where: 'DispositivoID = ?',
+      whereArgs: [dispositivoEncontrado.dispositivoId],
+    );
+  }
+
   Future<int> deleteAll() async {
     try {
       final Database db = await getDatabase();
