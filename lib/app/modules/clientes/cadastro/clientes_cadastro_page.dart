@@ -156,7 +156,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   void _limpaControllers() {
     nomeFantasiaController.clear();
     razaoSocialController.clear();
-    pessoaFJController.clear();
+    pessoaFJController.text = "F";
     cnpjCpfController.clear();
     ieRgController.clear();
     contatoController.clear();
@@ -182,7 +182,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
       appBar: AppBar(
@@ -223,6 +222,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     //! tem os campos clienteId, clienteIdMob, ClienteIdInt, Ativo
                     //! pensar nisso
                     // clientesCadastroController.cliente.clienteId = 0;
+
+//TODO o campo TipoPessoa na tabela de clientes está sendo salva com NULL
+                    clientesCadastroController.cliente.tipoPessoa =
+                        pessoaFJController.text;
+
                     clientesCadastroController.cliente.dispositivoId =
                         sincronizacaoDispositivoController
                             .dispositivo.dispositivoId;
@@ -238,7 +242,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                             .dispositivo.representanteIdInt;
                     clientesCadastroController.cliente.ativo = "1";
 
-                    
                     var isSave =
                         await clientesCadastroController.save(isSave: salvo);
                     // print('Cadastro de Cliente ==> $isSave');
@@ -391,9 +394,11 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         if (pessoaFouJ == "F") {
                           mascaraCpfCnpj = '999.999.999-99';
                           mascaraRgIe = '99.999.999-N';
+                          pessoa = 'F';
                         } else {
                           mascaraCpfCnpj = '99.999.999/9999-99';
                           mascaraRgIe = '999.999.999.999';
+                          pessoa = 'J';
                         }
                         fj = true;
                       },
