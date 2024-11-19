@@ -29,8 +29,8 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesConsultaController clientesConsultaController =
       Get.put(ClientesConsultaController());
 
-  SincronizacaoDispositivoController sincronizacaoDispositivoController =
-      SincronizacaoDispositivoController();
+  // SincronizacaoDispositivoController sincronizacaoDispositivoController =
+  //     SincronizacaoDispositivoController();
 
   final nomeFantasiaController = TextEditingController();
 
@@ -197,31 +197,31 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                 ClientesButton(
                   onPress: () async {
                     // pegar a seqCliente correta
-                    await sincronizacaoDispositivoController
-                        .buscarDispositivo();
+                    // await sincronizacaoDispositivoController
+                    //     .buscarDispositivo();
 
-                    // clientesCadastroController.cliente.clienteId = 0;
+                    // // clientesCadastroController.cliente.clienteId = 0;
 
 
-                    clientesCadastroController.cliente.dispositivoId =
-                        sincronizacaoDispositivoController
-                            .dispositivo.dispositivoId;
-                    clientesCadastroController.cliente.clienteIdMob =
-                        (int.parse(sincronizacaoDispositivoController
-                                    .dispositivo.seqCliente!) +
-                                1)
-                            .toString();
-                    clientesCadastroController.cliente.clienteIdInt =
-                        sincronizacaoDispositivoController
-                            .dispositivo.representanteIdInt;
-                    clientesCadastroController.cliente.ativo = "1";
+                    // clientesCadastroController.cliente.dispositivoId =
+                    //     sincronizacaoDispositivoController
+                    //         .dispositivo.dispositivoId;
+                    // clientesCadastroController.cliente.clienteIdMob =
+                    //     (int.parse(sincronizacaoDispositivoController
+                    //                 .dispositivo.seqCliente!) +
+                    //             1)
+                    //         .toString();
+                    // clientesCadastroController.cliente.clienteIdInt =
+                    //     sincronizacaoDispositivoController
+                    //         .dispositivo.representanteIdInt;
+                    // clientesCadastroController.cliente.ativo = "1";
 
                     var isSave =
                         await clientesCadastroController.save(isSave: salvo);
                     // print('Cadastro de Cliente ==> $isSave');
                     if (isSave) {
                       //TODO Após Salvar o cliente novo, adicionar +1 ao campo SeqCliente na tabela de Dispostivo
-                      sincronizacaoDispositivoController.alterarDispositivo();
+                      // sincronizacaoDispositivoController.alterarDispositivo();
                       Get.showSnackbar(
                         const GetSnackBar(
                           backgroundColor: ColorsApp.appBarBackground,
