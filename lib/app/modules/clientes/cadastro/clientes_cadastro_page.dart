@@ -29,7 +29,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesConsultaController clientesConsultaController =
       Get.put(ClientesConsultaController());
 
-
   SincronizacaoDispositivoController sincronizacaoDispositivoController =
       SincronizacaoDispositivoController();
 
@@ -102,6 +101,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   initState() {
     super.initState();
     focusNomeFantasia = FocusNode();
+    clientesCadastroController.cliente.tipoPessoa = 'F';
   }
 
   @override
@@ -199,11 +199,9 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     // pegar a seqCliente correta
                     await sincronizacaoDispositivoController
                         .buscarDispositivo();
-                   
+
                     // clientesCadastroController.cliente.clienteId = 0;
 
-                    clientesCadastroController.cliente.tipoPessoa =
-                        pessoaFJController.text;
 
                     clientesCadastroController.cliente.dispositivoId =
                         sincronizacaoDispositivoController
@@ -364,7 +362,7 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                         if (fj) {
                           setState(() {
                             clientesCadastroController.cliente.tipoPessoa =
-                                pessoaFouJ;
+                                pessoaFJController.text;
                           });
                         }
                         if (pessoaFouJ == "F") {
