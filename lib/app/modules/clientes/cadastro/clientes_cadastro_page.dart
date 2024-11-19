@@ -29,7 +29,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesConsultaController clientesConsultaController =
       Get.put(ClientesConsultaController());
 
-  // SincronizacaoController sincronizacaoController = SincronizacaoController();
 
   SincronizacaoDispositivoController sincronizacaoDispositivoController =
       SincronizacaoDispositivoController();
@@ -103,28 +102,10 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   initState() {
     super.initState();
     focusNomeFantasia = FocusNode();
-    //! sincronizacaoDispositivoController.buscarDispositivo();
-// todo metodo do cadastrocontroller com os dados abaixo// testar
-//     clientesCadastroController.cliente.dispositivoId =
-//                         sincronizacaoController.dispositivo.dispositivoId;
-// // TODO caso este novo cliente seja salvo, é necessário somar +1 ao campo seqCliente na tabela de Dispositivo
-//                     clientesCadastroController.cliente.clienteIdMob =
-//                         (int.parse(sincronizacaoController
-//                                     .dispositivo.seqCliente!) +
-//                                 1)
-//                             .toString();
-//                     //todo=======================
-//                     clientesCadastroController.cliente.clienteIdInt =
-//                         sincronizacaoController.dispositivo.representanteIdInt;
-//                     clientesCadastroController.cliente.ativo = "1";
   }
 
   @override
   void dispose() {
-    // //todo incluso para teste
-    // clientesCadastroController.dispose();
-    // clientesConsultaController.dispose();
-    // //todo
     nomeFantasiaController.dispose();
     razaoSocialController.dispose();
     pessoaFJController.dispose();
@@ -218,25 +199,20 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     // pegar a seqCliente correta
                     await sincronizacaoDispositivoController
                         .buscarDispositivo();
-                    //! BOTAO SALVAR
-                    //! tem os campos clienteId, clienteIdMob, ClienteIdInt, Ativo
-                    //! pensar nisso
+                   
                     // clientesCadastroController.cliente.clienteId = 0;
 
-//TODO o campo TipoPessoa na tabela de clientes está sendo salva com NULL
                     clientesCadastroController.cliente.tipoPessoa =
                         pessoaFJController.text;
 
                     clientesCadastroController.cliente.dispositivoId =
                         sincronizacaoDispositivoController
                             .dispositivo.dispositivoId;
-// TODO caso este novo cliente seja salvo, é necessário somar +1 ao campo seqCliente na tabela de Dispositivo
                     clientesCadastroController.cliente.clienteIdMob =
                         (int.parse(sincronizacaoDispositivoController
                                     .dispositivo.seqCliente!) +
                                 1)
                             .toString();
-                    //todo=======================
                     clientesCadastroController.cliente.clienteIdInt =
                         sincronizacaoDispositivoController
                             .dispositivo.representanteIdInt;
