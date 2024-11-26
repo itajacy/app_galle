@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_cliente_controller.dart';
+import 'package:galle/app/modules/sincronizacao/sincronizacao_cor_controller.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_dispositivo_controller.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 
@@ -12,12 +13,14 @@ import '../../core/strings.dart';
 class SincronizacaoPage extends StatelessWidget {
   SincronizacaoPage({super.key});
 
-
   SincronizacaoClienteController sincronizacaoClienteController =
       SincronizacaoClienteController();
 
   SincronizacaoDispositivoController sincronizacaoDispositivoController =
       SincronizacaoDispositivoController();
+
+  SincronizacaoCorController sincronizacaoCorController =
+      SincronizacaoCorController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +45,9 @@ class SincronizacaoPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GeneralIconButton(
-                onPress: () {},
+                onPress: () {
+                  sincronizacaoCorController.sincronizacaoCor();
+                },
                 ativo: false,
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,

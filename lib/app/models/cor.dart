@@ -3,22 +3,19 @@
 class Cor {
   int? corId;
   String? corIdInt;
-  String? decricao;
-  int? ativo;
+  String? descricao;
 
   Cor({
     this.corId,
     this.corIdInt,
-    this.decricao,
-    this.ativo,
+    this.descricao,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'corId': corId,
-      'corIdInt': corIdInt,
-      'decricao': decricao,
-      'ativo': ativo,
+      'CorID_Int': corIdInt,
+      'Descricao': descricao,
     };
   }
 
@@ -26,10 +23,9 @@ class Cor {
     return Cor(
       corId: mapaCor['corId'] != null ? mapaCor['corId'] as int : null,
       corIdInt:
-          mapaCor['corIdInt'] != null ? mapaCor['corIdInt'] as String : null,
-      decricao:
-          mapaCor['decricao'] != null ? mapaCor['decricao'] as String : null,
-      ativo: mapaCor['ativo'] != null ? mapaCor['ativo'] as int : null,
+          mapaCor['CorID_Int'] != null ? mapaCor['CorID_Int'] as String : null,
+      descricao:
+          mapaCor['Descricao'] != null ? mapaCor['Descricao'] as String : null,
     );
   }
 
@@ -39,6 +35,6 @@ class Cor {
 
   @override
   String toString() {
-    return 'Cor(corId: $corId, corIdInt: $corIdInt, decricao: $decricao, ativo: $ativo)';
+    return 'Cor(corId: $corId, corIdInt: $corIdInt, descricao: $descricao)';
   }
 }
