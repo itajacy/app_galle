@@ -1,0 +1,94 @@
+<DataSet>
+  <Row>
+    <LinhaID_Int>40</LinhaID_Int>
+    <Descricao>Prata - Religiosa</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>12</LinhaID_Int>
+    <Descricao>Prata</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>41</LinhaID_Int>
+    <Descricao>Prata - Kids</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>42</LinhaID_Int>
+    <Descricao>Prata - Charme</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>46</LinhaID_Int>
+    <Descricao>Prata - Collection</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>31</LinhaID_Int>
+    <Descricao>Brunna Ag</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>38</LinhaID_Int>
+    <Descricao>Religiosa</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>3</LinhaID_Int>
+    <Descricao>Classic</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>37</LinhaID_Int>
+    <Descricao>kids</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>4</LinhaID_Int>
+    <Descricao>Exportacao</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>20</LinhaID_Int>
+    <Descricao>Fashion</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>30</LinhaID_Int>
+    <Descricao>Brunna</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>26</LinhaID_Int>
+    <Descricao>Collection</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>34</LinhaID_Int>
+    <Descricao>Collection News</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>16</LinhaID_Int>
+    <Descricao>China</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>2</LinhaID_Int>
+    <Descricao>Diferenciada</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>27</LinhaID_Int>
+    <Descricao>Cor.Classic</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>43</LinhaID_Int>
+    <Descricao>Cor. Kids</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>39</LinhaID_Int>
+    <Descricao>Cor. Religiosa</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>28</LinhaID_Int>
+    <Descricao>Cor.Fashion</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>29</LinhaID_Int>
+    <Descricao>Cor.Collection</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>35</LinhaID_Int>
+    <Descricao>Cor - Collection  News</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>51</LinhaID_Int>
+    <Descricao>Folheado Exclusivo SN</Descricao>
+  </Row>
+</DataSet>

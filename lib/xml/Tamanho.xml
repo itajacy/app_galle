@@ -1,0 +1,310 @@
+<DataSet>
+  <Row>
+    <TamanhoID_Int>00</TamanhoID_Int>
+    <Descricao>Nao aplicado</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>A</TamanhoID_Int>
+    <Descricao>Letra A</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>B</TamanhoID_Int>
+    <Descricao>Letra B</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>C</TamanhoID_Int>
+    <Descricao>Letra C</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>D</TamanhoID_Int>
+    <Descricao>Letra D</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>E</TamanhoID_Int>
+    <Descricao>Letra E</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>F</TamanhoID_Int>
+    <Descricao>Letra F</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>G</TamanhoID_Int>
+    <Descricao>Letra G</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>H</TamanhoID_Int>
+    <Descricao>Letra H</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>I</TamanhoID_Int>
+    <Descricao>Letra I</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>J</TamanhoID_Int>
+    <Descricao>Letra J</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>K</TamanhoID_Int>
+    <Descricao>Letra K</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>L</TamanhoID_Int>
+    <Descricao>Letra L</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>M</TamanhoID_Int>
+    <Descricao>Letra M</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>N</TamanhoID_Int>
+    <Descricao>Letra N</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>P</TamanhoID_Int>
+    <Descricao>Letra P</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>R</TamanhoID_Int>
+    <Descricao>Letra R</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>S</TamanhoID_Int>
+    <Descricao>Letra S</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>T</TamanhoID_Int>
+    <Descricao>Letra T</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>U</TamanhoID_Int>
+    <Descricao>Letra U</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>V</TamanhoID_Int>
+    <Descricao>Letra V</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>W</TamanhoID_Int>
+    <Descricao>Letra W</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>X</TamanhoID_Int>
+    <Descricao>Letra X</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>Y</TamanhoID_Int>
+    <Descricao>Letra Y</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>Z</TamanhoID_Int>
+    <Descricao>Letra Z</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>O</TamanhoID_Int>
+    <Descricao>Letra O</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>Q</TamanhoID_Int>
+    <Descricao>Letra Q</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1A</TamanhoID_Int>
+    <Descricao>Aries</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1B</TamanhoID_Int>
+    <Descricao>Touro</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1C</TamanhoID_Int>
+    <Descricao>Gemeos</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1D</TamanhoID_Int>
+    <Descricao>Cancer</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1E</TamanhoID_Int>
+    <Descricao>Leao</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1F</TamanhoID_Int>
+    <Descricao>Virgem</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1G</TamanhoID_Int>
+    <Descricao>Libra</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1H</TamanhoID_Int>
+    <Descricao>Escorpiao</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1I</TamanhoID_Int>
+    <Descricao>Sagitario</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1J</TamanhoID_Int>
+    <Descricao>Capricornio</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1L</TamanhoID_Int>
+    <Descricao>Aquario</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>1M</TamanhoID_Int>
+    <Descricao>Peixes</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>2P</TamanhoID_Int>
+    <Descricao>Pressao</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3E</TamanhoID_Int>
+    <Descricao>N 14</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3G</TamanhoID_Int>
+    <Descricao>N 16</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3I</TamanhoID_Int>
+    <Descricao>N 18</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3K</TamanhoID_Int>
+    <Descricao>N 20</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3M</TamanhoID_Int>
+    <Descricao>N 22</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4C</TamanhoID_Int>
+    <Descricao>18 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4B</TamanhoID_Int>
+    <Descricao>14 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4A</TamanhoID_Int>
+    <Descricao>12 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4P</TamanhoID_Int>
+    <Descricao>40 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4X</TamanhoID_Int>
+    <Descricao>30cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4F</TamanhoID_Int>
+    <Descricao>45 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4H</TamanhoID_Int>
+    <Descricao>60 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4E</TamanhoID_Int>
+    <Descricao>23 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4V</TamanhoID_Int>
+    <Descricao>35cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4I</TamanhoID_Int>
+    <Descricao>70 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>6H</TamanhoID_Int>
+    <Descricao>60 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4G</TamanhoID_Int>
+    <Descricao>50 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4=</TamanhoID_Int>
+    <Descricao>65 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4J</TamanhoID_Int>
+    <Descricao>20 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4M</TamanhoID_Int>
+    <Descricao>16 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3A</TamanhoID_Int>
+    <Descricao>N 6</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3B</TamanhoID_Int>
+    <Descricao>N 8</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3C</TamanhoID_Int>
+    <Descricao>N 10</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3D</TamanhoID_Int>
+    <Descricao>N 12</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3O</TamanhoID_Int>
+    <Descricao>N 24</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3L</TamanhoID_Int>
+    <Descricao>N 21</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>3J</TamanhoID_Int>
+    <Descricao>N 19</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>6B</TamanhoID_Int>
+    <Descricao>14 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4Q</TamanhoID_Int>
+    <Descricao>22 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4T</TamanhoID_Int>
+    <Descricao>80 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4D</TamanhoID_Int>
+    <Descricao>25cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>4R</TamanhoID_Int>
+    <Descricao>90 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>6F</TamanhoID_Int>
+    <Descricao>45 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>6P</TamanhoID_Int>
+    <Descricao>40 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>6C</TamanhoID_Int>
+    <Descricao>18 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>6E</TamanhoID_Int>
+    <Descricao>23 cm</Descricao>
+  </Row>
+  <Row>
+    <TamanhoID_Int>6G</TamanhoID_Int>
+    <Descricao>50 cm</Descricao>
+  </Row>
+</DataSet>

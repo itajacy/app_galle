@@ -1,0 +1,38 @@
+<DataSet>
+  <Row>
+    <TipoID_Int>G1</TipoID_Int>
+    <Descricao>AG PURA LOTE 1</Descricao>
+  </Row>
+  <Row>
+    <TipoID_Int>G3</TipoID_Int>
+    <Descricao>AG PURA LOTE 3</Descricao>
+  </Row>
+  <Row>
+    <TipoID_Int>G5</TipoID_Int>
+    <Descricao>AG PURA LOTE 5</Descricao>
+  </Row>
+  <Row>
+    <TipoID_Int>G6</TipoID_Int>
+    <Descricao>AG PURA LOTE 6</Descricao>
+  </Row>
+  <Row>
+    <TipoID_Int>G2</TipoID_Int>
+    <Descricao>AG PURA LOTE 2</Descricao>
+  </Row>
+  <Row>
+    <TipoID_Int>00</TipoID_Int>
+    <Descricao>Nao aplicado</Descricao>
+  </Row>
+  <Row>
+    <TipoID_Int>CN</TipoID_Int>
+    <Descricao>NACIONAL</Descricao>
+  </Row>
+  <Row>
+    <TipoID_Int>CS</TipoID_Int>
+    <Descricao>SPECIAL</Descricao>
+  </Row>
+  <Row>
+    <TipoID_Int>CE</TipoID_Int>
+    <Descricao>ESPECIAL</Descricao>
+  </Row>
+</DataSet>

@@ -1,0 +1,14 @@
+<DataSet>
+  <Row>
+    <MaterialID_Int>2</MaterialID_Int>
+    <Descricao>Prata Pura</Descricao>
+  </Row>
+  <Row>
+    <MaterialID_Int>0</MaterialID_Int>
+    <Descricao>Banhado a Ouro</Descricao>
+  </Row>
+  <Row>
+    <MaterialID_Int>1</MaterialID_Int>
+    <Descricao>Banhado a Prata</Descricao>
+  </Row>
+</DataSet>

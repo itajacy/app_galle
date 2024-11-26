@@ -1,0 +1,26 @@
+<DataSet>
+  <Row>
+    <GrupoID_Int>01</GrupoID_Int>
+    <Descricao>Pingente</Descricao>
+  </Row>
+  <Row>
+    <GrupoID_Int>07</GrupoID_Int>
+    <Descricao>Peca Grande</Descricao>
+  </Row>
+  <Row>
+    <GrupoID_Int>02</GrupoID_Int>
+    <Descricao>Brinco</Descricao>
+  </Row>
+  <Row>
+    <GrupoID_Int>03</GrupoID_Int>
+    <Descricao>Anel</Descricao>
+  </Row>
+  <Row>
+    <GrupoID_Int>04</GrupoID_Int>
+    <Descricao>Corrente</Descricao>
+  </Row>
+  <Row>
+    <GrupoID_Int>06</GrupoID_Int>
+    <Descricao>Pulseiras e Gargantilhas</Descricao>
+  </Row>
+</DataSet>
