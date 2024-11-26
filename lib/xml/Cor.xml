@@ -24,16 +24,16 @@
     <Descricao>Rosa Claro</Descricao>
   </Row>
   <Row>
+    <CorID_Int>06</CorID_Int>
+    <Descricao>Azul</Descricao>
+  </Row>
+  <Row>
     <CorID_Int>04</CorID_Int>
     <Descricao>Vermelho</Descricao>
   </Row>
   <Row>
     <CorID_Int>02</CorID_Int>
     <Descricao>Preto</Descricao>
-  </Row>
-  <Row>
-    <CorID_Int>06</CorID_Int>
-    <Descricao>Azul</Descricao>
   </Row>
   <Row>
     <CorID_Int>10</CorID_Int>
@@ -138,6 +138,10 @@
   <Row>
     <CorID_Int>16</CorID_Int>
     <Descricao>Light Saphira</Descricao>
+  </Row>
+  <Row>
+    <CorID_Int>70</CorID_Int>
+    <Descricao>Azul Mar</Descricao>
   </Row>
   <Row>
     <CorID_Int>05</CorID_Int>

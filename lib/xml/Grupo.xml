@@ -16,11 +16,15 @@
     <Descricao>Anel</Descricao>
   </Row>
   <Row>
+    <GrupoID_Int>06</GrupoID_Int>
+    <Descricao>Pulseiras e Gargantilhas</Descricao>
+  </Row>
+  <Row>
     <GrupoID_Int>04</GrupoID_Int>
     <Descricao>Corrente</Descricao>
   </Row>
   <Row>
-    <GrupoID_Int>06</GrupoID_Int>
-    <Descricao>Pulseiras e Gargantilhas</Descricao>
+    <GrupoID_Int>09</GrupoID_Int>
+    <Descricao>N. Brinco Corr</Descricao>
   </Row>
 </DataSet>

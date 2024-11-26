@@ -56,12 +56,24 @@
     <Descricao>Collection News</Descricao>
   </Row>
   <Row>
+    <LinhaID_Int>51</LinhaID_Int>
+    <Descricao>Folheado Exclusivo SN</Descricao>
+  </Row>
+  <Row>
     <LinhaID_Int>16</LinhaID_Int>
     <Descricao>China</Descricao>
   </Row>
   <Row>
     <LinhaID_Int>2</LinhaID_Int>
     <Descricao>Diferenciada</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>50</LinhaID_Int>
+    <Descricao>Folheado Exclusivo CN</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>19</LinhaID_Int>
+    <Descricao>Pronta Entrega</Descricao>
   </Row>
   <Row>
     <LinhaID_Int>27</LinhaID_Int>
@@ -86,9 +98,5 @@
   <Row>
     <LinhaID_Int>35</LinhaID_Int>
     <Descricao>Cor - Collection  News</Descricao>
-  </Row>
-  <Row>
-    <LinhaID_Int>51</LinhaID_Int>
-    <Descricao>Folheado Exclusivo SN</Descricao>
   </Row>
 </DataSet>

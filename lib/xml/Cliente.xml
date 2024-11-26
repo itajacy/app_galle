@@ -683,13 +683,13 @@
     <FoneFax/>
     <Email>lojaarcanjomiguel@hotmail.com</Email>
     <S_Endereco>PATIO CENTRO DE APOIO AOS ROMEIROS, S/N</S_Endereco>
-    <S_Complemento>LOJA 01/02/03/04</S_Complemento>
+    <S_Complemento>ASA NORTE- LOJA 01/02/03/04</S_Complemento>
     <S_Bairro>SANTA RITA</S_Bairro>
     <S_Cidade>APARECIDA</S_Cidade>
     <S_UF>SP</S_UF>
     <S_CEP>12.570-000</S_CEP>
     <E_Endereco>PATIO CENTRO DE APOIO AOS ROMEIROS, S/N</E_Endereco>
-    <E_Complemento>ASA NORTE LOJA 01/02/03/04</E_Complemento>
+    <E_Complemento>ASA NORTE-LOJA 01/02/03/04</E_Complemento>
     <E_Bairro>SANTA RITA</E_Bairro>
     <E_Cidade>APARECIDA</E_Cidade>
     <E_UF>SP</E_UF>
@@ -1053,7 +1053,7 @@
     <RazaoSocial>MARIA JOSE DE CASTRO JESUS</RazaoSocial>
     <NomeFantasia>MARIA JOSE DE CASTRO JESUS</NomeFantasia>
     <Contato>Mo. JOSE</Contato>
-    <FoneCom1>012-8836 2263</FoneCom1>
+    <FoneCom1/>
     <FoneCom2/>
     <FoneCel>012-98810-2263</FoneCel>
     <FoneRes/>
@@ -1124,7 +1124,7 @@
     <S_UF>SP</S_UF>
     <S_CEP>11.660-901</S_CEP>
     <E_Endereco>PC. DOUTOR DIOGENES RIBEIRO DE LIMA, 67</E_Endereco>
-    <E_Complemento>LJ.14 GALERIA JANGADA</E_Complemento>
+    <E_Complemento>LJ.14- GALERIA JANGADA</E_Complemento>
     <E_Bairro>CENTRO</E_Bairro>
     <E_Cidade>CARAGUATATUBA</E_Cidade>
     <E_UF>SP</E_UF>
@@ -1167,11 +1167,11 @@
     <CGCCPF>53.949.483/0001-31</CGCCPF>
     <IERG>688.060.729.112</IERG>
     <RazaoSocial>MARINA DINIZ &amp; CIA LTDA</RazaoSocial>
-    <NomeFantasia>MARINA DINIZ</NomeFantasia>
-    <Contato>BRUNNA</Contato>
+    <NomeFantasia>DINIZ BIJOUTERIAS</NomeFantasia>
+    <Contato>MARINA</Contato>
     <FoneCom1>012-99166-8228</FoneCom1>
-    <FoneCom2>012-97408-506</FoneCom2>
-    <FoneCel>012-99729-2925</FoneCel>
+    <FoneCom2/>
+    <FoneCel>012 99201-7552</FoneCel>
     <FoneRes/>
     <FoneFax/>
     <Email>dinizbijouterias@dinizbijouterias.com</Email>
@@ -1438,7 +1438,7 @@
     <Email>aka.andrade78@gmail.com</Email>
     <S_Endereco>PATIO CENTRO DE APOIO AO ROMEIRO ASA LESTE, S/N</S_Endereco>
     <S_Complemento>LOJA 181 E 182</S_Complemento>
-    <S_Bairro>STA RITA</S_Bairro>
+    <S_Bairro>SANTA RITA</S_Bairro>
     <S_Cidade>APARECIDA</S_Cidade>
     <S_UF>SP</S_UF>
     <S_CEP>12.570-000</S_CEP>
@@ -2505,7 +2505,7 @@
     <Contato>ALESSANDRA</Contato>
     <FoneCom1>012-3104-1217</FoneCom1>
     <FoneCom2/>
-    <FoneCel>012-98151 4885</FoneCel>
+    <FoneCel>012-98151-4885</FoneCel>
     <FoneRes>012-3105-4603</FoneRes>
     <FoneFax/>
     <Email>alemariajj@hotmail.com</Email>
@@ -3025,11 +3025,11 @@
     <RazaoSocial>JG PRESENTES INESQUECIVEIS LTDA</RazaoSocial>
     <NomeFantasia>J.G.RELOJOARIA</NomeFantasia>
     <Contato>JUSSARA</Contato>
-    <FoneCom1>012-3133 3296</FoneCom1>
-    <FoneCom2>012-3157 6070</FoneCom2>
-    <FoneCel/>
+    <FoneCom1>012-3133-3296</FoneCom1>
+    <FoneCom2>012-3157-6070</FoneCom2>
+    <FoneCel>012-99656-2040</FoneCel>
     <FoneRes/>
-    <FoneFax>012-3157 6070</FoneFax>
+    <FoneFax/>
     <Email>jgrelojoaria1@hotmail.com</Email>
     <S_Endereco>R. MAJOR OLIVEIRA BORGES, 99</S_Endereco>
     <S_Complemento/>
@@ -4045,7 +4045,7 @@
     <FoneCel>035-9996-7414</FoneCel>
     <FoneRes/>
     <FoneFax/>
-    <Email>zecaarte@hotmail.com</Email>
+    <Email>zecaarte230@gmail.com</Email>
     <S_Endereco>R.CORONEL FRANCISCO BRAZ, 230</S_Endereco>
     <S_Complemento/>
     <S_Bairro>PINHEIRINHO</S_Bairro>
@@ -4272,24 +4272,24 @@
     <RazaoSocial>SANTORINI DISTRIB.DE ARTIGOS RELIGIOSOS LTDA.</RazaoSocial>
     <NomeFantasia>COMERCIAL CARVALHO</NomeFantasia>
     <Contato>PAULA</Contato>
-    <FoneCom1>012-3105 6996</FoneCom1>
+    <FoneCom1>012-3105-6996</FoneCom1>
     <FoneCom2/>
-    <FoneCel>12-98282-5402</FoneCel>
+    <FoneCel>012-98282-5402</FoneCel>
     <FoneRes/>
-    <FoneFax>012-3105 5717</FoneFax>
+    <FoneFax>012-3105-5717</FoneFax>
     <Email>carvalhofinanceiro@gmail.com</Email>
-    <S_Endereco>AV.SOLON PEREIRA, 1035-B</S_Endereco>
-    <S_Complemento/>
+    <S_Endereco>AV. SOLON PEREIRA, 1055</S_Endereco>
+    <S_Complemento>GALPAO02</S_Complemento>
     <S_Bairro>JARDIM PARAIBA</S_Bairro>
     <S_Cidade>APARECIDA</S_Cidade>
     <S_UF>SP</S_UF>
-    <S_CEP>12.570-000</S_CEP>
-    <E_Endereco>AV.SOLON PEREIRA, 1035-B</E_Endereco>
-    <E_Complemento>A</E_Complemento>
+    <S_CEP>12.575-212</S_CEP>
+    <E_Endereco>AV. SOLON PEREIRA, 1055</E_Endereco>
+    <E_Complemento>GALPAO02</E_Complemento>
     <E_Bairro>JARDIM PARAIBA</E_Bairro>
     <E_Cidade>APARECIDA</E_Cidade>
     <E_UF>SP</E_UF>
-    <E_CEP>12575-212</E_CEP>
+    <E_CEP>12.575-212</E_CEP>
   </Row>
   <Row>
     <ClienteID_Int>C716-00</ClienteID_Int>
@@ -4530,7 +4530,7 @@
     <TipoPessoa>J</TipoPessoa>
     <CGCCPF>03.321.642/0001-80</CGCCPF>
     <IERG>174.077.693.117</IERG>
-    <RazaoSocial>FERNANDO DA SILVA MENDES</RazaoSocial>
+    <RazaoSocial>FERNANDO DA SILVA MENDES &amp; CIA LTDA</RazaoSocial>
     <NomeFantasia>MENDES PRESENTES</NomeFantasia>
     <Contato>VERA</Contato>
     <FoneCom1/>
@@ -4539,18 +4539,18 @@
     <FoneRes/>
     <FoneFax/>
     <Email>mendespresentes4647@gmail.com</Email>
-    <S_Endereco>PATIO CENTRO APOIO ROMEIRO, S/N</S_Endereco>
+    <S_Endereco>AV. PRES.E GETULIO VARGAS - CAR - ASA NORTE, S/N</S_Endereco>
     <S_Complemento>LJ.47</S_Complemento>
-    <S_Bairro>STA.RITA</S_Bairro>
+    <S_Bairro>SANTA RITA</S_Bairro>
     <S_Cidade>APARECIDA</S_Cidade>
     <S_UF>SP</S_UF>
-    <S_CEP>12.570-000</S_CEP>
-    <E_Endereco>PATIO CENTRO APOIO ROMEIRO, S/N</E_Endereco>
+    <S_CEP>12.576-028</S_CEP>
+    <E_Endereco>AV. PRES.E GETULIO VARGAS - CAR - ASA NORTE, S/N</E_Endereco>
     <E_Complemento>LJ.47</E_Complemento>
-    <E_Bairro>STA.RITA</E_Bairro>
+    <E_Bairro>SANTA RITA</E_Bairro>
     <E_Cidade>APARECIDA</E_Cidade>
     <E_UF>SP</E_UF>
-    <E_CEP>12.570-000</E_CEP>
+    <E_CEP>12.576-028</E_CEP>
   </Row>
   <Row>
     <ClienteID_Int>C836-00</ClienteID_Int>
@@ -4569,7 +4569,7 @@
     <FoneFax/>
     <Email>mifernandess@yahoo.com.br</Email>
     <S_Endereco>PC.NOSSA SENHORA APARECIDA, 129</S_Endereco>
-    <S_Complemento>LOJA S07</S_Complemento>
+    <S_Complemento>LOJA S07- GALERIA RECREIO</S_Complemento>
     <S_Bairro>CENTRO</S_Bairro>
     <S_Cidade>APARECIDA</S_Cidade>
     <S_UF>SP</S_UF>
@@ -6351,6 +6351,35 @@
     <E_CEP>12.570-000</E_CEP>
   </Row>
   <Row>
+    <ClienteID_Int>E529-01</ClienteID_Int>
+    <DispositivoID>0</DispositivoID>
+    <ClienteID_Mob>31812</ClienteID_Mob>
+    <TipoPessoa>J</TipoPessoa>
+    <CGCCPF>27.718.623/0001-50</CGCCPF>
+    <IERG>174.106.889.116</IERG>
+    <RazaoSocial>RENATA VASTI GALLO</RazaoSocial>
+    <NomeFantasia>GALLOS PRESENTES</NomeFantasia>
+    <Contato>EDUARDO</Contato>
+    <FoneCom1>012-3125-6383</FoneCom1>
+    <FoneCom2/>
+    <FoneCel>012-99775-1221</FoneCel>
+    <FoneRes/>
+    <FoneFax/>
+    <Email>gallospresentes@hotmail.com</Email>
+    <S_Endereco>PATIO CENTRO DE APOIO AOS ROMEIROS ASA LESTE, S/N</S_Endereco>
+    <S_Complemento>LOJA 1/2</S_Complemento>
+    <S_Bairro>SANTA RITA</S_Bairro>
+    <S_Cidade>APARECIDA</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>12.570-000</S_CEP>
+    <E_Endereco>AV. PRESIDENTE GETULIO VARGAS, S/N</E_Endereco>
+    <E_Complemento>SHOPP ASA LESTE</E_Complemento>
+    <E_Bairro>SANTA RITA</E_Bairro>
+    <E_Cidade>APARECIDA</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>12576-028</E_CEP>
+  </Row>
+  <Row>
     <ClienteID_Int>E530-00</ClienteID_Int>
     <DispositivoID>17</DispositivoID>
     <ClienteID_Mob>65</ClienteID_Mob>
@@ -6621,9 +6650,9 @@
     <RazaoSocial>VILMA MARIA DOS SANTOS</RazaoSocial>
     <NomeFantasia>VILMA MARIA DOS SANTOS</NomeFantasia>
     <Contato>VILMA</Contato>
-    <FoneCom1>012-3108 1223</FoneCom1>
+    <FoneCom1>012-3108-1223</FoneCom1>
     <FoneCom2/>
-    <FoneCel>012-98187 4557</FoneCel>
+    <FoneCel>012-98187-4557</FoneCel>
     <FoneRes/>
     <FoneFax/>
     <Email>vilmam16@yahoo.com.br</Email>
@@ -6882,24 +6911,24 @@
     <RazaoSocial>MARCIA APARECIDA DOS SANTOS</RazaoSocial>
     <NomeFantasia>MARCIA APARECIDA DOS SANTOS</NomeFantasia>
     <Contato>MARCIA</Contato>
-    <FoneCom1>012-3105 9305</FoneCom1>
-    <FoneCom2>012-98122 5459</FoneCom2>
-    <FoneCel>012-99710 6882</FoneCel>
+    <FoneCom1>012-3105-9305</FoneCom1>
+    <FoneCom2>012-98122-5459</FoneCom2>
+    <FoneCel>012-98814-3662</FoneCel>
     <FoneRes/>
     <FoneFax/>
     <Email>marcinha.bigxerox@hotmail.com</Email>
-    <S_Endereco>PC.PADRE VITOR COELHO DE ALMEIDA, 362</S_Endereco>
-    <S_Complemento/>
+    <S_Endereco>PC.PADRE VICTOR COELHO DE ALMEIDA, 362</S_Endereco>
+    <S_Complemento>EM FRENTE DELEGACIA</S_Complemento>
     <S_Bairro>JARDIM SAO PAULO</S_Bairro>
     <S_Cidade>APARECIDA</S_Cidade>
     <S_UF>SP</S_UF>
-    <S_CEP>12.570-000</S_CEP>
-    <E_Endereco>PC.PADRE VITOR COELHO DE ALMEIDA, 362</E_Endereco>
+    <S_CEP>12570-108</S_CEP>
+    <E_Endereco>PC.PADRE VICTOR COELHO DE ALMEIDA, 362</E_Endereco>
     <E_Complemento>EM FRENTE DELEGACIA</E_Complemento>
     <E_Bairro>JARDIM SAO PAULO</E_Bairro>
     <E_Cidade>APARECIDA</E_Cidade>
     <E_UF>SP</E_UF>
-    <E_CEP>12.570-000</E_CEP>
+    <E_CEP>12570-108</E_CEP>
   </Row>
   <Row>
     <ClienteID_Int>F280-00</ClienteID_Int>
@@ -6998,9 +7027,9 @@
     <RazaoSocial>F. C. COELHO DE ABREU</RazaoSocial>
     <NomeFantasia>BALANGANDAN</NomeFantasia>
     <Contato>CRISTINA</Contato>
-    <FoneCom1>012-99603 7525</FoneCom1>
+    <FoneCom1>012-99603 -7525</FoneCom1>
     <FoneCom2/>
-    <FoneCel>012-99767 4546</FoneCel>
+    <FoneCel>012-99767-4546</FoneCel>
     <FoneRes/>
     <FoneFax/>
     <Email>fatima_diniz@uol.com.br</Email>
@@ -9185,7 +9214,7 @@
     <S_Cidade>CAJAMAR</S_Cidade>
     <S_UF>SP</S_UF>
     <S_CEP>07.753-580</S_CEP>
-    <E_Endereco>ROD.ANHANGUERA KM 31,7, 800 DOCA 350</E_Endereco>
+    <E_Endereco>ROD.ANHANGUERA KM 31,7, 800 DOCA 353</E_Endereco>
     <E_Complemento>BLOCO 300 GALPAO21 E 22 SALA C</E_Complemento>
     <E_Bairro>EMPRESARIAL ANHANGUERA</E_Bairro>
     <E_Cidade>CAJAMAR</E_Cidade>
@@ -9222,6 +9251,35 @@
     <E_CEP>12.630-000</E_CEP>
   </Row>
   <Row>
+    <ClienteID_Int>M452-01</ClienteID_Int>
+    <DispositivoID>0</DispositivoID>
+    <ClienteID_Mob>31809</ClienteID_Mob>
+    <TipoPessoa>J</TipoPessoa>
+    <CGCCPF>45.511.546/0001-45</CGCCPF>
+    <IERG>174.134.650.118</IERG>
+    <RazaoSocial>SABRINA MAIARA RIBEIRO DOS SANTOS</RazaoSocial>
+    <NomeFantasia>DINIZ PRESENTES</NomeFantasia>
+    <Contato>SABRINA</Contato>
+    <FoneCom1/>
+    <FoneCom2/>
+    <FoneCel>012-98225-5624</FoneCel>
+    <FoneRes/>
+    <FoneFax/>
+    <Email>sabrina_ribeeiro@hotmail.com</Email>
+    <S_Endereco>R. JOSE CARLOS WENDLING, 6</S_Endereco>
+    <S_Complemento/>
+    <S_Bairro>SANTA RITA</S_Bairro>
+    <S_Cidade>APARECIDA</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>12.570-000</S_CEP>
+    <E_Endereco>R. 01- CENTRO DE APOIO AO ROMEIRO</E_Endereco>
+    <E_Complemento>LJ 16- ASA NORTE</E_Complemento>
+    <E_Bairro>SANTA RITA</E_Bairro>
+    <E_Cidade>APARECIDA</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>12.570-000</E_CEP>
+  </Row>
+  <Row>
     <ClienteID_Int>M509-00</ClienteID_Int>
     <DispositivoID>41</DispositivoID>
     <ClienteID_Mob>11</ClienteID_Mob>
@@ -9245,35 +9303,6 @@
     <S_CEP>12.570-000</S_CEP>
     <E_Endereco>PATIO CENTRO DE APOIO AOS ROMEIROS, SN</E_Endereco>
     <E_Complemento>LJ 17 ASA NORTE R 01</E_Complemento>
-    <E_Bairro>SANTA RITA</E_Bairro>
-    <E_Cidade>APARECIDA</E_Cidade>
-    <E_UF>SP</E_UF>
-    <E_CEP>12.570-000</E_CEP>
-  </Row>
-  <Row>
-    <ClienteID_Int>M589-00</ClienteID_Int>
-    <DispositivoID>41</DispositivoID>
-    <ClienteID_Mob>13</ClienteID_Mob>
-    <TipoPessoa>J</TipoPessoa>
-    <CGCCPF>59.794.206/0001-83</CGCCPF>
-    <IERG>174.142.858.112</IERG>
-    <RazaoSocial>VERA LUCIA SOARES-APARECIDA</RazaoSocial>
-    <NomeFantasia>LOJA DA VERA</NomeFantasia>
-    <Contato>MICHELLI</Contato>
-    <FoneCom1/>
-    <FoneCom2/>
-    <FoneCel>012-98272 2807</FoneCel>
-    <FoneRes/>
-    <FoneFax/>
-    <Email>michellicristina1105@gmail.com</Email>
-    <S_Endereco>AV. GETULIO VARGAS CENTRO APOIO AOS ROMEIROS, 135</S_Endereco>
-    <S_Complemento>ASA LESTE</S_Complemento>
-    <S_Bairro>SANTA RITA</S_Bairro>
-    <S_Cidade>APARECIDA</S_Cidade>
-    <S_UF>SP</S_UF>
-    <S_CEP>12.570-000</S_CEP>
-    <E_Endereco>AV. GETULIO VARGAS CENTRO APOIO AOS ROMEIROS, 135</E_Endereco>
-    <E_Complemento>ASA LESTE</E_Complemento>
     <E_Bairro>SANTA RITA</E_Bairro>
     <E_Cidade>APARECIDA</E_Cidade>
     <E_UF>SP</E_UF>
@@ -9374,7 +9403,7 @@
     <CGCCPF>13.860.634/0001-66</CGCCPF>
     <IERG>174.097.356.118</IERG>
     <RazaoSocial>ELACHE &amp; GALVAO NUNES LTDA</RazaoSocial>
-    <NomeFantasia>ELACHE E GALVAO NUNES</NomeFantasia>
+    <NomeFantasia>LOJA SAO PAULO APOSTOLO</NomeFantasia>
     <Contato>VANESSA</Contato>
     <FoneCom1/>
     <FoneCom2/>
@@ -9393,7 +9422,7 @@
     <E_Bairro>SANTA RITA</E_Bairro>
     <E_Cidade>APARECIDA</E_Cidade>
     <E_UF>SP</E_UF>
-    <E_CEP>12.570-000</E_CEP>
+    <E_CEP>12576028</E_CEP>
   </Row>
   <Row>
     <ClienteID_Int>N051-01</ClienteID_Int>
@@ -9707,12 +9736,12 @@
     <S_Cidade>APARECIDA</S_Cidade>
     <S_UF>SP</S_UF>
     <S_CEP>12.570-000</S_CEP>
-    <E_Endereco>CENTRO APOIO AOS ROMEIROS</E_Endereco>
-    <E_Complemento>LOJA 48 ASA SUL</E_Complemento>
-    <E_Bairro>SANTA RITA</E_Bairro>
+    <E_Endereco>R. CHRISTOVAO MACEDO, 92</E_Endereco>
+    <E_Complemento/>
+    <E_Bairro>PONTE ALTA</E_Bairro>
     <E_Cidade>APARECIDA</E_Cidade>
     <E_UF>SP</E_UF>
-    <E_CEP>12570-000</E_CEP>
+    <E_CEP>12575-028</E_CEP>
   </Row>
   <Row>
     <ClienteID_Int>Q995-00</ClienteID_Int>
@@ -9780,7 +9809,7 @@
     <CGCCPF>10.962.420/0001-02</CGCCPF>
     <IERG>174.154.971.111</IERG>
     <RazaoSocial>JAQUELINE APARECIDA DA SILVA</RazaoSocial>
-    <NomeFantasia>YAGO PRESENTES</NomeFantasia>
+    <NomeFantasia>COLORADO PRESENTES</NomeFantasia>
     <Contato>JAQUELINE</Contato>
     <FoneCom1/>
     <FoneCom2/>
@@ -9788,18 +9817,18 @@
     <FoneRes/>
     <FoneFax/>
     <Email>jaksilva29@hotmail.com</Email>
-    <S_Endereco>AV. GETULIO VARGAS, S/N</S_Endereco>
-    <S_Complemento>LJ.43/44/61/62</S_Complemento>
+    <S_Endereco>AV. PRESIDENTE GETULIO VARGAS, S/N</S_Endereco>
+    <S_Complemento>LOJA 116/147</S_Complemento>
     <S_Bairro>SANTA RITA</S_Bairro>
     <S_Cidade>APARECIDA</S_Cidade>
     <S_UF>SP</S_UF>
-    <S_CEP>12.570-000</S_CEP>
-    <E_Endereco>AV. GETULIO VARGAS, S/N</E_Endereco>
-    <E_Complemento>ASA SUL LOJA 61/62 RUA 1</E_Complemento>
+    <S_CEP>12.576-028</S_CEP>
+    <E_Endereco>AV. PRESIDENTE GETULIO VARGAS, S/N</E_Endereco>
+    <E_Complemento>LOJA 116/147</E_Complemento>
     <E_Bairro>SANTA RITA</E_Bairro>
     <E_Cidade>APARECIDA</E_Cidade>
     <E_UF>SP</E_UF>
-    <E_CEP>12576-028</E_CEP>
+    <E_CEP>12.576-028</E_CEP>
   </Row>
   <Row>
     <ClienteID_Int>R683-00</ClienteID_Int>
@@ -10446,16 +10475,16 @@
     <TipoPessoa>J</TipoPessoa>
     <CGCCPF>29.027.051/0001-99</CGCCPF>
     <IERG>332.230.690.119</IERG>
-    <RazaoSocial>GABRIELE ROLIM DE CASTRO</RazaoSocial>
+    <RazaoSocial>29.027.051 GABRIELE ROLIM DE CASTRO</RazaoSocial>
     <NomeFantasia>GABY ACESSORIOS</NomeFantasia>
-    <Contato>HELEN</Contato>
+    <Contato>LYA</Contato>
     <FoneCom1/>
     <FoneCom2/>
     <FoneCel>12-99752-9942</FoneCel>
     <FoneRes/>
     <FoneFax/>
     <Email>gabyacessorio@gmail.com</Email>
-    <S_Endereco>R. SAO FRANCISCO, 101</S_Endereco>
+    <S_Endereco>R. SAO FRANCISCO, 119</S_Endereco>
     <S_Complemento/>
     <S_Bairro>CENTRO</S_Bairro>
     <S_Cidade>GUARATINGUETA</S_Cidade>
@@ -10677,28 +10706,28 @@
     <ClienteID_Mob>114</ClienteID_Mob>
     <TipoPessoa>J</TipoPessoa>
     <CGCCPF>31.483.901/0001-05</CGCCPF>
-    <IERG>591.014.556.119</IERG>
-    <RazaoSocial>BRUNO FELIPE DE OLIVEIRA BARROS 34687607870</RazaoSocial>
+    <IERG>174.166.205.116</IERG>
+    <RazaoSocial>BRUNO FELIPE DE OLIVEIRA BARROS</RazaoSocial>
     <NomeFantasia>LAVIE SEMI JOIAS</NomeFantasia>
     <Contato>BRUNO</Contato>
-    <FoneCom1>12-3646-1013</FoneCom1>
+    <FoneCom1>012-3646-1013</FoneCom1>
     <FoneCom2/>
-    <FoneCel>12-98113-2566</FoneCel>
+    <FoneCel>012-98113-2566</FoneCel>
     <FoneRes/>
     <FoneFax/>
     <Email>lavie.aparecida@gmail.com</Email>
-    <S_Endereco>R. RENATO GIOVANELLI, 126</S_Endereco>
+    <S_Endereco>AV. PRESIDENTE GETULIO VARGAS, 1003</S_Endereco>
     <S_Complemento/>
-    <S_Bairro>VILA ROMA</S_Bairro>
-    <S_Cidade>ROSEIRA</S_Cidade>
+    <S_Bairro>SANTA RITA</S_Bairro>
+    <S_Cidade>APARECIDA</S_Cidade>
     <S_UF>SP</S_UF>
-    <S_CEP>12.580-000</S_CEP>
-    <E_Endereco>R. RENATO GIOVANELLI, 126</E_Endereco>
+    <S_CEP>12.576-028</S_CEP>
+    <E_Endereco>AV. PRESIDENTE GETULIO VARGAS, 1003</E_Endereco>
     <E_Complemento/>
-    <E_Bairro>VILLA ROMA</E_Bairro>
-    <E_Cidade>ROSEIRA</E_Cidade>
+    <E_Bairro>SANTA RITA</E_Bairro>
+    <E_Cidade>APARECIDA</E_Cidade>
     <E_UF>SP</E_UF>
-    <E_CEP>12580-092</E_CEP>
+    <E_CEP>12.576-028</E_CEP>
   </Row>
   <Row>
     <ClienteID_Int>V890-00</ClienteID_Int>
@@ -10728,5 +10757,295 @@
     <E_Cidade>GUARATINGUETA</E_Cidade>
     <E_UF>SP</E_UF>
     <E_CEP>12515-505</E_CEP>
+  </Row>
+  <Row>
+    <ClienteID_Int>W191-00</ClienteID_Int>
+    <DispositivoID>0</DispositivoID>
+    <ClienteID_Mob>31615</ClienteID_Mob>
+    <TipoPessoa>F</TipoPessoa>
+    <CGCCPF>082.438.508-05</CGCCPF>
+    <IERG>13047030-2</IERG>
+    <RazaoSocial>NILTON DO CARMO BUENO</RazaoSocial>
+    <NomeFantasia>NILTON DO CARMO BUENO</NomeFantasia>
+    <Contato>NILTON</Contato>
+    <FoneCom1/>
+    <FoneCom2/>
+    <FoneCel>011-91328-8620</FoneCel>
+    <FoneRes/>
+    <FoneFax/>
+    <Email>niltonbueno333@gmail.com</Email>
+    <S_Endereco>R. ROSA MAGNI MIRALHA, 46</S_Endereco>
+    <S_Complemento>APTO 44</S_Complemento>
+    <S_Bairro>VL.SANTO ESTEFANO</S_Bairro>
+    <S_Cidade>SAO PAULO</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>04152-010</S_CEP>
+    <E_Endereco>R. ROSA MAGNI MIRALHA, 46</E_Endereco>
+    <E_Complemento>APTO 44</E_Complemento>
+    <E_Bairro>VL.SANTO ESTEFANO</E_Bairro>
+    <E_Cidade>SAO PAULO</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>04152-010</E_CEP>
+  </Row>
+  <Row>
+    <ClienteID_Int>W212-00</ClienteID_Int>
+    <DispositivoID>9</DispositivoID>
+    <ClienteID_Mob>116</ClienteID_Mob>
+    <TipoPessoa>J</TipoPessoa>
+    <CGCCPF>54.450.713/0001-86</CGCCPF>
+    <IERG>174.042.747.110</IERG>
+    <RazaoSocial>BAR E RESTAURANTE ROSA DE OURO LTDA</RazaoSocial>
+    <NomeFantasia>BAR E RESTAURANTE ROSA DE OURO</NomeFantasia>
+    <Contato>LUISA</Contato>
+    <FoneCom1>012-3105-3177</FoneCom1>
+    <FoneCom2/>
+    <FoneCel>012-99242-8776</FoneCel>
+    <FoneRes/>
+    <FoneFax/>
+    <Email>saborefe@uol.com.br</Email>
+    <S_Endereco>RODOVIA PRES DUTRA, SN</S_Endereco>
+    <S_Complemento>KM 73</S_Complemento>
+    <S_Bairro>STA RITA</S_Bairro>
+    <S_Cidade>APARECIDA</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>12.570-000</S_CEP>
+    <E_Endereco>RODOVIA PRES DUTRA, SN</E_Endereco>
+    <E_Complemento>KM 73</E_Complemento>
+    <E_Bairro>STA RITA</E_Bairro>
+    <E_Cidade>APARECIDA</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>12.570-000</E_CEP>
+  </Row>
+  <Row>
+    <ClienteID_Int>W215-00</ClienteID_Int>
+    <DispositivoID>9</DispositivoID>
+    <ClienteID_Mob>117</ClienteID_Mob>
+    <TipoPessoa>J</TipoPessoa>
+    <CGCCPF>43.065.037/0001-00</CGCCPF>
+    <IERG>174.130.308.112</IERG>
+    <RazaoSocial>BARBOSA &amp; CHARLEAUX LTDA</RazaoSocial>
+    <NomeFantasia>JOAO PAULO II - ARTIGOS RELIGI</NomeFantasia>
+    <Contato>SUELEN</Contato>
+    <FoneCom1/>
+    <FoneCom2/>
+    <FoneCel>012-99773-3434</FoneCel>
+    <FoneRes/>
+    <FoneFax/>
+    <Email>sucharleauxsilva@gmail.com</Email>
+    <S_Endereco>AV. GETULIO VARGAS - C. DE A. AOS R., S/N</S_Endereco>
+    <S_Complemento>LOJA 88 RUA 02 ASA SUL</S_Complemento>
+    <S_Bairro>SANTA RITA</S_Bairro>
+    <S_Cidade>APARECIDA</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>12.570-000</S_CEP>
+    <E_Endereco>AV. GETULIO VARGAS - C. DE A. AOS R., S/N</E_Endereco>
+    <E_Complemento>LOJA 88/137- ASA SUL</E_Complemento>
+    <E_Bairro>SANTA RITA</E_Bairro>
+    <E_Cidade>APARECIDA</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>12.576-028</E_CEP>
+  </Row>
+  <Row>
+    <ClienteID_Int>W283-00</ClienteID_Int>
+    <DispositivoID>9</DispositivoID>
+    <ClienteID_Mob>118</ClienteID_Mob>
+    <TipoPessoa>J</TipoPessoa>
+    <CGCCPF>08.727.872/0001-68</CGCCPF>
+    <IERG>174.150.257.110</IERG>
+    <RazaoSocial>GERSON PAULO DA SILVA</RazaoSocial>
+    <NomeFantasia>PRINCESA DO VALE LEMBRANCAS E</NomeFantasia>
+    <Contato>GERSON</Contato>
+    <FoneCom1/>
+    <FoneCom2/>
+    <FoneCel>012-99658-2735</FoneCel>
+    <FoneRes/>
+    <FoneFax/>
+    <Email>gersonpaulogg@hotmail.com</Email>
+    <S_Endereco>AV. GETULIO VARGAS C DE APOIO AOS ROMEIROS, S/N</S_Endereco>
+    <S_Complemento>ASA NORTE RUA 2- LOJA 69/70</S_Complemento>
+    <S_Bairro>SANTA RITA</S_Bairro>
+    <S_Cidade>APARECIDA</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>12.570-000</S_CEP>
+    <E_Endereco>AV. GETULIO VARGAS C DE APOIO AOS ROMEIROS, S/N</E_Endereco>
+    <E_Complemento>ASA NORTE RUA 2- LOJA 69/70</E_Complemento>
+    <E_Bairro>SANTA RITA</E_Bairro>
+    <E_Cidade>APARECIDA</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>12.570-000</E_CEP>
+  </Row>
+  <Row>
+    <ClienteID_Int>W315-00</ClienteID_Int>
+    <DispositivoID>9</DispositivoID>
+    <ClienteID_Mob>119</ClienteID_Mob>
+    <TipoPessoa>J</TipoPessoa>
+    <CGCCPF>02.543.642/0001-62</CGCCPF>
+    <IERG>174.074.861.118</IERG>
+    <RazaoSocial>MARIA H DE SOUZA APARECIDA ME</RazaoSocial>
+    <NomeFantasia>LOJA CRUZEIRO DO SUL - ARTIGOS</NomeFantasia>
+    <Contato>MARIA</Contato>
+    <FoneCom1/>
+    <FoneCom2/>
+    <FoneCel>012-98837-2261</FoneCel>
+    <FoneRes/>
+    <FoneFax/>
+    <Email>lenasouza.m11@gmail.com</Email>
+    <S_Endereco>PATIO CENTRO DE APOIO AOS ROMEIROS, S/N</S_Endereco>
+    <S_Complemento>LJ 129 ASA NORTE</S_Complemento>
+    <S_Bairro>SANTA RITA</S_Bairro>
+    <S_Cidade>APARECIDA</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>12.570-000</S_CEP>
+    <E_Endereco>PATIO CENTRO DE APOIO AOS ROMEIROS, S/N</E_Endereco>
+    <E_Complemento>RUA2 LJ129 ASA NORTE</E_Complemento>
+    <E_Bairro>SANTA RITA</E_Bairro>
+    <E_Cidade>APARECIDA</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>12570-000</E_CEP>
+  </Row>
+  <Row>
+    <ClienteID_Int>W354-00</ClienteID_Int>
+    <DispositivoID>9</DispositivoID>
+    <ClienteID_Mob>120</ClienteID_Mob>
+    <TipoPessoa>J</TipoPessoa>
+    <CGCCPF>34.748.650/0001-31</CGCCPF>
+    <IERG>174.119.299.114</IERG>
+    <RazaoSocial>MICHELE J.S.PLENTZ SILVA A.RELIGIOSOS E LEMBRANCAS</RazaoSocial>
+    <NomeFantasia>CASA DE MARIA</NomeFantasia>
+    <Contato>MICHELE</Contato>
+    <FoneCom1/>
+    <FoneCom2/>
+    <FoneCel>012-99754-8882</FoneCel>
+    <FoneRes/>
+    <FoneFax/>
+    <Email>michele_jsplentz@hotmail.com</Email>
+    <S_Endereco>PRACA NOSSA SENHORA APARECIDA, 129</S_Endereco>
+    <S_Complemento>SS-10</S_Complemento>
+    <S_Bairro>CENTRO</S_Bairro>
+    <S_Cidade>APARECIDA</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>12.570-000</S_CEP>
+    <E_Endereco>PRACA NOSSA SENHORA APARECIDA, 129</E_Endereco>
+    <E_Complemento>GALERIA RECREIO LOJA SS-10</E_Complemento>
+    <E_Bairro>CENTRO</E_Bairro>
+    <E_Cidade>APARECIDA</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>12.570-000</E_CEP>
+  </Row>
+  <Row>
+    <ClienteID_Int>W378-00</ClienteID_Int>
+    <DispositivoID>9</DispositivoID>
+    <ClienteID_Mob>121</ClienteID_Mob>
+    <TipoPessoa>F</TipoPessoa>
+    <CGCCPF>386.353.688-60</CGCCPF>
+    <IERG>474555496</IERG>
+    <RazaoSocial>LORAINE FERNANDA MENDES</RazaoSocial>
+    <NomeFantasia>LORAINE FERNANDA MENDES</NomeFantasia>
+    <Contato>LORAINE</Contato>
+    <FoneCom1/>
+    <FoneCom2/>
+    <FoneCel>012-99687-3624</FoneCel>
+    <FoneRes/>
+    <FoneFax/>
+    <Email/>
+    <S_Endereco>R. JOSE CASTRIOTO 127</S_Endereco>
+    <S_Complemento/>
+    <S_Bairro>NOVA ESPERANCA</S_Bairro>
+    <S_Cidade>SAO JOSE DOS CAMPOS</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>12226-160</S_CEP>
+    <E_Endereco>R. JOSE CASTRIOTO 127</E_Endereco>
+    <E_Complemento/>
+    <E_Bairro>NOVA ESPERANCA</E_Bairro>
+    <E_Cidade>SAO JOSE DOS CAMPOS</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>12226-160</E_CEP>
+  </Row>
+  <Row>
+    <ClienteID_Int>W386-00</ClienteID_Int>
+    <DispositivoID>0</DispositivoID>
+    <ClienteID_Mob>31786</ClienteID_Mob>
+    <TipoPessoa>F</TipoPessoa>
+    <CGCCPF>350.224.208-99</CGCCPF>
+    <IERG>436022990</IERG>
+    <RazaoSocial>AMANDA CAROLINE DOS SANTOS</RazaoSocial>
+    <NomeFantasia>AMANDA CAROLINE DOS SANTOS</NomeFantasia>
+    <Contato/>
+    <FoneCom1/>
+    <FoneCom2/>
+    <FoneCel/>
+    <FoneRes/>
+    <FoneFax/>
+    <Email>nostressjc3@gmail.com</Email>
+    <S_Endereco>R. JOSE CASTRIOTO, 127</S_Endereco>
+    <S_Complemento/>
+    <S_Bairro>NOVA ESPERANCA</S_Bairro>
+    <S_Cidade>SAO JOSE DOS CAMPOS</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>12226-160</S_CEP>
+    <E_Endereco>R. JOSE CASTRIOTO, 127</E_Endereco>
+    <E_Complemento/>
+    <E_Bairro>NOVA ESPERANCA</E_Bairro>
+    <E_Cidade>SAO JOSE DOS CAMPOS</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>12226-160</E_CEP>
+  </Row>
+  <Row>
+    <ClienteID_Int>W422-00</ClienteID_Int>
+    <DispositivoID>9</DispositivoID>
+    <ClienteID_Mob>122</ClienteID_Mob>
+    <TipoPessoa>J</TipoPessoa>
+    <CGCCPF>14.198.437/0001-96</CGCCPF>
+    <IERG>332.086.827.111</IERG>
+    <RazaoSocial>MOISES GONCALVES DE OLIVEIRA JOIAS</RazaoSocial>
+    <NomeFantasia>J M JOIAS</NomeFantasia>
+    <Contato>MOISES</Contato>
+    <FoneCom1/>
+    <FoneCom2/>
+    <FoneCel>012-99710-8854</FoneCel>
+    <FoneRes/>
+    <FoneFax/>
+    <Email>jmjoias@yahoo. com.br</Email>
+    <S_Endereco>R. DOUTOR MARTINIANO, 42</S_Endereco>
+    <S_Complemento/>
+    <S_Bairro>CENTRO</S_Bairro>
+    <S_Cidade>GUARATINGUETA</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>12.500-170</S_CEP>
+    <E_Endereco>R. DOUTOR MARTINIANO, 42</E_Endereco>
+    <E_Complemento/>
+    <E_Bairro>CENTRO</E_Bairro>
+    <E_Cidade>GUARATINGUETA</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>12.500-170</E_CEP>
+  </Row>
+  <Row>
+    <ClienteID_Int>W424-00</ClienteID_Int>
+    <DispositivoID>0</DispositivoID>
+    <ClienteID_Mob>31810</ClienteID_Mob>
+    <TipoPessoa>J</TipoPessoa>
+    <CGCCPF>55.913.600/0001-32</CGCCPF>
+    <IERG>401.387.988.117</IERG>
+    <RazaoSocial>55.913.600 SERGIO DEARO</RazaoSocial>
+    <NomeFantasia>ASAS DE ANJO ARTE SACRA</NomeFantasia>
+    <Contato>ADELITA</Contato>
+    <FoneCom1/>
+    <FoneCom2/>
+    <FoneCel>014-99799-4663</FoneCel>
+    <FoneRes/>
+    <FoneFax/>
+    <Email>asasdeanjoartesacra@gmail.com</Email>
+    <S_Endereco>R. LOURENCO PRADO, 909</S_Endereco>
+    <S_Complemento/>
+    <S_Bairro>CENTRO</S_Bairro>
+    <S_Cidade>JAU</S_Cidade>
+    <S_UF>SP</S_UF>
+    <S_CEP>17.201-000</S_CEP>
+    <E_Endereco>R. LOURENCO PRADO, 909</E_Endereco>
+    <E_Complemento>LOJA 03</E_Complemento>
+    <E_Bairro>CENTRO</E_Bairro>
+    <E_Cidade>JAU</E_Cidade>
+    <E_UF>SP</E_UF>
+    <E_CEP>17.201-000</E_CEP>
   </Row>
 </DataSet>
