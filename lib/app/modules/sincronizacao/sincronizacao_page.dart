@@ -48,7 +48,7 @@ class SincronizacaoPage extends StatelessWidget {
                 onPress: () {
                   sincronizacaoCorController.sincronizacaoCor();
                 },
-                ativo: false,
+                ativo: true,
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
@@ -68,7 +68,8 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () async {
-                  await sincronizacaoClienteController.sincronizacaoClientes();
+                  await sincronizacaoClienteController
+                      .sincronizacaoClientes(context);
                   await sincronizacaoDispositivoController
                       .sincronizacaoDispositivo();
                 },
@@ -96,13 +97,15 @@ class SincronizacaoPage extends StatelessWidget {
                   print('TODOS OS CLIENTES FORAM APAGADOS!');
                   sincronizacaoDispositivoController.apagaTodosOsDispositivos();
                   print('OS DADOS DO DISPOSITIVO FORAM APAGADOS!');
+                  sincronizacaoCorController.apagaTodasAsCores();
+                  print('TODAS AS CORES FORAM APAGADAS!');
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
-                titulo: 'APAGA Clientes/Dispositivos.',
+                titulo: 'APAGA TODAS as Tabelas.',
               ),
               const Column(
                 children: [

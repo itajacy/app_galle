@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter/material.dart';
 import 'package:ftpconnect/ftpconnect.dart';
 import 'package:xml2json/xml2json.dart';
 
@@ -17,12 +18,12 @@ class SincronizacaoClienteController {
 
   //* INICIO ATUALIZACAO DE CLIENTES
 
-  sincronizacaoClientes() async {
+  sincronizacaoClientes(BuildContext context) async {
     //!  Conectando e baixando o arquivo Cliente.xml
     await conexaoFTP('Cliente');
 
     String jsonStringCliente =
-        await convertXmlToJson('Cliente'); //convertendo XML em Json
+        await convertXmlToJson('Cliente', context); //convertendo XML em Json
 
     List<Cliente> clienteListaObjeto = convertJsonToCliente(
         jsonStringCliente); //convertendo Json em uma lista de Objetos(Cliente)
@@ -94,41 +95,63 @@ class SincronizacaoClienteController {
     }
   }
 
-  Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
-    String filePath = '';
-    var arquivo = File(filePath);
-    String fileName = '$nomeDoArquivoXml.xml';
-    var getPathFile = DirectoryPath();
-    print('getPathFile--> $getPathFile ');
-    var storePath = await getPathFile.getPath();
-    print('storePath--> $storePath');
-    filePath = '$storePath/$fileName';
-    print('filePath--> $filePath');
+  Future<String> convertXmlToJson(
+      String nomeDoArquivoXml, BuildContext context) async {
+//todo
+    try {
+      String filePath = '';
+      var arquivo = File(filePath);
+      String fileName = '$nomeDoArquivoXml.xml';
+      var getPathFile = DirectoryPath();
+      print('getPathFile--> $getPathFile ');
+      var storePath = await getPathFile.getPath();
+      print('storePath--> $storePath');
+      filePath = '$storePath/$fileName';
+      print('filePath--> $filePath');
 
-    arquivo = File(filePath);
-    print('arquivo--> $arquivo');
+      arquivo = File(filePath);
+      print('arquivo--> $arquivo');
 
-    //* Lendo arquivo e convertendo em bytes
-    Uint8List xmlBytes = await arquivo.readAsBytes();
-    // print('xmlBytes--> $xmlBytes');
-    // print('------------------------------------------------');
-    //* convertendo bytes para String
-    String xmlString = String.fromCharCodes(xmlBytes);
+      //* Lendo arquivo e convertendo em bytes
+      Uint8List xmlBytes = await arquivo.readAsBytes();
+      // print('xmlBytes--> $xmlBytes');
+      // print('------------------------------------------------');
+      //* convertendo bytes para String
+      String xmlString = String.fromCharCodes(xmlBytes);
 
-    //* Criação de uma instância do converter XML para JSON
-    Xml2Json xml2json = Xml2Json();
-    // print(
-    //     '--------------------------------------------------------');
-    print('xml2json--1> ${xml2json.toString()} ');
-    xml2json.parse(xmlString);
-    print('-------------');
-    print('xml2json--2> ${xml2json.toString()} ');
+      //* Criação de uma instância do converter XML para JSON
+      Xml2Json xml2json = Xml2Json();
+      // print(
+      //     '--------------------------------------------------------');
+      print('xml2json--1> ${xml2json.toString()} ');
 
-    //* Converte para JSON
-    final jsonString = xml2json.toParkerWithAttrs();
-    print('jsonString --> $jsonString');
+      // xml2json.parse(xmlString);
 
-    return jsonString;
+      print('-------------');
+      print('xml2json--2> ${xml2json.toString()} ');
+
+      //* Converte para JSON
+      final jsonString = xml2json.toParkerWithAttrs();
+      print('jsonString --> $jsonString');
+
+      return jsonString;
+    } catch (e) {
+      print('CATCH =====================================================');
+      rint('erro--> $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Awesome Snackbar!'),
+          action: SnackBarAction(
+            label: 'Action',
+            onPressed: () {
+              // Code to execute.
+            },
+          ),
+        ),
+      );
+      print('FIM CATCH =====================================================');
+    }
+    return '';
   }
 
   List<Cliente> convertJsonToCliente(String jsonString) {

@@ -9,7 +9,7 @@ import '../app_database.dart';
 
 class CorDao {
   static const String tabelaCor = 'CREATE TABLE $_tableName ('
-      '$_corId INTEGER, '
+      '$_corId INTEGER PRIMARY KEY, '
       '$_corIdInt TEXT, '
       '$_descricao TEXT)';
   // static const String tabelaCor = 'CREATE TABLE $_tableName ('
