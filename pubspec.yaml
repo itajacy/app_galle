@@ -48,6 +48,7 @@ dependencies:
   flutter_archive: ^6.0.3
   archive: ^3.6.1
   xml2json: ^6.2.4
+  fluttertoast: ^8.2.8
   
 
 

@@ -3,9 +3,13 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ftpconnect/ftpconnect.dart';
+import 'package:galle/app/core/colors_app.dart';
+import 'package:get/get.dart';
 import 'package:xml2json/xml2json.dart';
 
+import '../../core/font.dart';
 import '../../models/cliente.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
@@ -22,8 +26,9 @@ class SincronizacaoClienteController {
     //!  Conectando e baixando o arquivo Cliente.xml
     await conexaoFTP('Cliente');
 
-    String jsonStringCliente =
-        await convertXmlToJson('Cliente', context); //convertendo XML em Json
+    //convertendo XML em Json
+    // ignore: use_build_context_synchronously
+    String jsonStringCliente = await convertXmlToJson('Cliente', context);
 
     List<Cliente> clienteListaObjeto = convertJsonToCliente(
         jsonStringCliente); //convertendo Json em uma lista de Objetos(Cliente)
@@ -99,6 +104,8 @@ class SincronizacaoClienteController {
       String nomeDoArquivoXml, BuildContext context) async {
 //todo
     try {
+      throw Exception();
+
       String filePath = '';
       var arquivo = File(filePath);
       String fileName = '$nomeDoArquivoXml.xml';
@@ -125,7 +132,7 @@ class SincronizacaoClienteController {
       //     '--------------------------------------------------------');
       print('xml2json--1> ${xml2json.toString()} ');
 
-      // xml2json.parse(xmlString);
+      xml2json.parse(xmlString);
 
       print('-------------');
       print('xml2json--2> ${xml2json.toString()} ');
@@ -133,22 +140,51 @@ class SincronizacaoClienteController {
       //* Converte para JSON
       final jsonString = xml2json.toParkerWithAttrs();
       print('jsonString --> $jsonString');
-
       return jsonString;
-    } catch (e) {
+    } catch (erro) {
       print('CATCH =====================================================');
-      rint('erro--> $e');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Text('Awesome Snackbar!'),
-          action: SnackBarAction(
-            label: 'Action',
-            onPressed: () {
-              // Code to execute.
-            },
-          ),
-        ),
-      );
+      print('erro--> $erro');
+
+      Fluttertoast.showToast(
+          msg: "ERRO INESPERADO!",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
+
+      // Get.showSnackbar(
+      //   GetSnackBar(
+      //     backgroundColor: ColorsApp.iconeAlerta,
+      //     titleText: const Text(
+      //       'Erro Inesperado!',
+      //       textAlign: TextAlign.center,
+      //       style: TextStyle(
+      //         color: ColorsApp.textoForegWhite,
+      //         fontStyle: FontStyle.italic,
+      //         fontWeight: FontWeight.bold,
+      //         fontSize: Font.title_20,
+      //       ),
+      //     ),
+      //     // title: 'CLIENTE SALVO COM SUCESSO!',
+      //     message: 'Erro: $erro',
+      //     duration: const Duration(seconds: 5),
+      //   ),
+      // );
+
+      // //TODO
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(
+      //     content: const Text('Awesome Snackbar!'),
+      //     action: SnackBarAction(
+      //       label: 'Action',
+      //       onPressed: () {
+      //         // Code to execute.
+      //       },
+      //     ),
+      //   ),
+      // );
       print('FIM CATCH =====================================================');
     }
     return '';

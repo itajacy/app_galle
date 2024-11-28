@@ -28,9 +28,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
   ClientesConsultaController clientesConsultaController =
       Get.put(ClientesConsultaController());
 
-  // SincronizacaoDispositivoController sincronizacaoDispositivoController =
-  //     SincronizacaoDispositivoController();
-
   final nomeFantasiaController = TextEditingController();
 
   final razaoSocialController = TextEditingController();
@@ -200,7 +197,6 @@ class _ClientesCadastroPageState extends State<ClientesCadastroPage> {
                     //     .buscarDispositivo();
 
                     // // clientesCadastroController.cliente.clienteId = 0;
-
 
                     // clientesCadastroController.cliente.dispositivoId =
                     //     sincronizacaoDispositivoController
