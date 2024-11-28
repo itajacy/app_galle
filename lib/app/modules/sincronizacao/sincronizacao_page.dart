@@ -45,7 +45,9 @@ class SincronizacaoPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GeneralIconButton(
-                onPress: () {
+                onPress: () async {
+                  await sincronizacaoDispositivoController
+                      .sincronizacaoDispositivo();
                   sincronizacaoCorController.sincronizacaoCor();
                 },
                 ativo: true,
@@ -70,8 +72,7 @@ class SincronizacaoPage extends StatelessWidget {
                 onPress: () async {
                   await sincronizacaoClienteController
                       .sincronizacaoClientes(context);
-                  await sincronizacaoDispositivoController
-                      .sincronizacaoDispositivo();
+               
                 },
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,

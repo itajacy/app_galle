@@ -5,11 +5,8 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ftpconnect/ftpconnect.dart';
-import 'package:galle/app/core/colors_app.dart';
-import 'package:get/get.dart';
 import 'package:xml2json/xml2json.dart';
 
-import '../../core/font.dart';
 import '../../models/cliente.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
@@ -20,27 +17,41 @@ class SincronizacaoClienteController {
 
   int resposta = 0;
 
+  bool erro = false;
+
+
+  
+
   //* INICIO ATUALIZACAO DE CLIENTES
 
   sincronizacaoClientes(BuildContext context) async {
     //!  Conectando e baixando o arquivo Cliente.xml
+    erro = false;
     await conexaoFTP('Cliente');
-
     //convertendo XML em Json
-    // ignore: use_build_context_synchronously
-    String jsonStringCliente = await convertXmlToJson('Cliente', context);
 
-    List<Cliente> clienteListaObjeto = convertJsonToCliente(
-        jsonStringCliente); //convertendo Json em uma lista de Objetos(Cliente)
+    String jsonStringCliente = '';
+    if (!erro) {
+      //TODO TIRAR O context do método convertXmlToJson
+      jsonStringCliente = await convertXmlToJson('Cliente', context);
+    }
+    List<Cliente>? clienteListaObjeto;
+    if (!erro) {
+      clienteListaObjeto = convertJsonToCliente(
+          jsonStringCliente); //convertendo Json em uma lista de Objetos(Cliente)
+    }
 
-    await mapeandoClientesParaSalvarOuAlterar(
-        clienteListaObjeto); // importando novos ou alterando clientes
+    if (!erro) {
+      await mapeandoClientesParaSalvarOuAlterar(
+          clienteListaObjeto!); // importando novos ou alterando clientes
+    }
 
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM CLIENTES');
   }
 
   conexaoFTP(String nomeDoArquivoXml) async {
     // TODO LER OS DADOS DE URLADDRESS, USUARIO E SENHA DO arquivo de Dispositivo e colocar aqui
+  
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
     String fileName = '$nomeDoArquivoXml.xml';
@@ -97,14 +108,27 @@ class SincronizacaoClienteController {
       await ftpConnect.disconnect();
     } catch (e) {
       print('Erro durante o download: $e');
+      //todo testar Ftoast.
+
+      // _showToast();
+      Fluttertoast.showToast(
+        msg: "Erro de Conexão, tente novamente!",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 60,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 20.0,
+      );
+
+      erro = true;
     }
   }
 
   Future<String> convertXmlToJson(
       String nomeDoArquivoXml, BuildContext context) async {
-//todo
     try {
-      throw Exception();
+//todo  Lançando uma exceção
 
       String filePath = '';
       var arquivo = File(filePath);
@@ -141,174 +165,190 @@ class SincronizacaoClienteController {
       final jsonString = xml2json.toParkerWithAttrs();
       print('jsonString --> $jsonString');
       return jsonString;
-    } catch (erro) {
+    } catch (e) {
       print('CATCH =====================================================');
-      print('erro--> $erro');
+      print('erro--> $e');
 
       Fluttertoast.showToast(
-          msg: "ERRO INESPERADO!",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 1,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 16.0);
+        msg: "ERRO INESPERADO!",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
 
-      // Get.showSnackbar(
-      //   GetSnackBar(
-      //     backgroundColor: ColorsApp.iconeAlerta,
-      //     titleText: const Text(
-      //       'Erro Inesperado!',
-      //       textAlign: TextAlign.center,
-      //       style: TextStyle(
-      //         color: ColorsApp.textoForegWhite,
-      //         fontStyle: FontStyle.italic,
-      //         fontWeight: FontWeight.bold,
-      //         fontSize: Font.title_20,
-      //       ),
-      //     ),
-      //     // title: 'CLIENTE SALVO COM SUCESSO!',
-      //     message: 'Erro: $erro',
-      //     duration: const Duration(seconds: 5),
-      //   ),
-      // );
-
-      // //TODO
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //   SnackBar(
-      //     content: const Text('Awesome Snackbar!'),
-      //     action: SnackBarAction(
-      //       label: 'Action',
-      //       onPressed: () {
-      //         // Code to execute.
-      //       },
-      //     ),
-      //   ),
-      // );
+      erro = true;
       print('FIM CATCH =====================================================');
     }
     return '';
   }
 
   List<Cliente> convertJsonToCliente(String jsonString) {
-    //* Converte para Map
-    Map<String, dynamic> mapCLientes = jsonDecode(jsonString);
+    try {
+      //* Converte para Map
+      Map<String, dynamic> mapCLientes = jsonDecode(jsonString);
 
-    int totalClientes = mapCLientes['DataSet']['Row'].length;
+      int totalClientes = mapCLientes['DataSet']['Row'].length;
 
-    print('total de clientes no arquivo .xml--> $totalClientes');
+      print('total de clientes no arquivo .xml--> $totalClientes');
 
-    //* Cria um List dos Maps
-    List clientesListMap = [];
+      //* Cria um List dos Maps
+      List clientesListMap = [];
 
-    for (var element = 0; element < totalClientes; element++) {
-      clientesListMap.add((mapCLientes['DataSet']['Row'][element]));
+      for (var element = 0; element < totalClientes; element++) {
+        clientesListMap.add((mapCLientes['DataSet']['Row'][element]));
+      }
+
+      print('Clienteslistmap  sincronizacao_page--> $clientesListMap');
+      final List<Cliente> clienteListaObjeto = List<Cliente>.from(
+        clientesListMap.map((model) => Cliente.fromMap(model, false)),
+      );
+
+      return clienteListaObjeto;
+    } catch (e) {
+      Fluttertoast.showToast(
+        msg: "ERRO INESPERADO!",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+
+      erro = true;
     }
-
-    print('Clienteslistmap  sincronizacao_page--> $clientesListMap');
-    final List<Cliente> clienteListaObjeto = List<Cliente>.from(
-      clientesListMap.map((model) => Cliente.fromMap(model, false)),
-    );
-
-    return clienteListaObjeto;
+    return [];
   }
 
   //*
 
   mapeandoClientesParaSalvarOuAlterar(List<Cliente> clienteListaObjeto) async {
-    int inclusos = 0;
-    int alterados = 0;
+    try {
+      int inclusos = 0;
+      int alterados = 0;
 
-    for (var elemento in clienteListaObjeto) {
-      print('elemento N.Fantasia ==> ${elemento.nomeFantasia}');
-      print('elemento ClienteIdInt==> ${elemento.clienteIdInt}');
-      int resposta = await salvarOuAlterarClientes(elemento);
-      // print('RESPOSTA_PAGE--> $resposta');
-      if (resposta == 0) {
-        alterados++;
-      } else {
-        inclusos++;
+      for (var elemento in clienteListaObjeto) {
+        print('elemento N.Fantasia ==> ${elemento.nomeFantasia}');
+        print('elemento ClienteIdInt==> ${elemento.clienteIdInt}');
+        int resposta = await salvarOuAlterarClientes(elemento);
+        // print('RESPOSTA_PAGE--> $resposta');
+        if (resposta == 0) {
+          alterados++;
+        } else {
+          inclusos++;
+        }
+        // //! int resposta = await clientesDao.salvar(novoCliente);
+        // print('resposta --> $resposta');
+        print('====-----====');
       }
-      // //! int resposta = await clientesDao.salvar(novoCliente);
-      // print('resposta --> $resposta');
-      print('====-----====');
-    }
 
-    print(
-        'Total de Clientes Lidos do arquivo .xml--> ${clienteListaObjeto.length}');
-    print('Total de Clientes Alterados--> $alterados');
-    print('Total de Clientes Inclusos--> $inclusos');
+      print(
+          'Total de Clientes Lidos do arquivo .xml--> ${clienteListaObjeto.length}');
+      print('Total de Clientes Alterados--> $alterados');
+      print('Total de Clientes Inclusos--> $inclusos');
 //!
-    print('--------------------fim----------------------------');
+      print('--------------------fim----------------------------');
+    } catch (e) {
+      Fluttertoast.showToast(
+        msg: "ERRO INESPERADO!",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+
+      erro = true;
+    }
   }
   //! >>>>>>>>  FIM DO CLIENTE  <<<<<<<<<
 
   Future<int> salvarOuAlterarClientes(Cliente clienteDoXml) async {
-    List<Cliente> respostaFindClientes =
-        await clientesDao.findClientes(clienteDoXml.cNPJCPF!);
-    print(
-        'lista de clientes do salvarOuAlterarClientes--> $respostaFindClientes');
-    print('cliente.cNPJCPF--> ${clienteDoXml.cNPJCPF}');
-    print(
-        'valor de respostaFindClientes (se ==0 -> INCLUI, se != 0-> ALTERA)--> ${respostaFindClientes.length}');
-    if (respostaFindClientes.length != 0) {
-      //se a lista  NAO for vazia, ALTERA o cliente, pq ele não  JA existe na tabela
-      // resposta = 0;
+    try {
+      List<Cliente> respostaFindClientes =
+          await clientesDao.findClientes(clienteDoXml.cNPJCPF!);
       print(
-          '>>>>>>>>>>>>>>>>>>>--respostaFindClientes clienteIdInt-- ${respostaFindClientes.elementAt(0).clienteIdInt}');
-      if (clienteDoXml.cNPJCPF != "NAO TEM") {
-        print('---- INICIO ALTERANDO CLIENTE-----');
-        print('id--> ${clienteDoXml.clienteId}');
-        print('Razao--> ${clienteDoXml.razaoSocial}');
-        print('N.Fantasia--> ${clienteDoXml.nomeFantasia}');
-        // clienteDoXml.clienteIdInt = respostaFindClientes.elementAt(0).clienteIdInt;
-        Cliente clienteAlterado = Cliente();
-        clienteAlterado.clienteId = respostaFindClientes.elementAt(0).clienteId;
-        clienteAlterado.dispositivoId = clienteDoXml.dispositivoId;
+          'lista de clientes do salvarOuAlterarClientes--> $respostaFindClientes');
+      print('cliente.cNPJCPF--> ${clienteDoXml.cNPJCPF}');
+      print(
+          'valor de respostaFindClientes (se ==0 -> INCLUI, se != 0-> ALTERA)--> ${respostaFindClientes.length}');
+      if (respostaFindClientes.length != 0) {
+        //se a lista  NAO for vazia, ALTERA o cliente, pq ele não  JA existe na tabela
+        // resposta = 0;
+        print(
+            '>>>>>>>>>>>>>>>>>>>--respostaFindClientes clienteIdInt-- ${respostaFindClientes.elementAt(0).clienteIdInt}');
+        if (clienteDoXml.cNPJCPF != "NAO TEM") {
+          print('---- INICIO ALTERANDO CLIENTE-----');
+          print('id--> ${clienteDoXml.clienteId}');
+          print('Razao--> ${clienteDoXml.razaoSocial}');
+          print('N.Fantasia--> ${clienteDoXml.nomeFantasia}');
+          // clienteDoXml.clienteIdInt = respostaFindClientes.elementAt(0).clienteIdInt;
+          Cliente clienteAlterado = Cliente();
+          clienteAlterado.clienteId =
+              respostaFindClientes.elementAt(0).clienteId;
+          clienteAlterado.dispositivoId = clienteDoXml.dispositivoId;
 
-        clienteAlterado.clienteIdInt = clienteDoXml.clienteIdInt;
-        clienteAlterado.clienteIdMob = clienteDoXml.clienteIdMob;
-        clienteAlterado.razaoSocial = clienteDoXml.razaoSocial;
-        clienteAlterado.nomeFantasia = clienteDoXml.nomeFantasia;
-        clienteAlterado.tipoPessoa = clienteDoXml.tipoPessoa;
-        clienteAlterado.cNPJCPF = clienteDoXml.cNPJCPF;
-        clienteAlterado.iERG = clienteDoXml.iERG;
-        clienteAlterado.contato = clienteDoXml.contato;
-        clienteAlterado.fone1 = clienteDoXml.fone1;
-        clienteAlterado.fone2 = clienteDoXml.fone2;
-        clienteAlterado.foneCel = clienteDoXml.foneCel;
-        clienteAlterado.foneRes = clienteDoXml.foneRes;
-        clienteAlterado.fax = clienteDoXml.fax;
-        clienteAlterado.email = clienteDoXml.email;
-        clienteAlterado.pCidade = clienteDoXml.pCidade;
-        clienteAlterado.pUF = clienteDoXml.pUF;
-        clienteAlterado.pEndereco = clienteDoXml.pEndereco;
-        clienteAlterado.pComplemento = clienteDoXml.pComplemento;
-        clienteAlterado.pBairro = clienteDoXml.pBairro;
-        clienteAlterado.pCEP = clienteDoXml.pCEP;
-        clienteAlterado.eCidade = clienteDoXml.eCidade;
-        clienteAlterado.eUF = clienteDoXml.eUF;
-        clienteAlterado.eEndereco = clienteDoXml.eEndereco;
-        clienteAlterado.eComplemento = clienteDoXml.eComplemento;
-        clienteAlterado.eBairro = clienteDoXml.eBairro;
-        clienteAlterado.eCEP = clienteDoXml.eCEP;
-        clienteAlterado.ativo = clienteDoXml.ativo;
+          clienteAlterado.clienteIdInt = clienteDoXml.clienteIdInt;
+          clienteAlterado.clienteIdMob = clienteDoXml.clienteIdMob;
+          clienteAlterado.razaoSocial = clienteDoXml.razaoSocial;
+          clienteAlterado.nomeFantasia = clienteDoXml.nomeFantasia;
+          clienteAlterado.tipoPessoa = clienteDoXml.tipoPessoa;
+          clienteAlterado.cNPJCPF = clienteDoXml.cNPJCPF;
+          clienteAlterado.iERG = clienteDoXml.iERG;
+          clienteAlterado.contato = clienteDoXml.contato;
+          clienteAlterado.fone1 = clienteDoXml.fone1;
+          clienteAlterado.fone2 = clienteDoXml.fone2;
+          clienteAlterado.foneCel = clienteDoXml.foneCel;
+          clienteAlterado.foneRes = clienteDoXml.foneRes;
+          clienteAlterado.fax = clienteDoXml.fax;
+          clienteAlterado.email = clienteDoXml.email;
+          clienteAlterado.pCidade = clienteDoXml.pCidade;
+          clienteAlterado.pUF = clienteDoXml.pUF;
+          clienteAlterado.pEndereco = clienteDoXml.pEndereco;
+          clienteAlterado.pComplemento = clienteDoXml.pComplemento;
+          clienteAlterado.pBairro = clienteDoXml.pBairro;
+          clienteAlterado.pCEP = clienteDoXml.pCEP;
+          clienteAlterado.eCidade = clienteDoXml.eCidade;
+          clienteAlterado.eUF = clienteDoXml.eUF;
+          clienteAlterado.eEndereco = clienteDoXml.eEndereco;
+          clienteAlterado.eComplemento = clienteDoXml.eComplemento;
+          clienteAlterado.eBairro = clienteDoXml.eBairro;
+          clienteAlterado.eCEP = clienteDoXml.eCEP;
+          clienteAlterado.ativo = clienteDoXml.ativo;
 
-        resposta =
-            await clientesDao.alterar(clienteAlterado); //! teste veja arquivo
-        print('---- FIM ALTERANDO CLIENTE-----');
-        //! resposta = await clientesDao.alterar(cliente);
+          resposta =
+              await clientesDao.alterar(clienteAlterado); //! teste veja arquivo
+          print('---- FIM ALTERANDO CLIENTE-----');
+          //! resposta = await clientesDao.alterar(cliente);
+        }
+        print('resposta--> $resposta');
+        // print('ClienteId  alterado--> ${clienteAlterado.clienteId}');
+      } else {
+        //se a lista for vazia salva o cliente, pq ele não existe na tabela
+        resposta = await clientesDao.salvar(clienteDoXml);
+        print('resposta--> $resposta');
+        print('ClienteId  novo--> ${clienteDoXml.clienteId}');
       }
-      print('resposta--> $resposta');
-      // print('ClienteId  alterado--> ${clienteAlterado.clienteId}');
-    } else {
-      //se a lista for vazia salva o cliente, pq ele não existe na tabela
-      resposta = await clientesDao.salvar(clienteDoXml);
-      print('resposta--> $resposta');
-      print('ClienteId  novo--> ${clienteDoXml.clienteId}');
+      print('----------------============================---------------');
+      return resposta;
+    } catch (e) {
+      Fluttertoast.showToast(
+        msg: "ERRO INESPERADO!",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+
+      erro = true;
     }
-    print('----------------============================---------------');
-    return resposta;
+    return 0;
   }
 
   Future<int> salvarCliente(Cliente cliente) async {
@@ -320,4 +360,31 @@ class SincronizacaoClienteController {
     int resultado = await clientesDao.deleteAll();
     return resultado;
   }
+
+  // _showToast() {
+  //   Widget toast = Container(
+  //     padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+  //     decoration: BoxDecoration(
+  //       borderRadius: BorderRadius.circular(25.0),
+  //       color: Colors.greenAccent,
+  //     ),
+  //     child: Row(
+  //       mainAxisSize: MainAxisSize.min,
+  //       children: const [
+  //         Icon(Icons.check),
+  //         SizedBox(
+  //           width: 12.0,
+  //         ),
+  //         Text("This is a Custom Toast"),
+  //       ],
+  //     ),
+  //   );
+  //   FToast fToast = FToast();
+
+  //   fToast.showToast(
+  //     child: toast,
+  //     gravity: ToastGravity.BOTTOM,
+  //     toastDuration: const Duration(seconds: 5),
+  //   );
+  // }
 }
