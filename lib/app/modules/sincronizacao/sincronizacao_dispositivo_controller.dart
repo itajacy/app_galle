@@ -16,6 +16,8 @@ class SincronizacaoDispositivoController {
 
   sincronizacaoDispositivo() async {
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO DISPOSITIVO');
+    // Apaga todos os dados da tabela de dispositivo
+    dispositivoDao.deleteAll();
     await conexaoFTP('Dispositivo');
 
     String jsonStringDispositivo =

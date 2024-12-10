@@ -46,8 +46,11 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () async {
+                  // a eliminação dos dispositivos foi passada para dentro do controller, dentro .sincronizacaoDispositivo()
+                  // sincronizacaoDispositivoController.apagaTodosOsDispositivos();
                   await sincronizacaoDispositivoController
                       .sincronizacaoDispositivo();
+                  // sincronizacaoCorController.apagaTodasAsCores();
                   sincronizacaoCorController.sincronizacaoCor();
                 },
                 ativo: true,
@@ -72,7 +75,6 @@ class SincronizacaoPage extends StatelessWidget {
                 onPress: () async {
                   await sincronizacaoClienteController
                       .sincronizacaoClientes(context);
-               
                 },
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,

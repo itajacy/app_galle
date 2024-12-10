@@ -19,6 +19,8 @@ class SincronizacaoCorController {
 
   sincronizacaoCor() async {
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO COR');
+    // Apaga todas as cores
+    corDao.deleteAll();
     await conexaoFTP('Cor');
 
     String jsonStringCor =
