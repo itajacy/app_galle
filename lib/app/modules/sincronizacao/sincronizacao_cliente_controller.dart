@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ftpconnect/ftpconnect.dart';
+import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem.dart';
 import 'package:xml2json/xml2json.dart';
 
 import '../../models/cliente.dart';
@@ -19,9 +20,6 @@ class SincronizacaoClienteController {
 
   bool erro = false;
 
-
-  
-
   //* INICIO ATUALIZACAO DE CLIENTES
 
   sincronizacaoClientes(BuildContext context) async {
@@ -32,8 +30,7 @@ class SincronizacaoClienteController {
 
     String jsonStringCliente = '';
     if (!erro) {
-      //TODO TIRAR O context do método convertXmlToJson
-      jsonStringCliente = await convertXmlToJson('Cliente', context);
+      jsonStringCliente = await convertXmlToJson('Cliente');
     }
     List<Cliente>? clienteListaObjeto;
     if (!erro) {
@@ -47,11 +44,12 @@ class SincronizacaoClienteController {
     }
 
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM CLIENTES');
+    // SincronizacaoAtualizacaoMensagem();
   }
 
   conexaoFTP(String nomeDoArquivoXml) async {
     // TODO LER OS DADOS DE URLADDRESS, USUARIO E SENHA DO arquivo de Dispositivo e colocar aqui
-  
+
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
     String fileName = '$nomeDoArquivoXml.xml';
@@ -125,8 +123,7 @@ class SincronizacaoClienteController {
     }
   }
 
-  Future<String> convertXmlToJson(
-      String nomeDoArquivoXml, BuildContext context) async {
+  Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
     try {
 //todo  Lançando uma exceção
 
