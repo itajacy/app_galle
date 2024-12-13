@@ -182,19 +182,20 @@ class SincronizacaoClienteController {
     return '';
   }
 
+  int totalClientes = 0;
+  int element = 0;
   List<Cliente> convertJsonToCliente(String jsonString) {
     try {
       //* Converte para Map
       Map<String, dynamic> mapCLientes = jsonDecode(jsonString);
 
-      int totalClientes = mapCLientes['DataSet']['Row'].length;
-
+      totalClientes = mapCLientes['DataSet']['Row'].length;
       print('total de clientes no arquivo .xml--> $totalClientes');
 
       //* Cria um List dos Maps
       List clientesListMap = [];
 
-      for (var element = 0; element < totalClientes; element++) {
+      for (element = 0; element < totalClientes; element++) {
         clientesListMap.add((mapCLientes['DataSet']['Row'][element]));
       }
 
