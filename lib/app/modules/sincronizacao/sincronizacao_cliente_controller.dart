@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
@@ -6,13 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ftpconnect/ftpconnect.dart';
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem.dart';
+import 'package:get/get.dart';
 import 'package:xml2json/xml2json.dart';
 
 import '../../models/cliente.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
 
-class SincronizacaoClienteController {
+class SincronizacaoClienteController extends GetxController {
   //! >>>>>>>>  INICIO DO CLIENTE  <<<<<<<<<
   ClientesDao clientesDao = ClientesDao();
 
@@ -197,6 +199,16 @@ class SincronizacaoClienteController {
 
       for (element = 0; element < totalClientes; element++) {
         clientesListMap.add((mapCLientes['DataSet']['Row'][element]));
+        // Future.delayed(const Duration(milliseconds: 500));
+        Timer(
+          const Duration(milliseconds: 700),
+          () {
+            print(DateTime.now());
+          },
+        );
+        //! Não deu certo colocar o tempo de 0/0 passou para 381/381 direto e
+        //! e continuou a processar
+        update();
       }
 
       print('Clienteslistmap  sincronizacao_page--> $clientesListMap');

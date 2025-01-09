@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:galle/app/modules/sincronizacao/sincronizacao_cliente_controller.dart';
+import 'package:get/get.dart';
 
 import '../../../core/colors_app.dart';
 
@@ -18,8 +19,10 @@ class SincronizacaoAtualizacaoMensagem {
   });
 
   void showFullBottomSheet() {
-    print('tamanho1----------> $tamanhoAtual');
-    print('tamanho2----------> ${sincronizacaoClienteController.element}');
+    print('tamanho1--inicio--------> $tamanhoAtual');
+    print(
+        'tamanho2--inicio--------> ${sincronizacaoClienteController.element}');
+    sincronizacaoClienteController.sincronizacaoClientes(context);
     showModalBottomSheet(
       isDismissible: false, // não deixa clicar fora
       enableDrag: false, // não deixa arrastar para fechar
@@ -31,18 +34,18 @@ class SincronizacaoAtualizacaoMensagem {
       ),
       builder: (BuildContext context) {
         return StatefulBuilder(
-          builder: (context, setState) {
+          builder: (BuildContext context, StateSetter setState) {
             int atual = 0;
             int total = 0;
-            setState(
-              () {
-                atual = tamanhoAtual;
-                total = tamanhoTotal;
-                print('tamanho1----------> $tamanhoAtual');
-                print(
-                    'tamanho2----------> ${sincronizacaoClienteController.element}');
-              },
-            );
+            // setState(
+            //   () {
+            //     atual = tamanhoAtual;
+            //     total = tamanhoTotal;
+            //     print('tamanho1---ss-------> $tamanhoAtual');
+            //     print(
+            //         'tamanho2---ss-------> ${sincronizacaoClienteController.element}');
+            //   },
+            // );
             return Container(
               height: MediaQuery.of(context).size.height * 0.85,
               decoration: const BoxDecoration(
@@ -77,12 +80,15 @@ class SincronizacaoAtualizacaoMensagem {
                     child: ListView(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       children: [
-                        _buildProductCard(
-                          'CLIENTES',
-                          '$atual/$total',
-                          'Atualizando clientes',
-                          Icons.person,
-                        ),
+                        GetBuilder<SincronizacaoClienteController>(
+                            builder: (_) {
+                          return _buildProductCard(
+                            'CLIENTES',
+                            '${sincronizacaoClienteController.element}/${sincronizacaoClienteController.totalClientes}',
+                            'Atualizando clientes',
+                            Icons.person,
+                          );
+                        }),
                         // _buildProductCard(
                         //   'DISPOSITIVO',
                         //   '1/1',

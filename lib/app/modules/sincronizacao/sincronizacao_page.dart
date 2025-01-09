@@ -7,6 +7,7 @@ import 'package:galle/app/modules/sincronizacao/sincronizacao_cor_controller.dar
 import 'package:galle/app/modules/sincronizacao/sincronizacao_dispositivo_controller.dart';
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
+import 'package:get/get.dart';
 
 import '../../core/colors_app.dart';
 import '../../core/strings.dart';
@@ -15,13 +16,15 @@ class SincronizacaoPage extends StatelessWidget {
   SincronizacaoPage({super.key});
 
   SincronizacaoClienteController sincronizacaoClienteController =
-      SincronizacaoClienteController();
+      Get.put(SincronizacaoClienteController());
 
   SincronizacaoDispositivoController sincronizacaoDispositivoController =
       SincronizacaoDispositivoController();
 
   SincronizacaoCorController sincronizacaoCorController =
       SincronizacaoCorController();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +77,7 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () async {
+                 
                   SincronizacaoAtualizacaoMensagem(
                     context: context,
                     tamanhoAtual: sincronizacaoClienteController.element,
@@ -81,8 +85,8 @@ class SincronizacaoPage extends StatelessWidget {
                     sincronizacaoClienteController:
                         sincronizacaoClienteController,
                   ).showFullBottomSheet();
-                  await sincronizacaoClienteController
-                      .sincronizacaoClientes(context);
+                  // await sincronizacaoClienteController
+                  //     .sincronizacaoClientes(context);
                 },
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
