@@ -196,19 +196,9 @@ class SincronizacaoClienteController extends GetxController {
 
       //* Cria um List dos Maps
       List clientesListMap = [];
-
-      for (element = 0; element < totalClientes; element++) {
-        clientesListMap.add((mapCLientes['DataSet']['Row'][element]));
-        // Future.delayed(const Duration(milliseconds: 500));
-        Timer(
-          const Duration(milliseconds: 700),
-          () {
-            print(DateTime.now());
-          },
-        );
-        //! Não deu certo colocar o tempo de 0/0 passou para 381/381 direto e
-        //! e continuou a processar
-        update();
+      int elemento = 0;
+      for (elemento = 0; elemento < totalClientes; elemento++) {
+        clientesListMap.add((mapCLientes['DataSet']['Row'][elemento]));
       }
 
       print('Clienteslistmap  sincronizacao_page--> $clientesListMap');
@@ -250,6 +240,10 @@ class SincronizacaoClienteController extends GetxController {
         } else {
           inclusos++;
         }
+        // todo atualização da contagem
+        element++;
+        totalClientes;
+        update();
         // //! int resposta = await clientesDao.salvar(novoCliente);
         // print('resposta --> $resposta');
         print('====-----====');
