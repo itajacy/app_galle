@@ -6,7 +6,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ftpconnect/ftpconnect.dart';
-import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem.dart';
+import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_cliente.dart';
 import 'package:get/get.dart';
 import 'package:xml2json/xml2json.dart';
 

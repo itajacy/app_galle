@@ -6,22 +6,18 @@ import 'package:get/get.dart';
 
 import '../../../core/colors_app.dart';
 
-class SincronizacaoAtualizacaoMensagem {
+class SincronizacaoAtualizacaoMensagemCliente {
   BuildContext context;
-  int tamanhoTotal;
-  int tamanhoAtual;
   SincronizacaoClienteController sincronizacaoClienteController;
-  SincronizacaoAtualizacaoMensagem({
+  SincronizacaoAtualizacaoMensagemCliente({
     required this.context,
-    required this.tamanhoTotal,
-    required this.tamanhoAtual,
     required this.sincronizacaoClienteController,
   });
 
   void showFullBottomSheet() {
-    print('tamanho1--inicio--------> $tamanhoAtual');
-    print(
-        'tamanho2--inicio--------> ${sincronizacaoClienteController.element}');
+    sincronizacaoClienteController.totalClientes = 0;
+    sincronizacaoClienteController.element = 0;
+   
     sincronizacaoClienteController.sincronizacaoClientes(context);
     showModalBottomSheet(
       isDismissible: false, // não deixa clicar fora
@@ -35,17 +31,6 @@ class SincronizacaoAtualizacaoMensagem {
       builder: (BuildContext context) {
         return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
-            int atual = 0;
-            int total = 0;
-            // setState(
-            //   () {
-            //     atual = tamanhoAtual;
-            //     total = tamanhoTotal;
-            //     print('tamanho1---ss-------> $tamanhoAtual');
-            //     print(
-            //         'tamanho2---ss-------> ${sincronizacaoClienteController.element}');
-            //   },
-            // );
             return Container(
               height: MediaQuery.of(context).size.height * 0.85,
               decoration: const BoxDecoration(
