@@ -6,6 +6,7 @@ import 'package:galle/app/modules/sincronizacao/sincronizacao_cliente_controller
 import 'package:galle/app/modules/sincronizacao/sincronizacao_cor_controller.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_dispositivo_controller.dart';
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_cliente.dart';
+import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_todos.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 import 'package:get/get.dart';
 
@@ -50,10 +51,16 @@ class SincronizacaoPage extends StatelessWidget {
                 onPress: () async {
                   // a eliminação dos dispositivos foi passada para dentro do controller, dentro .sincronizacaoDispositivo()
                   // sincronizacaoDispositivoController.apagaTodosOsDispositivos();
-                  await sincronizacaoDispositivoController
-                      .sincronizacaoDispositivo();
+                  // await sincronizacaoDispositivoController
+                  //     .sincronizacaoDispositivo();
                   // sincronizacaoCorController.apagaTodasAsCores();
-                  sincronizacaoCorController.sincronizacaoCor();
+                  // sincronizacaoCorController.sincronizacaoCor();
+                  SincronizacaoAtualizacaoMensagemTodos(
+                    context: context,
+                    sincronizacaoDispositivoController:
+                        sincronizacaoDispositivoController,
+                    sincronizacaoCorController: sincronizacaoCorController,
+                  ).showFullBottomSheet();
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
@@ -75,8 +82,6 @@ class SincronizacaoPage extends StatelessWidget {
             children: [
               GeneralIconButton(
                 onPress: () async {
-                  
-                  
                   SincronizacaoAtualizacaoMensagemCliente(
                     context: context,
                     sincronizacaoClienteController:

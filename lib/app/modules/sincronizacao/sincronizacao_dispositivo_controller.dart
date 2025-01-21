@@ -2,19 +2,21 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter/material.dart';
 import 'package:ftpconnect/ftpconnect.dart';
+import 'package:get/get.dart';
 import 'package:xml2json/xml2json.dart';
 
 import '../../models/dispositivo.dart';
 import '../../services/database/dao/dispositivo_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
 
-class SincronizacaoDispositivoController {
+class SincronizacaoDispositivoController extends GetxController {
   DispositivoDao dispositivoDao = DispositivoDao();
   Dispositivo dispositivo = Dispositivo();
   int resposta = 0;
 
-  sincronizacaoDispositivo() async {
+  sincronizacaoDispositivo(BuildContext context) async {
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO DISPOSITIVO');
     // Apaga todos os dados da tabela de dispositivo
     dispositivoDao.deleteAll();
@@ -131,6 +133,9 @@ class SincronizacaoDispositivoController {
 
   //! >>>>>>>>  INICIO DO DISPOSITIVO  <<<<<<<<<
 
+  int totalDispositivo = 0;
+  int element = 0;
+
   Dispositivo convertJsonToDispositivo(String jsonString) {
     //* Converte para Map
     Map<String, dynamic> mapDispositivo = jsonDecode(jsonString);
@@ -139,6 +144,10 @@ class SincronizacaoDispositivoController {
 
     Dispositivo dispositivoObjeto =
         Dispositivo.fromMap(mapDispositivo['DataSet']['Row']);
+
+    totalDispositivo = 1;
+    element = 1;
+    update();
 
     return dispositivoObjeto;
   }

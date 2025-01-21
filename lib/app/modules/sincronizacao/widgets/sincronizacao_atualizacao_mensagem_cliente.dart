@@ -123,7 +123,7 @@ class SincronizacaoAtualizacaoMensagemCliente {
   }
 
   Widget _buildProductCard(
-      String title, String price, String description, IconData icon) {
+      String title, String counters, String description, IconData icon) {
     return Card(
       color: ColorsApp.buttonMenuBackground,
       margin: const EdgeInsets.only(bottom: 16),
@@ -170,7 +170,7 @@ class SincronizacaoAtualizacaoMensagemCliente {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    price,
+                    counters,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

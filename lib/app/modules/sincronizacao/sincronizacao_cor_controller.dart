@@ -5,19 +5,21 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter/material.dart';
 import 'package:ftpconnect/ftpconnect.dart';
 import 'package:galle/app/services/database/dao/cor_dao.dart';
+import 'package:get/get.dart';
 import 'package:xml2json/xml2json.dart';
 
 import '../../models/cor.dart';
 import '../configuracao/widgets/directory_path.dart';
 
-class SincronizacaoCorController {
+class SincronizacaoCorController extends GetxController {
   CorDao corDao = CorDao();
   Cor cor = Cor();
   int resposta = 0;
 
-  sincronizacaoCor() async {
+  sincronizacaoCor(BuildContext context) async {
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO COR');
     // Apaga todas as cores
     corDao.deleteAll();
@@ -150,19 +152,24 @@ class SincronizacaoCorController {
     return jsonString;
   }
 
+  int totalCores = 0;
+  int element = 0;
   List<Cor> convertJsonToCor(String jsonString) {
     //* Converte para Map
     Map<String, dynamic> mapCores = jsonDecode(jsonString);
 
-    int totalCores = mapCores['DataSet']['Row'].length;
+    totalCores = mapCores['DataSet']['Row'].length;
 
     print('total de Cores no arquivo .xml--> $totalCores');
 
     //* Cria um List dos Maps
     List corListMap = [];
 
-    for (var element = 0; element < totalCores; element++) {
-      corListMap.add((mapCores['DataSet']['Row'][element]));
+    for (var elemento = 0; elemento < totalCores; elemento++) {
+      corListMap.add((mapCores['DataSet']['Row'][elemento]));
+      element++;
+      totalCores;
+      update();
     }
 
     print('Clienteslistmap  sincronizacao_page--> $corListMap');

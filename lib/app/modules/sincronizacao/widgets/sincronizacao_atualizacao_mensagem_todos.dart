@@ -20,11 +20,13 @@ class SincronizacaoAtualizacaoMensagemTodos {
   });
 
   void showFullBottomSheet() {
-    sincronizacaoDispositivoController.totalClientes = 0;
+    sincronizacaoDispositivoController.totalDispositivo = 0;
     sincronizacaoDispositivoController.element = 0;
-    sincronizacaoCorController.totalClientes = 0;
+    sincronizacaoCorController.totalCores = 0;
     sincronizacaoCorController.element = 0;
 
+    sincronizacaoDispositivoController.sincronizacaoDispositivo(context);
+    sincronizacaoCorController.sincronizacaoCor(context);
     showModalBottomSheet(
       isDismissible: false, // não deixa clicar fora
       enableDrag: false, // não deixa arrastar para fechar
@@ -75,7 +77,7 @@ class SincronizacaoAtualizacaoMensagemTodos {
                           builder: (_) {
                             return _buildProductCard(
                               'Dispositivo',
-                              '${sincronizacaoDispositivoController.element}/${sincronizacaoDispositivoController.totalClientes}',
+                              '${sincronizacaoDispositivoController.element}/${sincronizacaoDispositivoController.totalDispositivo}',
                               'Atualizando Dispositivo',
                               Icons.person,
                             );
@@ -85,7 +87,7 @@ class SincronizacaoAtualizacaoMensagemTodos {
                           builder: (_) {
                             return _buildProductCard(
                               'Cor',
-                              '${sincronizacaoCorController.element}/${sincronizacaoCorController.totalClientes}',
+                              '${sincronizacaoCorController.element}/${sincronizacaoCorController.totalCores}',
                               'Atualizando Cores',
                               Icons.person,
                             );
@@ -122,7 +124,7 @@ class SincronizacaoAtualizacaoMensagemTodos {
   }
 
   Widget _buildProductCard(
-      String title, String price, String description, IconData icon) {
+      String title, String counters, String description, IconData icon) {
     return Card(
       color: ColorsApp.buttonMenuBackground,
       margin: const EdgeInsets.only(bottom: 16),
@@ -169,7 +171,7 @@ class SincronizacaoAtualizacaoMensagemTodos {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    price,
+                    counters,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
