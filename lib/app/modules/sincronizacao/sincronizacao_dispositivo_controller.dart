@@ -19,12 +19,13 @@ class SincronizacaoDispositivoController extends GetxController {
   sincronizacaoDispositivo(BuildContext context) async {
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO DISPOSITIVO');
     // Apaga todos os dados da tabela de dispositivo
-    dispositivoDao.deleteAll();
+    // await dispositivoDao.deleteAll();
+    print('delete disposito');
     await conexaoFTP('Dispositivo');
-
+    print('conexaoFTP');
     String jsonStringDispositivo =
         await convertXmlToJson('Dispositivo'); //convertendo XML em Json
-
+    print('json');
     Dispositivo dispositivoObjeto =
         convertJsonToDispositivo(jsonStringDispositivo);
     print('dispositivoObjeto--> $dispositivoObjeto');
@@ -151,6 +152,9 @@ class SincronizacaoDispositivoController extends GetxController {
 
     return dispositivoObjeto;
   }
+
+
+  
 
   Future<Dispositivo> buscarDispositivo() async {
     dispositivo = await dispositivoDao.find();

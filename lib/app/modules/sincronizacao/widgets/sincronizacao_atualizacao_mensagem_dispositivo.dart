@@ -1,31 +1,24 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'package:galle/app/modules/sincronizacao/sincronizacao_cor_controller.dart';
+import 'package:get/get.dart';
 
 import '../../../core/colors_app.dart';
 import '../sincronizacao_dispositivo_controller.dart';
 
-class SincronizacaoAtualizacaoMensagemTodos {
+class SincronizacaoAtualizacaoMensagemDispositivo {
   BuildContext context;
   SincronizacaoDispositivoController sincronizacaoDispositivoController;
-  SincronizacaoCorController sincronizacaoCorController;
-
-  SincronizacaoAtualizacaoMensagemTodos({
+  SincronizacaoAtualizacaoMensagemDispositivo({
     required this.context,
     required this.sincronizacaoDispositivoController,
-    required this.sincronizacaoCorController,
   });
 
-  void showFullBottomSheet() async {
+  void showFullBottomSheet() {
     sincronizacaoDispositivoController.totalDispositivo = 0;
     sincronizacaoDispositivoController.element = 0;
-    sincronizacaoCorController.totalCores = 0;
-    sincronizacaoCorController.element = 0;
-
-    // await sincronizacaoDispositivoController.sincronizacaoDispositivo(context);
-    // await sincronizacaoCorController.sincronizacaoCor(context);
+   
+    sincronizacaoDispositivoController.sincronizacaoDispositivo(context);
     showModalBottomSheet(
       isDismissible: false, // não deixa clicar fora
       enableDrag: false, // não deixa arrastar para fechar
@@ -73,25 +66,36 @@ class SincronizacaoAtualizacaoMensagemTodos {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       children: [
                         GetBuilder<SincronizacaoDispositivoController>(
-                          builder: (_) {
-                            return _buildProductCard(
-                              'Dispositivo',
-                              '0/10',
-                              // '${sincronizacaoDispositivoController.element}/${sincronizacaoDispositivoController.totalDispositivo}',
-                              'Atualizando Dispositivo',
-                              Icons.person,
-                            );
-                          },
-                        ),
-                        // GetBuilder<SincronizacaoCorController>(
-                        //   builder: (_) {
-                        //     return _buildProductCard(
-                        //       'Cor',
-                        //       '${sincronizacaoCorController.element}/${sincronizacaoCorController.totalCores}',
-                        //       'Atualizando Cores',
-                        //       Icons.person,
-                        //     );
-                        //   },
+                            builder: (_) {
+                          return _buildProductCard(
+                            'DISPOSITIVOS',
+                            '${sincronizacaoDispositivoController.element}/${sincronizacaoDispositivoController.totalDispositivo}',
+                            (sincronizacaoDispositivoController.element == 0 ||
+                                    sincronizacaoDispositivoController.element !=
+                                        sincronizacaoDispositivoController
+                                            .totalDispositivo)
+                                ? 'Atualizando'
+                                : 'Atualização Terminada',
+                            Icons.person,
+                          );
+                        }),
+                        // _buildProductCard(
+                        //   'DISPOSITIVO',
+                        //   '1/1',
+                        //   'Atualizando dispositivo',
+                        //   Icons.smartphone_sharp,
+                        // ),
+                        // _buildProductCard(
+                        //   'CORES',
+                        //   '1/50',
+                        //   'Atualizando Cores',
+                        //   Icons.color_lens_outlined,
+                        // ),
+                        // _buildProductCard(
+                        //   'TABELAS',
+                        //   '1/4',
+                        //   'Atualizando tabelas',
+                        //   Icons.table_chart_outlined,
                         // ),
                       ],
                     ),

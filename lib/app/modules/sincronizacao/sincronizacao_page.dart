@@ -6,6 +6,7 @@ import 'package:galle/app/modules/sincronizacao/sincronizacao_cliente_controller
 import 'package:galle/app/modules/sincronizacao/sincronizacao_cor_controller.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_dispositivo_controller.dart';
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_cliente.dart';
+import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_dispositivo.dart';
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_todos.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 import 'package:get/get.dart';
@@ -50,24 +51,35 @@ class SincronizacaoPage extends StatelessWidget {
               GeneralIconButton(
                 onPress: () async {
                   // a eliminação dos dispositivos foi passada para dentro do controller, dentro .sincronizacaoDispositivo()
-                  // sincronizacaoDispositivoController.apagaTodosOsDispositivos();
+                  //! Dispositivo
                   // await sincronizacaoDispositivoController
-                  //     .sincronizacaoDispositivo();
-                  // sincronizacaoCorController.apagaTodasAsCores();
-                  // sincronizacaoCorController.sincronizacaoCor();
-                  SincronizacaoAtualizacaoMensagemTodos(
+                  //     .apagaTodosOsDispositivos();
+                  // await sincronizacaoDispositivoController
+                  //     .sincronizacaoDispositivo(context);
+                  //! Cores
+                  // await sincronizacaoCorController.apagaTodasAsCores();
+                  // await sincronizacaoCorController.sincronizacaoCor(context);
+
+                  SincronizacaoAtualizacaoMensagemDispositivo(
                     context: context,
                     sincronizacaoDispositivoController:
                         sincronizacaoDispositivoController,
-                    sincronizacaoCorController: sincronizacaoCorController,
                   ).showFullBottomSheet();
+
+                  //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
+                  // SincronizacaoAtualizacaoMensagemTodos(
+                  //   context: context,
+                  //   sincronizacaoDispositivoController:
+                  //       sincronizacaoDispositivoController,
+                  //   sincronizacaoCorController: sincronizacaoCorController,
+                  // ).showFullBottomSheet();
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
-                titulo: 'Atualizar TODOS',
+                titulo: 'Atualizar DISPOSITIVO',
               ),
               const Column(
                 children: [

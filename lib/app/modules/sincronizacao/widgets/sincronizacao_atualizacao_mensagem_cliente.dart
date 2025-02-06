@@ -70,7 +70,12 @@ class SincronizacaoAtualizacaoMensagemCliente {
                           return _buildProductCard(
                             'CLIENTES',
                             '${sincronizacaoClienteController.element}/${sincronizacaoClienteController.totalClientes}',
-                            'Atualizando clientes',
+                            (sincronizacaoClienteController.element == 0 ||
+                                    sincronizacaoClienteController.element !=
+                                        sincronizacaoClienteController
+                                            .totalClientes)
+                                ? 'Atualizando'
+                                : 'Atualização Terminada',
                             Icons.person,
                           );
                         }),
