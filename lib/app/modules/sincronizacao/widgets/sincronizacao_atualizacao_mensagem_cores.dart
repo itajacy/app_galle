@@ -1,24 +1,25 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:galle/app/modules/sincronizacao/sincronizacao_cliente_controller.dart';
 import 'package:get/get.dart';
 
 import '../../../core/colors_app.dart';
-import '../sincronizacao_dispositivo_controller.dart';
+import '../sincronizacao_cor_controller.dart';
 
-class SincronizacaoAtualizacaoMensagemDispositivo {
+class SincronizacaoAtualizacaoMensagemCores {
   BuildContext context;
-  SincronizacaoDispositivoController sincronizacaoDispositivoController;
-  SincronizacaoAtualizacaoMensagemDispositivo({
+  SincronizacaoCorController sincronizacaoCorController;
+  SincronizacaoAtualizacaoMensagemCores({
     required this.context,
-    required this.sincronizacaoDispositivoController,
+    required this.sincronizacaoCorController,
   });
 
   void showFullBottomSheet() {
-    sincronizacaoDispositivoController.totalDispositivo = 0;
-    sincronizacaoDispositivoController.element = 0;
+    sincronizacaoCorController.totalCores = 0;
+    sincronizacaoCorController.element = 0;
    
-    sincronizacaoDispositivoController.sincronizacaoDispositivo(context);
+    sincronizacaoCorController.sincronizacaoCor(context);
     showModalBottomSheet(
       isDismissible: false, // não deixa clicar fora
       enableDrag: false, // não deixa arrastar para fechar
@@ -65,19 +66,17 @@ class SincronizacaoAtualizacaoMensagemDispositivo {
                     child: ListView(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       children: [
-                        GetBuilder<SincronizacaoDispositivoController>(
+                        GetBuilder<SincronizacaoCorController>(
                             builder: (_) {
                           return _buildProductCard(
-                            'DISPOSITIVOS',
-                            '1/1',
-                            // '${sincronizacaoDispositivoController.element}/${sincronizacaoDispositivoController.totalDispositivo}',
-                            // (sincronizacaoDispositivoController.element == 0 ||
-                            //         sincronizacaoDispositivoController.element !=
-                            //             sincronizacaoDispositivoController
-                            //                 .totalDispositivo)
-                            //     ? 'Atualizando'
-                            //     : 'Atualização Terminada',
-                            'Atualizando',
+                            'CORES',
+                            '${sincronizacaoCorController.element}/${sincronizacaoCorController.totalCores}',
+                            (sincronizacaoCorController.element == 0 ||
+                                    sincronizacaoCorController.element !=
+                                        sincronizacaoCorController
+                                            .totalCores)
+                                ? 'Atualizando'
+                                : 'Atualização Terminada',
                             Icons.person,
                           );
                         }),

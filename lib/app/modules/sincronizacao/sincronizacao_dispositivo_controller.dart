@@ -19,7 +19,7 @@ class SincronizacaoDispositivoController extends GetxController {
   sincronizacaoDispositivo(BuildContext context) async {
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO DISPOSITIVO');
     // Apaga todos os dados da tabela de dispositivo
-    // await dispositivoDao.deleteAll();
+    await dispositivoDao.deleteAll();
     print('delete disposito');
     await conexaoFTP('Dispositivo');
     print('conexaoFTP');
@@ -35,6 +35,7 @@ class SincronizacaoDispositivoController extends GetxController {
   }
 
   conexaoFTP(String nomeDoArquivoXml) async {
+    print('conexaoFTP');
     // TODO LER OS DADOS DE URLADDRESS, USUARIO E SENHA DO arquivo de Dispositivo e colocar aqui
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
@@ -152,6 +153,41 @@ class SincronizacaoDispositivoController extends GetxController {
 
     return dispositivoObjeto;
   }
+
+//!  Alterado a partir do código de clientes
+//Dispositivo convertJsonToDispositivo(String jsonString) {
+  //* Converte para Map
+  //   try {
+  //     Map<String, dynamic> mapDispositivo = jsonDecode(jsonString);
+
+  //     print(mapDispositivo['DataSet']['Row']);
+
+  //     Dispositivo dispositivoObjeto =
+  //         Dispositivo.fromMap(mapDispositivo['DataSet']['Row']);
+
+  //     totalDispositivo++;
+  //     element++;
+  //     update();
+
+  //     return dispositivoObjeto;
+  //   } catch (e) {
+  //     print('Erro durante o download: $e');
+
+  //     Fluttertoast.showToast(
+  //       msg: "ERRO INESPERADO!",
+  //       toastLength: Toast.LENGTH_SHORT,
+  //       gravity: ToastGravity.CENTER,
+  //       timeInSecForIosWeb: 1,
+  //       backgroundColor: Colors.red,
+  //       textColor: Colors.white,
+  //       fontSize: 16.0,
+  //     );
+
+  //     // erro = true;
+  //   }
+  //   return Dispositivo();
+  // }
+// */
 
 
   

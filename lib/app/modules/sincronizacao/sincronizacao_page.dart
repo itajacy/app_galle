@@ -6,6 +6,7 @@ import 'package:galle/app/modules/sincronizacao/sincronizacao_cliente_controller
 import 'package:galle/app/modules/sincronizacao/sincronizacao_cor_controller.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_dispositivo_controller.dart';
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_cliente.dart';
+import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_cores.dart';
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_dispositivo.dart';
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_todos.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
@@ -60,10 +61,14 @@ class SincronizacaoPage extends StatelessWidget {
                   // await sincronizacaoCorController.apagaTodasAsCores();
                   // await sincronizacaoCorController.sincronizacaoCor(context);
 
-                  SincronizacaoAtualizacaoMensagemDispositivo(
+                  // SincronizacaoAtualizacaoMensagemDispositivo(
+                  //   context: context,
+                  //   sincronizacaoDispositivoController:
+                  //       sincronizacaoDispositivoController,
+                  // ).showFullBottomSheet();
+                  SincronizacaoAtualizacaoMensagemCores(
                     context: context,
-                    sincronizacaoDispositivoController:
-                        sincronizacaoDispositivoController,
+                    sincronizacaoCorController: sincronizacaoCorController,
                   ).showFullBottomSheet();
 
                   //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
@@ -79,7 +84,7 @@ class SincronizacaoPage extends StatelessWidget {
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
-                titulo: 'Atualizar DISPOSITIVO',
+                titulo: 'Atualizar CORES',
               ),
               const Column(
                 children: [
