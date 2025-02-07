@@ -53,6 +53,92 @@ class SincronizacaoPage extends StatelessWidget {
                 onPress: () async {
                   // a eliminação dos dispositivos foi passada para dentro do controller, dentro .sincronizacaoDispositivo()
                   //! Dispositivo
+                  await sincronizacaoDispositivoController
+                      .apagaTodosOsDispositivos();
+                  await sincronizacaoDispositivoController
+                      .sincronizacaoDispositivo(context);
+                  //! Cores
+                  await sincronizacaoCorController.apagaTodasAsCores();
+                  await sincronizacaoCorController.sincronizacaoCor(context);
+
+                  //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
+                  // SincronizacaoAtualizacaoMensagemTodos(
+                  //   context: context,
+                  //   sincronizacaoDispositivoController:
+                  //       sincronizacaoDispositivoController,
+                  //   sincronizacaoCorController: sincronizacaoCorController,
+                  // ).showFullBottomSheet();
+                },
+                ativo: true,
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar TODOS',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("15/03/2024 17:15"),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  // a eliminação dos dispositivos foi passada para dentro do controller, dentro .sincronizacaoDispositivo()
+                  //! Dispositivo
+                  // await sincronizacaoDispositivoController
+                  //     .apagaTodosOsDispositivos();
+                  // await sincronizacaoDispositivoController
+                  //     .sincronizacaoDispositivo(context);
+                  //! Cores
+                  // await sincronizacaoCorController.apagaTodasAsCores();
+                  // await sincronizacaoCorController.sincronizacaoCor(context);
+
+                  SincronizacaoAtualizacaoMensagemDispositivo(
+                    context: context,
+                    sincronizacaoDispositivoController:
+                        sincronizacaoDispositivoController,
+                  ).showFullBottomSheet();
+                  // SincronizacaoAtualizacaoMensagemCores(
+                  //   context: context,
+                  //   sincronizacaoCorController: sincronizacaoCorController,
+                  // ).showFullBottomSheet();
+
+                  //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
+                  // SincronizacaoAtualizacaoMensagemTodos(
+                  //   context: context,
+                  //   sincronizacaoDispositivoController:
+                  //       sincronizacaoDispositivoController,
+                  //   sincronizacaoCorController: sincronizacaoCorController,
+                  // ).showFullBottomSheet();
+                },
+                ativo: true,
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar DISPOSITIVO',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("15/03/2024 17:15"),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  // a eliminação dos dispositivos foi passada para dentro do controller, dentro .sincronizacaoDispositivo()
+                  //! Dispositivo
                   // await sincronizacaoDispositivoController
                   //     .apagaTodosOsDispositivos();
                   // await sincronizacaoDispositivoController
@@ -147,29 +233,29 @@ class SincronizacaoPage extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GeneralIconButton(
-                onPress: () {
-                  //TODO POPUP DE MENSAGEM
-                },
-                ativo: true,
-                icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
-                buttonWidth: Sizes.sizeW_200,
-                // titulo: 'Atualizar Produtos',
-                titulo: 'MENSAGEM DE POP UP',
-              ),
-              const Column(
-                children: [
-                  Text("Última Atualização"),
-                  Text("10/03/2024 08:07"),
-                ],
-              ),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     GeneralIconButton(
+          //       onPress: () {
+          //         //TODO POPUP DE MENSAGEM
+          //       },
+          //       ativo: true,
+          //       icone: Icons.sync_outlined,
+          //       iconSize: Sizes.sizeH_30,
+          //       buttonHeight: Sizes.sizeH_60,
+          //       buttonWidth: Sizes.sizeW_200,
+          //       // titulo: 'Atualizar Produtos',
+          //       titulo: 'MENSAGEM DE POP UP',
+          //     ),
+          //     const Column(
+          //       children: [
+          //         Text("Última Atualização"),
+          //         Text("10/03/2024 08:07"),
+          //       ],
+          //     ),
+          //   ],
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
