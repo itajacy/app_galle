@@ -9,15 +9,21 @@ import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizaca
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_cores.dart';
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_dispositivo.dart';
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_todos.dart';
+import 'package:galle/app/services/connect_ftp.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
 import 'package:get/get.dart';
 
 import '../../core/colors_app.dart';
 import '../../core/strings.dart';
 
-class SincronizacaoPage extends StatelessWidget {
+class SincronizacaoPage extends StatefulWidget {
   SincronizacaoPage({super.key});
 
+  @override
+  State<SincronizacaoPage> createState() => _SincronizacaoPageState();
+}
+
+class _SincronizacaoPageState extends State<SincronizacaoPage> {
   SincronizacaoClienteController sincronizacaoClienteController =
       Get.put(SincronizacaoClienteController());
 
@@ -28,7 +34,27 @@ class SincronizacaoPage extends StatelessWidget {
       SincronizacaoCorController();
 
   @override
+  void initState() {
+    // TODO: implement initState
+
+    ConnectFtp().conexaoFTP('Cliente');
+    ConnectFtp().conexaoFTP('Dispositivo');
+    ConnectFtp().conexaoFTP('Cor');
+    ConnectFtp().conexaoFTP('Grupo');
+    ConnectFtp().conexaoFTP('Imagem');
+    ConnectFtp().conexaoFTP('Linha');
+    ConnectFtp().conexaoFTP('Material');
+    ConnectFtp().conexaoFTP('Preco');
+    ConnectFtp().conexaoFTP('Produto');
+    ConnectFtp().conexaoFTP('Tabela');
+    ConnectFtp().conexaoFTP('Tamanho');
+    ConnectFtp().conexaoFTP('Tipo');
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
       appBar: AppBar(
@@ -205,34 +231,7 @@ class SincronizacaoPage extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GeneralIconButton(
-                onPress: () {
-                  //! apagando TODOS OS CLIENTES DA TABELA
-                  sincronizacaoClienteController.apagaTodosOsClientes();
-                  print('TODOS OS CLIENTES FORAM APAGADOS!');
-                  sincronizacaoDispositivoController.apagaTodosOsDispositivos();
-                  print('OS DADOS DO DISPOSITIVO FORAM APAGADOS!');
-                  sincronizacaoCorController.apagaTodasAsCores();
-                  print('TODAS AS CORES FORAM APAGADAS!');
-                },
-                ativo: true,
-                icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
-                buttonWidth: Sizes.sizeW_200,
-                titulo: 'APAGA TODAS as Tabelas.',
-              ),
-              const Column(
-                children: [
-                  Text("Última Atualização"),
-                  Text("10/03/2024 08:07"),
-                ],
-              ),
-            ],
-          ),
+          
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           //   children: [
@@ -280,42 +279,31 @@ class SincronizacaoPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GeneralIconButton(
-                onPress: () {},
-                ativo: false,
+                onPress: () {
+                  //! apagando TODOS OS CLIENTES DA TABELA
+                  sincronizacaoClienteController.apagaTodosOsClientes();
+                  print('TODOS OS CLIENTES FORAM APAGADOS!');
+                  sincronizacaoDispositivoController.apagaTodosOsDispositivos();
+                  print('OS DADOS DO DISPOSITIVO FORAM APAGADOS!');
+                  sincronizacaoCorController.apagaTodasAsCores();
+                  print('TODAS AS CORES FORAM APAGADAS!');
+                },
+                ativo: true,
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
-                titulo: 'Enviar Pedidos',
+                titulo: 'APAGA TODAS as Tabelas.',
               ),
               const Column(
                 children: [
-                  Text("Último Envio"),
-                  Text("15/09/2023 17:15"),
+                  Text("Última Atualização"),
+                  Text("10/03/2024 08:07"),
                 ],
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GeneralIconButton(
-                onPress: () {},
-                ativo: false,
-                icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
-                buttonWidth: Sizes.sizeW_200,
-                titulo: 'Envio por e-mail',
-              ),
-              const Column(
-                children: [
-                  Text("Último Envio"),
-                  Text("01/01/2000 00:00"),
-                ],
-              ),
-            ],
-          ),
+          
         ],
       ),
     );

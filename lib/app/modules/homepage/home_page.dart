@@ -68,6 +68,13 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 GalleButton(
                   onPress: () {
+                    Navigator.of(context).pushNamed(Routes.configuracaoPage);
+                  },
+                  titulo: Strings.configuracao,
+                  icone: Icons.tune_rounded,
+                ),
+                GalleButton(
+                  onPress: () {
                     Navigator.of(context).pushNamed(Routes.catalogoPage);
                   },
                   titulo: Strings.catalogo,
@@ -87,9 +94,9 @@ class HomePage extends StatelessWidget {
                 ),
                 GalleButton(
                   onPress: () {
-                    Navigator.of(context).pushNamed(Routes.configuracaoPage);
+                    Navigator.of(context).pushNamed(Routes.transmissaoPage);
                   },
-                  titulo: Strings.configuracao,
+                  titulo: Strings.transmissao,
                   icone: Icons.tune_rounded,
                 ),
               ],

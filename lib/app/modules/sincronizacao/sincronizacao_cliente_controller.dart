@@ -26,7 +26,7 @@ class SincronizacaoClienteController extends GetxController {
   sincronizacaoClientes(BuildContext context) async {
     //!  Conectando e baixando o arquivo Cliente.xml
     erro = false;
-    await conexaoFTP('Cliente');
+    // await conexaoFTP('Cliente');
     //convertendo XML em Json
 
     String jsonStringCliente = '';

@@ -15,6 +15,7 @@ import 'package:galle/app/modules/pedidos/cadastro/itens/pedidos_cadastro_itens_
 import 'package:galle/app/modules/pedidos/consulta/pedidos_consulta_page.dart';
 import 'package:galle/app/modules/pedidos/pedidos_page.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_page.dart';
+import 'package:galle/app/modules/transmissao/transmissao_page.dart';
 import 'package:get/get.dart';
 
 import 'app/core/navigation/routes.dart';
@@ -40,6 +41,7 @@ class App extends StatelessWidget {
         Routes.pedidosPage: (context) => const PedidosPage(),
         Routes.catalogoPage: (context) => CatalogoPage(),
         Routes.sincronizacaoPage: (context) => SincronizacaoPage(),
+        Routes.transmissaoPage: (context) => const TransmissaoPage(),
         Routes.configuracaoPage: (context) => const ConfiguracaoPage(),
         Routes.clientesCadastroPage: (context) => const ClientesCadastroPage(),
         Routes.clientesConsultaPage: (context) => ClientesConsultaPage(),

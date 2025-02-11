@@ -20,8 +20,8 @@ class SincronizacaoDispositivoController extends GetxController {
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO DISPOSITIVO');
     // Apaga todos os dados da tabela de dispositivo
     await dispositivoDao.deleteAll();
-    print('delete disposito');
-    await conexaoFTP('Dispositivo');
+    print('delete dispositivo');
+    // await conexaoFTP('Dispositivo');
     print('conexaoFTP');
     String jsonStringDispositivo =
         await convertXmlToJson('Dispositivo'); //convertendo XML em Json

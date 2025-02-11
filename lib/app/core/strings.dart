@@ -7,8 +7,9 @@ class Strings {
   static const catalogo = 'CATÁLOGO';
   static const sincronizacao = 'SINCRONIZAÇÃO';
   static const configuracao = 'CONFIGURAÇÃO';
+  static const transmissao = 'TRANSMISSÃO';
   static const empresa = "Galle";
-  static const versao = "versão. 0.20.0";
+  static const versao = "versão. 0.21.1";
 
   // DIVERSOS
   static const novo = 'NOVO';

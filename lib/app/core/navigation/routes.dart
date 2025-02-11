@@ -5,6 +5,7 @@ class Routes {
   static const pedidosPage = '/pedidosPage';
   static const catalogoPage = '/catalogoPage';
   static const sincronizacaoPage = '/sincronizacaoPage';
+  static const transmissaoPage = '/transmissaoPage';
   static const configuracaoPage = '/configuracaoPage';
   static const clientesCadastroPage = '/clientesCadastroPage';
   static const clientesConsultaPage = '/clientesConsultaPage';

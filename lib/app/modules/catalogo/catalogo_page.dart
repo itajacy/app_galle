@@ -160,7 +160,8 @@ class CatalogoPage extends StatelessWidget {
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: NetworkImage(
-                                  'http://app.galle.com.br/images/grandes/01-002.jpg'),
+                                'http://app.galle.com.br/images/grandes/01-002.jpg',
+                              ),
                               // fit: BoxFit.cover,
                             ),
                           ),
