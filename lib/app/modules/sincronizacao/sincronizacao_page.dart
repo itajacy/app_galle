@@ -37,18 +37,19 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
   void initState() {
     // TODO: implement initState
 
-    ConnectFtp().conexaoFTP('Cliente');
-    ConnectFtp().conexaoFTP('Dispositivo');
-    ConnectFtp().conexaoFTP('Cor');
-    ConnectFtp().conexaoFTP('Grupo');
-    ConnectFtp().conexaoFTP('Imagem');
-    ConnectFtp().conexaoFTP('Linha');
-    ConnectFtp().conexaoFTP('Material');
-    ConnectFtp().conexaoFTP('Preco');
-    ConnectFtp().conexaoFTP('Produto');
-    ConnectFtp().conexaoFTP('Tabela');
-    ConnectFtp().conexaoFTP('Tamanho');
-    ConnectFtp().conexaoFTP('Tipo');
+    ConnectFtp().conexaoFTP();
+    // ConnectFtp().conexaoFTP('Cliente');
+    // ConnectFtp().conexaoFTP('Dispositivo');
+    // ConnectFtp().conexaoFTP('Cor');
+    // ConnectFtp().conexaoFTP('Grupo');
+    // ConnectFtp().conexaoFTP('Imagem');
+    // ConnectFtp().conexaoFTP('Linha');
+    // ConnectFtp().conexaoFTP('Material');
+    // ConnectFtp().conexaoFTP('Preco');
+    // ConnectFtp().conexaoFTP('Produto');
+    // ConnectFtp().conexaoFTP('Tabela');
+    // ConnectFtp().conexaoFTP('Tamanho');
+    // ConnectFtp().conexaoFTP('Tipo');
     super.initState();
   }
 
