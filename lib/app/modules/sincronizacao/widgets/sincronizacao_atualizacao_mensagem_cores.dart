@@ -5,11 +5,12 @@ import 'package:galle/app/modules/sincronizacao/sincronizacao_cliente_controller
 import 'package:get/get.dart';
 
 import '../../../core/colors_app.dart';
+import '../sincronizacao_controller.dart';
 import '../sincronizacao_cor_controller.dart';
 
 class SincronizacaoAtualizacaoMensagemCores {
   BuildContext context;
-  SincronizacaoCorController sincronizacaoCorController;
+  SincronizacaoController sincronizacaoCorController;
   SincronizacaoAtualizacaoMensagemCores({
     required this.context,
     required this.sincronizacaoCorController,

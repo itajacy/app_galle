@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_cliente_controller.dart';
+import 'package:galle/app/modules/sincronizacao/sincronizacao_controller.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_cor_controller.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_dispositivo_controller.dart';
 import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_cliente.dart';
@@ -33,11 +34,13 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
   SincronizacaoCorController sincronizacaoCorController =
       SincronizacaoCorController();
 
+  SincronizacaoController sincronizacaoController = SincronizacaoController();
+
   @override
   void initState() {
     // TODO: implement initState
 
-    ConnectFtp().conexaoFTP();
+    // ConnectFtp().conexaoFTP();   //! descomentar depois de testar
     // ConnectFtp().conexaoFTP('Cliente');
     // ConnectFtp().conexaoFTP('Dispositivo');
     // ConnectFtp().conexaoFTP('Cor');
@@ -55,7 +58,6 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: ColorsApp.screenBackgroundColor,
       appBar: AppBar(
@@ -116,33 +118,15 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
             children: [
               GeneralIconButton(
                 onPress: () async {
-                  // a eliminação dos dispositivos foi passada para dentro do controller, dentro .sincronizacaoDispositivo()
-                  //! Dispositivo
-                  // await sincronizacaoDispositivoController
-                  //     .apagaTodosOsDispositivos();
-                  // await sincronizacaoDispositivoController
-                  //     .sincronizacaoDispositivo(context);
-                  //! Cores
-                  // await sincronizacaoCorController.apagaTodasAsCores();
-                  // await sincronizacaoCorController.sincronizacaoCor(context);
+                 
+                  sincronizacaoController.sincronizacaoDispositivo(context);
 
-                  SincronizacaoAtualizacaoMensagemDispositivo(
-                    context: context,
-                    sincronizacaoDispositivoController:
-                        sincronizacaoDispositivoController,
-                  ).showFullBottomSheet();
-                  // SincronizacaoAtualizacaoMensagemCores(
-                  //   context: context,
-                  //   sincronizacaoCorController: sincronizacaoCorController,
-                  // ).showFullBottomSheet();
-
-                  //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
-                  // SincronizacaoAtualizacaoMensagemTodos(
+                  // SincronizacaoAtualizacaoMensagemDispositivo(
                   //   context: context,
                   //   sincronizacaoDispositivoController:
                   //       sincronizacaoDispositivoController,
-                  //   sincronizacaoCorController: sincronizacaoCorController,
                   // ).showFullBottomSheet();
+                  
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
@@ -164,33 +148,13 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
             children: [
               GeneralIconButton(
                 onPress: () async {
-                  // a eliminação dos dispositivos foi passada para dentro do controller, dentro .sincronizacaoDispositivo()
-                  //! Dispositivo
-                  // await sincronizacaoDispositivoController
-                  //     .apagaTodosOsDispositivos();
-                  // await sincronizacaoDispositivoController
-                  //     .sincronizacaoDispositivo(context);
-                  //! Cores
-                  // await sincronizacaoCorController.apagaTodasAsCores();
-                  // await sincronizacaoCorController.sincronizacaoCor(context);
-
-                  // SincronizacaoAtualizacaoMensagemDispositivo(
+                  sincronizacaoController.sincronizacaoCor(context);
+                  // SincronizacaoAtualizacaoMensagemCores(
                   //   context: context,
-                  //   sincronizacaoDispositivoController:
-                  //       sincronizacaoDispositivoController,
+                  //   sincronizacaoCorController:
                   // ).showFullBottomSheet();
-                  SincronizacaoAtualizacaoMensagemCores(
-                    context: context,
-                    sincronizacaoCorController: sincronizacaoCorController,
-                  ).showFullBottomSheet();
 
                   //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
-                  // SincronizacaoAtualizacaoMensagemTodos(
-                  //   context: context,
-                  //   sincronizacaoDispositivoController:
-                  //       sincronizacaoDispositivoController,
-                  //   sincronizacaoCorController: sincronizacaoCorController,
-                  // ).showFullBottomSheet();
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
@@ -212,11 +176,13 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
             children: [
               GeneralIconButton(
                 onPress: () async {
-                  SincronizacaoAtualizacaoMensagemCliente(
-                    context: context,
-                    sincronizacaoClienteController:
-                        sincronizacaoClienteController,
-                  ).showFullBottomSheet();
+                  sincronizacaoController.sincronizacaoClientes(context);
+
+                  // SincronizacaoAtualizacaoMensagemCliente(
+                  //   context: context,
+                  //   sincronizacaoClienteController:
+                  //       sincronizacaoClienteController,
+                  // ).showFullBottomSheet();
                 },
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
@@ -232,7 +198,7 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               ),
             ],
           ),
-          
+
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           //   children: [
@@ -304,7 +270,6 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               ),
             ],
           ),
-          
         ],
       ),
     );

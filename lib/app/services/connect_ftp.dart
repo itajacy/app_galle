@@ -6,7 +6,6 @@ import '../modules/configuracao/widgets/directory_path.dart';
 
 class ConnectFtp {
   List<String> listaDeArquivos = [
-    // 'Produto',
     'Cliente',
     'Cor',
     'Grupo',
@@ -18,6 +17,7 @@ class ConnectFtp {
     'Tabela',
     'Tamanho',
     'Tipo',
+    'Produto',
   ];
 
   // conexaoFTP(String nomeDoArquivoXml) async {
