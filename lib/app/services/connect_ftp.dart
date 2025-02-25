@@ -80,13 +80,14 @@ class ConnectFtp {
               '1- Erro: O arquivo $nomeDoArquivoXml tem um tamanho diferente do original.');
           print(
               '2- tamanho do arquivo baixado: $localFileSize, tamanho do arquivo original: $fileSize');
-          print('Finalizado o download do arquivo $nomeDoArquivoXml.');
+          print('Finalizado o download do arquivo $nomeDoArquivoXml.xml');
         }
 
         // Desconectando do servidor
         await ftpConnect.disconnect();
       } catch (e) {
-        print('Erro durante o download: $e');
+        print(
+            'Erro durante o download do arquivo $nomeDoArquivoXml:  ERRO==> $e');
       }
     }
   }
