@@ -40,7 +40,7 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
   void initState() {
     // TODO: implement initState
 
-    // ConnectFtp().conexaoFTP();   //! descomentar depois de testar
+    // ConnectFtp().conexaoFTP(); //! descomentar depois de testar
     // ConnectFtp().conexaoFTP('Cliente');
     // ConnectFtp().conexaoFTP('Dispositivo');
     // ConnectFtp().conexaoFTP('Cor');
@@ -194,6 +194,33 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                 children: [
                   Text("Última Atualização"),
                   Text("15/03/2024 17:15"),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoGrupo(context);
+
+                  // SincronizacaoAtualizacaoMensagemCliente(
+                  //   context: context,
+                  //   sincronizacaoClienteController:
+                  //       sincronizacaoClienteController,
+                  // ).showFullBottomSheet();
+                },
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar Grupos',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("25/02/2025 20:38"),
                 ],
               ),
             ],

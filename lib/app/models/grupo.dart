@@ -3,13 +3,13 @@
 class Grupo {
   int? grupoId;
   String? grupoIdInt;
-  String? decricao;
+  String? descricao;
   int? ativo;
 
   Grupo({
     this.grupoId,
     this.grupoIdInt,
-    this.decricao,
+    this.descricao,
     this.ativo,
   });
 
@@ -17,7 +17,7 @@ class Grupo {
     return <String, dynamic>{
       'grupoId': grupoId,
       'grupoIdInt': grupoIdInt,
-      'decricao': decricao,
+      'descricao': descricao,
       'ativo': ativo,
     };
   }
@@ -30,8 +30,8 @@ class Grupo {
           mapaGrupo['grupoIdInt'] != null
           ? mapaGrupo['grupoIdInt'] as String
           : null,
-      decricao: mapaGrupo['decricao'] != null
-          ? mapaGrupo['decricao'] as String
+      descricao: mapaGrupo['descricao'] != null
+          ? mapaGrupo['descricao'] as String
           : null,
       ativo: mapaGrupo['ativo'] != null ? mapaGrupo['ativo'] as int : null,
     );
@@ -43,6 +43,6 @@ class Grupo {
 
   @override
   String toString() {
-    return 'Grupo(grupoId: $grupoId, grupoIdInt: $grupoIdInt, decricao: $decricao, ativo: $ativo)';
+    return 'Grupo(grupoId: $grupoId, grupoIdInt: $grupoIdInt, descricao: $descricao, ativo: $ativo)';
   }
 }

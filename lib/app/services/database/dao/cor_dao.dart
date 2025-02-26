@@ -54,7 +54,7 @@ class CorDao {
   }
 
   Future<List<Cor>> findCores(String descricaoDaCor) async {
-    print('findClientes em clientes_dao--> $descricaoDaCor');
+    print('findCores em cores_dao--> $descricaoDaCor');
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> result = await db.query(
       _tableName,
