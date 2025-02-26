@@ -23,8 +23,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
   void initState() {
     // TODO: implement initState
 
-    // ConnectFtp()
-    //     .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
+    ConnectFtp()
+        .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
 
     super.initState();
   }
@@ -70,6 +70,9 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   //! Linhas
                   await sincronizacaoController.apagaTodasAsLinhas();
                   await sincronizacaoController.sincronizacaoLinha(context);
+                  //! Tipos
+                  await sincronizacaoController.apagaTodosOsTipos();
+                  await sincronizacaoController.sincronizacaoTipo(context);
 
                   //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
                   // SincronizacaoAtualizacaoMensagemTodos(
@@ -233,22 +236,43 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GeneralIconButton(
-                onPress: () {},
-                ativo: false,
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoTipo(context);
+                },
                 icone: Icons.sync_outlined,
                 iconSize: Sizes.sizeH_30,
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
-                titulo: 'Atualizar Fotos',
+                titulo: 'Atualizar Tipos',
               ),
               const Column(
                 children: [
                   Text("Última Atualização"),
-                  Text("13/03/2024 10:25"),
+                  Text("26/02/2025 16:03"),
                 ],
               ),
             ],
           ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     GeneralIconButton(
+          //       onPress: () {},
+          //       ativo: false,
+          //       icone: Icons.sync_outlined,
+          //       iconSize: Sizes.sizeH_30,
+          //       buttonHeight: Sizes.sizeH_60,
+          //       buttonWidth: Sizes.sizeW_200,
+          //       titulo: 'Atualizar Fotos',
+          //     ),
+          //     const Column(
+          //       children: [
+          //         Text("Última Atualização"),
+          //         Text("13/03/2024 10:25"),
+          //       ],
+          //     ),
+          //   ],
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

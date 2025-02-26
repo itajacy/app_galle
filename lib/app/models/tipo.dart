@@ -15,8 +15,8 @@ class Tipo {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'tipoId': tipoId,
-      'tipoIdInt': tipoIdInt,
-      'descricao': descricao,
+      'TipoID_Int': tipoIdInt,
+      'Descricao': descricao,
       'ativo': ativo,
     };
   }
@@ -24,11 +24,11 @@ class Tipo {
   factory Tipo.fromMap(Map<String, dynamic> mapaTipo) {
     return Tipo(
       tipoId: mapaTipo['tipoId'] != null ? mapaTipo['tipoId'] as int : null,
-      tipoIdInt: mapaTipo['tipoIdInt'] != null
-          ? mapaTipo['tipoIdInt'] as String
+      tipoIdInt: mapaTipo['TipoID_Int'] != null
+          ? mapaTipo['TipoID_Int'] as String
           : null,
-      descricao: mapaTipo['descricao'] != null
-          ? mapaTipo['descricao'] as String
+      descricao: mapaTipo['Descricao'] != null
+          ? mapaTipo['Descricao'] as String
           : null,
       ativo: mapaTipo['ativo'] != null ? mapaTipo['ativo'] as int : null,
     );

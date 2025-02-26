@@ -14,9 +14,11 @@ import '../../models/cor.dart';
 import '../../models/dispositivo.dart';
 import '../../models/grupo.dart';
 import '../../models/linha.dart';
+import '../../models/tipo.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../../services/database/dao/dispositivo_dao.dart';
 import '../../services/database/dao/grupo_dao.dart';
+import '../../services/database/dao/tipo_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
 
 class SincronizacaoController extends GetxController {
@@ -766,6 +768,129 @@ class SincronizacaoController extends GetxController {
   }
 
 //! FIM  LINHA
+
+//! ===========================================================================
+
+//! INICIO  TIPO
+
+  TipoDao tipoDao = TipoDao();
+  Tipo tipo = Tipo();
+  int respostaTipo = 0;
+
+  sincronizacaoTipo(BuildContext context) async {
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO Tipo');
+    // Apaga todos os Tipos
+    apagaTodosOsTipos();
+
+    String jsonStringTipo =
+        await convertXmlToJsonTipo('Tipo'); //convertendo XML em Json
+
+    List<Tipo> tipoListaObjeto = convertJsonToTipo(
+        jsonStringTipo); //convertendo Json em uma lista de Objetos(Tipo)
+
+    await salvarListaDeTipo(tipoListaObjeto);
+
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM Tipo');
+  }
+//TODO SALVAR AS LINHAS
+
+  int qtdTipos = 0;
+  salvarListaDeTipo(List<Tipo> tipoListaObjeto) async {
+    print('primeira tipo da lista de objetos');
+    print(tipoListaObjeto[0]);
+    print('fim grupo da lista de objetos');
+
+    for (var elemento in tipoListaObjeto) {
+      print('elemento TipoIdInt==> ${elemento.tipoIdInt}');
+      print('elemento Descricao ==> ${elemento.descricao}');
+      // respostaTipo = await tipoDao.salvar(elemento);
+      respostaTipo = await salvarTipo(elemento);
+      if (respostaTipo != 0) {
+        qtdTipos++;
+      }
+      print('====-----====');
+    }
+    print('Total de Tipos Lidos do arquivo .xml--> ${tipoListaObjeto.length}');
+    print('Total de Tipos Inclusos--> $qtdTipos');
+    print('--------------------fim----------------------------');
+  }
+
+  Future<String> convertXmlToJsonTipo(String nomeDoArquivoXml) async {
+    String filePath = '';
+    var arquivo = File(filePath);
+    String fileName = '$nomeDoArquivoXml.xml';
+    var getPathFile = DirectoryPath();
+    print('getPathFile--> $getPathFile ');
+    var storePath = await getPathFile.getPath();
+    print('storePath--> $storePath');
+    filePath = '$storePath/$fileName';
+    print('filePath--> $filePath');
+
+    arquivo = File(filePath);
+    print('arquivo--> $arquivo');
+
+    //* Lendo arquivo e convertendo em bytes
+    Uint8List xmlBytes = await arquivo.readAsBytes();
+    // print('xmlBytes--> $xmlBytes');
+    // print('------------------------------------------------');
+    //* convertendo bytes para String
+    String xmlString = String.fromCharCodes(xmlBytes);
+
+    //* Criação de uma instância do converter XML para JSON
+    Xml2Json xml2json = Xml2Json();
+    // print(
+    //     '--------------------------------------------------------');
+    print('xml2json--1> ${xml2json.toString()} ');
+    xml2json.parse(xmlString);
+    print('-------------');
+    print('xml2json--2> ${xml2json.toString()} ');
+
+    //* Converte para JSON
+    final jsonStringTipo = xml2json.toParkerWithAttrs();
+    print('jsonStringTipo --> $jsonStringTipo');
+
+    return jsonStringTipo;
+  }
+
+  int totalTipos = 0;
+  int elementTipo = 0;
+  List<Tipo> convertJsonToTipo(String jsonStringTipo) {
+    //* Converte para Map
+    Map<String, dynamic> mapTipos = jsonDecode(jsonStringTipo);
+
+    totalTipos = mapTipos['DataSet']['Row'].length;
+
+    print('total de Tipos no arquivo .xml--> $totalTipos');
+
+    //* Cria um List dos Maps
+    List tipoListMap = [];
+
+    for (var elemento = 0; elemento < totalTipos; elemento++) {
+      tipoListMap.add((mapTipos['DataSet']['Row'][elemento]));
+      elementTipo++;
+      totalTipos;
+      update();
+    }
+
+    print('Tipolistmap  sincronizacao_page--> $tipoListMap');
+    final List<Tipo> tipoListaObjeto = List<Tipo>.from(
+      tipoListMap.map((model) => Tipo.fromMap(model)),
+    );
+
+    return tipoListaObjeto;
+  }
+
+  Future<int> salvarTipo(Tipo tipo) async {
+    int resultado = await tipoDao.salvar(tipo);
+    return resultado;
+  }
+
+  Future<int> apagaTodosOsTipos() async {
+    int resultado = await tipoDao.deleteAll();
+    return resultado;
+  }
+
+//! FIM  TIPO
 
 //* FIM DA SINCRONIZACAOCONTROLLER
 }
