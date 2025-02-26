@@ -2,57 +2,28 @@
 
 import 'package:flutter/material.dart';
 import 'package:galle/app/core/sizes.dart';
-import 'package:galle/app/modules/sincronizacao/sincronizacao_cliente_controller.dart';
 import 'package:galle/app/modules/sincronizacao/sincronizacao_controller.dart';
-import 'package:galle/app/modules/sincronizacao/sincronizacao_cor_controller.dart';
-import 'package:galle/app/modules/sincronizacao/sincronizacao_dispositivo_controller.dart';
-import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_cliente.dart';
-import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_cores.dart';
-import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_dispositivo.dart';
-import 'package:galle/app/modules/sincronizacao/widgets/sincronizacao_atualizacao_mensagem_todos.dart';
-import 'package:galle/app/services/connect_ftp.dart';
 import 'package:galle/app/widgets/general_icon_button.dart';
-import 'package:get/get.dart';
 
 import '../../core/colors_app.dart';
 import '../../core/strings.dart';
 
 class SincronizacaoPage extends StatefulWidget {
-  SincronizacaoPage({super.key});
+  const SincronizacaoPage({super.key});
 
   @override
   State<SincronizacaoPage> createState() => _SincronizacaoPageState();
 }
 
 class _SincronizacaoPageState extends State<SincronizacaoPage> {
-  SincronizacaoClienteController sincronizacaoClienteController =
-      Get.put(SincronizacaoClienteController());
-
-  SincronizacaoDispositivoController sincronizacaoDispositivoController =
-      SincronizacaoDispositivoController();
-
-  SincronizacaoCorController sincronizacaoCorController =
-      SincronizacaoCorController();
-
   SincronizacaoController sincronizacaoController = SincronizacaoController();
 
   @override
   void initState() {
     // TODO: implement initState
 
-    // ConnectFtp().conexaoFTP(); //! descomentar depois de testar
-    // ConnectFtp().conexaoFTP('Cliente');
-    // ConnectFtp().conexaoFTP('Dispositivo');
-    // ConnectFtp().conexaoFTP('Cor');
-    // ConnectFtp().conexaoFTP('Grupo');
-    // ConnectFtp().conexaoFTP('Imagem');
-    // ConnectFtp().conexaoFTP('Linha');
-    // ConnectFtp().conexaoFTP('Material');
-    // ConnectFtp().conexaoFTP('Preco');
-    // ConnectFtp().conexaoFTP('Produto');
-    // ConnectFtp().conexaoFTP('Tabela');
-    // ConnectFtp().conexaoFTP('Tamanho');
-    // ConnectFtp().conexaoFTP('Tipo');
+    // ConnectFtp().conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
+
     super.initState();
   }
 
@@ -82,13 +53,12 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                 onPress: () async {
                   // a eliminação dos dispositivos foi passada para dentro do controller, dentro .sincronizacaoDispositivo()
                   //! Dispositivo
-                  await sincronizacaoDispositivoController
-                      .apagaTodosOsDispositivos();
-                  await sincronizacaoDispositivoController
+                  await sincronizacaoController.apagaTodosOsDispositivos();
+                  await sincronizacaoController
                       .sincronizacaoDispositivo(context);
                   //! Cores
-                  await sincronizacaoCorController.apagaTodasAsCores();
-                  await sincronizacaoCorController.sincronizacaoCor(context);
+                  await sincronizacaoController.apagaTodasAsCores();
+                  await sincronizacaoController.sincronizacaoCor(context);
 
                   //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
                   // SincronizacaoAtualizacaoMensagemTodos(
@@ -118,7 +88,6 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
             children: [
               GeneralIconButton(
                 onPress: () async {
-                 
                   sincronizacaoController.sincronizacaoDispositivo(context);
 
                   // SincronizacaoAtualizacaoMensagemDispositivo(
@@ -126,7 +95,6 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   //   sincronizacaoDispositivoController:
                   //       sincronizacaoDispositivoController,
                   // ).showFullBottomSheet();
-                  
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
@@ -153,8 +121,6 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   //   context: context,
                   //   sincronizacaoCorController:
                   // ).showFullBottomSheet();
-
-                  //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
@@ -275,12 +241,18 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               GeneralIconButton(
                 onPress: () {
                   //! apagando TODOS OS CLIENTES DA TABELA
-                  sincronizacaoClienteController.apagaTodosOsClientes();
+                  sincronizacaoController
+                      .apagaTodosOsClientes(); //! LEMBRAR QUE OS CLIENTES NÃO DEVEM SER APAGADOS, DEVEM SER SOMENTE ALTERADOS
+                  // sincronizacaoClienteController.apagaTodosOsClientes();
                   print('TODOS OS CLIENTES FORAM APAGADOS!');
-                  sincronizacaoDispositivoController.apagaTodosOsDispositivos();
+                  sincronizacaoController.apagaTodosOsDispositivos();
+                  // sincronizacaoDispositivoController.apagaTodosOsDispositivos();
                   print('OS DADOS DO DISPOSITIVO FORAM APAGADOS!');
-                  sincronizacaoCorController.apagaTodasAsCores();
+                  sincronizacaoController.apagaTodasAsCores();
+                  // sincronizacaoCorController.apagaTodasAsCores();
                   print('TODAS AS CORES FORAM APAGADAS!');
+                  sincronizacaoController.apagaTodosOsGrupos();
+                  print('TODOS OS GRUPOS FORAM APAGADOS!');
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
