@@ -11,7 +11,7 @@ class LinhaDao {
 
   static const String _tableName = 'linha';
   static const String _linhaId = 'linhaId';
-  static const String _linhaIdInt = 'linhaIdInt';
-  static const String _descricao = 'descricao';
+  static const String _linhaIdInt = 'LinhaID_Int';
+  static const String _descricao = 'Descricao';
   static const String _ativo = 'ativo';
 }

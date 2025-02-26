@@ -16,8 +16,8 @@ class Linha {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'linhaId': linhaId,
-      'linhaIdInt': linhaIdInt,
-      'descricao': descricao,
+      'LinhaID_Int': linhaIdInt,
+      'Descricao': descricao,
       'ativo': ativo,
     };
   }
@@ -26,11 +26,11 @@ class Linha {
     return Linha(
       linhaId:
           mapaLinha['linhaId'] != null ? mapaLinha['linhaId'] as int : null,
-      linhaIdInt: mapaLinha['linhaIdInt'] != null
-          ? mapaLinha['linhaIdInt'] as String
+      linhaIdInt: mapaLinha['LinhaID_Int'] != null
+          ? mapaLinha['LinhaID_Int'] as String
           : null,
-      descricao: mapaLinha['descricao'] != null
-          ? mapaLinha['descricao'] as String
+      descricao: mapaLinha['Descricao'] != null
+          ? mapaLinha['Descricao'] as String
           : null,
       ativo: mapaLinha['ativo'] != null ? mapaLinha['ativo'] as int : null,
     );
