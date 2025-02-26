@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:galle/app/services/database/dao/cor_dao.dart';
+import 'package:galle/app/services/database/dao/linha_dao.dart';
 import 'package:get/get.dart';
 import 'package:xml2json/xml2json.dart';
 
@@ -12,6 +13,7 @@ import '../../models/cliente.dart';
 import '../../models/cor.dart';
 import '../../models/dispositivo.dart';
 import '../../models/grupo.dart';
+import '../../models/linha.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../../services/database/dao/dispositivo_dao.dart';
 import '../../services/database/dao/grupo_dao.dart';
@@ -46,7 +48,8 @@ class SincronizacaoController extends GetxController {
     for (var elemento in corListaObjeto) {
       print('elemento CorIdInt==> ${elemento.corIdInt}');
       print('elemento Descricao ==> ${elemento.descricao}');
-      int resposta = await corDao.salvar(elemento);
+      // int resposta = await corDao.salvar(elemento);
+      int resposta = await salvarCor(elemento);
       if (resposta != 0) {
         qtdCores++;
       }
@@ -123,13 +126,19 @@ class SincronizacaoController extends GetxController {
     return corListaObjeto;
   }
 
+  Future<int> salvarCor(Cor cor) async {
+    int resultado = await corDao.salvar(cor);
+    return resultado;
+  }
+
   Future<int> apagaTodasAsCores() async {
     int resultado = await corDao.deleteAll();
     return resultado;
   }
 
 //! FIM COR
-// ==================================================================================================
+
+//! ===========================================================================
 
 //! INICIO DISPOSITIVO
   DispositivoDao dispositivoDao = DispositivoDao();
@@ -150,7 +159,8 @@ class SincronizacaoController extends GetxController {
         convertJsonToDispositivo(jsonStringDispositivo);
     print('dispositivoObjeto--> $dispositivoObjeto');
 
-    dispositivoDao.salvar(dispositivoObjeto);
+    // dispositivoDao.salvar(dispositivoObjeto);
+    salvarDispositivo(dispositivoObjeto);
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM DISPOSITIVO');
   }
 
@@ -210,6 +220,11 @@ class SincronizacaoController extends GetxController {
     return dispositivoObjeto;
   }
 
+  Future<int> salvarDispositivo(Dispositivo dispositivo) async {
+    int resultado = await dispositivoDao.salvar(dispositivo);
+    return resultado;
+  }
+
   Future<Dispositivo> buscarDispositivo() async {
     dispositivo = await dispositivoDao.find();
     return dispositivo;
@@ -226,6 +241,8 @@ class SincronizacaoController extends GetxController {
   }
 
 //! FIM DISPOSITIVO
+
+//! ===========================================================================
 
 //! INICIO CLIENTES
   //! >>>>>>>>  INICIO DO CLIENTE  <<<<<<<<<
@@ -501,6 +518,8 @@ class SincronizacaoController extends GetxController {
   }
 //! FIM CLIENTES
 
+//! ===========================================================================
+
 //! INICIO GRUPO
 //todo
 
@@ -534,7 +553,8 @@ class SincronizacaoController extends GetxController {
     for (var elemento in grupoListaObjeto) {
       print('elemento GrupoIdInt==> ${elemento.grupoIdInt}');
       print('elemento Descricao ==> ${elemento.descricao}');
-      respostaGrupo = await grupoDao.salvar(elemento);
+      // respostaGrupo = await grupoDao.salvar(elemento);
+      respostaGrupo = await salvarGrupo(elemento);
       if (respostaGrupo != 0) {
         qtdGrupos++;
       }
@@ -591,7 +611,7 @@ class SincronizacaoController extends GetxController {
 
     totalGrupos = mapGrupos['DataSet']['Row'].length;
 
-    print('total de Cores no arquivo .xml--> $totalGrupos');
+    print('total de Grupos no arquivo .xml--> $totalGrupos');
 
     //* Cria um List dos Maps
     List grupoListMap = [];
@@ -611,44 +631,141 @@ class SincronizacaoController extends GetxController {
     return grupoListaObjeto;
   }
 
+  Future<int> salvarGrupo(Grupo grupo) async {
+    int resultado = await grupoDao.salvar(grupo);
+    return resultado;
+  }
+
   Future<int> apagaTodosOsGrupos() async {
     int resultado = await grupoDao.deleteAll();
     return resultado;
   }
 
 //! FIM GRUPO
+
+//! ===========================================================================
+
+//! INICIO  LINHA
+
+  LinhaDao linhaDao = LinhaDao();
+  Linha linha = Linha();
+  int respostaLinha = 0;
+
+  sincronizacaoLinha(BuildContext context) async {
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO Linha');
+    // Apaga todos os Linhas
+    apagaTodasAsLinhas();
+
+    String jsonStringLinha =
+        await convertXmlToJsonLinha('Linha'); //convertendo XML em Json
+
+    List<Linha> linhaListaObjeto = convertJsonToLinha(
+        jsonStringLinha); //convertendo Json em uma lista de Objetos(Linha)
+
+    await salvarListaDeLinha(linhaListaObjeto);
+
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM Linha');
+  }
+//TODO SALVAR AS LINHAS
+
+  int qtdLinhas = 0;
+  salvarListaDeLinha(List<Linha> linhaListaObjeto) async {
+    print('primeira linha da lista de objetos');
+    print(linhaListaObjeto[0]);
+    print('fim grupo da lista de objetos');
+
+    for (var elemento in linhaListaObjeto) {
+      print('elemento LinhaIdInt==> ${elemento.linhaIdInt}');
+      print('elemento Descricao ==> ${elemento.descricao}');
+      // respostaLinha = await linhaDao.salvar(elemento);
+      respostaLinha = await salvarLinha(elemento);
+      if (respostaLinha != 0) {
+        qtdLinhas++;
+      }
+      print('====-----====');
+    }
+    print(
+        'Total de Linhas Lidos do arquivo .xml--> ${linhaListaObjeto.length}');
+    print('Total de Linhas Inclusos--> $qtdLinhas');
+    print('--------------------fim----------------------------');
+  }
+
+  Future<String> convertXmlToJsonLinha(String nomeDoArquivoXml) async {
+    String filePath = '';
+    var arquivo = File(filePath);
+    String fileName = '$nomeDoArquivoXml.xml';
+    var getPathFile = DirectoryPath();
+    print('getPathFile--> $getPathFile ');
+    var storePath = await getPathFile.getPath();
+    print('storePath--> $storePath');
+    filePath = '$storePath/$fileName';
+    print('filePath--> $filePath');
+
+    arquivo = File(filePath);
+    print('arquivo--> $arquivo');
+
+    //* Lendo arquivo e convertendo em bytes
+    Uint8List xmlBytes = await arquivo.readAsBytes();
+    // print('xmlBytes--> $xmlBytes');
+    // print('------------------------------------------------');
+    //* convertendo bytes para String
+    String xmlString = String.fromCharCodes(xmlBytes);
+
+    //* Criação de uma instância do converter XML para JSON
+    Xml2Json xml2json = Xml2Json();
+    // print(
+    //     '--------------------------------------------------------');
+    print('xml2json--1> ${xml2json.toString()} ');
+    xml2json.parse(xmlString);
+    print('-------------');
+    print('xml2json--2> ${xml2json.toString()} ');
+
+    //* Converte para JSON
+    final jsonStringLinha = xml2json.toParkerWithAttrs();
+    print('jsonStringLinha --> $jsonStringLinha');
+
+    return jsonStringLinha;
+  }
+
+  int totalLinhas = 0;
+  int elementLinha = 0;
+  List<Linha> convertJsonToLinha(String jsonStringLinha) {
+    //* Converte para Map
+    Map<String, dynamic> mapLinhas = jsonDecode(jsonStringLinha);
+
+    totalLinhas = mapLinhas['DataSet']['Row'].length;
+
+    print('total de Linhas no arquivo .xml--> $totalLinhas');
+
+    //* Cria um List dos Maps
+    List linhaListMap = [];
+
+    for (var elemento = 0; elemento < totalLinhas; elemento++) {
+      linhaListMap.add((mapLinhas['DataSet']['Row'][elemento]));
+      elementLinha++;
+      totalLinhas;
+      update();
+    }
+
+    print('Linhalistmap  sincronizacao_page--> $linhaListMap');
+    final List<Linha> linhaListaObjeto = List<Linha>.from(
+      linhaListMap.map((model) => Linha.fromMap(model)),
+    );
+
+    return linhaListaObjeto;
+  }
+
+  Future<int> salvarLinha(Linha linha) async {
+    int resultado = await linhaDao.salvar(linha);
+    return resultado;
+  }
+
+  Future<int> apagaTodasAsLinhas() async {
+    int resultado = await linhaDao.deleteAll();
+    return resultado;
+  }
+
+//! FIM  LINHA
+
+//* FIM DA SINCRONIZACAOCONTROLLER
 }
-
-
-//TODO  CONTEUDO DO ARQUIVO GRUPO.XML ABAIXO
-
-// <DataSet>
-//   <Row>
-//     <GrupoID_Int>01</GrupoID_Int>
-//     <Descricao>Pingente</Descricao>
-//   </Row>
-//   <Row>
-//     <GrupoID_Int>07</GrupoID_Int>
-//     <Descricao>Peca Grande</Descricao>
-//   </Row>
-//   <Row>
-//     <GrupoID_Int>02</GrupoID_Int>
-//     <Descricao>Brinco</Descricao>
-//   </Row>
-//   <Row>
-//     <GrupoID_Int>03</GrupoID_Int>
-//     <Descricao>Anel</Descricao>
-//   </Row>
-//   <Row>
-//     <GrupoID_Int>06</GrupoID_Int>
-//     <Descricao>Pulseiras e Gargantilhas</Descricao>
-//   </Row>
-//   <Row>
-//     <GrupoID_Int>04</GrupoID_Int>
-//     <Descricao>Corrente</Descricao>
-//   </Row>
-//   <Row>
-//     <GrupoID_Int>09</GrupoID_Int>
-//     <Descricao>N. Brinco Corr</Descricao>
-//   </Row>
-// </DataSet>

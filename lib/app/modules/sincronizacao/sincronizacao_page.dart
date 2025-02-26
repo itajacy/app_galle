@@ -61,6 +61,15 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   //! Cores
                   await sincronizacaoController.apagaTodasAsCores();
                   await sincronizacaoController.sincronizacaoCor(context);
+                  //! Clientes
+                  //! Clientes não precisa/deve ser apagada
+                  await sincronizacaoController.sincronizacaoClientes(context);
+                  //! Grupos
+                  await sincronizacaoController.apagaTodosOsGrupos();
+                  await sincronizacaoController.sincronizacaoGrupo(context);
+                  //! Linhas
+                  await sincronizacaoController.apagaTodasAsLinhas();
+                  await sincronizacaoController.sincronizacaoLinha(context);
 
                   //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
                   // SincronizacaoAtualizacaoMensagemTodos(
@@ -193,30 +202,33 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               ),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoLinha(context);
 
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: [
-          //     GeneralIconButton(
-          //       onPress: () {
-          //         //TODO POPUP DE MENSAGEM
-          //       },
-          //       ativo: true,
-          //       icone: Icons.sync_outlined,
-          //       iconSize: Sizes.sizeH_30,
-          //       buttonHeight: Sizes.sizeH_60,
-          //       buttonWidth: Sizes.sizeW_200,
-          //       // titulo: 'Atualizar Produtos',
-          //       titulo: 'MENSAGEM DE POP UP',
-          //     ),
-          //     const Column(
-          //       children: [
-          //         Text("Última Atualização"),
-          //         Text("10/03/2024 08:07"),
-          //       ],
-          //     ),
-          //   ],
-          // ),
+                  // SincronizacaoAtualizacaoMensagemCliente(
+                  //   context: context,
+                  //   sincronizacaoClienteController:
+                  //       sincronizacaoClienteController,
+                  // ).showFullBottomSheet();
+                },
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar Linhas',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("26/02/2025 16:03"),
+                ],
+              ),
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -255,6 +267,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   print('TODAS AS CORES FORAM APAGADAS!');
                   sincronizacaoController.apagaTodosOsGrupos();
                   print('TODOS OS GRUPOS FORAM APAGADOS!');
+                  sincronizacaoController.apagaTodasAsLinhas();
+                  print('TODOS AS LINHAS FORAM APAGADAS!');
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
