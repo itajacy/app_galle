@@ -7,6 +7,7 @@ import 'package:galle/app/widgets/general_icon_button.dart';
 
 import '../../core/colors_app.dart';
 import '../../core/strings.dart';
+import '../../services/connect_ftp.dart';
 
 class SincronizacaoPage extends StatefulWidget {
   const SincronizacaoPage({super.key});
@@ -22,7 +23,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
   void initState() {
     // TODO: implement initState
 
-    // ConnectFtp().conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
+    // ConnectFtp()
+    //     .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
 
     super.initState();
   }

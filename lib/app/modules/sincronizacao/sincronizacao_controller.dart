@@ -27,7 +27,7 @@ class SincronizacaoController extends GetxController {
   sincronizacaoCor(BuildContext context) async {
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO COR');
     // Apaga todas as cores
-    corDao.deleteAll();
+    apagaTodasAsCores();
 
     String jsonStringCor =
         await convertXmlToJsonCor('Cor'); //convertendo XML em Json
@@ -53,7 +53,7 @@ class SincronizacaoController extends GetxController {
       print('====-----====');
     }
     print(
-        'Total de Clientes Lidos do arquivo .xml--> ${corListaObjeto.length}');
+        'Total de Cores Lidos do arquivo Cor.xml--> ${corListaObjeto.length}');
     print('Total de Cores Inclusas--> $qtdCores');
     print('--------------------fim----------------------------');
   }
@@ -528,13 +528,13 @@ class SincronizacaoController extends GetxController {
   int qtdGrupos = 0;
   salvarListaDeGrupo(List<Grupo> grupoListaObjeto) async {
     print('primeiro grupo da lista de objetos');
-    print(grupoListaObjeto.elementAt(0));
+    print(grupoListaObjeto[0]);
     print('fim grupo da lista de objetos');
 
     for (var elemento in grupoListaObjeto) {
       print('elemento GrupoIdInt==> ${elemento.grupoIdInt}');
       print('elemento Descricao ==> ${elemento.descricao}');
-      int respostaGrupo = await grupoDao.salvar(elemento);
+      respostaGrupo = await grupoDao.salvar(elemento);
       if (respostaGrupo != 0) {
         qtdGrupos++;
       }

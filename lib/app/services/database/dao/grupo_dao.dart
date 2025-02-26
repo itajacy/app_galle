@@ -8,15 +8,15 @@ import '../app_database.dart';
 
 class GrupoDao {
   static const String tabelaGrupo = 'CREATE TABLE $_tableName ('
-      '$_grupoId INTEGER, '
+      '$_grupoId INTEGER PRIMARY KEY, '
       '$_grupoIdInt TEXT, '
       '$_descricao TEXT, '
       '$_ativo INTEGER)';
 
   static const _tableName = 'grupo';
   static const String _grupoId = 'grupoId';
-  static const String _grupoIdInt = 'grupoIdInt';
-  static const String _descricao = 'descricao';
+  static const String _grupoIdInt = 'GrupoID_Int';
+  static const String _descricao = 'Descricao';
   static const String _ativo = 'ativo';
 
   Future<int> salvar(Grupo grupo) async {

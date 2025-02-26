@@ -16,8 +16,8 @@ class Grupo {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'grupoId': grupoId,
-      'grupoIdInt': grupoIdInt,
-      'descricao': descricao,
+      'GrupoID_Int': grupoIdInt,
+      'Descricao': descricao,
       'ativo': ativo,
     };
   }
@@ -26,12 +26,11 @@ class Grupo {
     return Grupo(
       grupoId:
           mapaGrupo['grupoId'] != null ? mapaGrupo['grupoId'] as int : null,
-      grupoIdInt:
-          mapaGrupo['grupoIdInt'] != null
-          ? mapaGrupo['grupoIdInt'] as String
+      grupoIdInt: mapaGrupo['GrupoID_Int'] != null
+          ? mapaGrupo['GrupoID_Int'] as String
           : null,
-      descricao: mapaGrupo['descricao'] != null
-          ? mapaGrupo['descricao'] as String
+      descricao: mapaGrupo['Descricao'] != null
+          ? mapaGrupo['Descricao'] as String
           : null,
       ativo: mapaGrupo['ativo'] != null ? mapaGrupo['ativo'] as int : null,
     );
