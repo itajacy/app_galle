@@ -527,6 +527,10 @@ class SincronizacaoController extends GetxController {
 
   int qtdGrupos = 0;
   salvarListaDeGrupo(List<Grupo> grupoListaObjeto) async {
+    print('primeiro grupo da lista de objetos');
+    print(grupoListaObjeto.elementAt(0));
+    print('fim grupo da lista de objetos');
+
     for (var elemento in grupoListaObjeto) {
       print('elemento GrupoIdInt==> ${elemento.grupoIdInt}');
       print('elemento Descricao ==> ${elemento.descricao}');
@@ -614,3 +618,37 @@ class SincronizacaoController extends GetxController {
 
 //! FIM GRUPO
 }
+
+
+//TODO  CONTEUDO DO ARQUIVO GRUPO.XML ABAIXO
+
+// <DataSet>
+//   <Row>
+//     <GrupoID_Int>01</GrupoID_Int>
+//     <Descricao>Pingente</Descricao>
+//   </Row>
+//   <Row>
+//     <GrupoID_Int>07</GrupoID_Int>
+//     <Descricao>Peca Grande</Descricao>
+//   </Row>
+//   <Row>
+//     <GrupoID_Int>02</GrupoID_Int>
+//     <Descricao>Brinco</Descricao>
+//   </Row>
+//   <Row>
+//     <GrupoID_Int>03</GrupoID_Int>
+//     <Descricao>Anel</Descricao>
+//   </Row>
+//   <Row>
+//     <GrupoID_Int>06</GrupoID_Int>
+//     <Descricao>Pulseiras e Gargantilhas</Descricao>
+//   </Row>
+//   <Row>
+//     <GrupoID_Int>04</GrupoID_Int>
+//     <Descricao>Corrente</Descricao>
+//   </Row>
+//   <Row>
+//     <GrupoID_Int>09</GrupoID_Int>
+//     <Descricao>N. Brinco Corr</Descricao>
+//   </Row>
+// </DataSet>
