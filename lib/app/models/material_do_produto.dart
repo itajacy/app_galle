@@ -1,12 +1,12 @@
 //* criado em 22/08/2024
 
-class Material {
+class MaterialDoProduto {
   int? materialId;
   String? materialIdInt;
   String? descricao;
   int? ativo;
 
-  Material({
+  MaterialDoProduto({
     this.materialId,
     this.materialIdInt,
     this.descricao,
@@ -16,22 +16,22 @@ class Material {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'materialId': materialId,
-      'materialIdInt': materialIdInt,
-      'descricao': descricao,
+      'MaterialID_Int': materialIdInt,
+      'Descricao': descricao,
       'ativo': ativo,
     };
   }
 
-  factory Material.fromMap(Map<String, dynamic> mapaMaterial) {
-    return Material(
+  factory MaterialDoProduto.fromMap(Map<String, dynamic> mapaMaterial) {
+    return MaterialDoProduto(
       materialId: mapaMaterial['materialId'] != null
           ? mapaMaterial['materialId'] as int
           : null,
-      materialIdInt: mapaMaterial['materialIdInt'] != null
-          ? mapaMaterial['materialIdInt'] as String
+      materialIdInt: mapaMaterial['MaterialID_Int'] != null
+          ? mapaMaterial['MaterialID_Int'] as String
           : null,
-      descricao: mapaMaterial['descricao'] != null
-          ? mapaMaterial['descricao'] as String
+      descricao: mapaMaterial['Descricao'] != null
+          ? mapaMaterial['Descricao'] as String
           : null,
       ativo:
           mapaMaterial['ativo'] != null ? mapaMaterial['ativo'] as int : null,

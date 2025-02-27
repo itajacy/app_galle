@@ -79,6 +79,9 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   //! Tabela
                   await sincronizacaoController.apagaTodasAsTabelas();
                   await sincronizacaoController.sincronizacaoTabela(context);
+                  //! Material
+                  await sincronizacaoController.apagaTodosOsMateriais();
+                  await sincronizacaoController.sincronizacaoMaterial(context);
 
                   //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
                   // SincronizacaoAtualizacaoMensagemTodos(
@@ -157,33 +160,33 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
           //     ),
           //   ],
           // ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GeneralIconButton(
-                onPress: () async {
-                  sincronizacaoController.sincronizacaoClientes(context);
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     GeneralIconButton(
+          //       onPress: () async {
+          //         sincronizacaoController.sincronizacaoClientes(context);
 
-                  // SincronizacaoAtualizacaoMensagemCliente(
-                  //   context: context,
-                  //   sincronizacaoClienteController:
-                  //       sincronizacaoClienteController,
-                  // ).showFullBottomSheet();
-                },
-                icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
-                buttonWidth: Sizes.sizeW_200,
-                titulo: 'Atualizar Clientes',
-              ),
-              const Column(
-                children: [
-                  Text("Última Atualização"),
-                  Text("15/03/2024 17:15"),
-                ],
-              ),
-            ],
-          ),
+          //         // SincronizacaoAtualizacaoMensagemCliente(
+          //         //   context: context,
+          //         //   sincronizacaoClienteController:
+          //         //       sincronizacaoClienteController,
+          //         // ).showFullBottomSheet();
+          //       },
+          //       icone: Icons.sync_outlined,
+          //       iconSize: Sizes.sizeH_30,
+          //       buttonHeight: Sizes.sizeH_60,
+          //       buttonWidth: Sizes.sizeW_200,
+          //       titulo: 'Atualizar Clientes',
+          //     ),
+          //     const Column(
+          //       children: [
+          //         Text("Última Atualização"),
+          //         Text("15/03/2024 17:15"),
+          //       ],
+          //     ),
+          //   ],
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -301,6 +304,27 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               ),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoMaterial(context);
+                },
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar Material',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("27/02/2025 14:25"),
+                ],
+              ),
+            ],
+          ),
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           //   children: [
@@ -345,6 +369,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   print('TODOS OS TAMANHOS FORAM APAGADOS!');
                   sincronizacaoController.apagaTodasAsTabelas();
                   print('TODOS AS TABELAS FORAM APAGADAS!');
+                  sincronizacaoController.apagaTodosOsMateriais();
+                  print('TODOS OS MATERIAIS FORAM APAGADAS!');
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,

@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:galle/app/models/material_do_produto.dart';
 import 'package:galle/app/services/database/dao/cor_dao.dart';
 import 'package:galle/app/services/database/dao/linha_dao.dart';
 import 'package:get/get.dart';
@@ -20,6 +21,7 @@ import '../../models/tipo.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../../services/database/dao/dispositivo_dao.dart';
 import '../../services/database/dao/grupo_dao.dart';
+import '../../services/database/dao/material_dao.dart';
 import '../../services/database/dao/tabela_dao.dart';
 import '../../services/database/dao/tamanho_dao.dart';
 import '../../services/database/dao/tipo_dao.dart';
@@ -1147,6 +1149,133 @@ class SincronizacaoController extends GetxController {
   }
 
 //! FIM TABELA
+
+//! ===========================================================================
+
+//! INICIO MATERIAL
+
+  MaterialDao materialDao = MaterialDao();
+
+  MaterialDoProduto material = MaterialDoProduto();
+  int respostaMaterial = 0;
+
+  sincronizacaoMaterial(BuildContext context) async {
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO Material');
+    // Apaga todos os Materials
+    apagaTodosOsMateriais();
+
+    String jsonStringMaterial =
+        await convertXmlToJsonMaterial('Material'); //convertendo XML em Json
+
+    List<MaterialDoProduto> materialListaObjeto = convertJsonToMaterial(
+        jsonStringMaterial); //convertendo Json em uma lista de Objetos(Material)
+
+    await salvarListaDeMaterial(materialListaObjeto);
+
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM Material');
+  }
+//TODO SALVAR AS LINHAS
+
+  int qtdMaterials = 0;
+  salvarListaDeMaterial(List<MaterialDoProduto> materialListaObjeto) async {
+    print('primeira material da lista de objetos');
+    print(materialListaObjeto[0]);
+    print('fim grupo da lista de objetos');
+
+    for (var elemento in materialListaObjeto) {
+      print('elemento MaterialIdInt==> ${elemento.materialIdInt}');
+      print('elemento Descricao ==> ${elemento.descricao}');
+      // respostaMaterial = await materialDao.salvar(elemento);
+      respostaMaterial = await salvarMaterial(elemento);
+      if (respostaMaterial != 0) {
+        qtdMaterials++;
+      }
+      print('====-----====');
+    }
+    print(
+        'Total de Materials Lidos do arquivo .xml--> ${materialListaObjeto.length}');
+    print('Total de Materials Inclusos--> $qtdMaterials');
+    print('--------------------fim----------------------------');
+  }
+
+  Future<String> convertXmlToJsonMaterial(String nomeDoArquivoXml) async {
+    String filePath = '';
+    var arquivo = File(filePath);
+    String fileName = '$nomeDoArquivoXml.xml';
+    var getPathFile = DirectoryPath();
+    print('getPathFile--> $getPathFile ');
+    var storePath = await getPathFile.getPath();
+    print('storePath--> $storePath');
+    filePath = '$storePath/$fileName';
+    print('filePath--> $filePath');
+
+    arquivo = File(filePath);
+    print('arquivo--> $arquivo');
+
+    //* Lendo arquivo e convertendo em bytes
+    Uint8List xmlBytes = await arquivo.readAsBytes();
+    // print('xmlBytes--> $xmlBytes');
+    // print('------------------------------------------------');
+    //* convertendo bytes para String
+    String xmlString = String.fromCharCodes(xmlBytes);
+
+    //* Criação de uma instância do converter XML para JSON
+    Xml2Json xml2json = Xml2Json();
+    // print(
+    //     '--------------------------------------------------------');
+    print('xml2json--1> ${xml2json.toString()} ');
+    xml2json.parse(xmlString);
+    print('-------------');
+    print('xml2json--2> ${xml2json.toString()} ');
+
+    //* Converte para JSON
+    final jsonStringMaterial = xml2json.toParkerWithAttrs();
+    print('jsonStringMaterial --> $jsonStringMaterial');
+
+    return jsonStringMaterial;
+  }
+
+  int totalMaterials = 0;
+  int elementMaterial = 0;
+  List<MaterialDoProduto> convertJsonToMaterial(String jsonStringMaterial) {
+    //* Converte para Map
+    Map<String, dynamic> mapMaterials = jsonDecode(jsonStringMaterial);
+
+    totalMaterials = mapMaterials['DataSet']['Row'].length;
+
+    print('total de Materials no arquivo .xml--> $totalMaterials');
+
+    //* Cria um List dos Maps
+    List materialListMap = [];
+
+    for (var elemento = 0; elemento < totalMaterials; elemento++) {
+      materialListMap.add((mapMaterials['DataSet']['Row'][elemento]));
+      elementMaterial++;
+      totalMaterials;
+      update();
+    }
+
+    print('MaterialListmap  sincronizacao_page--> $materialListMap');
+    final List<MaterialDoProduto> materialListaObjeto =
+        List<MaterialDoProduto>.from(
+      materialListMap.map((model) => MaterialDoProduto.fromMap(model)),
+    );
+
+    return materialListaObjeto;
+  }
+
+  Future<int> salvarMaterial(MaterialDoProduto material) async {
+    int resultado = await materialDao.salvar(material);
+    return resultado;
+  }
+
+//*
+  Future<int> apagaTodosOsMateriais() async {
+    int resultado = await materialDao.deleteAll();
+    return resultado;
+  }
+
+//! FIM MATERIAL
 
 //* FIM DA SINCRONIZACAOCONTROLLER
 }
