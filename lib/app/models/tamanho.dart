@@ -18,8 +18,8 @@ class Tamanho {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'tamanhoId': tamanhoId,
-      'tamanhoIdInt': tamanhoIdInt,
-      'descricao': descricao,
+      'TamanhoID_Int': tamanhoIdInt,
+      'Descricao': descricao,
       'ativo': ativo,
     };
   }
@@ -28,8 +28,8 @@ class Tamanho {
     return Tamanho(
       tamanhoId: map['tamanhoId'] != null ? map['tamanhoId'] as int : null,
       tamanhoIdInt:
-          map['tamanhoIdInt'] != null ? map['tamanhoIdInt'] as String : null,
-      descricao: map['descricao'] != null ? map['descricao'] as String : null,
+          map['TamanhoID_Int'] != null ? map['TamanhoID_Int'] as String : null,
+      descricao: map['Descricao'] != null ? map['Descricao'] as String : null,
       ativo: map['ativo'] != null ? map['ativo'] as int : null,
     );
   }

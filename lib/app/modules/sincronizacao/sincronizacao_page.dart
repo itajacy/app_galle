@@ -23,8 +23,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
   void initState() {
     // TODO: implement initState
 
-    ConnectFtp()
-        .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
+    // ConnectFtp()
+    //     .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
 
     super.initState();
   }
@@ -73,6 +73,9 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   //! Tipos
                   await sincronizacaoController.apagaTodosOsTipos();
                   await sincronizacaoController.sincronizacaoTipo(context);
+                  //! Tamanhos
+                  await sincronizacaoController.apagaTodosOsTamanhos();
+                  await sincronizacaoController.sincronizacaoTamanho(context);
 
                   //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
                   // SincronizacaoAtualizacaoMensagemTodos(
@@ -253,6 +256,27 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               ),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoTamanho(context);
+                },
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar Tamanhos',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("27/02/2025 09:15"),
+                ],
+              ),
+            ],
+          ),
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           //   children: [
@@ -293,6 +317,10 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   print('TODOS OS GRUPOS FORAM APAGADOS!');
                   sincronizacaoController.apagaTodasAsLinhas();
                   print('TODOS AS LINHAS FORAM APAGADAS!');
+                  sincronizacaoController.apagaTodosOsTipos();
+                  print('TODOS OS TIPOS FORAM APAGADOS!');
+                  sincronizacaoController.apagaTodosOsTamanhos();
+                  print('TODOS OS TAMANHOS FORAM APAGADOS!');
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,

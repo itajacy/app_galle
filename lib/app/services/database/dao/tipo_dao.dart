@@ -9,7 +9,7 @@ import '../app_database.dart';
 
 class TipoDao {
   static const String tabelaTipo = 'CREATE TABLE $_tableName ('
-      '$_tipoId INTEGER, '
+      '$_tipoId INTEGER PRIMARY KEY, '
       '$_tipoIdInt TEXT, '
       '$_descricao TEXT, '
       '$_ativo INTEGER)';

@@ -14,10 +14,12 @@ import '../../models/cor.dart';
 import '../../models/dispositivo.dart';
 import '../../models/grupo.dart';
 import '../../models/linha.dart';
+import '../../models/tamanho.dart';
 import '../../models/tipo.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../../services/database/dao/dispositivo_dao.dart';
 import '../../services/database/dao/grupo_dao.dart';
+import '../../services/database/dao/tamanho_dao.dart';
 import '../../services/database/dao/tipo_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
 
@@ -885,12 +887,138 @@ class SincronizacaoController extends GetxController {
     return resultado;
   }
 
+//*
   Future<int> apagaTodosOsTipos() async {
     int resultado = await tipoDao.deleteAll();
     return resultado;
   }
 
 //! FIM  TIPO
+
+//! ===========================================================================
+
+//! INICIO  TAMANHO
+
+  TamanhoDao tamanhoDao = TamanhoDao();
+  Tamanho tamanho = Tamanho();
+  int respostaTamanho = 0;
+
+  sincronizacaoTamanho(BuildContext context) async {
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO Tamanho');
+    // Apaga todos os Tamanhos
+    apagaTodosOsTamanhos();
+
+    String jsonStringTamanho =
+        await convertXmlToJsonTamanho('Tamanho'); //convertendo XML em Json
+
+    List<Tamanho> tamanhoListaObjeto = convertJsonToTamanho(
+        jsonStringTamanho); //convertendo Json em uma lista de Objetos(Tamanho)
+
+    await salvarListaDeTamanho(tamanhoListaObjeto);
+
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM Tamanho');
+  }
+//TODO SALVAR AS LINHAS
+
+  int qtdTamanhos = 0;
+  salvarListaDeTamanho(List<Tamanho> tamanhoListaObjeto) async {
+    print('primeira tamanho da lista de objetos');
+    print(tamanhoListaObjeto[0]);
+    print('fim grupo da lista de objetos');
+
+    for (var elemento in tamanhoListaObjeto) {
+      print('elemento TamanhoIdInt==> ${elemento.tamanhoIdInt}');
+      print('elemento Descricao ==> ${elemento.descricao}');
+      // respostaTamanho = await tamanhoDao.salvar(elemento);
+      respostaTamanho = await salvarTamanho(elemento);
+      if (respostaTamanho != 0) {
+        qtdTamanhos++;
+      }
+      print('====-----====');
+    }
+    print(
+        'Total de Tamanhos Lidos do arquivo .xml--> ${tamanhoListaObjeto.length}');
+    print('Total de Tamanhos Inclusos--> $qtdTamanhos');
+    print('--------------------fim----------------------------');
+  }
+
+  Future<String> convertXmlToJsonTamanho(String nomeDoArquivoXml) async {
+    String filePath = '';
+    var arquivo = File(filePath);
+    String fileName = '$nomeDoArquivoXml.xml';
+    var getPathFile = DirectoryPath();
+    print('getPathFile--> $getPathFile ');
+    var storePath = await getPathFile.getPath();
+    print('storePath--> $storePath');
+    filePath = '$storePath/$fileName';
+    print('filePath--> $filePath');
+
+    arquivo = File(filePath);
+    print('arquivo--> $arquivo');
+
+    //* Lendo arquivo e convertendo em bytes
+    Uint8List xmlBytes = await arquivo.readAsBytes();
+    // print('xmlBytes--> $xmlBytes');
+    // print('------------------------------------------------');
+    //* convertendo bytes para String
+    String xmlString = String.fromCharCodes(xmlBytes);
+
+    //* Criação de uma instância do converter XML para JSON
+    Xml2Json xml2json = Xml2Json();
+    // print(
+    //     '--------------------------------------------------------');
+    print('xml2json--1> ${xml2json.toString()} ');
+    xml2json.parse(xmlString);
+    print('-------------');
+    print('xml2json--2> ${xml2json.toString()} ');
+
+    //* Converte para JSON
+    final jsonStringTamanho = xml2json.toParkerWithAttrs();
+    print('jsonStringTamanho --> $jsonStringTamanho');
+
+    return jsonStringTamanho;
+  }
+
+  int totalTamanhos = 0;
+  int elementTamanho = 0;
+  List<Tamanho> convertJsonToTamanho(String jsonStringTamanho) {
+    //* Converte para Map
+    Map<String, dynamic> mapTamanhos = jsonDecode(jsonStringTamanho);
+
+    totalTamanhos = mapTamanhos['DataSet']['Row'].length;
+
+    print('total de Tamanhos no arquivo .xml--> $totalTamanhos');
+
+    //* Cria um List dos Maps
+    List tamanhoListMap = [];
+
+    for (var elemento = 0; elemento < totalTamanhos; elemento++) {
+      tamanhoListMap.add((mapTamanhos['DataSet']['Row'][elemento]));
+      elementTamanho++;
+      totalTamanhos;
+      update();
+    }
+
+    print('Tamanholistmap  sincronizacao_page--> $tamanhoListMap');
+    final List<Tamanho> tamanhoListaObjeto = List<Tamanho>.from(
+      tamanhoListMap.map((model) => Tamanho.fromMap(model)),
+    );
+
+    return tamanhoListaObjeto;
+  }
+
+  Future<int> salvarTamanho(Tamanho tamanho) async {
+    int resultado = await tamanhoDao.salvar(tamanho);
+    return resultado;
+  }
+
+//*
+  Future<int> apagaTodosOsTamanhos() async {
+    int resultado = await tamanhoDao.deleteAll();
+    return resultado;
+  }
+
+//! FIM  TAMANHO
 
 //* FIM DA SINCRONIZACAOCONTROLLER
 }
