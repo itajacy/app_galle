@@ -23,8 +23,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
   void initState() {
     // TODO: implement initState
 
-    // ConnectFtp()
-    //     .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
+    ConnectFtp()
+        .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
 
     super.initState();
   }
@@ -73,9 +73,12 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   //! Tipos
                   await sincronizacaoController.apagaTodosOsTipos();
                   await sincronizacaoController.sincronizacaoTipo(context);
-                  //! Tamanhos
+                  //! Tamanho
                   await sincronizacaoController.apagaTodosOsTamanhos();
                   await sincronizacaoController.sincronizacaoTamanho(context);
+                  //! Tabela
+                  await sincronizacaoController.apagaTodasAsTabelas();
+                  await sincronizacaoController.sincronizacaoTabela(context);
 
                   //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
                   // SincronizacaoAtualizacaoMensagemTodos(
@@ -277,6 +280,27 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               ),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoTabela(context);
+                },
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar Tabelas',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("27/02/2025 10:38"),
+                ],
+              ),
+            ],
+          ),
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           //   children: [
@@ -308,10 +332,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   // sincronizacaoClienteController.apagaTodosOsClientes();
                   print('TODOS OS CLIENTES FORAM APAGADOS!');
                   sincronizacaoController.apagaTodosOsDispositivos();
-                  // sincronizacaoDispositivoController.apagaTodosOsDispositivos();
                   print('OS DADOS DO DISPOSITIVO FORAM APAGADOS!');
                   sincronizacaoController.apagaTodasAsCores();
-                  // sincronizacaoCorController.apagaTodasAsCores();
                   print('TODAS AS CORES FORAM APAGADAS!');
                   sincronizacaoController.apagaTodosOsGrupos();
                   print('TODOS OS GRUPOS FORAM APAGADOS!');
@@ -321,6 +343,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   print('TODOS OS TIPOS FORAM APAGADOS!');
                   sincronizacaoController.apagaTodosOsTamanhos();
                   print('TODOS OS TAMANHOS FORAM APAGADOS!');
+                  sincronizacaoController.apagaTodasAsTabelas();
+                  print('TODOS AS TABELAS FORAM APAGADAS!');
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,

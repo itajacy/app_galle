@@ -14,11 +14,13 @@ import '../../models/cor.dart';
 import '../../models/dispositivo.dart';
 import '../../models/grupo.dart';
 import '../../models/linha.dart';
+import '../../models/tabela.dart';
 import '../../models/tamanho.dart';
 import '../../models/tipo.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../../services/database/dao/dispositivo_dao.dart';
 import '../../services/database/dao/grupo_dao.dart';
+import '../../services/database/dao/tabela_dao.dart';
 import '../../services/database/dao/tamanho_dao.dart';
 import '../../services/database/dao/tipo_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
@@ -1019,6 +1021,132 @@ class SincronizacaoController extends GetxController {
   }
 
 //! FIM  TAMANHO
+
+//! ===========================================================================
+
+//! INICIO TABELA
+
+  TabelaDao tabelaDao = TabelaDao();
+  Tabela tabela = Tabela();
+  int respostaTabela = 0;
+
+  sincronizacaoTabela(BuildContext context) async {
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO Tabela');
+    // Apaga todos os Tabelas
+    apagaTodasAsTabelas();
+
+    String jsonStringTabela =
+        await convertXmlToJsonTabela('Tabela'); //convertendo XML em Json
+
+    List<Tabela> tabelaListaObjeto = convertJsonToTabela(
+        jsonStringTabela); //convertendo Json em uma lista de Objetos(Tabela)
+
+    await salvarListaDeTabela(tabelaListaObjeto);
+
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM Tabela');
+  }
+//TODO SALVAR AS LINHAS
+
+  int qtdTabelas = 0;
+  salvarListaDeTabela(List<Tabela> tabelaListaObjeto) async {
+    print('primeira tabela da lista de objetos');
+    print(tabelaListaObjeto[0]);
+    print('fim grupo da lista de objetos');
+
+    for (var elemento in tabelaListaObjeto) {
+      print('elemento TabelaIdInt==> ${elemento.tabelaIdInt}');
+      print('elemento Descricao ==> ${elemento.descricao}');
+      // respostaTabela = await tabelaDao.salvar(elemento);
+      respostaTabela = await salvarTabela(elemento);
+      if (respostaTabela != 0) {
+        qtdTabelas++;
+      }
+      print('====-----====');
+    }
+    print(
+        'Total de Tabelas Lidos do arquivo .xml--> ${tabelaListaObjeto.length}');
+    print('Total de Tabelas Inclusos--> $qtdTabelas');
+    print('--------------------fim----------------------------');
+  }
+
+  Future<String> convertXmlToJsonTabela(String nomeDoArquivoXml) async {
+    String filePath = '';
+    var arquivo = File(filePath);
+    String fileName = '$nomeDoArquivoXml.xml';
+    var getPathFile = DirectoryPath();
+    print('getPathFile--> $getPathFile ');
+    var storePath = await getPathFile.getPath();
+    print('storePath--> $storePath');
+    filePath = '$storePath/$fileName';
+    print('filePath--> $filePath');
+
+    arquivo = File(filePath);
+    print('arquivo--> $arquivo');
+
+    //* Lendo arquivo e convertendo em bytes
+    Uint8List xmlBytes = await arquivo.readAsBytes();
+    // print('xmlBytes--> $xmlBytes');
+    // print('------------------------------------------------');
+    //* convertendo bytes para String
+    String xmlString = String.fromCharCodes(xmlBytes);
+
+    //* Criação de uma instância do converter XML para JSON
+    Xml2Json xml2json = Xml2Json();
+    // print(
+    //     '--------------------------------------------------------');
+    print('xml2json--1> ${xml2json.toString()} ');
+    xml2json.parse(xmlString);
+    print('-------------');
+    print('xml2json--2> ${xml2json.toString()} ');
+
+    //* Converte para JSON
+    final jsonStringTabela = xml2json.toParkerWithAttrs();
+    print('jsonStringTabela --> $jsonStringTabela');
+
+    return jsonStringTabela;
+  }
+
+  int totalTabelas = 0;
+  int elementTabela = 0;
+  List<Tabela> convertJsonToTabela(String jsonStringTabela) {
+    //* Converte para Map
+    Map<String, dynamic> mapTabelas = jsonDecode(jsonStringTabela);
+
+    totalTabelas = mapTabelas['DataSet']['Row'].length;
+
+    print('total de Tabelas no arquivo .xml--> $totalTabelas');
+
+    //* Cria um List dos Maps
+    List tabelaListMap = [];
+
+    for (var elemento = 0; elemento < totalTabelas; elemento++) {
+      tabelaListMap.add((mapTabelas['DataSet']['Row'][elemento]));
+      elementTabela++;
+      totalTabelas;
+      update();
+    }
+
+    print('Tabelalistmap  sincronizacao_page--> $tabelaListMap');
+    final List<Tabela> tabelaListaObjeto = List<Tabela>.from(
+      tabelaListMap.map((model) => Tabela.fromMap(model)),
+    );
+
+    return tabelaListaObjeto;
+  }
+
+  Future<int> salvarTabela(Tabela tabela) async {
+    int resultado = await tabelaDao.salvar(tabela);
+    return resultado;
+  }
+
+//*
+
+  Future<int> apagaTodasAsTabelas() async {
+    int resultado = await tabelaDao.deleteAll();
+    return resultado;
+  }
+
+//! FIM TABELA
 
 //* FIM DA SINCRONIZACAOCONTROLLER
 }

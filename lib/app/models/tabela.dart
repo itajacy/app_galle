@@ -1,4 +1,3 @@
-
 //* alterado em 24/09/24
 class Tabela {
   int? tabelaId;
@@ -15,8 +14,8 @@ class Tabela {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'tabelaId': tabelaId,
-      'tabelaIdInt': tabelaIdInt,
-      'descricao': descricao,
+      'TabelaID_Int': tabelaIdInt,
+      'Descricao': descricao,
       'ativo': ativo,
     };
   }
@@ -25,11 +24,11 @@ class Tabela {
     return Tabela(
       tabelaId:
           mapaTabela['tabelaId'] != null ? mapaTabela['tabelaId'] as int : null,
-      tabelaIdInt: mapaTabela['tabelaIdInt'] != null
-          ? mapaTabela['tabelaIdInt'] as String
+      tabelaIdInt: mapaTabela['TabelaID_Int'] != null
+          ? mapaTabela['TabelaID_Int'] as String
           : null,
-      descricao: mapaTabela['descricao'] != null
-          ? mapaTabela['descricao'] as String
+      descricao: mapaTabela['Descricao'] != null
+          ? mapaTabela['Descricao'] as String
           : null,
       ativo: mapaTabela['ativo'] != null ? mapaTabela['ativo'] as String : null,
     );
