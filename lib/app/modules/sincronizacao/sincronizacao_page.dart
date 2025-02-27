@@ -100,60 +100,60 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GeneralIconButton(
-                onPress: () async {
-                  sincronizacaoController.sincronizacaoDispositivo(context);
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     GeneralIconButton(
+          //       onPress: () async {
+          //         sincronizacaoController.sincronizacaoDispositivo(context);
 
-                  // SincronizacaoAtualizacaoMensagemDispositivo(
-                  //   context: context,
-                  //   sincronizacaoDispositivoController:
-                  //       sincronizacaoDispositivoController,
-                  // ).showFullBottomSheet();
-                },
-                ativo: true,
-                icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
-                buttonWidth: Sizes.sizeW_200,
-                titulo: 'Atualizar DISPOSITIVO',
-              ),
-              const Column(
-                children: [
-                  Text("Última Atualização"),
-                  Text("15/03/2024 17:15"),
-                ],
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GeneralIconButton(
-                onPress: () async {
-                  sincronizacaoController.sincronizacaoCor(context);
-                  // SincronizacaoAtualizacaoMensagemCores(
-                  //   context: context,
-                  //   sincronizacaoCorController:
-                  // ).showFullBottomSheet();
-                },
-                ativo: true,
-                icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
-                buttonWidth: Sizes.sizeW_200,
-                titulo: 'Atualizar CORES',
-              ),
-              const Column(
-                children: [
-                  Text("Última Atualização"),
-                  Text("15/03/2024 17:15"),
-                ],
-              ),
-            ],
-          ),
+          //         // SincronizacaoAtualizacaoMensagemDispositivo(
+          //         //   context: context,
+          //         //   sincronizacaoDispositivoController:
+          //         //       sincronizacaoDispositivoController,
+          //         // ).showFullBottomSheet();
+          //       },
+          //       ativo: true,
+          //       icone: Icons.sync_outlined,
+          //       iconSize: Sizes.sizeH_30,
+          //       buttonHeight: Sizes.sizeH_60,
+          //       buttonWidth: Sizes.sizeW_200,
+          //       titulo: 'Atualizar DISPOSITIVO',
+          //     ),
+          //     const Column(
+          //       children: [
+          //         Text("Última Atualização"),
+          //         Text("15/03/2024 17:15"),
+          //       ],
+          //     ),
+          //   ],
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     GeneralIconButton(
+          //       onPress: () async {
+          //         sincronizacaoController.sincronizacaoCor(context);
+          //         // SincronizacaoAtualizacaoMensagemCores(
+          //         //   context: context,
+          //         //   sincronizacaoCorController:
+          //         // ).showFullBottomSheet();
+          //       },
+          //       ativo: true,
+          //       icone: Icons.sync_outlined,
+          //       iconSize: Sizes.sizeH_30,
+          //       buttonHeight: Sizes.sizeH_60,
+          //       buttonWidth: Sizes.sizeW_200,
+          //       titulo: 'Atualizar CORES',
+          //     ),
+          //     const Column(
+          //       children: [
+          //         Text("Última Atualização"),
+          //         Text("15/03/2024 17:15"),
+          //       ],
+          //     ),
+          //   ],
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

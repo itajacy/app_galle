@@ -7,7 +7,7 @@ import 'package:sqflite/sqflite.dart';
 
 class DispositivoDao {
   static const String tabelaDispositivo = 'CREATE TABLE $_tableName('
-      '$_id INTEGER, '
+      '$_id INTEGER PRIMARY KEY, '
       '$_dispositivoId TEXT, '
       '$_address TEXT, '
       '$_urlImagens TEXT, '
