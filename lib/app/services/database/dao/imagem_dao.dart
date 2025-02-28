@@ -8,6 +8,6 @@ class ImagemDao {
       '$_timeStamp INTEGER)';
 
   static const String _tableName = 'imagem';
-  static const String _imagemId = 'imagemId';
-  static const String _timeStamp = 'timeStamp';
+  static const String _imagemId = 'ImagemID';
+  static const String _timeStamp = 'Timestamp';
 }

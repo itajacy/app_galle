@@ -2,7 +2,7 @@
 
 class Imagem {
   String? imagemId;
-  int? timeStamp;
+  DateTime? timeStamp;
 
   Imagem({
     this.imagemId,
@@ -11,18 +11,18 @@ class Imagem {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'imagemId': imagemId,
-      'timeStamp': timeStamp,
+      'ImagemID': imagemId,
+      'Timestamp': timeStamp,
     };
   }
 
   factory Imagem.fromMap(Map<String, dynamic> mapaImagem) {
     return Imagem(
-      imagemId: mapaImagem['imagemId'] != null
-          ? mapaImagem['imagemId'] as String
+      imagemId: mapaImagem['ImagemID'] != null
+          ? mapaImagem['ImagemID'] as String
           : null,
-      timeStamp: mapaImagem['timeStamp'] != null
-          ? mapaImagem['timeStamp'] as int
+      timeStamp: mapaImagem['Timestamp'] != null
+          ? mapaImagem['Timestamp'] as DateTime
           : null,
     );
   }
