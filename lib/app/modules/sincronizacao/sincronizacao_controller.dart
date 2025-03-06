@@ -16,6 +16,7 @@ import '../../models/dispositivo.dart';
 import '../../models/grupo.dart';
 import '../../models/imagem.dart';
 import '../../models/linha.dart';
+import '../../models/preco.dart';
 import '../../models/tabela.dart';
 import '../../models/tamanho.dart';
 import '../../models/tipo.dart';
@@ -24,6 +25,7 @@ import '../../services/database/dao/dispositivo_dao.dart';
 import '../../services/database/dao/grupo_dao.dart';
 import '../../services/database/dao/imagem_dao.dart';
 import '../../services/database/dao/material_dao.dart';
+import '../../services/database/dao/preco_dao.dart';
 import '../../services/database/dao/tabela_dao.dart';
 import '../../services/database/dao/tamanho_dao.dart';
 import '../../services/database/dao/tipo_dao.dart';
@@ -336,7 +338,7 @@ class SincronizacaoController extends GetxController {
         msg: "ERRO INESPERADO!",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
+        timeInSecForIosWeb: 3,
         backgroundColor: Colors.red,
         textColor: Colors.white,
         fontSize: 16.0,
@@ -376,7 +378,7 @@ class SincronizacaoController extends GetxController {
         msg: "ERRO INESPERADO!",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
+        timeInSecForIosWeb: 3,
         backgroundColor: Colors.red,
         textColor: Colors.white,
         fontSize: 16.0,
@@ -423,7 +425,7 @@ class SincronizacaoController extends GetxController {
         msg: "ERRO INESPERADO!",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
+        timeInSecForIosWeb: 3,
         backgroundColor: Colors.red,
         textColor: Colors.white,
         fontSize: 16.0,
@@ -506,7 +508,7 @@ class SincronizacaoController extends GetxController {
         msg: "ERRO INESPERADO!",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
+        timeInSecForIosWeb: 3,
         backgroundColor: Colors.red,
         textColor: Colors.white,
         fontSize: 16.0,
@@ -1399,7 +1401,157 @@ class SincronizacaoController extends GetxController {
 
 //! FIM  IMAGEM
 
+//! ===========================================================================
 
+//! INICIO  PRECO
+
+  PrecoDao precoDao = PrecoDao();
+  Preco preco = Preco();
+  int respostaPreco = 0;
+
+  bool erroPreco = false;
+
+  sincronizacaoPreco(BuildContext context) async {
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO PRECO');
+    // Apaga todas as precos
+    apagaTodosOsPrecos();
+
+    String jsonStringPreco = '';
+    if (!erroPreco) {
+      jsonStringPreco =
+          await convertXmlToJsonPreco('Preco'); //convertendo XML em Json
+    }
+
+    List<Preco> precoListaObjeto = [];
+    if (!erroPreco) {
+      precoListaObjeto = convertJsonToPreco(
+          jsonStringPreco); //convertendo Json em uma lista de Objetos(Preco)
+    }
+
+    if (!erroPreco) {
+      await salvarListaDePreco(precoListaObjeto);
+    }
+
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM PRECO');
+    erroPreco = true;
+  }
+//TODO SALVAR OS PRECOS
+
+  int qtdPrecos = 0;
+  salvarListaDePreco(List<Preco> precoListaObjeto) async {
+    for (var elemento in precoListaObjeto) {
+      print('elemento PrecoIdInt==> ${elemento.tabelaId}');
+      print('elemento Descricao ==> ${elemento.produtoId}');
+      // int respostaPreco = await precoDao.salvar(elemento);
+      int respostaPreco = await salvarPreco(elemento);
+      if (respostaPreco != 0) {
+        qtdPrecos++;
+      }
+      print('====-----====');
+    }
+    print(
+        'Total de Precos Lidos do arquivo Preco.xml--> ${precoListaObjeto.length}');
+    print('Total de Precos Inclusas--> $qtdPrecos');
+    print('--------------------fim----------------------------');
+  }
+
+  Future<String> convertXmlToJsonPreco(String nomeDoArquivoXml) async {
+    try {
+      String filePath = '';
+      var arquivo = File(filePath);
+      String fileName = '$nomeDoArquivoXml.xml';
+      var getPathFile = DirectoryPath();
+      print('getPathFile--> $getPathFile ');
+      var storePath = await getPathFile.getPath();
+      print('storePath--> $storePath');
+      filePath = '$storePath/$fileName';
+      print('filePath--> $filePath');
+
+      arquivo = File(filePath);
+      print('arquivo--> $arquivo');
+
+      //* Lendo arquivo e convertendo em bytes
+      Uint8List xmlBytes = await arquivo.readAsBytes();
+      // print('xmlBytes--> $xmlBytes');
+      // print('------------------------------------------------');
+      //* convertendo bytes para String
+      String xmlString = String.fromCharCodes(xmlBytes);
+
+      //* Criação de uma instância do converter XML para JSON
+      Xml2Json xml2json = Xml2Json();
+      // print(
+      //     '--------------------------------------------------------');
+      print('xml2json--1> ${xml2json.toString()} ');
+      xml2json.parse(xmlString); //!  ERRO AQUI
+      print('-------------');
+      print('xml2json--2> ${xml2json.toString()} ');
+
+      //* Converte para JSON
+      final jsonString = xml2json.toParkerWithAttrs();
+      print('jsonString --> $jsonString');
+
+      return jsonString;
+    } catch (e) {
+      print('CATCH =====================================================');
+      print('erro--> $e');
+
+      Fluttertoast.showToast(
+        msg: "ERRO INESPERADO!",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 3,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+
+      erroPreco = true;
+      print('FIM CATCH =====================================================');
+    }
+    return '';
+  }
+
+  int totalPrecos = 0;
+  int elementPreco = 0;
+  List<Preco> convertJsonToPreco(String jsonString) {
+    //* Converte para Map
+    Map<String, dynamic> mapPrecos = jsonDecode(jsonString);
+
+    totalPrecos = mapPrecos['DataSet']['Row'].length;
+
+    print('total de Precos no arquivo .xml--> $totalPrecos');
+
+    //* Cria um List dos Maps
+    List precoListMap = [];
+
+    for (var elemento = 0; elemento < totalPrecos; elemento++) {
+      precoListMap.add((mapPrecos['DataSet']['Row'][elemento]));
+      elementPreco++;
+      totalPrecos;
+      update();
+    }
+
+    print('Precoslistmap  sincronizacao_page--> $precoListMap');
+    final List<Preco> precoListaObjeto = List<Preco>.from(
+      precoListMap.map((model) => Preco.fromMap(model)),
+    );
+
+    return precoListaObjeto;
+  }
+
+  Future<int> salvarPreco(Preco preco) async {
+    int resultado = await precoDao.salvar(preco);
+    return resultado;
+  }
+
+//TODO
+
+  Future<int> apagaTodosOsPrecos() async {
+    int resultado = await precoDao.deleteAll();
+    return resultado;
+  }
+
+//! FIM  PRECO
 
 //* FIM DA SINCRONIZACAOCONTROLLER
 }

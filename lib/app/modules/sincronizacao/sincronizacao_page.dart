@@ -23,8 +23,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
   void initState() {
     // TODO: implement initState
 
-    ConnectFtp()
-        .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
+    // ConnectFtp()
+    //     .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
 
     super.initState();
   }
@@ -87,7 +87,9 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   await sincronizacaoController.apagaTodasAsImagens();
                   await sincronizacaoController.sincronizacaoImagem(context);
 
-
+                  //! PRECOS
+                  await sincronizacaoController.apagaTodosOsPrecos();
+                  await sincronizacaoController.sincronizacaoPreco(context);
 
                   //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
                   // SincronizacaoAtualizacaoMensagemTodos(
@@ -348,11 +350,33 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               const Column(
                 children: [
                   Text("Última Atualização"),
-                  Text("27/02/2025 14:25"),
+                  Text("05/03/2025 21:15"),
                 ],
               ),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoPreco(context);
+                },
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar Precos',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("06/03/2025 11:16"),
+                ],
+              ),
+            ],
+          ),
+
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           //   children: [
@@ -399,6 +423,10 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   print('TODOS AS TABELAS FORAM APAGADAS!');
                   sincronizacaoController.apagaTodosOsMateriais();
                   print('TODOS OS MATERIAIS FORAM APAGADAS!');
+                  sincronizacaoController.apagaTodasAsImagens();
+                  print('TODOS AS IMAGENS FORAM APAGADAS!');
+                  sincronizacaoController.apagaTodosOsPrecos();
+                  print('TODOS OS PRECOS FORAM APAGADAS!');
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,

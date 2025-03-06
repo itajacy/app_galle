@@ -2,9 +2,9 @@
 
 class Preco {
   int? precoId;
-  int? tabelaId;
-  int? produtoId;
-  int? precoEmGrama;
+  int? tabelaId; // 645
+  String? produtoId; // código 01-002AG
+  int? precoGrama; // 0 ou 1
   double? preco;
   int? ativo;
 
@@ -12,7 +12,7 @@ class Preco {
     this.precoId,
     this.tabelaId,
     this.produtoId,
-    this.precoEmGrama,
+    this.precoGrama,
     this.preco,
     this.ativo,
   });
@@ -20,10 +20,10 @@ class Preco {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'precoId': precoId,
-      'tabelaId': tabelaId,
-      'produtoId': produtoId,
-      'precoEmGrama': precoEmGrama,
-      'preco': preco,
+      'TabelaID_Int': tabelaId,
+      'ProdutoID_Int': produtoId,
+      'PrecoGrama': precoGrama,
+      'Preco': preco,
       'ativo': ativo,
     };
   }
@@ -32,14 +32,18 @@ class Preco {
     return Preco(
       precoId:
           mapaPreco['precoId'] != null ? mapaPreco['precoId'] as int : null,
-      tabelaId:
-          mapaPreco['tabelaId'] != null ? mapaPreco['tabelaId'] as int : null,
-      produtoId:
-          mapaPreco['produtoId'] != null ? mapaPreco['produtoId'] as int : null,
-      precoEmGrama: mapaPreco['precoEmGrama'] != null
-          ? mapaPreco['precoEmGrama'] as int
+      tabelaId: mapaPreco['TabelaID_Int'] != null
+          ? int.parse(mapaPreco['TabelaID_Int'])
           : null,
-      preco: mapaPreco['preco'] != null ? mapaPreco['preco'] as double : null,
+      produtoId: mapaPreco['ProdutoID_Int'] != null
+          ? mapaPreco['ProdutoID_Int'] as String
+          : null,
+      precoGrama: mapaPreco['PrecoGrama'] != null
+          ? int.parse(mapaPreco['PrecoGrama'])
+          : null,
+      preco: mapaPreco['Preco'] != null
+          ? double.tryParse(mapaPreco['Preco']) as double
+          : null,
       ativo: mapaPreco['ativo'] != null ? mapaPreco['ativo'] as int : null,
     );
   }
@@ -51,6 +55,6 @@ class Preco {
 
   @override
   String toString() {
-    return 'Preco(precoId: $precoId, tabelaId: $tabelaId, produtoId: $produtoId, precoEmGrama: $precoEmGrama, preco: $preco, ativo: $ativo)';
+    return 'Preco(precoId: $precoId, tabelaId: $tabelaId, produtoId: $produtoId, precoEmGrama: $precoGrama, preco: $preco, ativo: $ativo)';
   }
 }
