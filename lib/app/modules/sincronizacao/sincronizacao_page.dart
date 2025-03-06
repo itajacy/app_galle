@@ -83,6 +83,12 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   await sincronizacaoController.apagaTodosOsMateriais();
                   await sincronizacaoController.sincronizacaoMaterial(context);
 
+                  //! IMAGEM
+                  await sincronizacaoController.apagaTodasAsImagens();
+                  await sincronizacaoController.sincronizacaoImagem(context);
+
+
+
                   //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
                   // SincronizacaoAtualizacaoMensagemTodos(
                   //   context: context,
@@ -187,33 +193,33 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
           //     ),
           //   ],
           // ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GeneralIconButton(
-                onPress: () async {
-                  sincronizacaoController.sincronizacaoGrupo(context);
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     GeneralIconButton(
+          //       onPress: () async {
+          //         sincronizacaoController.sincronizacaoGrupo(context);
 
-                  // SincronizacaoAtualizacaoMensagemCliente(
-                  //   context: context,
-                  //   sincronizacaoClienteController:
-                  //       sincronizacaoClienteController,
-                  // ).showFullBottomSheet();
-                },
-                icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
-                buttonWidth: Sizes.sizeW_200,
-                titulo: 'Atualizar Grupos',
-              ),
-              const Column(
-                children: [
-                  Text("Última Atualização"),
-                  Text("25/02/2025 20:38"),
-                ],
-              ),
-            ],
-          ),
+          //         // SincronizacaoAtualizacaoMensagemCliente(
+          //         //   context: context,
+          //         //   sincronizacaoClienteController:
+          //         //       sincronizacaoClienteController,
+          //         // ).showFullBottomSheet();
+          //       },
+          //       icone: Icons.sync_outlined,
+          //       iconSize: Sizes.sizeH_30,
+          //       buttonHeight: Sizes.sizeH_60,
+          //       buttonWidth: Sizes.sizeW_200,
+          //       titulo: 'Atualizar Grupos',
+          //     ),
+          //     const Column(
+          //       children: [
+          //         Text("Última Atualização"),
+          //         Text("25/02/2025 20:38"),
+          //       ],
+          //     ),
+          //   ],
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -316,6 +322,28 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                 buttonHeight: Sizes.sizeH_60,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Material',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("27/02/2025 14:25"),
+                ],
+              ),
+            ],
+          ),
+          // Row(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoImagem(context);
+                },
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_30,
+                buttonHeight: Sizes.sizeH_60,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar Imagens',
               ),
               const Column(
                 children: [

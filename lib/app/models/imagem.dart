@@ -2,7 +2,7 @@
 
 class Imagem {
   String? imagemId;
-  DateTime? timeStamp;
+  int? timeStamp;
 
   Imagem({
     this.imagemId,
@@ -22,7 +22,8 @@ class Imagem {
           ? mapaImagem['ImagemID'] as String
           : null,
       timeStamp: mapaImagem['Timestamp'] != null
-          ? mapaImagem['Timestamp'] as DateTime
+          ? int.parse(mapaImagem['Timestamp'])  
+            
           : null,
     );
   }

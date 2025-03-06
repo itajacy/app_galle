@@ -14,6 +14,7 @@ import '../../models/cliente.dart';
 import '../../models/cor.dart';
 import '../../models/dispositivo.dart';
 import '../../models/grupo.dart';
+import '../../models/imagem.dart';
 import '../../models/linha.dart';
 import '../../models/tabela.dart';
 import '../../models/tamanho.dart';
@@ -21,6 +22,7 @@ import '../../models/tipo.dart';
 import '../../services/database/dao/clientes_dao.dart';
 import '../../services/database/dao/dispositivo_dao.dart';
 import '../../services/database/dao/grupo_dao.dart';
+import '../../services/database/dao/imagem_dao.dart';
 import '../../services/database/dao/material_dao.dart';
 import '../../services/database/dao/tabela_dao.dart';
 import '../../services/database/dao/tamanho_dao.dart';
@@ -1276,6 +1278,128 @@ class SincronizacaoController extends GetxController {
   }
 
 //! FIM MATERIAL
+
+//! ===========================================================================
+
+//! INICIO IMAGEM
+
+  ImagemDao imagemDao = ImagemDao();
+  Imagem imagem = Imagem();
+  int respostaImagem = 0;
+
+  sincronizacaoImagem(BuildContext context) async {
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO IMAGEM');
+    // Apaga todas as imagens
+    apagaTodasAsImagens();
+
+    String jsonStringImagem =
+        await convertXmlToJsonImagem('Imagem'); //convertendo XML em Json
+
+    List<Imagem> imagemListaObjeto = convertJsonToImagem(
+        jsonStringImagem); //convertendo Json em uma lista de Objetos(Imagem)
+
+    await salvarListaDeImagem(imagemListaObjeto);
+
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM IMAGEM');
+  }
+//TODO SALVAR AS IMAGENS
+
+  int qtdImagens = 0;
+  salvarListaDeImagem(List<Imagem> imagemListaObjeto) async {
+    for (var elemento in imagemListaObjeto) {
+      print('elemento imagemID==> ${elemento.imagemId}');
+      print('elemento Timestamp ==> ${elemento.timeStamp}');
+      // int respostaImagem = await corDao.salvar(elemento);
+      int respostaImagem = await salvarImagem(elemento);
+      if (respostaImagem != 0) {
+        qtdImagens++;
+      }
+      print('====-----====');
+    }
+    print(
+        'Total de Imagens Lidos do arquivo Imagem.xml--> ${imagemListaObjeto.length}');
+    print('Total de Imagens Inclusas--> $qtdImagens');
+    print('--------------------fim----------------------------');
+  }
+
+  Future<String> convertXmlToJsonImagem(String nomeDoArquivoXml) async {
+    String filePath = '';
+    var arquivo = File(filePath);
+    String fileName = '$nomeDoArquivoXml.xml';
+    var getPathFile = DirectoryPath();
+    print('getPathFile--> $getPathFile ');
+    var storePath = await getPathFile.getPath();
+    print('storePath--> $storePath');
+    filePath = '$storePath/$fileName';
+    print('filePath--> $filePath');
+
+    arquivo = File(filePath);
+    print('arquivo--> $arquivo');
+
+    //* Lendo arquivo e convertendo em bytes
+    Uint8List xmlBytes = await arquivo.readAsBytes();
+    // print('xmlBytes--> $xmlBytes');
+    // print('------------------------------------------------');
+    //* convertendo bytes para String
+    String xmlString = String.fromCharCodes(xmlBytes);
+
+    //* Criação de uma instância do converter XML para JSON
+    Xml2Json xml2json = Xml2Json();
+    // print(
+    //     '--------------------------------------------------------');
+    print('xml2json--1> ${xml2json.toString()} ');
+    xml2json.parse(xmlString);
+    print('-------------');
+    print('xml2json--2> ${xml2json.toString()} ');
+
+    //* Converte para JSON
+    final jsonString = xml2json.toParkerWithAttrs();
+    print('jsonString --> $jsonString');
+
+    return jsonString;
+  }
+
+  int totalImagens = 0;
+  int elementImagem = 0;
+  List<Imagem> convertJsonToImagem(String jsonString) {
+    //* Converte para Map
+    Map<String, dynamic> mapCores = jsonDecode(jsonString);
+
+    totalImagens = mapCores['DataSet']['Row'].length;
+
+    print('total de Cores no arquivo .xml--> $totalImagens');
+
+    //* Cria um List dos Maps
+    List imagemListMap = [];
+
+    for (var elemento = 0; elemento < totalImagens; elemento++) {
+      imagemListMap.add((mapCores['DataSet']['Row'][elemento]));
+      elementImagem++;
+      totalImagens;
+      update();
+    }
+
+    print('imagemlistmap  sincronizacao_page--> $imagemListMap');
+    final List<Imagem> imagemListaObjeto = List<Imagem>.from(
+      imagemListMap.map((model) => Imagem.fromMap(model)),
+    );
+
+    return imagemListaObjeto;
+  }
+
+  Future<int> salvarImagem(Imagem imagem) async {
+    int resultado = await imagemDao.salvar(imagem);
+    return resultado;
+  }
+
+  Future<int> apagaTodasAsImagens() async {
+    int resultado = await imagemDao.deleteAll();
+    return resultado;
+  }
+
+//! FIM  IMAGEM
+
+
 
 //* FIM DA SINCRONIZACAOCONTROLLER
 }
