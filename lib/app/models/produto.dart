@@ -4,57 +4,55 @@ class Produto {
   int? produtoId;
   String? produtoIdInt;
   String? descricao;
-  String? imagemId;
-  int? grupoId;
-  int? linhaId;
-  int? materialId;
-  int? corId;
-  int? tamanhoId;
-  int? tipoId;
+  String? imagemID;
+  double? peso;
+  String? grupoIdInt;
+  String? linhaIdInt;
+  String? materialIdInt;
+  String? tamanhoIdInt;
+  String? corIDInt;
+  String? tipoIdInt;
   int? larguraMM;
   int? alturaMM;
-  double? peso;
-  int? ativo;
   int? lancamento;
-  DateTime? lctoData;
+  int? lctoData;
+  bool? ativo;
   Produto({
     this.produtoId,
     this.produtoIdInt,
     this.descricao,
-    this.imagemId,
-    this.grupoId,
-    this.linhaId,
-    this.materialId,
-    this.corId,
-    this.tamanhoId,
-    this.tipoId,
+    this.imagemID,
+    this.peso,
+    this.grupoIdInt,
+    this.linhaIdInt,
+    this.materialIdInt,
+    this.tamanhoIdInt,
+    this.corIDInt,
+    this.tipoIdInt,
     this.larguraMM,
     this.alturaMM,
-    this.peso,
-    this.ativo,
     this.lancamento,
     this.lctoData,
+    this.ativo,
   });
   //!  UTILIZACAO DE CAMPO COM DATA
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'produtoId': produtoId,
-      'produtoIdInt': produtoIdInt,
-      'descricao': descricao,
-      'imagemId': imagemId,
-      'grupoId': grupoId,
-      'linhaId': linhaId,
-      'materialId': materialId,
-      'corId': corId,
-      'tamanhoId': tamanhoId,
-      'tipoId': tipoId,
-      'larguraMM': larguraMM,
-      'alturaMM': alturaMM,
+      'ProdutoID_Int': produtoIdInt,
+      'Descricao': descricao,
+      'ImagemID': imagemID,
+      'GrupoID_Int': grupoIdInt,
+      'CorID_Int': corIDInt,
+      'TamanhoID_Int': tamanhoIdInt,
+      'TipoID_Int': tipoIdInt,
+      'Largura_MM': larguraMM,
+      'Altura_MM': alturaMM,
       'peso': peso,
       'ativo': ativo,
-      'lancamento': lancamento,
-      'lctoData': lctoData?.millisecondsSinceEpoch,
+      'Lancamento': lancamento,
+      'LctoData': lctoData,
     };
   }
 
@@ -63,41 +61,48 @@ class Produto {
       produtoId: mapaProduto['produtoId'] != null
           ? mapaProduto['produtoId'] as int
           : null,
-      produtoIdInt: mapaProduto['produtoIdInt'] != null
-          ? mapaProduto['produtoIdInt'] as String
+      produtoIdInt: mapaProduto['ProdutoID_Int'] != null
+          ? mapaProduto['ProdutoID_Int'] as String
           : null,
-      descricao: mapaProduto['descricao'] != null
-          ? mapaProduto['descricao'] as String
+      descricao: mapaProduto['Descricao'] != null
+          ? mapaProduto['Descricao'] as String
           : null,
-      imagemId: mapaProduto['imagemId'] != null
-          ? mapaProduto['imagemId'] as String
+      imagemID: mapaProduto['ImagemID'] != null
+          ? mapaProduto['ImagemID'] as String
           : null,
-      grupoId:
-          mapaProduto['grupoId'] != null ? mapaProduto['grupoId'] as int : null,
-      linhaId:
-          mapaProduto['linhaId'] != null ? mapaProduto['linhaId'] as int : null,
-      materialId: mapaProduto['materialId'] != null
-          ? mapaProduto['materialId'] as int
+      peso: mapaProduto['Peso'] != null
+          ? double.parse(mapaProduto['Peso'])
           : null,
-      corId: mapaProduto['corId'] != null ? mapaProduto['corId'] as int : null,
-      tamanhoId: mapaProduto['tamanhoId'] != null
-          ? mapaProduto['tamanhoId'] as int
+      grupoIdInt: mapaProduto['GrupoID_Int'] != null
+          ? mapaProduto['GrupoID_Int'] as String
           : null,
-      tipoId:
-          mapaProduto['tipoId'] != null ? mapaProduto['tipoId'] as int : null,
-      larguraMM: mapaProduto['larguraMM'] != null
-          ? mapaProduto['larguraMM'] as int
+      linhaIdInt: mapaProduto['LinhaID_Int'] != null
+          ? mapaProduto['LinhaID_Int'] as String
           : null,
-      alturaMM: mapaProduto['alturaMM'] != null
-          ? mapaProduto['alturaMM'] as int
+      materialIdInt: mapaProduto['MaterialID_Int'] != null
+          ? mapaProduto['MaterialID_Int'] as String
           : null,
-      peso: mapaProduto['peso'] != null ? mapaProduto['peso'] as double : null,
-      ativo: mapaProduto['ativo'] != null ? mapaProduto['ativo'] as int : null,
-      lancamento: mapaProduto['lancamento'] != null
-          ? mapaProduto['lancamento'] as int
+      corIDInt: mapaProduto['CorID_Int'] != null
+          ? mapaProduto['CorID_Int'] as String
           : null,
-      lctoData: mapaProduto['lctoData'] != null
-          ? DateTime.fromMillisecondsSinceEpoch(mapaProduto['lctoData'] as int)
+      tamanhoIdInt: mapaProduto['TamanhoID_Int'] != null
+          ? mapaProduto['TamanhoID_Int'] as String
+          : null,
+      tipoIdInt: mapaProduto['TipoID_Int'] != null
+          ? mapaProduto['TipoID_Int'] as String
+          : null,
+      larguraMM: mapaProduto['Largura_MM'] != null
+          ? mapaProduto['Largura_MM'] as int
+          : null,
+      alturaMM: mapaProduto['Altura_MM'] != null
+          ? mapaProduto['Altura_MM'] as int
+          : null,
+      ativo: mapaProduto['ativo'] != null ? mapaProduto['ativo'] as bool : null,
+      lancamento: mapaProduto['Lancamento'] != null
+          ? mapaProduto['Lancamento'] as int
+          : null,
+      lctoData: mapaProduto['LctoData'] != null
+          ? int.parse(mapaProduto['LctoData'])
           : null,
     );
   }
@@ -108,6 +113,6 @@ class Produto {
 
   @override
   String toString() {
-    return 'Produto(produtoId: $produtoId, produtoIdInt: $produtoIdInt, descricao: $descricao, imagemId: $imagemId, grupoId: $grupoId, linhaId: $linhaId, materialId: $materialId, corId: $corId, tamanhoId: $tamanhoId, tipoId: $tipoId, larguraMM: $larguraMM, alturaMM: $alturaMM, peso: $peso, ativo: $ativo, lancamento: $lancamento, lctoData: $lctoData)';
+    return 'Produto(produtoId: $produtoId, produtoIdInt: $produtoIdInt, descricao: $descricao, imagemID: $imagemID, grupoIdDInt: $grupoIdInt, linhaIdInt: $linhaIdInt, materialIdInt: $materialIdInt, corIDInt: $corIDInt, TamanhoID_Int: $tamanhoIdInt, TipoID_Int: $tipoIdInt, larguraMM: $larguraMM, alturaMM: $alturaMM, peso: $peso, ativo: $ativo, lancamento: $lancamento, lctoData: $lctoData)';
   }
 }
