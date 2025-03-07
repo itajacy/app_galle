@@ -23,8 +23,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
   void initState() {
     // TODO: implement initState
 
-    ConnectFtp()
-        .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
+    // ConnectFtp()
+    //     .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
 
     super.initState();
   }
@@ -101,8 +101,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar TODOS',
               ),
@@ -114,114 +114,114 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               ),
             ],
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: [
-          //     GeneralIconButton(
-          //       onPress: () async {
-          //         sincronizacaoController.sincronizacaoDispositivo(context);
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoDispositivo(context);
 
-          //         // SincronizacaoAtualizacaoMensagemDispositivo(
-          //         //   context: context,
-          //         //   sincronizacaoDispositivoController:
-          //         //       sincronizacaoDispositivoController,
-          //         // ).showFullBottomSheet();
-          //       },
-          //       ativo: true,
-          //       icone: Icons.sync_outlined,
-          //       iconSize: Sizes.sizeH_30,
-          //       buttonHeight: Sizes.sizeH_60,
-          //       buttonWidth: Sizes.sizeW_200,
-          //       titulo: 'Atualizar DISPOSITIVO',
-          //     ),
-          //     const Column(
-          //       children: [
-          //         Text("Última Atualização"),
-          //         Text("15/03/2024 17:15"),
-          //       ],
-          //     ),
-          //   ],
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: [
-          //     GeneralIconButton(
-          //       onPress: () async {
-          //         sincronizacaoController.sincronizacaoCor(context);
-          //         // SincronizacaoAtualizacaoMensagemCores(
-          //         //   context: context,
-          //         //   sincronizacaoCorController:
-          //         // ).showFullBottomSheet();
-          //       },
-          //       ativo: true,
-          //       icone: Icons.sync_outlined,
-          //       iconSize: Sizes.sizeH_30,
-          //       buttonHeight: Sizes.sizeH_60,
-          //       buttonWidth: Sizes.sizeW_200,
-          //       titulo: 'Atualizar CORES',
-          //     ),
-          //     const Column(
-          //       children: [
-          //         Text("Última Atualização"),
-          //         Text("15/03/2024 17:15"),
-          //       ],
-          //     ),
-          //   ],
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: [
-          //     GeneralIconButton(
-          //       onPress: () async {
-          //         sincronizacaoController.sincronizacaoClientes(context);
+                  // SincronizacaoAtualizacaoMensagemDispositivo(
+                  //   context: context,
+                  //   sincronizacaoDispositivoController:
+                  //       sincronizacaoDispositivoController,
+                  // ).showFullBottomSheet();
+                },
+                ativo: true,
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar DISPOSITIVO',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("15/03/2024 17:15"),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoCor(context);
+                  // SincronizacaoAtualizacaoMensagemCores(
+                  //   context: context,
+                  //   sincronizacaoCorController:
+                  // ).showFullBottomSheet();
+                },
+                ativo: true,
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar CORES',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("15/03/2024 17:15"),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoClientes(context);
 
-          //         // SincronizacaoAtualizacaoMensagemCliente(
-          //         //   context: context,
-          //         //   sincronizacaoClienteController:
-          //         //       sincronizacaoClienteController,
-          //         // ).showFullBottomSheet();
-          //       },
-          //       icone: Icons.sync_outlined,
-          //       iconSize: Sizes.sizeH_30,
-          //       buttonHeight: Sizes.sizeH_60,
-          //       buttonWidth: Sizes.sizeW_200,
-          //       titulo: 'Atualizar Clientes',
-          //     ),
-          //     const Column(
-          //       children: [
-          //         Text("Última Atualização"),
-          //         Text("15/03/2024 17:15"),
-          //       ],
-          //     ),
-          //   ],
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: [
-          //     GeneralIconButton(
-          //       onPress: () async {
-          //         sincronizacaoController.sincronizacaoGrupo(context);
+                  // SincronizacaoAtualizacaoMensagemCliente(
+                  //   context: context,
+                  //   sincronizacaoClienteController:
+                  //       sincronizacaoClienteController,
+                  // ).showFullBottomSheet();
+                },
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar Clientes',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("15/03/2024 17:15"),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoGrupo(context);
 
-          //         // SincronizacaoAtualizacaoMensagemCliente(
-          //         //   context: context,
-          //         //   sincronizacaoClienteController:
-          //         //       sincronizacaoClienteController,
-          //         // ).showFullBottomSheet();
-          //       },
-          //       icone: Icons.sync_outlined,
-          //       iconSize: Sizes.sizeH_30,
-          //       buttonHeight: Sizes.sizeH_60,
-          //       buttonWidth: Sizes.sizeW_200,
-          //       titulo: 'Atualizar Grupos',
-          //     ),
-          //     const Column(
-          //       children: [
-          //         Text("Última Atualização"),
-          //         Text("25/02/2025 20:38"),
-          //       ],
-          //     ),
-          //   ],
-          // ),
+                  // SincronizacaoAtualizacaoMensagemCliente(
+                  //   context: context,
+                  //   sincronizacaoClienteController:
+                  //       sincronizacaoClienteController,
+                  // ).showFullBottomSheet();
+                },
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar Grupos',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("25/02/2025 20:38"),
+                ],
+              ),
+            ],
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -236,8 +236,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   // ).showFullBottomSheet();
                 },
                 icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Linhas',
               ),
@@ -257,8 +257,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   sincronizacaoController.sincronizacaoTipo(context);
                 },
                 icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Tipos',
               ),
@@ -278,8 +278,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   sincronizacaoController.sincronizacaoTamanho(context);
                 },
                 icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Tamanhos',
               ),
@@ -299,8 +299,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   sincronizacaoController.sincronizacaoTabela(context);
                 },
                 icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Tabelas',
               ),
@@ -320,8 +320,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   sincronizacaoController.sincronizacaoMaterial(context);
                 },
                 icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Material',
               ),
@@ -342,8 +342,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   sincronizacaoController.sincronizacaoImagem(context);
                 },
                 icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Imagens',
               ),
@@ -363,8 +363,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   sincronizacaoController.sincronizacaoPreco(context);
                 },
                 icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'Atualizar Precos',
               ),
@@ -384,8 +384,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
           //       onPress: () {},
           //       ativo: false,
           //       icone: Icons.sync_outlined,
-          //       iconSize: Sizes.sizeH_30,
-          //       buttonHeight: Sizes.sizeH_60,
+          //       iconSize: Sizes.sizeH_25,
+          //       buttonHeight: Sizes.sizeH_30,
           //       buttonWidth: Sizes.sizeW_200,
           //       titulo: 'Atualizar Fotos',
           //     ),
@@ -430,8 +430,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,
-                iconSize: Sizes.sizeH_30,
-                buttonHeight: Sizes.sizeH_60,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_200,
                 titulo: 'APAGA TODAS as Tabelas.',
               ),

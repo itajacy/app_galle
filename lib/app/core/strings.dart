@@ -9,7 +9,7 @@ class Strings {
   static const configuracao = 'CONFIGURAÇÃO';
   static const transmissao = 'TRANSMISSÃO';
   static const empresa = "Galle";
-  static const versao = "versão. 0.21.5";
+  static const versao = "versão. 0.21.6";
 
   // DIVERSOS
   static const novo = 'NOVO';
