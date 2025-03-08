@@ -1553,5 +1553,14 @@ class SincronizacaoController extends GetxController {
 
 //! FIM  PRECO
 
+//! ===========================================================================
+
+//! INICIO  PRODUTO
+
+
+
+
+//! FIM  PRODUTO
+
 //* FIM DA SINCRONIZACAOCONTROLLER
 }
