@@ -44,6 +44,8 @@ class Produto {
       'Descricao': descricao,
       'ImagemID': imagemID,
       'GrupoID_Int': grupoIdInt,
+      'LinhaID_Int': linhaIdInt,
+      'MaterialID_Int': materialIdInt,
       'CorID_Int': corIDInt,
       'TamanhoID_Int': tamanhoIdInt,
       'TipoID_Int': tipoIdInt,
@@ -92,18 +94,18 @@ class Produto {
           ? mapaProduto['TipoID_Int'] as String
           : null,
       larguraMM: mapaProduto['Largura_MM'] != null
-          ? mapaProduto['Largura_MM'] as int
+          ? int.parse(mapaProduto['Largura_MM']) 
           : null,
       alturaMM: mapaProduto['Altura_MM'] != null
-          ? mapaProduto['Altura_MM'] as int
+          ? int.parse(mapaProduto['Altura_MM']) 
           : null,
-      ativo: mapaProduto['ativo'] != null ? mapaProduto['ativo'] as bool : null,
       lancamento: mapaProduto['Lancamento'] != null
-          ? mapaProduto['Lancamento'] as int
+          ? int.parse(mapaProduto['Lancamento']) 
           : null,
       lctoData: mapaProduto['LctoData'] != null
           ? int.parse(mapaProduto['LctoData'])
           : null,
+      ativo: mapaProduto['ativo'] != null ? mapaProduto['ativo'] as bool : null,
     );
   }
 

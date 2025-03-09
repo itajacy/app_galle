@@ -23,8 +23,8 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
   void initState() {
     // TODO: implement initState
 
-    ConnectFtp()
-        .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
+    // ConnectFtp()
+    //     .conexaoFTP(); //! descomentar depois de testar PARA FAZER O DOWNLOAD DOS ARQUIVOS
 
     super.initState();
   }
@@ -90,6 +90,10 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   //! PRECOS
                   await sincronizacaoController.apagaTodosOsPrecos();
                   await sincronizacaoController.sincronizacaoPreco(context);
+
+                  //! PRODUTOS
+                  await sincronizacaoController.apagaTodosOsProdutos();
+                  await sincronizacaoController.sincronizacaoProduto(context);
 
                   //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
                   // SincronizacaoAtualizacaoMensagemTodos(
@@ -376,6 +380,27 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               ),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GeneralIconButton(
+                onPress: () async {
+                  sincronizacaoController.sincronizacaoProduto(context);
+                },
+                icone: Icons.sync_outlined,
+                iconSize: Sizes.sizeH_25,
+                buttonHeight: Sizes.sizeH_30,
+                buttonWidth: Sizes.sizeW_200,
+                titulo: 'Atualizar Produtos',
+              ),
+              const Column(
+                children: [
+                  Text("Última Atualização"),
+                  Text("08/03/2025 20:10"),
+                ],
+              ),
+            ],
+          ),
 
           // Row(
           //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -426,7 +451,9 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                   sincronizacaoController.apagaTodasAsImagens();
                   print('TODOS AS IMAGENS FORAM APAGADAS!');
                   sincronizacaoController.apagaTodosOsPrecos();
-                  print('TODOS OS PRECOS FORAM APAGADAS!');
+                  print('TODOS OS PRECOS FORAM APAGADOS!');
+                  sincronizacaoController.apagaTodosOsProdutos();
+                  print('TODOS OS PRODUTOS FORAM APAGADOS!');
                 },
                 ativo: true,
                 icone: Icons.sync_outlined,

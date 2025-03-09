@@ -17,6 +17,7 @@ import '../../models/grupo.dart';
 import '../../models/imagem.dart';
 import '../../models/linha.dart';
 import '../../models/preco.dart';
+import '../../models/produto.dart';
 import '../../models/tabela.dart';
 import '../../models/tamanho.dart';
 import '../../models/tipo.dart';
@@ -26,6 +27,7 @@ import '../../services/database/dao/grupo_dao.dart';
 import '../../services/database/dao/imagem_dao.dart';
 import '../../services/database/dao/material_dao.dart';
 import '../../services/database/dao/preco_dao.dart';
+import '../../services/database/dao/produto_dao.dart';
 import '../../services/database/dao/tabela_dao.dart';
 import '../../services/database/dao/tamanho_dao.dart';
 import '../../services/database/dao/tipo_dao.dart';
@@ -1557,7 +1559,151 @@ class SincronizacaoController extends GetxController {
 
 //! INICIO  PRODUTO
 
+  ProdutoDao produtoDao = ProdutoDao();
+  Produto produto = Produto();
+  int respostaProduto = 0;
 
+  bool erroProduto = false;
+
+  sincronizacaoProduto(BuildContext context) async {
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO PRECO');
+    // Apaga todas as produtos
+    apagaTodosOsProdutos();
+
+    String jsonStringProduto = '';
+    if (!erroProduto) {
+      jsonStringProduto =
+          await convertXmlToJsonProduto('Produto'); //convertendo XML em Json
+    }
+
+    List<Produto> produtoListaObjeto = [];
+    if (!erroProduto) {
+      produtoListaObjeto = convertJsonToProduto(
+          jsonStringProduto); //convertendo Json em uma lista de Objetos(Produto)
+    }
+
+    if (!erroProduto) {
+      await salvarListaDeProduto(produtoListaObjeto);
+    }
+
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM PRECO');
+    erroProduto = true;
+  }
+//TODO SALVAR OS PRODUTOS
+
+  int qtdProdutos = 0;
+  salvarListaDeProduto(List<Produto> produtoListaObjeto) async {
+    for (var elemento in produtoListaObjeto) {
+      print('elemento ProdutoIdInt==> ${elemento.produtoIdInt}');
+      print('elemento Descricao ==> ${elemento.descricao}');
+      // int respostaProduto = await produtoDao.salvar(elemento);
+      int respostaProduto = await salvarProduto(elemento);
+      if (respostaProduto != 0) {
+        qtdProdutos++;
+      }
+      print('====-----====');
+    }
+    print(
+        'Total de Produtos Lidos do arquivo Produto.xml--> ${produtoListaObjeto.length}');
+    print('Total de Produtos Inclusas--> $qtdProdutos');
+    print('--------------------fim----------------------------');
+  }
+
+  Future<String> convertXmlToJsonProduto(String nomeDoArquivoXml) async {
+    try {
+      String filePath = '';
+      var arquivo = File(filePath);
+      String fileName = '$nomeDoArquivoXml.xml';
+      var getPathFile = DirectoryPath();
+      print('getPathFile--> $getPathFile ');
+      var storePath = await getPathFile.getPath();
+      print('storePath--> $storePath');
+      filePath = '$storePath/$fileName';
+      print('filePath--> $filePath');
+
+      arquivo = File(filePath);
+      print('arquivo--> $arquivo');
+
+      //* Lendo arquivo e convertendo em bytes
+      Uint8List xmlBytes = await arquivo.readAsBytes();
+      // print('xmlBytes--> $xmlBytes');
+      // print('------------------------------------------------');
+      //* convertendo bytes para String
+      String xmlString = String.fromCharCodes(xmlBytes);
+
+      //* Criação de uma instância do converter XML para JSON
+      Xml2Json xml2json = Xml2Json();
+      // print(
+      //     '--------------------------------------------------------');
+      print('xml2json--1> ${xml2json.toString()} ');
+      xml2json.parse(xmlString); //!  ERRO AQUI
+      print('-------------');
+      print('xml2json--2> ${xml2json.toString()} ');
+
+      //* Converte para JSON
+      final jsonString = xml2json.toParkerWithAttrs();
+      print('jsonString --> $jsonString');
+
+      return jsonString;
+    } catch (e) {
+      print('CATCH =====================================================');
+      print('erro--> $e');
+
+      Fluttertoast.showToast(
+        msg: "ERRO INESPERADO!",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 3,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
+
+      erroProduto = true;
+      print('FIM CATCH =====================================================');
+    }
+    return '';
+  }
+
+  int totalProdutos = 0;
+  int elementProduto = 0;
+  List<Produto> convertJsonToProduto(String jsonString) {
+    //* Converte para Map
+    Map<String, dynamic> mapProdutos = jsonDecode(jsonString);
+
+    totalProdutos = mapProdutos['DataSet']['Row'].length;
+
+    print('total de Produtos no arquivo .xml--> $totalProdutos');
+
+    //* Cria um List dos Maps
+    List produtoListMap = [];
+
+    for (var elemento = 0; elemento < totalProdutos; elemento++) {
+      produtoListMap.add((mapProdutos['DataSet']['Row'][elemento]));
+      elementProduto++;
+      totalProdutos;
+      update();
+    }
+
+    print('Produtoslistmap  sincronizacao_page--> $produtoListMap');
+    final List<Produto> produtoListaObjeto = List<Produto>.from(
+      produtoListMap.map((model) => Produto.fromMap(model)),
+    );
+
+    return produtoListaObjeto;
+  }
+
+  Future<int> salvarProduto(Produto produto) async {
+    int resultado = await produtoDao.salvar(produto);
+    return resultado;
+  }
+
+//TODO
+
+  Future<int> apagaTodosOsProdutos() async {
+    int resultado = await produtoDao.deleteAll();
+    return resultado;
+  }
 
 
 //! FIM  PRODUTO

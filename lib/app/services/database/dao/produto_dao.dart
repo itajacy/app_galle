@@ -22,27 +22,27 @@ class ProdutoDao {
       '$_larguraMM INTEGER, '
       '$_alturaMM INTEGER, '
       '$_peso REAL, '
-      '$_ativo, BOOLEAN'
+      '$_ativo BOOLEAN, '
       '$_lancamento INTEGER, '
       '$_lctoData DATETIME)';
 
   static const String _tableName = 'produto';
   static const String _produtoId = 'produtoId';
-  static const String _produtoIdInt = 'produtoIdInt';
-  static const String _descricao = 'descricao';
-  static const String _imagemId = 'imagemId';
-  static const String _grupoId = 'grupoId';
-  static const String _linhaId = 'linhaId';
-  static const String _materialId = 'materialId';
-  static const String _corId = 'corId';
-  static const String _tamanhoId = 'tamanhoId';
-  static const String _tipoId = 'tipoId';
-  static const String _larguraMM = 'larguraMM';
-  static const String _alturaMM = 'alturaMM';
+  static const String _produtoIdInt = 'ProdutoID_Int';
+  static const String _descricao = 'Descricao';
+  static const String _imagemId = 'ImagemID';
+  static const String _grupoId = 'GrupoID_Int';
+  static const String _linhaId = 'LinhaID_Int';
+  static const String _materialId = 'MaterialID_Int';
+  static const String _corId = 'CorID_Int';
+  static const String _tamanhoId = 'TamanhoID_Int';
+  static const String _tipoId = 'TipoID_Int';
+  static const String _larguraMM = 'Largura_MM';
+  static const String _alturaMM = 'Altura_MM';
   static const String _peso = 'peso';
   static const String _ativo = 'ativo';
-  static const String _lancamento = 'lancamento';
-  static const String _lctoData = 'lctoData';
+  static const String _lancamento = 'Lancamento';
+  static const String _lctoData = 'LctoData';
 
 Future<int> salvar(Produto produto) async {
     final Database db = await getDatabase();
@@ -79,7 +79,7 @@ Future<int> salvar(Produto produto) async {
     final Database db = await getDatabase();
     final List<Map<String, dynamic>> result = await db.query(
       _tableName,
-      where: 'produtoIdInt LIKE ?',
+      where: 'ProdutoID_Int LIKE ?',
       whereArgs: [
         '%$codigoDoProduto%',
       ],
