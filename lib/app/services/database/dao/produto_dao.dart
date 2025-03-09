@@ -24,7 +24,7 @@ class ProdutoDao {
       '$_peso REAL, '
       '$_ativo BOOLEAN, '
       '$_lancamento INTEGER, '
-      '$_lctoData DATETIME)';
+      '$_lctoData INTEGER)';
 
   static const String _tableName = 'produto';
   static const String _produtoId = 'produtoId';

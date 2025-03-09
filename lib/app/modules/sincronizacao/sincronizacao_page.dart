@@ -53,54 +53,12 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
             children: [
               GeneralIconButton(
                 onPress: () async {
-                  // a eliminação dos dispositivos foi passada para dentro do controller, dentro .sincronizacaoDispositivo()
-                  //! Dispositivo
-                  await sincronizacaoController.apagaTodosOsDispositivos();
-                  await sincronizacaoController
-                      .sincronizacaoDispositivo(context);
-                  //! Cores
-                  await sincronizacaoController.apagaTodasAsCores();
-                  await sincronizacaoController.sincronizacaoCor(context);
-                  //! Clientes
-                  //! Clientes não precisa/deve ser apagada
-                  await sincronizacaoController.sincronizacaoClientes(context);
-                  //! Grupos
-                  await sincronizacaoController.apagaTodosOsGrupos();
-                  await sincronizacaoController.sincronizacaoGrupo(context);
-                  //! Linhas
-                  await sincronizacaoController.apagaTodasAsLinhas();
-                  await sincronizacaoController.sincronizacaoLinha(context);
-                  //! Tipos
-                  await sincronizacaoController.apagaTodosOsTipos();
-                  await sincronizacaoController.sincronizacaoTipo(context);
-                  //! Tamanho
-                  await sincronizacaoController.apagaTodosOsTamanhos();
-                  await sincronizacaoController.sincronizacaoTamanho(context);
-                  //! Tabela
-                  await sincronizacaoController.apagaTodasAsTabelas();
-                  await sincronizacaoController.sincronizacaoTabela(context);
-                  //! Material
-                  await sincronizacaoController.apagaTodosOsMateriais();
-                  await sincronizacaoController.sincronizacaoMaterial(context);
+                  ConnectFtp().conexaoFTP();
 
-                  //! IMAGEM
-                  await sincronizacaoController.apagaTodasAsImagens();
-                  await sincronizacaoController.sincronizacaoImagem(context);
-
-                  //! PRECOS
-                  await sincronizacaoController.apagaTodosOsPrecos();
-                  await sincronizacaoController.sincronizacaoPreco(context);
-
-                  //! PRODUTOS
-                  await sincronizacaoController.apagaTodosOsProdutos();
-                  await sincronizacaoController.sincronizacaoProduto(context);
-
-                  //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
-                  // SincronizacaoAtualizacaoMensagemTodos(
+                  // SincronizacaoAtualizacaoMensagemDispositivo(
                   //   context: context,
                   //   sincronizacaoDispositivoController:
                   //       sincronizacaoDispositivoController,
-                  //   sincronizacaoCorController: sincronizacaoCorController,
                   // ).showFullBottomSheet();
                 },
                 ativo: true,
@@ -108,16 +66,86 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
                 iconSize: Sizes.sizeH_25,
                 buttonHeight: Sizes.sizeH_30,
                 buttonWidth: Sizes.sizeW_200,
-                titulo: 'Atualizar TODOS',
+                titulo: 'Download arquivos .XML',
               ),
               const Column(
                 children: [
                   Text("Última Atualização"),
-                  Text("15/03/2024 17:15"),
+                  Text("09/03/2025 11:50"),
                 ],
               ),
             ],
           ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     GeneralIconButton(
+          //       onPress: () async {
+          //         // a eliminação dos dispositivos foi passada para dentro do controller, dentro .sincronizacaoDispositivo()
+          //         //! Dispositivo
+          //         await sincronizacaoController.apagaTodosOsDispositivos();
+          //         await sincronizacaoController
+          //             .sincronizacaoDispositivo(context);
+          //         //! Cores
+          //         await sincronizacaoController.apagaTodasAsCores();
+          //         await sincronizacaoController.sincronizacaoCor(context);
+          //         //! Clientes
+          //         //! Clientes não precisa/deve ser apagada
+          //         await sincronizacaoController.sincronizacaoClientes(context);
+          //         //! Grupos
+          //         await sincronizacaoController.apagaTodosOsGrupos();
+          //         await sincronizacaoController.sincronizacaoGrupo(context);
+          //         //! Linhas
+          //         await sincronizacaoController.apagaTodasAsLinhas();
+          //         await sincronizacaoController.sincronizacaoLinha(context);
+          //         //! Tipos
+          //         await sincronizacaoController.apagaTodosOsTipos();
+          //         await sincronizacaoController.sincronizacaoTipo(context);
+          //         //! Tamanho
+          //         await sincronizacaoController.apagaTodosOsTamanhos();
+          //         await sincronizacaoController.sincronizacaoTamanho(context);
+          //         //! Tabela
+          //         await sincronizacaoController.apagaTodasAsTabelas();
+          //         await sincronizacaoController.sincronizacaoTabela(context);
+          //         //! Material
+          //         await sincronizacaoController.apagaTodosOsMateriais();
+          //         await sincronizacaoController.sincronizacaoMaterial(context);
+
+          //         //! IMAGEM
+          //         await sincronizacaoController.apagaTodasAsImagens();
+          //         await sincronizacaoController.sincronizacaoImagem(context);
+
+          //         //! PRECOS
+          //         await sincronizacaoController.apagaTodosOsPrecos();
+          //         await sincronizacaoController.sincronizacaoPreco(context);
+
+          //         //! PRODUTOS
+          //         await sincronizacaoController.apagaTodosOsProdutos();
+          //         await sincronizacaoController.sincronizacaoProduto(context);
+
+          //         //! ======================================== abaixo a chamada do TODOS ==>  Dispositivo e Cor
+          //         // SincronizacaoAtualizacaoMensagemTodos(
+          //         //   context: context,
+          //         //   sincronizacaoDispositivoController:
+          //         //       sincronizacaoDispositivoController,
+          //         //   sincronizacaoCorController: sincronizacaoCorController,
+          //         // ).showFullBottomSheet();
+          //       },
+          //       ativo: true,
+          //       icone: Icons.sync_outlined,
+          //       iconSize: Sizes.sizeH_25,
+          //       buttonHeight: Sizes.sizeH_30,
+          //       buttonWidth: Sizes.sizeW_200,
+          //       titulo: 'Atualizar TODOS',
+          //     ),
+          //     const Column(
+          //       children: [
+          //         Text("Última Atualização"),
+          //         Text("15/03/2024 17:15"),
+          //       ],
+          //     ),
+          //   ],
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

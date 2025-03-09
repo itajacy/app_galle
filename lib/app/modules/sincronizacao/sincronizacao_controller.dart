@@ -1566,7 +1566,7 @@ class SincronizacaoController extends GetxController {
   bool erroProduto = false;
 
   sincronizacaoProduto(BuildContext context) async {
-    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO PRECO');
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO PRODUTO');
     // Apaga todas as produtos
     apagaTodosOsProdutos();
 
@@ -1586,7 +1586,7 @@ class SincronizacaoController extends GetxController {
       await salvarListaDeProduto(produtoListaObjeto);
     }
 
-    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM PRECO');
+    print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM PRODUTO');
     erroProduto = true;
   }
 //TODO SALVAR OS PRODUTOS
