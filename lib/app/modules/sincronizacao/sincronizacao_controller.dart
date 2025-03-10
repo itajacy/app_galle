@@ -276,7 +276,7 @@ class SincronizacaoController extends GetxController {
 
     String jsonStringCliente = '';
     if (!erro) {
-      jsonStringCliente = await convertXmlToJson('Cliente');
+      jsonStringCliente = await convertXmlToJsonCliente('Cliente');
     }
     List<Cliente>? clienteListaObjeto;
     if (!erro) {
@@ -293,7 +293,7 @@ class SincronizacaoController extends GetxController {
     // SincronizacaoAtualizacaoMensagem();
   }
 
-  Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
+  Future<String> convertXmlToJsonCliente(String nomeDoArquivoXml) async {
     try {
 //todo  Lançando uma exceção
 
@@ -336,15 +336,7 @@ class SincronizacaoController extends GetxController {
       print('CATCH =====================================================');
       print('erro--> $e');
 
-      Fluttertoast.showToast(
-        msg: "ERRO INESPERADO!",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 3,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
+      messageToast("ERRO INESPERADO!");
 
       erro = true;
       print('FIM CATCH =====================================================');
@@ -376,15 +368,7 @@ class SincronizacaoController extends GetxController {
 
       return clienteListaObjeto;
     } catch (e) {
-      Fluttertoast.showToast(
-        msg: "ERRO INESPERADO!",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 3,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
+      messageToast("ERRO INESPERADO!");
 
       erro = true;
     }
@@ -423,15 +407,7 @@ class SincronizacaoController extends GetxController {
       print('Total de Clientes Inclusos--> $inclusos');
       print('--------------------fim----------------------------');
     } catch (e) {
-      Fluttertoast.showToast(
-        msg: "ERRO INESPERADO!",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 3,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
+      messageToast("ERRO INESPERADO!");
 
       erro = true;
     }
@@ -506,15 +482,7 @@ class SincronizacaoController extends GetxController {
       print('----------------============================---------------');
       return resposta;
     } catch (e) {
-      Fluttertoast.showToast(
-        msg: "ERRO INESPERADO!",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 3,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
+      messageToast("ERRO INESPERADO!");
 
       erro = true;
     }
@@ -1497,15 +1465,7 @@ class SincronizacaoController extends GetxController {
       print('CATCH =====================================================');
       print('erro--> $e');
 
-      Fluttertoast.showToast(
-        msg: "ERRO INESPERADO!",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 3,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
+      messageToast("ERRO INESPERADO!");
 
       erroPreco = true;
       print('FIM CATCH =====================================================');
@@ -1649,15 +1609,7 @@ class SincronizacaoController extends GetxController {
       print('CATCH =====================================================');
       print('erro--> $e');
 
-      Fluttertoast.showToast(
-        msg: "ERRO INESPERADO!",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 3,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0,
-      );
+      messageToast("ERRO INESPERADO!");
 
       erroProduto = true;
       print('FIM CATCH =====================================================');
@@ -1705,8 +1657,69 @@ class SincronizacaoController extends GetxController {
     return resultado;
   }
 
-
 //! FIM  PRODUTO
 
 //* FIM DA SINCRONIZACAOCONTROLLER
+
+//!  INICIO DA REFATORAÇÃO
+
+  Future<bool?> messageToast(String message) {
+    return Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 3,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
+  }
+
+  Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
+    try {
+      String filePath = '';
+      var arquivo = File(filePath);
+      String fileName = '$nomeDoArquivoXml.xml';
+      var getPathFile = DirectoryPath();
+      print('getPathFile--> $getPathFile ');
+      var storePath = await getPathFile.getPath();
+      print('storePath--> $storePath');
+      filePath = '$storePath/$fileName';
+      print('filePath--> $filePath');
+
+      arquivo = File(filePath);
+      print('arquivo--> $arquivo');
+
+      //* Lendo arquivo e convertendo em bytes
+      Uint8List xmlBytes = await arquivo.readAsBytes();
+      // print('xmlBytes--> $xmlBytes');
+      // print('------------------------------------------------');
+      //* convertendo bytes para String
+      String xmlString = String.fromCharCodes(xmlBytes);
+
+      //* Criação de uma instância do converter XML para JSON
+      Xml2Json xml2json = Xml2Json();
+      // print(
+      //     '--------------------------------------------------------');
+      print('xml2json--1> ${xml2json.toString()} ');
+      xml2json.parse(xmlString);
+      print('-------------');
+      print('xml2json--2> ${xml2json.toString()} ');
+
+      //* Converte para JSON
+      final jsonString = xml2json.toParkerWithAttrs();
+      print('jsonString --> $jsonString');
+
+      return jsonString;
+    } catch (e) {
+      print('CATCH =====================================================');
+      print('erro--> $e');
+
+      messageToast("ERRO INESPERADO!");
+
+      // erroGeral = true;
+      print('FIM CATCH =====================================================');
+    }
+    return '';
+  }
 }

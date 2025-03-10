@@ -2,27 +2,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:galle/app/modules/sincronizacao/sincronizacao_cor_controller.dart';
-
 import '../../../core/colors_app.dart';
 import '../sincronizacao_dispositivo_controller.dart';
 
 class SincronizacaoAtualizacaoMensagemTodos {
   BuildContext context;
   SincronizacaoDispositivoController sincronizacaoDispositivoController;
-  SincronizacaoCorController sincronizacaoCorController;
 
   SincronizacaoAtualizacaoMensagemTodos({
     required this.context,
     required this.sincronizacaoDispositivoController,
-    required this.sincronizacaoCorController,
   });
 
   void showFullBottomSheet() async {
     sincronizacaoDispositivoController.totalDispositivo = 0;
     sincronizacaoDispositivoController.element = 0;
-    sincronizacaoCorController.totalCores = 0;
-    sincronizacaoCorController.element = 0;
 
     // await sincronizacaoDispositivoController.sincronizacaoDispositivo(context);
     // await sincronizacaoCorController.sincronizacaoCor(context);
