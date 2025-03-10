@@ -117,29 +117,36 @@ class SincronizacaoController extends GetxController {
   int totalCores = 0;
   int element = 0;
   List<Cor> convertJsonToCor(String jsonString) {
-    //* Converte para Map
-    Map<String, dynamic> mapCores = jsonDecode(jsonString);
+    try {
+      //* Converte para Map
+      Map<String, dynamic> mapCores = jsonDecode(jsonString);
 
-    totalCores = mapCores['DataSet']['Row'].length;
+      totalCores = mapCores['DataSet']['Row'].length;
 
-    print('total de Cores no arquivo .xml--> $totalCores');
+      print('total de Cores no arquivo .xml--> $totalCores');
 
-    //* Cria um List dos Maps
-    List corListMap = [];
+      //* Cria um List dos Maps
+      List corListMap = [];
 
-    for (var elemento = 0; elemento < totalCores; elemento++) {
-      corListMap.add((mapCores['DataSet']['Row'][elemento]));
-      element++;
-      totalCores;
-      update();
+      for (var elemento = 0; elemento < totalCores; elemento++) {
+        corListMap.add((mapCores['DataSet']['Row'][elemento]));
+        element++;
+        totalCores;
+        update();
+      }
+
+      print('Coreslistmap  sincronizacao_page--> $corListMap');
+      final List<Cor> corListaObjeto = List<Cor>.from(
+        corListMap.map((model) => Cor.fromMap(model)),
+      );
+
+      return corListaObjeto;
+    } catch (e) {
+      messageToast("ERRO INESPERADO!");
+
+      erroGeral = true;
     }
-
-    print('Coreslistmap  sincronizacao_page--> $corListMap');
-    final List<Cor> corListaObjeto = List<Cor>.from(
-      corListMap.map((model) => Cor.fromMap(model)),
-    );
-
-    return corListaObjeto;
+    return [];
   }
 
 //TODO SALVAR AS CORES
@@ -250,19 +257,26 @@ class SincronizacaoController extends GetxController {
   int elementDispositivo = 0;
 
   Dispositivo convertJsonToDispositivo(String jsonString) {
-    //* Converte para Map
-    Map<String, dynamic> mapDispositivo = jsonDecode(jsonString);
+    try {
+      //* Converte para Map
+      Map<String, dynamic> mapDispositivo = jsonDecode(jsonString);
 
-    print(mapDispositivo['DataSet']['Row']);
+      print(mapDispositivo['DataSet']['Row']);
 
-    Dispositivo dispositivoObjeto =
-        Dispositivo.fromMap(mapDispositivo['DataSet']['Row']);
+      Dispositivo dispositivoObjeto =
+          Dispositivo.fromMap(mapDispositivo['DataSet']['Row']);
 
-    totalDispositivo = 1;
-    elementDispositivo = 1;
-    update();
+      totalDispositivo = 1;
+      elementDispositivo = 1;
+      update();
 
-    return dispositivoObjeto;
+      return dispositivoObjeto;
+    } catch (e) {
+      messageToast("ERRO INESPERADO!");
+
+      erroGeral = true;
+    }
+    return Dispositivo();
   }
 
   Future<int> salvarDispositivo(Dispositivo dispositivo) async {
@@ -301,21 +315,26 @@ class SincronizacaoController extends GetxController {
 
   sincronizacaoClientes(BuildContext context) async {
     //!  Conectando e baixando o arquivo Cliente.xml
-    erro = false;
+    erroGeral = false;
+    totalObjeto = 0;
+    elementObjeto = 0;
+
+    // erro = false;
     // await conexaoFTP('Cliente');
     //convertendo XML em Json
 
     String jsonStringCliente = '';
-    if (!erro) {
-      jsonStringCliente = await convertXmlToJsonCliente('Cliente');
+    if (!erroGeral) {
+      // jsonStringCliente = await convertXmlToJsonCliente('Cliente');
+      jsonStringCliente = await convertXmlToJson('Cliente');
     }
     List<Cliente>? clienteListaObjeto;
-    if (!erro) {
+    if (!erroGeral) {
       clienteListaObjeto = convertJsonToCliente(
           jsonStringCliente); //convertendo Json em uma lista de Objetos(Cliente)
     }
 
-    if (!erro) {
+    if (!erroGeral) {
       await mapeandoClientesParaSalvarOuAlterar(
           clienteListaObjeto!); // importando novos ou alterando clientes
     }
@@ -324,56 +343,56 @@ class SincronizacaoController extends GetxController {
     // SincronizacaoAtualizacaoMensagem();
   }
 
-  Future<String> convertXmlToJsonCliente(String nomeDoArquivoXml) async {
-    try {
-//todo  Lançando uma exceção
+//   Future<String> convertXmlToJsonCliente(String nomeDoArquivoXml) async {
+//     try {
+// //todo  Lançando uma exceção
 
-      String filePath = '';
-      var arquivo = File(filePath);
-      String fileName = '$nomeDoArquivoXml.xml';
-      var getPathFile = DirectoryPath();
-      print('getPathFile--> $getPathFile ');
-      var storePath = await getPathFile.getPath();
-      print('storePath--> $storePath');
-      filePath = '$storePath/$fileName';
-      print('filePath--> $filePath');
+//       String filePath = '';
+//       var arquivo = File(filePath);
+//       String fileName = '$nomeDoArquivoXml.xml';
+//       var getPathFile = DirectoryPath();
+//       print('getPathFile--> $getPathFile ');
+//       var storePath = await getPathFile.getPath();
+//       print('storePath--> $storePath');
+//       filePath = '$storePath/$fileName';
+//       print('filePath--> $filePath');
 
-      arquivo = File(filePath);
-      print('arquivo--> $arquivo');
+//       arquivo = File(filePath);
+//       print('arquivo--> $arquivo');
 
-      //* Lendo arquivo e convertendo em bytes
-      Uint8List xmlBytes = await arquivo.readAsBytes();
-      // print('xmlBytes--> $xmlBytes');
-      // print('------------------------------------------------');
-      //* convertendo bytes para String
-      String xmlString = String.fromCharCodes(xmlBytes);
+//       //* Lendo arquivo e convertendo em bytes
+//       Uint8List xmlBytes = await arquivo.readAsBytes();
+//       // print('xmlBytes--> $xmlBytes');
+//       // print('------------------------------------------------');
+//       //* convertendo bytes para String
+//       String xmlString = String.fromCharCodes(xmlBytes);
 
-      //* Criação de uma instância do converter XML para JSON
-      Xml2Json xml2json = Xml2Json();
-      // print(
-      //     '--------------------------------------------------------');
-      print('xml2json--1> ${xml2json.toString()} ');
+//       //* Criação de uma instância do converter XML para JSON
+//       Xml2Json xml2json = Xml2Json();
+//       // print(
+//       //     '--------------------------------------------------------');
+//       print('xml2json--1> ${xml2json.toString()} ');
 
-      xml2json.parse(xmlString);
+//       xml2json.parse(xmlString);
 
-      print('-------------');
-      print('xml2json--2> ${xml2json.toString()} ');
+//       print('-------------');
+//       print('xml2json--2> ${xml2json.toString()} ');
 
-      //* Converte para JSON
-      final jsonString = xml2json.toParkerWithAttrs();
-      print('jsonString --> $jsonString');
-      return jsonString;
-    } catch (e) {
-      print('CATCH =====================================================');
-      print('erro--> $e');
+//       //* Converte para JSON
+//       final jsonString = xml2json.toParkerWithAttrs();
+//       print('jsonString --> $jsonString');
+//       return jsonString;
+//     } catch (e) {
+//       print('CATCH =====================================================');
+//       print('erro--> $e');
 
-      messageToast("ERRO INESPERADO!");
+//       messageToast("ERRO INESPERADO!");
 
-      erro = true;
-      print('FIM CATCH =====================================================');
-    }
-    return '';
-  }
+//       erro = true;
+//       print('FIM CATCH =====================================================');
+//     }
+//     return '';
+//   }
 
   int totalClientes = 0;
   // int element = 0;
@@ -401,7 +420,7 @@ class SincronizacaoController extends GetxController {
     } catch (e) {
       messageToast("ERRO INESPERADO!");
 
-      erro = true;
+      erroGeral = true;
     }
     return [];
   }
