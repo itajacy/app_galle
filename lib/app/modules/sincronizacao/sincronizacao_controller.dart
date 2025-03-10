@@ -34,6 +34,10 @@ import '../../services/database/dao/tipo_dao.dart';
 import '../configuracao/widgets/directory_path.dart';
 
 class SincronizacaoController extends GetxController {
+  bool erroGeral = false;
+  int totalObjeto = 0;
+  int elementObjeto = 0;
+
 //! INICIO COR
 
   CorDao corDao = CorDao();
@@ -41,76 +45,74 @@ class SincronizacaoController extends GetxController {
   int resposta = 0;
 
   sincronizacaoCor(BuildContext context) async {
+    erroGeral = false;
+    totalObjeto = 0;
+    elementObjeto = 0;
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO COR');
     // Apaga todas as cores
     apagaTodasAsCores();
 
-    String jsonStringCor =
-        await convertXmlToJsonCor('Cor'); //convertendo XML em Json
+    String jsonString = '';
+    if (!erroGeral) {
+      jsonString = await convertXmlToJson('Cor'); //convertendo XML em Json
+    }
 
-    List<Cor> corListaObjeto = convertJsonToCor(
-        jsonStringCor); //convertendo Json em uma lista de Objetos(Cor)
+    List<Cor> corListaObjeto = [];
+    if (!erroGeral) {
+      corListaObjeto = convertJsonToCor(jsonString);
+    }
 
-    await salvarListaDeCor(corListaObjeto);
+    if (!erroGeral) {
+      await salvarListaDeCor(corListaObjeto);
+    }
+
+    // String jsonStringCor =
+    //     await convertXmlToJsonCor('Cor'); //convertendo XML em Json
+
+    // List<Cor> corListaObjeto = convertJsonToCor(
+    //     jsonStringCor); //convertendo Json em uma lista de Objetos(Cor)
+
+    // await salvarListaDeCor(corListaObjeto);
 
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM COR');
   }
-//TODO SALVAR AS CORES
 
-  int qtdCores = 0;
-  salvarListaDeCor(List<Cor> corListaObjeto) async {
-    for (var elemento in corListaObjeto) {
-      print('elemento CorIdInt==> ${elemento.corIdInt}');
-      print('elemento Descricao ==> ${elemento.descricao}');
-      // int resposta = await corDao.salvar(elemento);
-      int resposta = await salvarCor(elemento);
-      if (resposta != 0) {
-        qtdCores++;
-      }
-      print('====-----====');
-    }
-    print(
-        'Total de Cores Lidos do arquivo Cor.xml--> ${corListaObjeto.length}');
-    print('Total de Cores Inclusas--> $qtdCores');
-    print('--------------------fim----------------------------');
-  }
+  // Future<String> convertXmlToJsonCor(String nomeDoArquivoXml) async {
+  //   String filePath = '';
+  //   var arquivo = File(filePath);
+  //   String fileName = '$nomeDoArquivoXml.xml';
+  //   var getPathFile = DirectoryPath();
+  //   print('getPathFile--> $getPathFile ');
+  //   var storePath = await getPathFile.getPath();
+  //   print('storePath--> $storePath');
+  //   filePath = '$storePath/$fileName';
+  //   print('filePath--> $filePath');
 
-  Future<String> convertXmlToJsonCor(String nomeDoArquivoXml) async {
-    String filePath = '';
-    var arquivo = File(filePath);
-    String fileName = '$nomeDoArquivoXml.xml';
-    var getPathFile = DirectoryPath();
-    print('getPathFile--> $getPathFile ');
-    var storePath = await getPathFile.getPath();
-    print('storePath--> $storePath');
-    filePath = '$storePath/$fileName';
-    print('filePath--> $filePath');
+  //   arquivo = File(filePath);
+  //   print('arquivo--> $arquivo');
 
-    arquivo = File(filePath);
-    print('arquivo--> $arquivo');
+  //   //* Lendo arquivo e convertendo em bytes
+  //   Uint8List xmlBytes = await arquivo.readAsBytes();
+  //   // print('xmlBytes--> $xmlBytes');
+  //   // print('------------------------------------------------');
+  //   //* convertendo bytes para String
+  //   String xmlString = String.fromCharCodes(xmlBytes);
 
-    //* Lendo arquivo e convertendo em bytes
-    Uint8List xmlBytes = await arquivo.readAsBytes();
-    // print('xmlBytes--> $xmlBytes');
-    // print('------------------------------------------------');
-    //* convertendo bytes para String
-    String xmlString = String.fromCharCodes(xmlBytes);
+  //   //* Criação de uma instância do converter XML para JSON
+  //   Xml2Json xml2json = Xml2Json();
+  //   // print(
+  //   //     '--------------------------------------------------------');
+  //   print('xml2json--1> ${xml2json.toString()} ');
+  //   xml2json.parse(xmlString);
+  //   print('-------------');
+  //   print('xml2json--2> ${xml2json.toString()} ');
 
-    //* Criação de uma instância do converter XML para JSON
-    Xml2Json xml2json = Xml2Json();
-    // print(
-    //     '--------------------------------------------------------');
-    print('xml2json--1> ${xml2json.toString()} ');
-    xml2json.parse(xmlString);
-    print('-------------');
-    print('xml2json--2> ${xml2json.toString()} ');
+  //   //* Converte para JSON
+  //   final jsonString = xml2json.toParkerWithAttrs();
+  //   print('jsonString --> $jsonString');
 
-    //* Converte para JSON
-    final jsonString = xml2json.toParkerWithAttrs();
-    print('jsonString --> $jsonString');
-
-    return jsonString;
-  }
+  //   return jsonString;
+  // }
 
   int totalCores = 0;
   int element = 0;
@@ -138,6 +140,26 @@ class SincronizacaoController extends GetxController {
     );
 
     return corListaObjeto;
+  }
+
+//TODO SALVAR AS CORES
+
+  int qtdCores = 0;
+  salvarListaDeCor(List<Cor> corListaObjeto) async {
+    for (var elemento in corListaObjeto) {
+      print('elemento CorIdInt==> ${elemento.corIdInt}');
+      print('elemento Descricao ==> ${elemento.descricao}');
+      // int resposta = await corDao.salvar(elemento);
+      int resposta = await salvarCor(elemento);
+      if (resposta != 0) {
+        qtdCores++;
+      }
+      print('====-----====');
+    }
+    print(
+        'Total de Cores Lidos do arquivo Cor.xml--> ${corListaObjeto.length}');
+    print('Total de Cores Inclusas--> $qtdCores');
+    print('--------------------fim----------------------------');
   }
 
   Future<int> salvarCor(Cor cor) async {
@@ -1675,6 +1697,7 @@ class SincronizacaoController extends GetxController {
     );
   }
 
+  // TODO CONVERTE XML PARA JSON
   Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
     try {
       String filePath = '';
@@ -1717,7 +1740,7 @@ class SincronizacaoController extends GetxController {
 
       messageToast("ERRO INESPERADO!");
 
-      // erroGeral = true;
+      erroGeral = true;
       print('FIM CATCH =====================================================');
     }
     return '';
