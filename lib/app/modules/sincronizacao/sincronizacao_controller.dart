@@ -50,7 +50,7 @@ class SincronizacaoController extends GetxController {
     elementObjeto = 0;
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO COR');
     // Apaga todas as cores
-    apagaTodasAsCores();
+    await apagaTodasAsCores();
 
     String jsonString = '';
     if (!erroGeral) {
@@ -182,60 +182,69 @@ class SincronizacaoController extends GetxController {
   // int resposta = 0;
 
   sincronizacaoDispositivo(BuildContext context) async {
+    erroGeral = false;
+    totalObjeto = 0;
+    elementObjeto = 0;
+
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO DISPOSITIVO');
     // Apaga todos os dados da tabela de dispositivo
-    await dispositivoDao.deleteAll();
-    print('delete dispositivo');
-    // await conexaoFTP('Dispositivo');
-    print('conexaoFTP');
-    String jsonStringDispositivo = await convertXmlToJsonDispositivo(
-        'Dispositivo'); //convertendo XML em Json
-    print('json');
-    Dispositivo dispositivoObjeto =
-        convertJsonToDispositivo(jsonStringDispositivo);
+
+    await apagaTodosOsDispositivos();
+    print("Apagado todos os dados da tabela de Dispositivos");
+    String jsonString = '';
+    if (!erroGeral) {
+      jsonString =
+          await convertXmlToJson('Dispositivo'); //convertendo XML em Json
+    }
+
+    Dispositivo dispositivoObjeto = Dispositivo();
+    if (!erroGeral) {
+      dispositivoObjeto = convertJsonToDispositivo(jsonString);
+    }
     print('dispositivoObjeto--> $dispositivoObjeto');
 
-    // dispositivoDao.salvar(dispositivoObjeto);
-    salvarDispositivo(dispositivoObjeto);
+    if (!erroGeral) {
+      salvarDispositivo(dispositivoObjeto);
+    }
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM DISPOSITIVO');
   }
 
-  Future<String> convertXmlToJsonDispositivo(String nomeDoArquivoXml) async {
-    String filePath = '';
-    var arquivo = File(filePath);
-    String fileName = '$nomeDoArquivoXml.xml';
-    var getPathFile = DirectoryPath();
-    print('getPathFile--> $getPathFile ');
-    var storePath = await getPathFile.getPath();
-    print('storePath--> $storePath');
-    filePath = '$storePath/$fileName';
-    print('filePath--> $filePath');
+  // Future<String> convertXmlToJsonDispositivo(String nomeDoArquivoXml) async {
+  //   String filePath = '';
+  //   var arquivo = File(filePath);
+  //   String fileName = '$nomeDoArquivoXml.xml';
+  //   var getPathFile = DirectoryPath();
+  //   print('getPathFile--> $getPathFile ');
+  //   var storePath = await getPathFile.getPath();
+  //   print('storePath--> $storePath');
+  //   filePath = '$storePath/$fileName';
+  //   print('filePath--> $filePath');
 
-    arquivo = File(filePath);
-    print('arquivo--> $arquivo');
+  //   arquivo = File(filePath);
+  //   print('arquivo--> $arquivo');
 
-    //* Lendo arquivo e convertendo em bytes
-    Uint8List xmlBytes = await arquivo.readAsBytes();
-    // print('xmlBytes--> $xmlBytes');
-    // print('------------------------------------------------');
-    //* convertendo bytes para String
-    String xmlString = String.fromCharCodes(xmlBytes);
+  //   //* Lendo arquivo e convertendo em bytes
+  //   Uint8List xmlBytes = await arquivo.readAsBytes();
+  //   // print('xmlBytes--> $xmlBytes');
+  //   // print('------------------------------------------------');
+  //   //* convertendo bytes para String
+  //   String xmlString = String.fromCharCodes(xmlBytes);
 
-    //* Criação de uma instância do converter XML para JSON
-    Xml2Json xml2json = Xml2Json();
-    // print(
-    //     '--------------------------------------------------------');
-    print('xml2json--1> ${xml2json.toString()} ');
-    xml2json.parse(xmlString);
-    print('-------------');
-    print('xml2json--2> ${xml2json.toString()} ');
+  //   //* Criação de uma instância do converter XML para JSON
+  //   Xml2Json xml2json = Xml2Json();
+  //   // print(
+  //   //     '--------------------------------------------------------');
+  //   print('xml2json--1> ${xml2json.toString()} ');
+  //   xml2json.parse(xmlString);
+  //   print('-------------');
+  //   print('xml2json--2> ${xml2json.toString()} ');
 
-    //* Converte para JSON
-    final jsonString = xml2json.toParkerWithAttrs();
-    print('jsonString --> $jsonString');
+  //   //* Converte para JSON
+  //   final jsonString = xml2json.toParkerWithAttrs();
+  //   print('jsonString --> $jsonString');
 
-    return jsonString;
-  }
+  //   return jsonString;
+  // }
 
   int totalDispositivo = 0;
   int elementDispositivo = 0;
