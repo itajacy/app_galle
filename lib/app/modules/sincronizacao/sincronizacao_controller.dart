@@ -1540,31 +1540,30 @@ class SincronizacaoController extends GetxController {
   Preco preco = Preco();
   int respostaPreco = 0;
 
-  bool erroPreco = false;
-
   sincronizacaoPreco(BuildContext context) async {
+    bool erroGeral = false;
+
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO PRECO');
     // Apaga todas as precos
     apagaTodosOsPrecos();
 
-    String jsonStringPreco = '';
-    if (!erroPreco) {
-      jsonStringPreco =
-          await convertXmlToJsonPreco('Preco'); //convertendo XML em Json
+    String jsonString = '';
+    if (!erroGeral) {
+      jsonString = await convertXmlToJson('Preco'); //convertendo XML em Json
     }
 
     List<Preco> precoListaObjeto = [];
-    if (!erroPreco) {
+    if (!erroGeral) {
       precoListaObjeto = convertJsonToPreco(
-          jsonStringPreco); //convertendo Json em uma lista de Objetos(Preco)
+          jsonString); //convertendo Json em uma lista de Objetos(Preco)
     }
 
-    if (!erroPreco) {
+    if (!erroGeral) {
       await salvarListaDePreco(precoListaObjeto);
     }
 
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM PRECO');
-    erroPreco = true;
+    // erroGeral = true;
   }
 //TODO SALVAR OS PRECOS
 
@@ -1586,88 +1585,93 @@ class SincronizacaoController extends GetxController {
     print('--------------------fim----------------------------');
   }
 
-  Future<String> convertXmlToJsonPreco(String nomeDoArquivoXml) async {
-    try {
-      String filePath = '';
-      var arquivo = File(filePath);
-      String fileName = '$nomeDoArquivoXml.xml';
-      var getPathFile = DirectoryPath();
-      print('getPathFile--> $getPathFile ');
-      var storePath = await getPathFile.getPath();
-      print('storePath--> $storePath');
-      filePath = '$storePath/$fileName';
-      print('filePath--> $filePath');
+  // Future<String> convertXmlToJsonPreco(String nomeDoArquivoXml) async {
+  //   try {
+  //     String filePath = '';
+  //     var arquivo = File(filePath);
+  //     String fileName = '$nomeDoArquivoXml.xml';
+  //     var getPathFile = DirectoryPath();
+  //     print('getPathFile--> $getPathFile ');
+  //     var storePath = await getPathFile.getPath();
+  //     print('storePath--> $storePath');
+  //     filePath = '$storePath/$fileName';
+  //     print('filePath--> $filePath');
 
-      arquivo = File(filePath);
-      print('arquivo--> $arquivo');
+  //     arquivo = File(filePath);
+  //     print('arquivo--> $arquivo');
 
-      //* Lendo arquivo e convertendo em bytes
-      Uint8List xmlBytes = await arquivo.readAsBytes();
-      // print('xmlBytes--> $xmlBytes');
-      // print('------------------------------------------------');
-      //* convertendo bytes para String
-      String xmlString = String.fromCharCodes(xmlBytes);
+  //     //* Lendo arquivo e convertendo em bytes
+  //     Uint8List xmlBytes = await arquivo.readAsBytes();
+  //     // print('xmlBytes--> $xmlBytes');
+  //     // print('------------------------------------------------');
+  //     //* convertendo bytes para String
+  //     String xmlString = String.fromCharCodes(xmlBytes);
 
-      //* Criação de uma instância do converter XML para JSON
-      Xml2Json xml2json = Xml2Json();
-      // print(
-      //     '--------------------------------------------------------');
-      print('xml2json--1> ${xml2json.toString()} ');
-      xml2json.parse(xmlString); //!  ERRO AQUI
-      print('-------------');
-      print('xml2json--2> ${xml2json.toString()} ');
+  //     //* Criação de uma instância do converter XML para JSON
+  //     Xml2Json xml2json = Xml2Json();
+  //     // print(
+  //     //     '--------------------------------------------------------');
+  //     print('xml2json--1> ${xml2json.toString()} ');
+  //     xml2json.parse(xmlString); //!  ERRO AQUI
+  //     print('-------------');
+  //     print('xml2json--2> ${xml2json.toString()} ');
 
-      //* Converte para JSON
-      final jsonString = xml2json.toParkerWithAttrs();
-      print('jsonString --> $jsonString');
+  //     //* Converte para JSON
+  //     final jsonString = xml2json.toParkerWithAttrs();
+  //     print('jsonString --> $jsonString');
 
-      return jsonString;
-    } catch (e) {
-      print('CATCH =====================================================');
-      print('erro--> $e');
+  //     return jsonString;
+  //   } catch (e) {
+  //     print('CATCH =====================================================');
+  //     print('erro--> $e');
 
-      messageToast("ERRO INESPERADO!");
+  //     messageToast("ERRO INESPERADO!");
 
-      erroPreco = true;
-      print('FIM CATCH =====================================================');
-    }
-    return '';
-  }
+  //     erroPreco = true;
+  //     print('FIM CATCH =====================================================');
+  //   }
+  //   return '';
+  // }
 
   int totalPrecos = 0;
   int elementPreco = 0;
   List<Preco> convertJsonToPreco(String jsonString) {
-    //* Converte para Map
-    Map<String, dynamic> mapPrecos = jsonDecode(jsonString);
+    try {
+      //* Converte para Map
+      Map<String, dynamic> mapPrecos = jsonDecode(jsonString);
 
-    totalPrecos = mapPrecos['DataSet']['Row'].length;
+      totalPrecos = mapPrecos['DataSet']['Row'].length;
 
-    print('total de Precos no arquivo .xml--> $totalPrecos');
+      print('total de Precos no arquivo .xml--> $totalPrecos');
 
-    //* Cria um List dos Maps
-    List precoListMap = [];
+      //* Cria um List dos Maps
+      List precoListMap = [];
 
-    for (var elemento = 0; elemento < totalPrecos; elemento++) {
-      precoListMap.add((mapPrecos['DataSet']['Row'][elemento]));
-      elementPreco++;
-      totalPrecos;
-      update();
+      for (var elemento = 0; elemento < totalPrecos; elemento++) {
+        precoListMap.add((mapPrecos['DataSet']['Row'][elemento]));
+        elementPreco++;
+        totalPrecos;
+        update();
+      }
+
+      print('Precoslistmap  sincronizacao_page--> $precoListMap');
+      final List<Preco> precoListaObjeto = List<Preco>.from(
+        precoListMap.map((model) => Preco.fromMap(model)),
+      );
+
+      return precoListaObjeto;
+    } catch (e) {
+      messageToast("ERRO INESPERADO!(Preco)");
+
+      erroGeral = true;
     }
-
-    print('Precoslistmap  sincronizacao_page--> $precoListMap');
-    final List<Preco> precoListaObjeto = List<Preco>.from(
-      precoListMap.map((model) => Preco.fromMap(model)),
-    );
-
-    return precoListaObjeto;
+    return [];
   }
 
   Future<int> salvarPreco(Preco preco) async {
     int resultado = await precoDao.salvar(preco);
     return resultado;
   }
-
-//TODO
 
   Future<int> apagaTodosOsPrecos() async {
     int resultado = await precoDao.deleteAll();
@@ -1684,31 +1688,29 @@ class SincronizacaoController extends GetxController {
   Produto produto = Produto();
   int respostaProduto = 0;
 
-  bool erroProduto = false;
-
   sincronizacaoProduto(BuildContext context) async {
+    erroGeral = false;
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO PRODUTO');
     // Apaga todas as produtos
     apagaTodosOsProdutos();
 
-    String jsonStringProduto = '';
-    if (!erroProduto) {
-      jsonStringProduto =
-          await convertXmlToJsonProduto('Produto'); //convertendo XML em Json
+    String jsonString = '';
+    if (!erroGeral) {
+      jsonString = await convertXmlToJson('Produto'); //convertendo XML em Json
     }
 
     List<Produto> produtoListaObjeto = [];
-    if (!erroProduto) {
+    if (!erroGeral) {
       produtoListaObjeto = convertJsonToProduto(
-          jsonStringProduto); //convertendo Json em uma lista de Objetos(Produto)
+          jsonString); //convertendo Json em uma lista de Objetos(Produto)
     }
 
-    if (!erroProduto) {
+    if (!erroGeral) {
       await salvarListaDeProduto(produtoListaObjeto);
     }
 
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM PRODUTO');
-    erroProduto = true;
+    // erroGeral = true;
   }
 //TODO SALVAR OS PRODUTOS
 
@@ -1730,80 +1732,87 @@ class SincronizacaoController extends GetxController {
     print('--------------------fim----------------------------');
   }
 
-  Future<String> convertXmlToJsonProduto(String nomeDoArquivoXml) async {
-    try {
-      String filePath = '';
-      var arquivo = File(filePath);
-      String fileName = '$nomeDoArquivoXml.xml';
-      var getPathFile = DirectoryPath();
-      print('getPathFile--> $getPathFile ');
-      var storePath = await getPathFile.getPath();
-      print('storePath--> $storePath');
-      filePath = '$storePath/$fileName';
-      print('filePath--> $filePath');
+  // Future<String> convertXmlToJsonProduto(String nomeDoArquivoXml) async {
+  //   try {
+  //     String filePath = '';
+  //     var arquivo = File(filePath);
+  //     String fileName = '$nomeDoArquivoXml.xml';
+  //     var getPathFile = DirectoryPath();
+  //     print('getPathFile--> $getPathFile ');
+  //     var storePath = await getPathFile.getPath();
+  //     print('storePath--> $storePath');
+  //     filePath = '$storePath/$fileName';
+  //     print('filePath--> $filePath');
 
-      arquivo = File(filePath);
-      print('arquivo--> $arquivo');
+  //     arquivo = File(filePath);
+  //     print('arquivo--> $arquivo');
 
-      //* Lendo arquivo e convertendo em bytes
-      Uint8List xmlBytes = await arquivo.readAsBytes();
-      // print('xmlBytes--> $xmlBytes');
-      // print('------------------------------------------------');
-      //* convertendo bytes para String
-      String xmlString = String.fromCharCodes(xmlBytes);
+  //     //* Lendo arquivo e convertendo em bytes
+  //     Uint8List xmlBytes = await arquivo.readAsBytes();
+  //     // print('xmlBytes--> $xmlBytes');
+  //     // print('------------------------------------------------');
+  //     //* convertendo bytes para String
+  //     String xmlString = String.fromCharCodes(xmlBytes);
 
-      //* Criação de uma instância do converter XML para JSON
-      Xml2Json xml2json = Xml2Json();
-      // print(
-      //     '--------------------------------------------------------');
-      print('xml2json--1> ${xml2json.toString()} ');
-      xml2json.parse(xmlString); //!  ERRO AQUI
-      print('-------------');
-      print('xml2json--2> ${xml2json.toString()} ');
+  //     //* Criação de uma instância do converter XML para JSON
+  //     Xml2Json xml2json = Xml2Json();
+  //     // print(
+  //     //     '--------------------------------------------------------');
+  //     print('xml2json--1> ${xml2json.toString()} ');
+  //     xml2json.parse(xmlString); //!  ERRO AQUI
+  //     print('-------------');
+  //     print('xml2json--2> ${xml2json.toString()} ');
 
-      //* Converte para JSON
-      final jsonString = xml2json.toParkerWithAttrs();
-      print('jsonString --> $jsonString');
+  //     //* Converte para JSON
+  //     final jsonString = xml2json.toParkerWithAttrs();
+  //     print('jsonString --> $jsonString');
 
-      return jsonString;
-    } catch (e) {
-      print('CATCH =====================================================');
-      print('erro--> $e');
+  //     return jsonString;
+  //   } catch (e) {
+  //     print('CATCH =====================================================');
+  //     print('erro--> $e');
 
-      messageToast("ERRO INESPERADO!");
+  //     messageToast("ERRO INESPERADO!");
 
-      erroProduto = true;
-      print('FIM CATCH =====================================================');
-    }
-    return '';
-  }
+  //     erroGeral = true;
+  //     print('FIM CATCH =====================================================');
+  //   }
+  //   return '';
+  // }
 
   int totalProdutos = 0;
   int elementProduto = 0;
   List<Produto> convertJsonToProduto(String jsonString) {
-    //* Converte para Map
-    Map<String, dynamic> mapProdutos = jsonDecode(jsonString);
+    try {
+      //* Converte para Map
+      Map<String, dynamic> mapProdutos = jsonDecode(jsonString);
 
-    totalProdutos = mapProdutos['DataSet']['Row'].length;
+      totalProdutos = mapProdutos['DataSet']['Row'].length;
 
-    print('total de Produtos no arquivo .xml--> $totalProdutos');
+      print('total de Produtos no arquivo .xml--> $totalProdutos');
 
-    //* Cria um List dos Maps
-    List produtoListMap = [];
+      //* Cria um List dos Maps
+      List produtoListMap = [];
 
-    for (var elemento = 0; elemento < totalProdutos; elemento++) {
-      produtoListMap.add((mapProdutos['DataSet']['Row'][elemento]));
-      elementProduto++;
-      totalProdutos;
-      update();
+      for (var elemento = 0; elemento < totalProdutos; elemento++) {
+        produtoListMap.add((mapProdutos['DataSet']['Row'][elemento]));
+        elementProduto++;
+        totalProdutos;
+        update();
+      }
+
+      print('Produtoslistmap  sincronizacao_page--> $produtoListMap');
+      final List<Produto> produtoListaObjeto = List<Produto>.from(
+        produtoListMap.map((model) => Produto.fromMap(model)),
+      );
+
+      return produtoListaObjeto;
+    } catch (e) {
+      messageToast("ERRO INESPERADO!(Produto)");
+
+      erroGeral = true;
     }
-
-    print('Produtoslistmap  sincronizacao_page--> $produtoListMap');
-    final List<Produto> produtoListaObjeto = List<Produto>.from(
-      produtoListMap.map((model) => Produto.fromMap(model)),
-    );
-
-    return produtoListaObjeto;
+    return [];
   }
 
   Future<int> salvarProduto(Produto produto) async {
@@ -1875,7 +1884,7 @@ class SincronizacaoController extends GetxController {
       print('CATCH =====================================================');
       print('erro--> $e');
 
-      messageToast("ERRO INESPERADO!");
+      messageToast("Erro Inesperado!($nomeDoArquivoXml)");
 
       erroGeral = true;
       print('FIM CATCH =====================================================');
