@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ftpconnect/ftpconnect.dart';
 
 import '../modules/configuracao/widgets/directory_path.dart';
@@ -86,9 +88,22 @@ class ConnectFtp {
         // Desconectando do servidor
         await ftpConnect.disconnect();
       } catch (e) {
+        messageToast('Erro download $nomeDoArquivoXml.xml');
         print(
             'Erro durante o download do arquivo $nomeDoArquivoXml:  ERRO==> $e');
       }
     }
+  }
+
+  Future<bool?> messageToast(String message) {
+    return Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 3,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 16.0,
+    );
   }
 }
