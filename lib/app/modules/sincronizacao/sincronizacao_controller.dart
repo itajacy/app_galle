@@ -35,8 +35,6 @@ import '../configuracao/widgets/directory_path.dart';
 
 class SincronizacaoController extends GetxController {
   bool erroGeral = false;
-  int totalObjeto = 0;
-  int elementObjeto = 0;
 
 //! INICIO COR
 
@@ -46,8 +44,7 @@ class SincronizacaoController extends GetxController {
 
   sincronizacaoCor(BuildContext context) async {
     erroGeral = false;
-    totalObjeto = 0;
-    elementObjeto = 0;
+
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO COR');
     // Apaga todas as cores
     await apagaTodasAsCores();
@@ -190,8 +187,6 @@ class SincronizacaoController extends GetxController {
 
   sincronizacaoDispositivo(BuildContext context) async {
     erroGeral = false;
-    totalObjeto = 0;
-    elementObjeto = 0;
 
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO DISPOSITIVO');
     // Apaga todos os dados da tabela de dispositivo
@@ -316,8 +311,6 @@ class SincronizacaoController extends GetxController {
   sincronizacaoClientes(BuildContext context) async {
     //!  Conectando e baixando o arquivo Cliente.xml
     erroGeral = false;
-    totalObjeto = 0;
-    elementObjeto = 0;
 
     // erro = false;
     // await conexaoFTP('Cliente');
@@ -577,8 +570,7 @@ class SincronizacaoController extends GetxController {
   sincronizacaoGrupo(BuildContext context) async {
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO GRUPO');
     erroGeral = false;
-    totalObjeto = 0;
-    elementObjeto = 0;
+
     // Apaga todos os Grupos
     apagaTodosOsGrupos();
 
@@ -717,8 +709,7 @@ class SincronizacaoController extends GetxController {
 
   sincronizacaoLinha(BuildContext context) async {
     erroGeral = false;
-    totalObjeto = 0;
-    elementObjeto = 0;
+
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO Linha');
     // Apaga todos os Linhas
     apagaTodasAsLinhas();
@@ -857,17 +848,26 @@ class SincronizacaoController extends GetxController {
   int respostaTipo = 0;
 
   sincronizacaoTipo(BuildContext context) async {
+    erroGeral = false;
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO Tipo');
     // Apaga todos os Tipos
     apagaTodosOsTipos();
 
-    String jsonStringTipo =
-        await convertXmlToJsonTipo('Tipo'); //convertendo XML em Json
+    String jsonString = '';
+    if (!erroGeral) {
+      //convertendo XML em Json
+      jsonString = await convertXmlToJsonTipo('Tipo');
+    }
 
-    List<Tipo> tipoListaObjeto = convertJsonToTipo(
-        jsonStringTipo); //convertendo Json em uma lista de Objetos(Tipo)
+    List<Tipo> tipoListaObjeto = [];
+    if (!erroGeral) {
+      //convertendo Json em uma lista de Objetos(Tipo)
+      tipoListaObjeto = convertJsonToTipo(jsonString);
+    }
 
-    await salvarListaDeTipo(tipoListaObjeto);
+    if (!erroGeral) {
+      await salvarListaDeTipo(tipoListaObjeto);
+    }
 
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM Tipo');
   }
@@ -894,69 +894,76 @@ class SincronizacaoController extends GetxController {
     print('--------------------fim----------------------------');
   }
 
-  Future<String> convertXmlToJsonTipo(String nomeDoArquivoXml) async {
-    String filePath = '';
-    var arquivo = File(filePath);
-    String fileName = '$nomeDoArquivoXml.xml';
-    var getPathFile = DirectoryPath();
-    print('getPathFile--> $getPathFile ');
-    var storePath = await getPathFile.getPath();
-    print('storePath--> $storePath');
-    filePath = '$storePath/$fileName';
-    print('filePath--> $filePath');
+  // Future<String> convertXmlToJsonTipo(String nomeDoArquivoXml) async {
+  //   String filePath = '';
+  //   var arquivo = File(filePath);
+  //   String fileName = '$nomeDoArquivoXml.xml';
+  //   var getPathFile = DirectoryPath();
+  //   print('getPathFile--> $getPathFile ');
+  //   var storePath = await getPathFile.getPath();
+  //   print('storePath--> $storePath');
+  //   filePath = '$storePath/$fileName';
+  //   print('filePath--> $filePath');
 
-    arquivo = File(filePath);
-    print('arquivo--> $arquivo');
+  //   arquivo = File(filePath);
+  //   print('arquivo--> $arquivo');
 
-    //* Lendo arquivo e convertendo em bytes
-    Uint8List xmlBytes = await arquivo.readAsBytes();
-    // print('xmlBytes--> $xmlBytes');
-    // print('------------------------------------------------');
-    //* convertendo bytes para String
-    String xmlString = String.fromCharCodes(xmlBytes);
+  //   //* Lendo arquivo e convertendo em bytes
+  //   Uint8List xmlBytes = await arquivo.readAsBytes();
+  //   // print('xmlBytes--> $xmlBytes');
+  //   // print('------------------------------------------------');
+  //   //* convertendo bytes para String
+  //   String xmlString = String.fromCharCodes(xmlBytes);
 
-    //* Criação de uma instância do converter XML para JSON
-    Xml2Json xml2json = Xml2Json();
-    // print(
-    //     '--------------------------------------------------------');
-    print('xml2json--1> ${xml2json.toString()} ');
-    xml2json.parse(xmlString);
-    print('-------------');
-    print('xml2json--2> ${xml2json.toString()} ');
+  //   //* Criação de uma instância do converter XML para JSON
+  //   Xml2Json xml2json = Xml2Json();
+  //   // print(
+  //   //     '--------------------------------------------------------');
+  //   print('xml2json--1> ${xml2json.toString()} ');
+  //   xml2json.parse(xmlString);
+  //   print('-------------');
+  //   print('xml2json--2> ${xml2json.toString()} ');
 
-    //* Converte para JSON
-    final jsonStringTipo = xml2json.toParkerWithAttrs();
-    print('jsonStringTipo --> $jsonStringTipo');
+  //   //* Converte para JSON
+  //   final jsonStringTipo = xml2json.toParkerWithAttrs();
+  //   print('jsonStringTipo --> $jsonStringTipo');
 
-    return jsonStringTipo;
-  }
+  //   return jsonStringTipo;
+  // }
 
   int totalTipos = 0;
   int elementTipo = 0;
   List<Tipo> convertJsonToTipo(String jsonStringTipo) {
-    //* Converte para Map
-    Map<String, dynamic> mapTipos = jsonDecode(jsonStringTipo);
+    try {
+      //* Converte para Map
+      Map<String, dynamic> mapTipos = jsonDecode(jsonStringTipo);
 
-    totalTipos = mapTipos['DataSet']['Row'].length;
+      totalTipos = mapTipos['DataSet']['Row'].length;
 
-    print('total de Tipos no arquivo .xml--> $totalTipos');
+      print('total de Tipos no arquivo .xml--> $totalTipos');
 
-    //* Cria um List dos Maps
-    List tipoListMap = [];
+      //* Cria um List dos Maps
+      List tipoListMap = [];
 
-    for (var elemento = 0; elemento < totalTipos; elemento++) {
-      tipoListMap.add((mapTipos['DataSet']['Row'][elemento]));
-      elementTipo++;
-      totalTipos;
-      update();
+      for (var elemento = 0; elemento < totalTipos; elemento++) {
+        tipoListMap.add((mapTipos['DataSet']['Row'][elemento]));
+        elementTipo++;
+        totalTipos;
+        update();
+      }
+
+      print('Tipolistmap  sincronizacao_page--> $tipoListMap');
+      final List<Tipo> tipoListaObjeto = List<Tipo>.from(
+        tipoListMap.map((model) => Tipo.fromMap(model)),
+      );
+
+      return tipoListaObjeto;
+    } catch (e) {
+      messageToast("ERRO INESPERADO!(Tipo)");
+
+      erroGeral = true;
     }
-
-    print('Tipolistmap  sincronizacao_page--> $tipoListMap');
-    final List<Tipo> tipoListaObjeto = List<Tipo>.from(
-      tipoListMap.map((model) => Tipo.fromMap(model)),
-    );
-
-    return tipoListaObjeto;
+    return [];
   }
 
   Future<int> salvarTipo(Tipo tipo) async {
@@ -1759,8 +1766,6 @@ class SincronizacaoController extends GetxController {
 //! FIM  PRODUTO
 
 //* FIM DA SINCRONIZACAOCONTROLLER
-
-//!  INICIO DA REFATORAÇÃO
 
   Future<bool?> messageToast(String message) {
     return Fluttertoast.showToast(
