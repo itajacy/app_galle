@@ -309,7 +309,7 @@ class SincronizacaoController extends GetxController {
 
   int respostaCliente = 0;
 
-  bool erro = false;
+  // bool erro = false;
 
   //* INICIO ATUALIZACAO DE CLIENTES
 
@@ -395,7 +395,6 @@ class SincronizacaoController extends GetxController {
 //   }
 
   int totalClientes = 0;
-  // int element = 0;
   List<Cliente> convertJsonToCliente(String jsonString) {
     try {
       //* Converte para Map
@@ -459,7 +458,7 @@ class SincronizacaoController extends GetxController {
     } catch (e) {
       messageToast("ERRO INESPERADO!");
 
-      erro = true;
+      erroGeral = true;
     }
   }
 
@@ -516,16 +515,17 @@ class SincronizacaoController extends GetxController {
           clienteAlterado.eCEP = clienteDoXml.eCEP;
           clienteAlterado.ativo = clienteDoXml.ativo;
 
-          resposta =
-              await clientesDao.alterar(clienteAlterado); //! teste veja arquivo
+          // resposta =
+          //     await clientesDao.alterar(clienteAlterado);
+          resposta = await alterarCliente(clienteAlterado);
           print('---- FIM ALTERANDO CLIENTE-----');
-          //! resposta = await clientesDao.alterar(cliente);
         }
         print('resposta--> $resposta');
         // print('ClienteId  alterado--> ${clienteAlterado.clienteId}');
       } else {
         //se a lista for vazia salva o cliente, pq ele não existe na tabela
-        resposta = await clientesDao.salvar(clienteDoXml);
+        // resposta = await clientesDao.salvar(clienteDoXml);
+        resposta = await salvarCliente(clienteDoXml);
         print('resposta--> $resposta');
         print('ClienteId  novo--> ${clienteDoXml.clienteId}');
       }
@@ -534,13 +534,18 @@ class SincronizacaoController extends GetxController {
     } catch (e) {
       messageToast("ERRO INESPERADO!");
 
-      erro = true;
+      erroGeral = true;
     }
     return 0;
   }
 
   Future<int> salvarCliente(Cliente cliente) async {
     int resultado = await clientesDao.salvar(cliente);
+    return resultado;
+  }
+
+  Future<int> alterarCliente(Cliente cliente) async {
+    int resultado = await clientesDao.alterar(cliente);
     return resultado;
   }
 
