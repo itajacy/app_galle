@@ -1884,7 +1884,7 @@ class SincronizacaoController extends GetxController {
       print('CATCH =====================================================');
       print('erro--> $e');
 
-      messageToast("Erro Inesperado!($nomeDoArquivoXml)");
+      messageToast("Erro Inesperado!($nomeDoArquivoXml.xml)");
 
       erroGeral = true;
       print('FIM CATCH =====================================================');
