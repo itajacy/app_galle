@@ -856,7 +856,7 @@ class SincronizacaoController extends GetxController {
     String jsonString = '';
     if (!erroGeral) {
       //convertendo XML em Json
-      jsonString = await convertXmlToJsonTipo('Tipo');
+      jsonString = await convertXmlToJson('Tipo');
     }
 
     List<Tipo> tipoListaObjeto = [];
