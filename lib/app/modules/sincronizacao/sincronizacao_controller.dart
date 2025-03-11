@@ -716,17 +716,27 @@ class SincronizacaoController extends GetxController {
   int respostaLinha = 0;
 
   sincronizacaoLinha(BuildContext context) async {
+    erroGeral = false;
+    totalObjeto = 0;
+    elementObjeto = 0;
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO Linha');
     // Apaga todos os Linhas
     apagaTodasAsLinhas();
 
-    String jsonStringLinha =
-        await convertXmlToJsonLinha('Linha'); //convertendo XML em Json
+    String jsonString = '';
+    if (!erroGeral) {
+      jsonString = await convertXmlToJson('Linha'); //convertendo XML em Json
+    }
 
-    List<Linha> linhaListaObjeto = convertJsonToLinha(
-        jsonStringLinha); //convertendo Json em uma lista de Objetos(Linha)
+    List<Linha> linhaListaObjeto = [];
+    if (!erroGeral) {
+      //convertendo Json em uma lista de Objetos(Linha)
+      linhaListaObjeto = convertJsonToLinha(jsonString);
+    }
 
-    await salvarListaDeLinha(linhaListaObjeto);
+    if (!erroGeral) {
+      await salvarListaDeLinha(linhaListaObjeto);
+    }
 
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM Linha');
   }
@@ -754,69 +764,76 @@ class SincronizacaoController extends GetxController {
     print('--------------------fim----------------------------');
   }
 
-  Future<String> convertXmlToJsonLinha(String nomeDoArquivoXml) async {
-    String filePath = '';
-    var arquivo = File(filePath);
-    String fileName = '$nomeDoArquivoXml.xml';
-    var getPathFile = DirectoryPath();
-    print('getPathFile--> $getPathFile ');
-    var storePath = await getPathFile.getPath();
-    print('storePath--> $storePath');
-    filePath = '$storePath/$fileName';
-    print('filePath--> $filePath');
+  // Future<String> convertXmlToJsonLinha(String nomeDoArquivoXml) async {
+  //   String filePath = '';
+  //   var arquivo = File(filePath);
+  //   String fileName = '$nomeDoArquivoXml.xml';
+  //   var getPathFile = DirectoryPath();
+  //   print('getPathFile--> $getPathFile ');
+  //   var storePath = await getPathFile.getPath();
+  //   print('storePath--> $storePath');
+  //   filePath = '$storePath/$fileName';
+  //   print('filePath--> $filePath');
 
-    arquivo = File(filePath);
-    print('arquivo--> $arquivo');
+  //   arquivo = File(filePath);
+  //   print('arquivo--> $arquivo');
 
-    //* Lendo arquivo e convertendo em bytes
-    Uint8List xmlBytes = await arquivo.readAsBytes();
-    // print('xmlBytes--> $xmlBytes');
-    // print('------------------------------------------------');
-    //* convertendo bytes para String
-    String xmlString = String.fromCharCodes(xmlBytes);
+  //   //* Lendo arquivo e convertendo em bytes
+  //   Uint8List xmlBytes = await arquivo.readAsBytes();
+  //   // print('xmlBytes--> $xmlBytes');
+  //   // print('------------------------------------------------');
+  //   //* convertendo bytes para String
+  //   String xmlString = String.fromCharCodes(xmlBytes);
 
-    //* Criação de uma instância do converter XML para JSON
-    Xml2Json xml2json = Xml2Json();
-    // print(
-    //     '--------------------------------------------------------');
-    print('xml2json--1> ${xml2json.toString()} ');
-    xml2json.parse(xmlString);
-    print('-------------');
-    print('xml2json--2> ${xml2json.toString()} ');
+  //   //* Criação de uma instância do converter XML para JSON
+  //   Xml2Json xml2json = Xml2Json();
+  //   // print(
+  //   //     '--------------------------------------------------------');
+  //   print('xml2json--1> ${xml2json.toString()} ');
+  //   xml2json.parse(xmlString);
+  //   print('-------------');
+  //   print('xml2json--2> ${xml2json.toString()} ');
 
-    //* Converte para JSON
-    final jsonStringLinha = xml2json.toParkerWithAttrs();
-    print('jsonStringLinha --> $jsonStringLinha');
+  //   //* Converte para JSON
+  //   final jsonStringLinha = xml2json.toParkerWithAttrs();
+  //   print('jsonStringLinha --> $jsonStringLinha');
 
-    return jsonStringLinha;
-  }
+  //   return jsonStringLinha;
+  // }
 
   int totalLinhas = 0;
   int elementLinha = 0;
   List<Linha> convertJsonToLinha(String jsonStringLinha) {
-    //* Converte para Map
-    Map<String, dynamic> mapLinhas = jsonDecode(jsonStringLinha);
+    try {
+      //* Converte para Map
+      Map<String, dynamic> mapLinhas = jsonDecode(jsonStringLinha);
 
-    totalLinhas = mapLinhas['DataSet']['Row'].length;
+      totalLinhas = mapLinhas['DataSet']['Row'].length;
 
-    print('total de Linhas no arquivo .xml--> $totalLinhas');
+      print('total de Linhas no arquivo .xml--> $totalLinhas');
 
-    //* Cria um List dos Maps
-    List linhaListMap = [];
+      //* Cria um List dos Maps
+      List linhaListMap = [];
 
-    for (var elemento = 0; elemento < totalLinhas; elemento++) {
-      linhaListMap.add((mapLinhas['DataSet']['Row'][elemento]));
-      elementLinha++;
-      totalLinhas;
-      update();
+      for (var elemento = 0; elemento < totalLinhas; elemento++) {
+        linhaListMap.add((mapLinhas['DataSet']['Row'][elemento]));
+        elementLinha++;
+        totalLinhas;
+        update();
+      }
+
+      print('Linhalistmap  sincronizacao_page--> $linhaListMap');
+      final List<Linha> linhaListaObjeto = List<Linha>.from(
+        linhaListMap.map((model) => Linha.fromMap(model)),
+      );
+
+      return linhaListaObjeto;
+    } catch (e) {
+      messageToast("ERRO INESPERADO!(Linha)");
+
+      erroGeral = true;
     }
-
-    print('Linhalistmap  sincronizacao_page--> $linhaListMap');
-    final List<Linha> linhaListaObjeto = List<Linha>.from(
-      linhaListMap.map((model) => Linha.fromMap(model)),
-    );
-
-    return linhaListaObjeto;
+    return [];
   }
 
   Future<int> salvarLinha(Linha linha) async {
