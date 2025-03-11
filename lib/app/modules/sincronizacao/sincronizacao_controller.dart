@@ -1710,7 +1710,7 @@ class SincronizacaoController extends GetxController {
     }
 
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM PRODUTO');
-    // erroGeral = true;
+    erroGeral = true;
   }
 //TODO SALVAR OS PRODUTOS
 
@@ -1865,6 +1865,7 @@ class SincronizacaoController extends GetxController {
       // print('------------------------------------------------');
       //* convertendo bytes para String
       String xmlString = String.fromCharCodes(xmlBytes);
+      print(xmlString);
 
       //* Criação de uma instância do converter XML para JSON
       Xml2Json xml2json = Xml2Json();
@@ -1880,11 +1881,10 @@ class SincronizacaoController extends GetxController {
       print('jsonString --> $jsonString');
 
       return jsonString;
-    } catch (e) {
+    } on Exception catch (e) {
+      messageToast("Erro Inesperado!($nomeDoArquivoXml.xml)");
       print('CATCH =====================================================');
       print('erro--> $e');
-
-      messageToast("Erro Inesperado!($nomeDoArquivoXml.xml)");
 
       erroGeral = true;
       print('FIM CATCH =====================================================');

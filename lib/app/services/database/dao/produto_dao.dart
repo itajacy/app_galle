@@ -22,7 +22,7 @@ class ProdutoDao {
       '$_larguraMM INTEGER, '
       '$_alturaMM INTEGER, '
       '$_peso REAL, '
-      '$_ativo BOOLEAN, '
+      '$_ativo TEXT, '
       '$_lancamento INTEGER, '
       '$_lctoData INTEGER)';
 

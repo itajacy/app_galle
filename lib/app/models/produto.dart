@@ -16,7 +16,7 @@ class Produto {
   int? alturaMM;
   int? lancamento;
   int? lctoData;
-  bool? ativo;
+  String? ativo;
   Produto({
     this.produtoId,
     this.produtoIdInt,
@@ -105,7 +105,8 @@ class Produto {
       lctoData: mapaProduto['LctoData'] != null
           ? int.parse(mapaProduto['LctoData'])
           : null,
-      ativo: mapaProduto['ativo'] != null ? mapaProduto['ativo'] as bool : null,
+      ativo:
+          mapaProduto['ativo'] != null ? mapaProduto['ativo'] as String : null,
     );
   }
 
