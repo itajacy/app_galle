@@ -464,8 +464,11 @@ class SincronizacaoController extends GetxController {
 
   Future<int> salvarOuAlterarClientes(Cliente clienteDoXml) async {
     try {
+      // List<Cliente> respostaFindClientes =
+      //     await clientesDao.findClientes(clienteDoXml.cNPJCPF!);
       List<Cliente> respostaFindClientes =
-          await clientesDao.findClientes(clienteDoXml.cNPJCPF!);
+          await pesquisarCliente(clienteDoXml.cNPJCPF!);
+
       print(
           'lista de clientes do salvarOuAlterarClientes--> $respostaFindClientes');
       print('cliente.cNPJCPF--> ${clienteDoXml.cNPJCPF}');
@@ -547,6 +550,12 @@ class SincronizacaoController extends GetxController {
   Future<int> alterarCliente(Cliente cliente) async {
     int resultado = await clientesDao.alterar(cliente);
     return resultado;
+  }
+
+  Future<List<Cliente>> pesquisarCliente(String dadoDoCliente) async {
+    List<Cliente> listaDeClientes =
+        await clientesDao.findClientes(dadoDoCliente);
+    return listaDeClientes;
   }
 
   Future<int> apagaTodosOsClientes() async {
