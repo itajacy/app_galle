@@ -988,17 +988,26 @@ class SincronizacaoController extends GetxController {
   int respostaTamanho = 0;
 
   sincronizacaoTamanho(BuildContext context) async {
+    erroGeral = false;
+
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO Tamanho');
     // Apaga todos os Tamanhos
     apagaTodosOsTamanhos();
 
-    String jsonStringTamanho =
-        await convertXmlToJsonTamanho('Tamanho'); //convertendo XML em Json
+    String jsonString = '';
+    if (!erroGeral) {
+      jsonString = await convertXmlToJson('Tamanho'); //convertendo XML em Json
+    }
 
-    List<Tamanho> tamanhoListaObjeto = convertJsonToTamanho(
-        jsonStringTamanho); //convertendo Json em uma lista de Objetos(Tamanho)
+    List<Tamanho> tamanhoListaObjeto = [];
+    if (!erroGeral) {
+      tamanhoListaObjeto = convertJsonToTamanho(
+          jsonString); //convertendo Json em uma lista de Objetos(Tamanho)
+    }
 
-    await salvarListaDeTamanho(tamanhoListaObjeto);
+    if (!erroGeral) {
+      await salvarListaDeTamanho(tamanhoListaObjeto);
+    }
 
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM Tamanho');
   }
@@ -1026,42 +1035,42 @@ class SincronizacaoController extends GetxController {
     print('--------------------fim----------------------------');
   }
 
-  Future<String> convertXmlToJsonTamanho(String nomeDoArquivoXml) async {
-    String filePath = '';
-    var arquivo = File(filePath);
-    String fileName = '$nomeDoArquivoXml.xml';
-    var getPathFile = DirectoryPath();
-    print('getPathFile--> $getPathFile ');
-    var storePath = await getPathFile.getPath();
-    print('storePath--> $storePath');
-    filePath = '$storePath/$fileName';
-    print('filePath--> $filePath');
+  // Future<String> convertXmlToJsonTamanho(String nomeDoArquivoXml) async {
+  //   String filePath = '';
+  //   var arquivo = File(filePath);
+  //   String fileName = '$nomeDoArquivoXml.xml';
+  //   var getPathFile = DirectoryPath();
+  //   print('getPathFile--> $getPathFile ');
+  //   var storePath = await getPathFile.getPath();
+  //   print('storePath--> $storePath');
+  //   filePath = '$storePath/$fileName';
+  //   print('filePath--> $filePath');
 
-    arquivo = File(filePath);
-    print('arquivo--> $arquivo');
+  //   arquivo = File(filePath);
+  //   print('arquivo--> $arquivo');
 
-    //* Lendo arquivo e convertendo em bytes
-    Uint8List xmlBytes = await arquivo.readAsBytes();
-    // print('xmlBytes--> $xmlBytes');
-    // print('------------------------------------------------');
-    //* convertendo bytes para String
-    String xmlString = String.fromCharCodes(xmlBytes);
+  //   //* Lendo arquivo e convertendo em bytes
+  //   Uint8List xmlBytes = await arquivo.readAsBytes();
+  //   // print('xmlBytes--> $xmlBytes');
+  //   // print('------------------------------------------------');
+  //   //* convertendo bytes para String
+  //   String xmlString = String.fromCharCodes(xmlBytes);
 
-    //* Criação de uma instância do converter XML para JSON
-    Xml2Json xml2json = Xml2Json();
-    // print(
-    //     '--------------------------------------------------------');
-    print('xml2json--1> ${xml2json.toString()} ');
-    xml2json.parse(xmlString);
-    print('-------------');
-    print('xml2json--2> ${xml2json.toString()} ');
+  //   //* Criação de uma instância do converter XML para JSON
+  //   Xml2Json xml2json = Xml2Json();
+  //   // print(
+  //   //     '--------------------------------------------------------');
+  //   print('xml2json--1> ${xml2json.toString()} ');
+  //   xml2json.parse(xmlString);
+  //   print('-------------');
+  //   print('xml2json--2> ${xml2json.toString()} ');
 
-    //* Converte para JSON
-    final jsonStringTamanho = xml2json.toParkerWithAttrs();
-    print('jsonStringTamanho --> $jsonStringTamanho');
+  //   //* Converte para JSON
+  //   final jsonStringTamanho = xml2json.toParkerWithAttrs();
+  //   print('jsonStringTamanho --> $jsonStringTamanho');
 
-    return jsonStringTamanho;
-  }
+  //   return jsonStringTamanho;
+  // }
 
   int totalTamanhos = 0;
   int elementTamanho = 0;
