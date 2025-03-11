@@ -1075,29 +1075,36 @@ class SincronizacaoController extends GetxController {
   int totalTamanhos = 0;
   int elementTamanho = 0;
   List<Tamanho> convertJsonToTamanho(String jsonStringTamanho) {
-    //* Converte para Map
-    Map<String, dynamic> mapTamanhos = jsonDecode(jsonStringTamanho);
+    try {
+      //* Converte para Map
+      Map<String, dynamic> mapTamanhos = jsonDecode(jsonStringTamanho);
 
-    totalTamanhos = mapTamanhos['DataSet']['Row'].length;
+      totalTamanhos = mapTamanhos['DataSet']['Row'].length;
 
-    print('total de Tamanhos no arquivo .xml--> $totalTamanhos');
+      print('total de Tamanhos no arquivo .xml--> $totalTamanhos');
 
-    //* Cria um List dos Maps
-    List tamanhoListMap = [];
+      //* Cria um List dos Maps
+      List tamanhoListMap = [];
 
-    for (var elemento = 0; elemento < totalTamanhos; elemento++) {
-      tamanhoListMap.add((mapTamanhos['DataSet']['Row'][elemento]));
-      elementTamanho++;
-      totalTamanhos;
-      update();
+      for (var elemento = 0; elemento < totalTamanhos; elemento++) {
+        tamanhoListMap.add((mapTamanhos['DataSet']['Row'][elemento]));
+        elementTamanho++;
+        totalTamanhos;
+        update();
+      }
+
+      print('Tamanholistmap  sincronizacao_page--> $tamanhoListMap');
+      final List<Tamanho> tamanhoListaObjeto = List<Tamanho>.from(
+        tamanhoListMap.map((model) => Tamanho.fromMap(model)),
+      );
+
+      return tamanhoListaObjeto;
+    } catch (e) {
+      messageToast("ERRO INESPERADO!(Tamanho)");
+
+      erroGeral = true;
     }
-
-    print('Tamanholistmap  sincronizacao_page--> $tamanhoListMap');
-    final List<Tamanho> tamanhoListaObjeto = List<Tamanho>.from(
-      tamanhoListMap.map((model) => Tamanho.fromMap(model)),
-    );
-
-    return tamanhoListaObjeto;
+    return [];
   }
 
   Future<int> salvarTamanho(Tamanho tamanho) async {
@@ -1122,17 +1129,24 @@ class SincronizacaoController extends GetxController {
   int respostaTabela = 0;
 
   sincronizacaoTabela(BuildContext context) async {
+    erroGeral = false;
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INICIO Tabela');
     // Apaga todos os Tabelas
     apagaTodasAsTabelas();
 
-    String jsonStringTabela =
-        await convertXmlToJsonTabela('Tabela'); //convertendo XML em Json
+    String jsonString = '';
+    if (!erroGeral) {
+      jsonString = await convertXmlToJson('Tabela');
+    }
 
-    List<Tabela> tabelaListaObjeto = convertJsonToTabela(
-        jsonStringTabela); //convertendo Json em uma lista de Objetos(Tabela)
+    List<Tabela> tabelaListaObjeto = [];
+    if (!erroGeral) {
+      tabelaListaObjeto = convertJsonToTabela(jsonString);
+    }
 
-    await salvarListaDeTabela(tabelaListaObjeto);
+    if (!erroGeral) {
+      await salvarListaDeTabela(tabelaListaObjeto);
+    }
 
     print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>FIM Tabela');
   }
@@ -1160,69 +1174,76 @@ class SincronizacaoController extends GetxController {
     print('--------------------fim----------------------------');
   }
 
-  Future<String> convertXmlToJsonTabela(String nomeDoArquivoXml) async {
-    String filePath = '';
-    var arquivo = File(filePath);
-    String fileName = '$nomeDoArquivoXml.xml';
-    var getPathFile = DirectoryPath();
-    print('getPathFile--> $getPathFile ');
-    var storePath = await getPathFile.getPath();
-    print('storePath--> $storePath');
-    filePath = '$storePath/$fileName';
-    print('filePath--> $filePath');
+  // Future<String> convertXmlToJsonTabela(String nomeDoArquivoXml) async {
+  //   String filePath = '';
+  //   var arquivo = File(filePath);
+  //   String fileName = '$nomeDoArquivoXml.xml';
+  //   var getPathFile = DirectoryPath();
+  //   print('getPathFile--> $getPathFile ');
+  //   var storePath = await getPathFile.getPath();
+  //   print('storePath--> $storePath');
+  //   filePath = '$storePath/$fileName';
+  //   print('filePath--> $filePath');
 
-    arquivo = File(filePath);
-    print('arquivo--> $arquivo');
+  //   arquivo = File(filePath);
+  //   print('arquivo--> $arquivo');
 
-    //* Lendo arquivo e convertendo em bytes
-    Uint8List xmlBytes = await arquivo.readAsBytes();
-    // print('xmlBytes--> $xmlBytes');
-    // print('------------------------------------------------');
-    //* convertendo bytes para String
-    String xmlString = String.fromCharCodes(xmlBytes);
+  //   //* Lendo arquivo e convertendo em bytes
+  //   Uint8List xmlBytes = await arquivo.readAsBytes();
+  //   // print('xmlBytes--> $xmlBytes');
+  //   // print('------------------------------------------------');
+  //   //* convertendo bytes para String
+  //   String xmlString = String.fromCharCodes(xmlBytes);
 
-    //* Criação de uma instância do converter XML para JSON
-    Xml2Json xml2json = Xml2Json();
-    // print(
-    //     '--------------------------------------------------------');
-    print('xml2json--1> ${xml2json.toString()} ');
-    xml2json.parse(xmlString);
-    print('-------------');
-    print('xml2json--2> ${xml2json.toString()} ');
+  //   //* Criação de uma instância do converter XML para JSON
+  //   Xml2Json xml2json = Xml2Json();
+  //   // print(
+  //   //     '--------------------------------------------------------');
+  //   print('xml2json--1> ${xml2json.toString()} ');
+  //   xml2json.parse(xmlString);
+  //   print('-------------');
+  //   print('xml2json--2> ${xml2json.toString()} ');
 
-    //* Converte para JSON
-    final jsonStringTabela = xml2json.toParkerWithAttrs();
-    print('jsonStringTabela --> $jsonStringTabela');
+  //   //* Converte para JSON
+  //   final jsonStringTabela = xml2json.toParkerWithAttrs();
+  //   print('jsonStringTabela --> $jsonStringTabela');
 
-    return jsonStringTabela;
-  }
+  //   return jsonStringTabela;
+  // }
 
   int totalTabelas = 0;
   int elementTabela = 0;
   List<Tabela> convertJsonToTabela(String jsonStringTabela) {
-    //* Converte para Map
-    Map<String, dynamic> mapTabelas = jsonDecode(jsonStringTabela);
+    try {
+      //* Converte para Map
+      Map<String, dynamic> mapTabelas = jsonDecode(jsonStringTabela);
 
-    totalTabelas = mapTabelas['DataSet']['Row'].length;
+      totalTabelas = mapTabelas['DataSet']['Row'].length;
 
-    print('total de Tabelas no arquivo .xml--> $totalTabelas');
+      print('total de Tabelas no arquivo .xml--> $totalTabelas');
 
-    //* Cria um List dos Maps
-    List tabelaListMap = [];
+      //* Cria um List dos Maps
+      List tabelaListMap = [];
 
-    for (var elemento = 0; elemento < totalTabelas; elemento++) {
-      tabelaListMap.add((mapTabelas['DataSet']['Row'][elemento]));
-      elementTabela++;
-      totalTabelas;
-      update();
+      for (var elemento = 0; elemento < totalTabelas; elemento++) {
+        tabelaListMap.add((mapTabelas['DataSet']['Row'][elemento]));
+        elementTabela++;
+        totalTabelas;
+        update();
+      }
+
+      print('Tabelalistmap  sincronizacao_page--> $tabelaListMap');
+      final List<Tabela> tabelaListaObjeto = List<Tabela>.from(
+        tabelaListMap.map((model) => Tabela.fromMap(model)),
+      );
+
+      return tabelaListaObjeto;
+    } catch (e) {
+      messageToast("ERRO INESPERADO!(Tabela)");
+
+      erroGeral = true;
     }
-
-    print('Tabelalistmap  sincronizacao_page--> $tabelaListMap');
-    final List<Tabela> tabelaListaObjeto = List<Tabela>.from(
-      tabelaListMap.map((model) => Tabela.fromMap(model)),
-    );
-
-    return tabelaListaObjeto;
+    return [];
   }
 
   Future<int> salvarTabela(Tabela tabela) async {
