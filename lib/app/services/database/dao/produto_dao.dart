@@ -39,8 +39,8 @@ class ProdutoDao {
   static const String _tipoId = 'TipoID_Int';
   static const String _larguraMM = 'Largura_MM';
   static const String _alturaMM = 'Altura_MM';
-  static const String _peso = 'peso';
-  static const String _ativo = 'ativo';
+  static const String _peso = 'Peso';
+  static const String _ativo = 'Ativo';
   static const String _lancamento = 'Lancamento';
   static const String _lctoData = 'LctoData';
 

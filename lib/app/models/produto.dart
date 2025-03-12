@@ -51,8 +51,8 @@ class Produto {
       'TipoID_Int': tipoIdInt,
       'Largura_MM': larguraMM,
       'Altura_MM': alturaMM,
-      'peso': peso,
-      'ativo': ativo,
+      'Peso': peso,
+      'Ativo': ativo,
       'Lancamento': lancamento,
       'LctoData': lctoData,
     };
@@ -106,7 +106,7 @@ class Produto {
           ? int.parse(mapaProduto['LctoData'])
           : null,
       ativo:
-          mapaProduto['ativo'] != null ? mapaProduto['ativo'] as String : null,
+          mapaProduto['Ativo'] != null ? mapaProduto['Ativo'] as String : null,
     );
   }
 
