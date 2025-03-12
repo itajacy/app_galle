@@ -235,6 +235,7 @@ class SincronizacaoController extends GetxController {
   }
 
   int totalClientes = 0;
+  
   List<Cliente> convertJsonToCliente(String jsonString) {
     try {
       //* Converte para Map
@@ -263,8 +264,10 @@ class SincronizacaoController extends GetxController {
     return [];
   }
 
+
   mapeandoClientesParaSalvarOuAlterar(List<Cliente> clienteListaObjeto) async {
     try {
+      int elementCliente = 0;
       int inclusos = 0;
       int alterados = 0;
 
@@ -272,16 +275,17 @@ class SincronizacaoController extends GetxController {
         print('elemento N.Fantasia ==> ${elemento.nomeFantasia}');
         print('elemento ClienteIdInt==> ${elemento.clienteIdInt}');
         int respostaCliente = await salvarOuAlterarClientes(elemento);
-        if (respostaCliente == 0) {
+        print('RESPOSTA_PAGE-----> $respostaCliente');
+        if (respostaCliente == 1) {
           alterados++;
         } else {
           inclusos++;
         }
         // todo atualização da contagem
-        element++;
+        elementCliente++;
         totalClientes;
         update();
-        print('====-----====');
+        print('====---$elementCliente / $totalClientes--====');
       }
 
       print(
@@ -303,8 +307,8 @@ class SincronizacaoController extends GetxController {
       List<Cliente> respostaFindClientes =
           await pesquisarCliente(clienteDoXml.cNPJCPF!);
 
-      print(
-          'lista de clientes do salvarOuAlterarClientes--> $respostaFindClientes');
+      // print(
+      //     'lista de clientes do salvarOuAlterarClientes--> $respostaFindClientes');
       print('cliente.cNPJCPF--> ${clienteDoXml.cNPJCPF}');
       print(
           'valor de respostaFindClientes (se ==0 -> INCLUI, se != 0-> ALTERA)--> ${respostaFindClientes.length}');
