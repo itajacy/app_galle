@@ -9,6 +9,8 @@ import 'package:galle/app/services/database/dao/cor_dao.dart';
 import 'package:galle/app/services/database/dao/linha_dao.dart';
 import 'package:get/get.dart';
 import 'package:xml2json/xml2json.dart';
+import 'package:xml_converter/xml_converter.dart'; // Importe o pacote
+import 'package:xml/xml.dart'; // Importe o pacote xml para trabalhar com o xml.
 
 import '../../models/cliente.dart';
 import '../../models/cor.dart';
@@ -1268,14 +1270,13 @@ class SincronizacaoController extends GetxController {
       var arquivo = File(filePath);
       String fileName = '$nomeDoArquivoXml.xml';
       var getPathFile = DirectoryPath();
-      print('getPathFile--> $getPathFile ');
+      // print('getPathFile--> $getPathFile ');
       var storePath = await getPathFile.getPath();
-      print('storePath--> $storePath');
+      // print('storePath--> $storePath');
       filePath = '$storePath/$fileName';
-      print('filePath--> $filePath');
-
+      // print('filePath--> $filePath');
       arquivo = File(filePath);
-      print('arquivo--> $arquivo');
+      // print('arquivo--> $arquivo');
 
       //* Lendo arquivo e convertendo em bytes
       Uint8List xmlBytes = await arquivo.readAsBytes();
@@ -1283,13 +1284,14 @@ class SincronizacaoController extends GetxController {
       // print('------------------------------------------------');
       //* convertendo bytes para String
       String xmlString = String.fromCharCodes(xmlBytes);
+
+      print("<<<<<<<<<<<<<<<<<<<<<<<<<INICIO xmlString");
+
       print(xmlString);
+      print("<<<<<<<<<<<<<<<<<<<<<<<<<FIM xmlString");
 
       //* Criação de uma instância do converter XML para JSON
       Xml2Json xml2json = Xml2Json();
-      // print(
-      //     '--------------------------------------------------------');
-      print('xml2json--1> ${xml2json.toString()} ');
 
       try {
         xml2json.parse(xmlString);
@@ -1302,8 +1304,6 @@ class SincronizacaoController extends GetxController {
             'FIM CATCH =====================================================');
         erroGeral = true;
       }
-      print('-------------');
-      print('xml2json--2> ${xml2json.toString()} ');
 
       //* Converte para JSON
       final jsonString = xml2json.toParkerWithAttrs();
@@ -1320,6 +1320,7 @@ class SincronizacaoController extends GetxController {
     }
     return '';
   }
+
   // Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
   //   try {
   //     String filePath = '';
