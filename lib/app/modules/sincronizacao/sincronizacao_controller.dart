@@ -235,7 +235,7 @@ class SincronizacaoController extends GetxController {
   }
 
   int totalClientes = 0;
-  
+
   List<Cliente> convertJsonToCliente(String jsonString) {
     try {
       //* Converte para Map
@@ -263,7 +263,6 @@ class SincronizacaoController extends GetxController {
     }
     return [];
   }
-
 
   mapeandoClientesParaSalvarOuAlterar(List<Cliente> clienteListaObjeto) async {
     try {
@@ -1291,7 +1290,18 @@ class SincronizacaoController extends GetxController {
       // print(
       //     '--------------------------------------------------------');
       print('xml2json--1> ${xml2json.toString()} ');
-      xml2json.parse(xmlString);
+
+      try {
+        xml2json.parse(xmlString);
+      } catch (e) {
+        messageToast("Erro xml2json!($e)");
+        print('CATCH =====================================================');
+        print('erro--> $e');
+
+        print(
+            'FIM CATCH =====================================================');
+        erroGeral = true;
+      }
       print('-------------');
       print('xml2json--2> ${xml2json.toString()} ');
 
@@ -1310,4 +1320,51 @@ class SincronizacaoController extends GetxController {
     }
     return '';
   }
-}
+  // Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
+  //   try {
+  //     String filePath = '';
+  //     var arquivo = File(filePath);
+  //     String fileName = '$nomeDoArquivoXml.xml';
+  //     var getPathFile = DirectoryPath();
+  //     print('getPathFile--> $getPathFile ');
+  //     var storePath = await getPathFile.getPath();
+  //     print('storePath--> $storePath');
+  //     filePath = '$storePath/$fileName';
+  //     print('filePath--> $filePath');
+
+  //     arquivo = File(filePath);
+  //     print('arquivo--> $arquivo');
+
+  //     //* Lendo arquivo e convertendo em bytes
+  //     Uint8List xmlBytes = await arquivo.readAsBytes();
+  //     // print('xmlBytes--> $xmlBytes');
+  //     // print('------------------------------------------------');
+  //     //* convertendo bytes para String
+  //     String xmlString = String.fromCharCodes(xmlBytes);
+  //     print(xmlString);
+
+  //     //* Criação de uma instância do converter XML para JSON
+  //     Xml2Json xml2json = Xml2Json();
+  //     // print(
+  //     //     '--------------------------------------------------------');
+  //     print('xml2json--1> ${xml2json.toString()} ');
+  //     xml2json.parse(xmlString);
+  //     print('-------------');
+  //     print('xml2json--2> ${xml2json.toString()} ');
+
+  //     //* Converte para JSON
+  //     final jsonString = xml2json.toParkerWithAttrs();
+  //     print('jsonString --> $jsonString');
+
+  //     return jsonString;
+  //   } on Exception catch (e) {
+  //     messageToast("Erro Inesperado!($nomeDoArquivoXml.xml)");
+  //     print('CATCH =====================================================');
+  //     print('erro--> $e');
+
+  //     print('FIM CATCH =====================================================');
+  //     erroGeral = true;
+  //   }
+  //   return '';
+  // }
+} //*  FIM DO CODIGO
