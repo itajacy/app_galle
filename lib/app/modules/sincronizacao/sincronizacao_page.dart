@@ -76,6 +76,7 @@ class _SincronizacaoPageState extends State<SincronizacaoPage> {
               ),
             ],
           ),
+          
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

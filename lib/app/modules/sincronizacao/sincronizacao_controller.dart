@@ -235,7 +235,7 @@ class SincronizacaoController extends GetxController {
   }
 
   int totalClientes = 0;
-  
+
   List<Cliente> convertJsonToCliente(String jsonString) {
     try {
       //* Converte para Map
@@ -263,7 +263,6 @@ class SincronizacaoController extends GetxController {
     }
     return [];
   }
-
 
   mapeandoClientesParaSalvarOuAlterar(List<Cliente> clienteListaObjeto) async {
     try {
@@ -1264,43 +1263,51 @@ class SincronizacaoController extends GetxController {
 
   // TODO CONVERTE XML PARA JSON
   Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
-    try {
-      String filePath = '';
-      var arquivo = File(filePath);
-      String fileName = '$nomeDoArquivoXml.xml';
-      var getPathFile = DirectoryPath();
-      print('getPathFile--> $getPathFile ');
-      var storePath = await getPathFile.getPath();
-      print('storePath--> $storePath');
-      filePath = '$storePath/$fileName';
-      print('filePath--> $filePath');
+    String filePath = '';
 
+    File arquivo = File(filePath);
+    String fileName = '$nomeDoArquivoXml.xml';
+    DirectoryPath getPathFile = DirectoryPath();
+
+    String storePath = '';
+
+    try {
+      storePath = await getPathFile.getPath();
+      filePath = '$storePath/$fileName';
       arquivo = File(filePath);
       print('arquivo--> $arquivo');
+    } catch (e) {
+      messageToast("Erro $e");
+    }
 
+    Xml2Json xml2json = Xml2Json();
+    try {
       //* Lendo arquivo e convertendo em bytes
       Uint8List xmlBytes = await arquivo.readAsBytes();
-      // print('xmlBytes--> $xmlBytes');
-      // print('------------------------------------------------');
       //* convertendo bytes para String
       String xmlString = String.fromCharCodes(xmlBytes);
       print(xmlString);
 
       //* Criação de uma instância do converter XML para JSON
-      Xml2Json xml2json = Xml2Json();
-      // print(
-      //     '--------------------------------------------------------');
       print('xml2json--1> ${xml2json.toString()} ');
+
+      // xmlString = xmlString.replaceAll('A', 'B');
+
       xml2json.parse(xmlString);
       print('-------------');
       print('xml2json--2> ${xml2json.toString()} ');
+    } on Exception catch (e) {
+      messageToast("Erro $e");
+    }
 
+    String jsonString = '';
+    try {
       //* Converte para JSON
-      final jsonString = xml2json.toParkerWithAttrs();
+      jsonString = xml2json.toParkerWithAttrs();
       print('jsonString --> $jsonString');
 
       return jsonString;
-    } on Exception catch (e) {
+    } catch (e) {
       messageToast("Erro Inesperado!($nomeDoArquivoXml.xml)");
       print('CATCH =====================================================');
       print('erro--> $e');
