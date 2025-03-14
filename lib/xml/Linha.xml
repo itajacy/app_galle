@@ -1,29 +1,5 @@
 <DataSet>
   <Row>
-    <LinhaID_Int>40</LinhaID_Int>
-    <Descricao>Prata - Religiosa</Descricao>
-  </Row>
-  <Row>
-    <LinhaID_Int>12</LinhaID_Int>
-    <Descricao>Prata</Descricao>
-  </Row>
-  <Row>
-    <LinhaID_Int>41</LinhaID_Int>
-    <Descricao>Prata - Kids</Descricao>
-  </Row>
-  <Row>
-    <LinhaID_Int>42</LinhaID_Int>
-    <Descricao>Prata - Charme</Descricao>
-  </Row>
-  <Row>
-    <LinhaID_Int>46</LinhaID_Int>
-    <Descricao>Prata - Collection</Descricao>
-  </Row>
-  <Row>
-    <LinhaID_Int>31</LinhaID_Int>
-    <Descricao>Brunna Ag</Descricao>
-  </Row>
-  <Row>
     <LinhaID_Int>38</LinhaID_Int>
     <Descricao>Religiosa</Descricao>
   </Row>
@@ -54,10 +30,6 @@
   <Row>
     <LinhaID_Int>34</LinhaID_Int>
     <Descricao>Collection News</Descricao>
-  </Row>
-  <Row>
-    <LinhaID_Int>51</LinhaID_Int>
-    <Descricao>Folheado Exclusivo SN</Descricao>
   </Row>
   <Row>
     <LinhaID_Int>16</LinhaID_Int>
@@ -98,5 +70,33 @@
   <Row>
     <LinhaID_Int>35</LinhaID_Int>
     <Descricao>Cor - Collection  News</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>51</LinhaID_Int>
+    <Descricao>Folheado Exclusivo SN</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>40</LinhaID_Int>
+    <Descricao>Prata - Religiosa</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>12</LinhaID_Int>
+    <Descricao>Prata</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>41</LinhaID_Int>
+    <Descricao>Prata - Kids</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>42</LinhaID_Int>
+    <Descricao>Prata - Charme</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>52</LinhaID_Int>
+    <Descricao>Prata - Pronta  Entrega</Descricao>
+  </Row>
+  <Row>
+    <LinhaID_Int>46</LinhaID_Int>
+    <Descricao>Prata - Collection</Descricao>
   </Row>
 </DataSet>

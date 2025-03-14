@@ -23,8 +23,4 @@
     <GrupoID_Int>04</GrupoID_Int>
     <Descricao>Corrente</Descricao>
   </Row>
-  <Row>
-    <GrupoID_Int>09</GrupoID_Int>
-    <Descricao>N. Brinco Corr</Descricao>
-  </Row>
 </DataSet>

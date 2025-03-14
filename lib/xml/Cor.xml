@@ -8,6 +8,14 @@
     <Descricao>Branco</Descricao>
   </Row>
   <Row>
+    <CorID_Int>06</CorID_Int>
+    <Descricao>Azul</Descricao>
+  </Row>
+  <Row>
+    <CorID_Int>04</CorID_Int>
+    <Descricao>Vermelho</Descricao>
+  </Row>
+  <Row>
     <CorID_Int>08</CorID_Int>
     <Descricao>Rosa Minie</Descricao>
   </Row>
@@ -24,20 +32,24 @@
     <Descricao>Rosa Claro</Descricao>
   </Row>
   <Row>
-    <CorID_Int>06</CorID_Int>
-    <Descricao>Azul</Descricao>
-  </Row>
-  <Row>
-    <CorID_Int>04</CorID_Int>
-    <Descricao>Vermelho</Descricao>
-  </Row>
-  <Row>
     <CorID_Int>02</CorID_Int>
     <Descricao>Preto</Descricao>
   </Row>
   <Row>
     <CorID_Int>10</CorID_Int>
     <Descricao>Colorido</Descricao>
+  </Row>
+  <Row>
+    <CorID_Int>12</CorID_Int>
+    <Descricao>Marfin</Descricao>
+  </Row>
+  <Row>
+    <CorID_Int>15</CorID_Int>
+    <Descricao>Saphira</Descricao>
+  </Row>
+  <Row>
+    <CorID_Int>03</CorID_Int>
+    <Descricao>Verde</Descricao>
   </Row>
   <Row>
     <CorID_Int>24</CorID_Int>
@@ -48,16 +60,12 @@
     <Descricao>Azul  Harmonia</Descricao>
   </Row>
   <Row>
-    <CorID_Int>03</CorID_Int>
-    <Descricao>Verde</Descricao>
+    <CorID_Int>14</CorID_Int>
+    <Descricao>Amarelo</Descricao>
   </Row>
   <Row>
     <CorID_Int>07</CorID_Int>
     <Descricao>Ametista</Descricao>
-  </Row>
-  <Row>
-    <CorID_Int>14</CorID_Int>
-    <Descricao>Amarelo</Descricao>
   </Row>
   <Row>
     <CorID_Int>23</CorID_Int>
@@ -68,6 +76,30 @@
     <Descricao>Verde Pastel</Descricao>
   </Row>
   <Row>
+    <CorID_Int>52</CorID_Int>
+    <Descricao>Green Turmaline</Descricao>
+  </Row>
+  <Row>
+    <CorID_Int>19</CorID_Int>
+    <Descricao>Light Siam</Descricao>
+  </Row>
+  <Row>
+    <CorID_Int>21</CorID_Int>
+    <Descricao>Light Ametista</Descricao>
+  </Row>
+  <Row>
+    <CorID_Int>51</CorID_Int>
+    <Descricao>Blue Zircon</Descricao>
+  </Row>
+  <Row>
+    <CorID_Int>25</CorID_Int>
+    <Descricao>Lilas Pastel</Descricao>
+  </Row>
+  <Row>
+    <CorID_Int>37</CorID_Int>
+    <Descricao>Caramelo</Descricao>
+  </Row>
+  <Row>
     <CorID_Int>09</CorID_Int>
     <Descricao>Coral</Descricao>
   </Row>
@@ -76,8 +108,8 @@
     <Descricao>Madre Perola</Descricao>
   </Row>
   <Row>
-    <CorID_Int>25</CorID_Int>
-    <Descricao>Lilas Pastel</Descricao>
+    <CorID_Int>22</CorID_Int>
+    <Descricao>Aurora Boreal</Descricao>
   </Row>
   <Row>
     <CorID_Int>58</CorID_Int>
@@ -94,10 +126,6 @@
   <Row>
     <CorID_Int>28</CorID_Int>
     <Descricao>Laranja</Descricao>
-  </Row>
-  <Row>
-    <CorID_Int>37</CorID_Int>
-    <Descricao>Caramelo</Descricao>
   </Row>
   <Row>
     <CorID_Int>63</CorID_Int>
@@ -144,38 +172,6 @@
     <Descricao>Azul Mar</Descricao>
   </Row>
   <Row>
-    <CorID_Int>05</CorID_Int>
-    <Descricao>Fuchsia</Descricao>
-  </Row>
-  <Row>
-    <CorID_Int>51</CorID_Int>
-    <Descricao>Blue Zircon</Descricao>
-  </Row>
-  <Row>
-    <CorID_Int>12</CorID_Int>
-    <Descricao>Marfin</Descricao>
-  </Row>
-  <Row>
-    <CorID_Int>15</CorID_Int>
-    <Descricao>Saphira</Descricao>
-  </Row>
-  <Row>
-    <CorID_Int>52</CorID_Int>
-    <Descricao>Green Turmaline</Descricao>
-  </Row>
-  <Row>
-    <CorID_Int>19</CorID_Int>
-    <Descricao>Light Siam</Descricao>
-  </Row>
-  <Row>
-    <CorID_Int>21</CorID_Int>
-    <Descricao>Light Ametista</Descricao>
-  </Row>
-  <Row>
-    <CorID_Int>22</CorID_Int>
-    <Descricao>Aurora Boreal</Descricao>
-  </Row>
-  <Row>
     <CorID_Int>30</CorID_Int>
     <Descricao>Azul Perolizado</Descricao>
   </Row>
@@ -190,6 +186,10 @@
   <Row>
     <CorID_Int>55</CorID_Int>
     <Descricao>Black Diamond</Descricao>
+  </Row>
+  <Row>
+    <CorID_Int>05</CorID_Int>
+    <Descricao>Fuchsia</Descricao>
   </Row>
   <Row>
     <CorID_Int>29</CorID_Int>

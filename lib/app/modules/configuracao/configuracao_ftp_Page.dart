@@ -148,8 +148,8 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
                     usuarioFTPController.text,
                     senhaFTPController.text);
 
-                //!  ABAIXO, EXECUTADO SOMENTE PARA BAIXAR O ARQUIVO Cliente.xml
-                //  conexaoFTP();
+                //!  ABAIXO, EXECUTADO SOMENTE PARA BAIXAR O ARQUIVO arq.zip
+                // await conexaoFTP();
               },
               titulo: "Testar Conexão",
               icone: Icons.wifi,
@@ -284,7 +284,7 @@ class _ConfiguracaoFtpPageState extends State<ConfiguracaoFtpPage> {
   conexaoFTP() async {
     FTPConnect ftpConnect = FTPConnect('191.252.83.183',
         user: 'palm03@galle', pass: 'Jequitiba1602!');
-    String fileName = 'Cliente.xml';
+    String fileName = 'arq.zip';
     var getPathFile = DirectoryPath();
     var storePath = await getPathFile.getPath();
     String filePath = '$storePath/$fileName';

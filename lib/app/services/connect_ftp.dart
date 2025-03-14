@@ -8,18 +8,19 @@ import '../modules/configuracao/widgets/directory_path.dart';
 
 class ConnectFtp {
   List<String> listaDeArquivos = [
-    'Cliente',
-    'Cor',
-    'Grupo',
-    'Dispositivo',
-    'Imagem',
-    'Linha',
-    'Material',
-    'Preco',
-    'Tabela',
-    'Tamanho',
-    'Tipo',
-    'Produto',
+    'arq.zip',
+    'Cliente.xml',
+    'Cor.xml',
+    'Grupo.xml',
+    'Dispositivo.xml',
+    'Imagem.xml',
+    'Linha.xml',
+    'Material.xml',
+    'Preco.xml',
+    'Tabela.xml',
+    'Tamanho.xml',
+    'Tipo.xml',
+    'Produto.xml',
   ];
 
   // conexaoFTP(String nomeDoArquivoXml) async {
@@ -30,7 +31,7 @@ class ConnectFtp {
         user: 'palm03@galle', pass: 'Jequitiba1602!');
 
     for (var nomeDoArquivoXml in listaDeArquivos) {
-      String fileName = '$nomeDoArquivoXml.xml';
+      String fileName = '$nomeDoArquivoXml';
       var getPathFile = DirectoryPath();
       var storePath = await getPathFile.getPath();
       String filePath = '$storePath/$fileName';
@@ -82,7 +83,7 @@ class ConnectFtp {
               '1- Erro: O arquivo $nomeDoArquivoXml tem um tamanho diferente do original.');
           print(
               '2- tamanho do arquivo baixado: $localFileSize, tamanho do arquivo original: $fileSize');
-          print('Finalizado o download do arquivo $nomeDoArquivoXml.xml');
+          print('Finalizado o download do arquivo $nomeDoArquivoXml');
         }
 
         // Desconectando do servidor

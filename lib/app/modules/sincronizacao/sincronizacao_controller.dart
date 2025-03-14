@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:isolate';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -9,8 +10,6 @@ import 'package:galle/app/services/database/dao/cor_dao.dart';
 import 'package:galle/app/services/database/dao/linha_dao.dart';
 import 'package:get/get.dart';
 import 'package:xml2json/xml2json.dart';
-import 'package:xml_converter/xml_converter.dart'; // Importe o pacote
-import 'package:xml/xml.dart'; // Importe o pacote xml para trabalhar com o xml.
 
 import '../../models/cliente.dart';
 import '../../models/cor.dart';
@@ -237,7 +236,6 @@ class SincronizacaoController extends GetxController {
   }
 
   int totalClientes = 0;
-
 
   List<Cliente> convertJsonToCliente(String jsonString) {
     try {
@@ -1264,101 +1262,98 @@ class SincronizacaoController extends GetxController {
     );
   }
 
-  // TODO CONVERTE XML PARA JSON
   Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
-    String filePath = '';
-
-    File arquivo = File(filePath);
-    String fileName = '$nomeDoArquivoXml.xml';
-    DirectoryPath getPathFile = DirectoryPath();
-
-    String storePath = '';
-
     try {
-      storePath = await getPathFile.getPath();
+      String filePath = '';
+      var arquivo = File(filePath);
+      String fileName = '$nomeDoArquivoXml.xml';
+      var getPathFile = DirectoryPath();
+      print('getPathFile--> $getPathFile ');
+      var storePath = await getPathFile.getPath();
+      print('storePath--> $storePath');
       filePath = '$storePath/$fileName';
+      print('filePath--> $filePath');
+
       arquivo = File(filePath);
       print('arquivo--> $arquivo');
-    } catch (e) {
-      messageToast("Erro $e");
-    }
 
-    Xml2Json xml2json = Xml2Json();
-    try {
       //* Lendo arquivo e convertendo em bytes
       Uint8List xmlBytes = await arquivo.readAsBytes();
+      // print('xmlBytes--> $xmlBytes');
+      // print('------------------------------------------------');
       //* convertendo bytes para String
       String xmlString = String.fromCharCodes(xmlBytes);
-
-      print("<<<<<<<<<<<<<<<<<<<<<<<<<INICIO xmlString");
-
       print(xmlString);
-      print("<<<<<<<<<<<<<<<<<<<<<<<<<FIM xmlString");
 
       //* Criação de uma instância do converter XML para JSON
+      Xml2Json xml2json = Xml2Json();
+      // print(
+      //     '--------------------------------------------------------');
       print('xml2json--1> ${xml2json.toString()} ');
-
-      // xmlString = xmlString.replaceAll('A', 'B');
-
       xml2json.parse(xmlString);
       print('-------------');
       print('xml2json--2> ${xml2json.toString()} ');
-    } on Exception catch (e) {
-      messageToast("Erro $e");
-    }
 
-    String jsonString = '';
-    try {
       //* Converte para JSON
-      jsonString = xml2json.toParkerWithAttrs();
+      final jsonString = xml2json.toParkerWithAttrs();
       print('jsonString --> $jsonString');
 
       return jsonString;
-    } catch (e) {
+    } on Exception catch (e) {
       messageToast("Erro Inesperado!($nomeDoArquivoXml.xml)");
       print('CATCH =====================================================');
-      print('erro--> $e');
+      print('erro--> $e ');
 
-      print('FIM CATCH =====================================================');
       erroGeral = true;
+      print('FIM CATCH =====================================================');
     }
     return '';
   }
-
+  // TODO CONVERTE XML PARA JSON COM TRYS CATCHES
   // Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
-  //   try {
-  //     String filePath = '';
-  //     var arquivo = File(filePath);
-  //     String fileName = '$nomeDoArquivoXml.xml';
-  //     var getPathFile = DirectoryPath();
-  //     print('getPathFile--> $getPathFile ');
-  //     var storePath = await getPathFile.getPath();
-  //     print('storePath--> $storePath');
-  //     filePath = '$storePath/$fileName';
-  //     print('filePath--> $filePath');
+  //   String filePath = '';
 
+  //   File arquivo = File(filePath);
+  //   String fileName = '$nomeDoArquivoXml.xml';
+  //   DirectoryPath getPathFile = DirectoryPath();
+
+  //   String storePath = '';
+
+  //   try {
+  //     storePath = await getPathFile.getPath();
+  //     filePath = '$storePath/$fileName';
   //     arquivo = File(filePath);
   //     print('arquivo--> $arquivo');
+  //   } on Exception catch (e) {
+  //     messageToast("Arquivo não existe, faça o Download $e");
+  //   }
 
+  //   Xml2Json xml2json = Xml2Json();
+  //   try {
   //     //* Lendo arquivo e convertendo em bytes
   //     Uint8List xmlBytes = await arquivo.readAsBytes();
-  //     // print('xmlBytes--> $xmlBytes');
-  //     // print('------------------------------------------------');
   //     //* convertendo bytes para String
   //     String xmlString = String.fromCharCodes(xmlBytes);
+
+  //     print("<<<<<<<<<<<<<<<<<<<<<<<<<INICIO xmlString");
+
   //     print(xmlString);
+  //     print("<<<<<<<<<<<<<<<<<<<<<<<<<FIM xmlString");
 
   //     //* Criação de uma instância do converter XML para JSON
-  //     Xml2Json xml2json = Xml2Json();
-  //     // print(
-  //     //     '--------------------------------------------------------');
   //     print('xml2json--1> ${xml2json.toString()} ');
+
   //     xml2json.parse(xmlString);
   //     print('-------------');
   //     print('xml2json--2> ${xml2json.toString()} ');
+  //   } on Exception catch (e) {
+  //     messageToast("Erro $e");
+  //   }
 
+  //   String jsonString = '';
+  //   try {
   //     //* Converte para JSON
-  //     final jsonString = xml2json.toParkerWithAttrs();
+  //     jsonString = xml2json.toParkerWithAttrs();
   //     print('jsonString --> $jsonString');
 
   //     return jsonString;
@@ -1372,4 +1367,73 @@ class SincronizacaoController extends GetxController {
   //   }
   //   return '';
   // }
+
+// //! com uso de ISOLATES
+//   Future<String> convertXmlToJson(String nomeDoArquivoXml) async {
+//     try {
+//       String filePath = '';
+//       var arquivo = File(filePath);
+//       String fileName = '$nomeDoArquivoXml.xml';
+//       var getPathFile = DirectoryPath();
+//       print('getPathFile--> $getPathFile ');
+//       var storePath = await getPathFile.getPath();
+//       print('storePath--> $storePath');
+//       filePath = '$storePath/$fileName';
+//       print('filePath--> $filePath');
+
+//       arquivo = File(filePath);
+//       print('arquivo--> $arquivo');
+
+//       //* Lendo arquivo e convertendo em bytes
+//       Uint8List xmlBytes = await arquivo.readAsBytes();
+//       // print('xmlBytes--> $xmlBytes');
+//       // print('------------------------------------------------');
+//       //* convertendo bytes para String
+//       String xmlString = String.fromCharCodes(xmlBytes);
+//       print(xmlString);
+
+//       //* Criação de uma instância do converter XML para JSON
+//       Xml2Json xml2json = Xml2Json();
+//       // print(
+//       //     '--------------------------------------------------------');
+//       print('xml2json--1> ${xml2json.toString()} ');
+//       // xml2json.parse(xmlString);
+//       String jsonString = await xml2JsonParse(xmlString);
+//       print('-------------');
+//       print('xml2json--2> ${xml2json.toString()} ');
+
+//       //* Converte para JSON
+//       // final jsonString = xml2json.toParkerWithAttrs();
+//       print('jsonString --> $jsonString');
+
+//       return jsonString;
+//     } on Exception catch (e) {
+//       messageToast("Erro Inesperado!($nomeDoArquivoXml.xml)");
+//       print('CATCH =====================================================');
+//       print('erro--> $e');
+
+//       print('FIM CATCH =====================================================');
+//       erroGeral = true;
+//     }
+//     return '';
+//   }
+
+//   Future xml2JsonParse(String xml) async {
+//     if (xml.isEmpty) {
+//       return ''; // Retorna um mapa vazio para XML vazio
+//     }
+
+//     try {
+//       return await Isolate.run(() {
+//         Xml2Json xml2json = Xml2Json();
+//         xml2json.parse(xml);
+//         return xml2json.toParkerWithAttrs();
+//       });
+//     } catch (e) {
+//       print('Erro na conversão XML: $e');
+//       return ''; // Retorna um mapa vazio em caso de erro
+//     }
+//   }
+
+// ! FIM DO USO COM ISOLATES
 } //*  FIM DO CODIGO

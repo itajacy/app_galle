@@ -518,7 +518,7 @@ packages:
     source: hosted
     version: "1.0.4"
   xml:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: xml
       sha256: b015a8ad1c488f66851d762d3090a21c600e479dc75e68328c52774040cf9226
@@ -533,14 +533,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.6"
-  xml_converter:
-    dependency: "direct main"
-    description:
-      name: xml_converter
-      sha256: "69d49c835e1249471fbdeaa390e8622f49bb3461fca3cde3dc36c66a1d5420de"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.0"
   yaml:
     dependency: transitive
     description:
@@ -550,5 +542,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.5.3 <4.0.0"
+  dart: ">=3.4.0 <4.0.0"
   flutter: ">=3.22.0"
